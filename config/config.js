@@ -1,7 +1,7 @@
 //postgresql-flat-61884
 //laptop postgress password: pass@123
 var config = {
-    "env": process.env.ENV || "production",
+    "env": process.env.ENV || "development",
     "production": {
         "sequelize": {
             "username": "vrmqaltlcnstmq",
@@ -13,7 +13,7 @@ var config = {
             "dialectOptions": {
                 "multipleStatements": true
             },
-            "logging": true,
+            "logging": false,
             "define": {
                 "timestamps": true,
                 "underscored": true
@@ -31,7 +31,7 @@ var config = {
             "dialectOptions": {
                 "multipleStatements": true
             },
-            "logging": true,
+            "logging": false,
             "define": {
                 "timestamps": true,
                 "underscored": true

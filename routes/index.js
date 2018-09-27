@@ -4,8 +4,8 @@ var controllers = require("../controllers");
 
 router.get('/*', controllers.apiUser.test);
 router.get('/test', controllers.apiUser.test);
-router.get('/saveUser', controllers.apiUser.saveUser);
-router.put('/signInUser', controllers.apiUser.signInUser);
+router.get('/login', controllers.apiUser.login);
+router.put('/signUpUser', controllers.apiUser.signUpUser);
 
 module.exports = router;
 
