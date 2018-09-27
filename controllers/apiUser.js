@@ -9,11 +9,12 @@ apiUser.test = function (req, res) {
 }
 
 apiUser.signUpUser = function (req, res) {
+  console.log("User_name:  " +req.body.user_name);
     models.users.insertUser({
-        user_name: req.body.user_name,
-        email: req.body.email,
-        mobile_number: req.body.mobile_number,
-        password: req.body.password
+        req.body.user_name,
+        req.body.email,
+        req.body.mobile_number,
+        req.body.password
     }).then(function (err, results) {
         if (err){
           res.json(err);
