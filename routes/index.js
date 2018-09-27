@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var controllers = require("../controllers");
 
+router.get('/*', controllers.apiUser.test);
 router.get('/test', controllers.apiUser.test);
 router.get('/saveUser', controllers.apiUser.saveUser);
 router.put('/signInUser', controllers.apiUser.signInUser);

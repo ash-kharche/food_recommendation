@@ -5,7 +5,7 @@ var models = require('../models');
 var apiUser = {};
 
 apiUser.test = function (req, res) {
-    res.send("Hey 123");
+    res.send("Hey! Food Recommendation");
 }
 
 apiUser.signUpUser = function (req, res) {
