@@ -9,6 +9,7 @@ router.put('/signUpUser', controllers.apiUser.signUpUser);
 
 module.exports = router;
 
+//heroku logs --tail --app food-recommendation
 
 //Pushing code via terminal to Heroku
 //git commit -m "Test: app not running"

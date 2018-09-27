@@ -9,7 +9,7 @@ apiUser.test = function (req, res) {
 }
 
 apiUser.signUpUser = function (req, res) {
-    models.users.create({
+    models.users.insertUser({
         user_name: req.body.user_name,
         email: req.body.email,
         mobile_number: req.body.mobile_number,
@@ -25,17 +25,13 @@ apiUser.signUpUser = function (req, res) {
 
 apiUser.login = function (req, res) {
     var query = {"mobile_number": req.body.mobile_number, "password": req.body.password};
-    models.users.findUser().then(function (results) {
-        res.json(results);
-    });
     models.users.find(query, function (err, results) {
       if (err){
           res.json(err);
       } else {
           res.json(results);
       }
-
-})
+    });
 }
 
 

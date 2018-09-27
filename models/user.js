@@ -27,9 +27,9 @@ module.exports = function (sequelize, DataTypes) {
 
     }, {
         classMethods: {
-            insert_user: function (user_name, password, callback) {
+            insertUser: function (user_name, email, mobile_number, password, callback) {
                 
-                var sql = " INSERT INTO users (user_name, password) VALUES (:user_name, :password)";
+                var sql = " INSERT INTO users (user_name, email, mobile_number, password) VALUES (:user_name, :email, :mobile_number, :password)";
                 sequelize.query(sql, {replacements: {}}
                 ).spread(function (data, metadata) {
                     callback(null, data);
