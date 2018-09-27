@@ -1,7 +1,7 @@
 //postgresql-flat-61884
 //laptop postgress password: pass@123
 var config = {
-    "env": process.env.ENV || "development",
+    "env": process.env.ENV || "production",
     "production": {
         "sequelize": {
             "username": "vrmqaltlcnstmq",
