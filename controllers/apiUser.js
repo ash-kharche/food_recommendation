@@ -31,14 +31,22 @@ apiUser.login = function (req, res) {
     //var query = {"mobile_number": req.body.mobile_number, "password": req.body.password};
     var query = {"mobile_number": '9029799650', "password": 'poonam'};
     
-    models.users.findOne({where: query }).then(err, results) {
+    /*models.users.findOne({ where: query }).then(err, results) {
       console.log("######   FIND QUERY   ######");
       if (err){
           res.json(err);
       } else {
           res.json(results);
       }
-    });
+    });*/
+    client.query('SELECT * FROM users where "mobile_number": '9029799650' ;', (err, results) => {
+      if (err) throw err;
+      //for (let row of results.rows) {
+        console.log(JSON.stringify(row));
+      //}
+      res.json(results);
+      client.end();
+});
 }
 
 
