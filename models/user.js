@@ -26,11 +26,11 @@ module.exports = function (sequelize, DataTypes) {
         },
         createdAt: {
             field: 'created_at',
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
         },
         updatedAt: {
             field: 'updated_at',
-            type: Sequelize.DATE,
+            type: DataTypes.DATE,
         }
 
     }, {
