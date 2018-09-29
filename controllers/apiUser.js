@@ -31,7 +31,7 @@ apiUser.login = function (req, res) {
     //var query = {"mobile_number": req.body.mobile_number, "password": req.body.password};
     var query = {"mobile_number": '9029799650', "password": 'poonam'};
     
-    models.users.find(query, function (err, results) {
+    models.users.findOne({where: query }).then(err, results) {
       console.log("######   FIND QUERY   ######");
       if (err){
           res.json(err);
