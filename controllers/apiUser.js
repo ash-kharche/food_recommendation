@@ -19,7 +19,7 @@ db_pool.connect(function(err, client, done) {
 
        
   var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)";
-  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.password) ,function(err,result) {
+  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.password] ,function(err,result) {
           //call `done()` to release the client back to the pool
            done(); 
            if(err){
