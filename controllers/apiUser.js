@@ -1,7 +1,7 @@
 "use strict";
 
 var models = require('../models');
-
+var db_pool = require('./models/db');
 var apiUser = {};
 
 apiUser.test = function (req, res) {
@@ -39,6 +39,7 @@ apiUser.login = function (req, res) {
           res.json(results);
       }
     });*/
+    /*
     client.query('SELECT * FROM users where "mobile_number": '9029799650' ;', (err, results) => {
       if (err) throw err;
       //for (let row of results.rows) {
@@ -46,7 +47,27 @@ apiUser.login = function (req, res) {
       //}
       res.json(results);
       client.end();
-});
+});*/
+
+//
+
+db_pool.connect(function(err,client,done) {
+       if(err){
+           console.log("not able to get connection "+ err);
+           res.status(400).send(err);
+       } 
+       client.query('SELECT * FROM users' ,function(err,result) {
+          //call `done()` to release the client back to the pool
+           done(); 
+           if(err){
+               console.log(err);
+               res.status(400).send(err);
+           }
+           res.status(200).send(result.rows);
+       });
+    });
+
+
 }
 
 
