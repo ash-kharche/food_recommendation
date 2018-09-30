@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 app.use(routes);
 const PORT = process.env.PORT || 3000;
 
-var db_pool = require('./models/db');
+var db_pool = require('./helpers/db');
 
 db_pool.connect(function (err, client) {
     if (err) {
