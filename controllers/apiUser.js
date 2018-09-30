@@ -25,33 +25,9 @@ apiUser.signUpUser = function (req, res) {
 }
 
 apiUser.login = function (req, res) {
-
   console.log("######   LOGIN API   ######");
 
-    //var query = {"mobile_number": req.body.mobile_number, "password": req.body.password};
-    var query = {"mobile_number": '9029799650', "password": 'poonam'};
-    
-    /*models.users.findOne({ where: query }).then(err, results) {
-      console.log("######   FIND QUERY   ######");
-      if (err){
-          res.json(err);
-      } else {
-          res.json(results);
-      }
-    });*/
-    /*
-    client.query('SELECT * FROM users where "mobile_number": '9029799650' ;', (err, results) => {
-      if (err) throw err;
-      //for (let row of results.rows) {
-        console.log(JSON.stringify(row));
-      //}
-      res.json(results);
-      client.end();
-});*/
-
-//
-
-db_pool.connect(function(err,client,done) {
+  db_pool.connect(function(err, client, done) {
        if(err){
            console.log("not able to get connection "+ err);
            res.status(400).send(err);
@@ -66,8 +42,6 @@ db_pool.connect(function(err,client,done) {
            res.status(200).send(result.rows);
        });
     });
-
-
 }
 
 

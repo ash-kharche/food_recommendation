@@ -1,6 +1,6 @@
 "use strict";
 var pg = require('pg');
-var config = require('./config/config');
+var config = require('./../config/config');
 var env = config[config.env];
 var config_params = {
     user: env.sequelize.username,
