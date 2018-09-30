@@ -17,9 +17,9 @@ db_pool.connect(function (err, client) {
         app.listen(PORT, function (err, client) {
             if(err) {
                 console.log("Our Food Recommendation app has ERROR:  " +err.message);
-            } else {}
+            } else {
             console.log("Our Food Recommendation app is running on port ${ PORT }");
-        }
+            }
         });
     }
 
