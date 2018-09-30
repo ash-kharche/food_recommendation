@@ -1,7 +1,7 @@
 "use strict";
 
 var models = require('../models');
-var db_pool = require('./models/db');
+var db_pool = require('./models/db_pool');
 var apiUser = {};
 
 apiUser.test = function (req, res) {
