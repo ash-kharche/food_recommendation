@@ -32,7 +32,7 @@ apiUser.login = function (req, res) {
            console.log("not able to get connection "+ err);
            res.status(400).send(err);
        } 
-       client.query('SELECT * FROM users' ,function(err,result) {
+       client.query("SELECT * FROM users where mobile_number = " + req.body.mobile_number + " AND password = "+ req.body.password ,function(err,result) {
           //call `done()` to release the client back to the pool
            done(); 
            if(err){
