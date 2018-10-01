@@ -31,9 +31,9 @@ CREATE TABLE collections(
 #Dummy data in Collections
 INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (1, 'Breakfast', 'https://product-assets.faasos.io/production/product/image_1520230938352_ADB.jpg');
 
-INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (2, "Royal Food", "https://product-assets.faasos.io/production/product/image_1520231419752_RIM.jpg");
+INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (2, 'Royal Food', 'https://product-assets.faasos.io/production/product/image_1520231419752_RIM.jpg');
 
-INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (3, "Chai & Snacks", "https://product-assets.faasos.io/production/product/image_1509529386482_push1.jpg");
+INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (3, 'Chai & Snacks', 'https://product-assets.faasos.io/production/product/image_1509529386482_push1.jpg');
 
 INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (4, "Continental", "https://product-assets.faasos.io/production/product/image_1520231486425_Super%20Saver%20Combos.jpg");
 
