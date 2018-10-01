@@ -1,0 +1,132 @@
+{
+  "trending_products": {
+    "products": [
+      {
+        "product_id": 1998,
+        "product_name": "Cheesy Chicken Meat Balls",
+        "product_image": "https://product-assets.faasos.io/production/product/image_1518685584800_Cheesy%20Chicken%20Meatballs.JPG",
+        "category_name": "OTHERS",
+        "description": "Minced chicken rolled and cooked into soft delicious meatballs served with melted cheese makes for a good snack time. ",
+        "big_description": "CHEESY CHICKEN MEAT BALLS",
+        "is_veg": 0,
+        "is_back_calculate_tax": 0,
+        "promotional_description": "Chai & Snacks",
+        "promotional_image": "/images/product_default_image.png",
+        "web_promotional_image": "/images/product_default_image.png",
+        "price": 89,
+        "tax_type": "CVAT-FOOD",
+        "tax_value": 12,
+        "quantity_left": 0,
+        "preparation_time": 5,
+        "spicy_level": 0,
+        "rating": 4.2,
+        "bought_quantity": 75161,
+        "chef_name": "",
+        "chef_image": null,
+        "promotional_position": 6,
+        "offer_price": 45,
+        "tags": [],
+        "nutritions": []
+      },
+      {
+        "product_id": 90,
+        "product_name": "SWIG - Jeera Masala ",
+        "product_image": "https://product-assets.faasos.io/production/product/image_1518519567703_SWIG%20Jeera%20Masala.JPG",
+        "category_name": "OTHERS",
+        "description": "Carbonated Jeera Masala  ",
+        "big_description": "Carbonated Jeera Masala",
+        "is_veg": 1,
+        "is_back_calculate_tax": 1,
+        "promotional_description": "",
+        "promotional_image": "/images/product_default_image.png",
+        "web_promotional_image": "/images/product_default_image.png",
+        "price": 40,
+        "tax_type": "CVAT-BEVERAGES",
+        "tax_value": 12,
+        "quantity_left": 0,
+        "preparation_time": 1,
+        "spicy_level": 0,
+        "rating": 4.2,
+        "bought_quantity": 155082,
+        "chef_name": "",
+        "chef_image": null,
+        "promotional_position": 5,
+        "offer_price": 20,
+        "customizations": [],
+        "tags": [
+          {
+            "tag_id": 1,
+            "tag_name": "Veg"
+          }
+        ],
+        "nutritions": []
+      },
+      {
+        "product_id": 91,
+        "product_name": "SWIG - Green apple ",
+        "product_image": "https://product-assets.faasos.io/production/product/image_1518520293852_SWIG%20Green%20Apple.JPG",
+        "category_name": "OTHERS",
+        "description": "Carbonated green apple ",
+        "big_description": "Carbonated green apple ",
+        "is_veg": 1,
+        "is_back_calculate_tax": 1,
+        "promotional_description": "",
+        "promotional_image": "/images/product_default_image.png",
+        "web_promotional_image": "/images/product_default_image.png",
+        "price": 1,
+        "tax_type": "CVAT-BEVERAGES",
+        "tax_value": 12,
+        "quantity_left": 0,
+        "preparation_time": 1,
+        "spicy_level": 0,
+        "rating": 4.3,
+        "bought_quantity": 137414,
+        "chef_name": "",
+        "chef_image": null,
+        "promotional_position": 7,
+        "offer_price": 20,
+        "customizations": [],
+        "tags": [
+          {
+            "tag_id": 1,
+            "tag_name": "Veg"
+          }
+        ],
+        "nutritions": []
+      },
+      {
+        "product_id": 26158,
+        "product_name": "3 Chaas Combo",
+        "product_image": "https://product-assets.faasos.io/production/product/image_1492165427903_3%20chaas%20combo.jpg",
+        "category_name": "OTHERS",
+        "description": "Summer is here and nothing better than chaas to keep your cool! This 3 chaas combo gives a good break from the summer heat",
+        "big_description": "",
+        "is_veg": 1,
+        "is_back_calculate_tax": 1,
+        "promotional_description": "",
+        "promotional_image": "/images/product_default_image.png",
+        "web_promotional_image": "/images/product_default_image.png",
+        "price": 30,
+        "tax_type": "CVAT-BEVERAGES",
+        "tax_value": 12,
+        "quantity_left": 0,
+        "preparation_time": 10,
+        "spicy_level": 0,
+        "rating": 4.2,
+        "bought_quantity": 85800,
+        "chef_name": "",
+        "chef_image": null,
+        "promotional_position": 8,
+        "offer_price": 15,
+        "customizations": [],
+        "tags": [
+          {
+            "tag_id": 1,
+            "tag_name": "Veg"
+          }
+        ],
+        "nutritions": []
+      }
+    ]
+  }
+}

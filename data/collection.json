@@ -1,0 +1,34 @@
+{
+  "collections": [
+    {
+      "collection_id": 215,
+      "collection_name": "All Day Breakfast",
+      "collection_image": "https://product-assets.faasos.io/production/product/image_1520230938352_ADB.jpg"
+    },
+    {
+      "collection_id": 38,
+      "collection_name": "Super Saver Combos",
+      "collection_image": "https://product-assets.faasos.io/production/product/image_1520231486425_Super%20Saver%20Combos.jpg"
+    },
+    {
+      "collection_id": 28,
+      "collection_name": "Chai & Sliders",
+      "collection_image": "https://product-assets.faasos.io/production/product/image_1509529386482_push1.jpg"
+    },
+    {
+      "collection_id": 948,
+      "collection_name": "The Royal Indian Meal",
+      "collection_image": "https://product-assets.faasos.io/production/product/image_1520231419752_RIM.jpg"
+    },
+    {
+      "collection_id": 992,
+      "collection_name": "Elite Exclusive",
+      "collection_image": "https://product-assets.faasos.io/production/product/image_1520231278684_Elite.jpg"
+    },
+    {
+      "collection_id": 1010,
+      "collection_name": "Alexa - Wed",
+      "collection_image": null
+    }
+  ]
+}

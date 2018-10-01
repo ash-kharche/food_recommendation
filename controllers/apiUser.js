@@ -1,6 +1,5 @@
 "use strict";
 
-var models = require('../models');
 var db_pool = require('./../helpers/db');
 var apiUser = {};
 
