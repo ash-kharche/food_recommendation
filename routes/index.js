@@ -7,8 +7,8 @@ router.get('/test2', controllers.apiProducts.getAllProducts);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/signUpUser', controllers.apiUser.signUpUser);
-router.put('/getAllUsers', controllers.apiUser.getAllUsers);
-router.put('/getUser/:userId', controllers.apiUser.getUser);
+router.get('/getAllUsers', controllers.apiUser.getAllUsers);
+router.get('/getUser/:userId', controllers.apiUser.getUser);
 
 router.get('/getAllProducts', controllers.apiProducts.getAllProducts);
 router.get('/getTrendingProducts', controllers.apiProducts.getAllProducts);
