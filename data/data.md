@@ -28,6 +28,8 @@ CREATE TABLE collections(
 	collection_image VARCHAR (300), 
 	created_at DATE, updated_at DATE);
 
+	CREATE TABLE collections(id serial PRIMARY KEY, collection_id INTEGER, collection_name VARCHAR (50) NOT NULL, collection_image VARCHAR (300), created_at DATE, updated_at DATE);
+
 #Dummy data in Collections
 INSERT INTO collections(collection_id, collection_name, collection_image) VALUES (1, 'Breakfast', 'https://product-assets.faasos.io/production/product/image_1520230938352_ADB.jpg');
 
