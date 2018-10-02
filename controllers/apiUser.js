@@ -56,7 +56,7 @@ apiUser.login = function (req, res) {
     });
 }
 
-apiProducts.getAllUsers = function (req, res) {
+apiUser.getAllUsers = function (req, res) {
   db_pool.connect(function(err, client, done) {
        if(err){
            res.status(400).send(err);
@@ -77,7 +77,7 @@ apiProducts.getAllUsers = function (req, res) {
     });
 }
 
-apiProducts.getUser = function (req, res) {
+apiUser.getUser = function (req, res) {
   db_pool.connect(function(err, client, done) {
        if(err){
            res.status(400).send(err);
