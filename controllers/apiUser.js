@@ -56,5 +56,48 @@ apiUser.login = function (req, res) {
     });
 }
 
+apiProducts.getAllUsers = function (req, res) {
+  db_pool.connect(function(err, client, done) {
+       if(err){
+           res.status(400).send(err);
+       } 
+
+       var query = "SELECT * FROM users";
+       client.query(query,function(err, result) {
+          //call `done()` to release the client back to the pool
+          done(); 
+           if(err){
+               console.log(err);
+               res.status(400).send(err);
+
+           } else {
+              res.status(200).send(result.rows);
+            }
+       });
+    });
+}
+
+apiProducts.getUser = function (req, res) {
+  db_pool.connect(function(err, client, done) {
+       if(err){
+           res.status(400).send(err);
+       } 
+
+
+       var query = "SELECT * FROM users WHERE user_id = $1";
+       client.query(query, [req.params.user_id] ,function(err, result) {
+          //call `done()` to release the client back to the pool
+          done(); 
+           if(err){
+               console.log(err);
+               res.status(400).send(err);
+
+           } else {
+              res.status(200).send(result.rows);
+            }
+       });
+    });
+}
+
 
 module.exports = apiUser;
