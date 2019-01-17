@@ -6,13 +6,19 @@ router.get('/test', controllers.apiProducts.getCollections);
 router.get('/test2', controllers.apiProducts.getAllProducts);
 
 router.put('/login', controllers.apiUser.login);
+router.put('/logout', controllers.apiUser.logout);
 router.put('/signUpUser', controllers.apiUser.signUpUser);
 router.get('/getAllUsers', controllers.apiUser.getAllUsers);
 router.get('/getUser/:userId', controllers.apiUser.getUser);
 
 router.get('/getAllProducts', controllers.apiProducts.getAllProducts);
-router.get('/getTrendingProducts', controllers.apiProducts.getAllProducts);
-router.get('/getRecommendedProducts', controllers.apiProducts.getAllProducts);
 router.get('/getCollections', controllers.apiProducts.getCollections);
+router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
+router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);
+
+router.put('/insertOrder', controllers.apiOrder.insertOrder);
+router.get('/getOrderDetails/:orderId', controllers.apiOrder.getOrderDetails);
+
+router.post('/submitAnswers', controllers.apiQuestions.submitAnswers);
 
 module.exports = router;
