@@ -11,7 +11,7 @@ router.put('/signUpUser', controllers.apiUser.signUpUser);
 router.get('/getAllUsers', controllers.apiUser.getAllUsers);
 router.get('/getUser/:userId', controllers.apiUser.getUser);
 
-router.get('/getAllProducts', controllers.apiProducts.getAllProducts);
+router.get('/getData', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
 router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
 router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);

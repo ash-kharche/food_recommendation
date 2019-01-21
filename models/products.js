@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER
         },
         rating: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER //TODO poonam make Datatype --> REAL/ NUMERIC
         },
         createdAt: {
             field: 'created_at',
