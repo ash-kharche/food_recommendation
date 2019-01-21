@@ -19,6 +19,6 @@ router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProd
 router.put('/insertOrder', controllers.apiOrder.insertOrder);
 router.get('/getOrderDetails/:orderId', controllers.apiOrder.getOrderDetails);
 
-router.post('/submitAnswers', controllers.apiQuestions.submitAnswers);
+//router.post('/submitAnswers', controllers.apiQuestions.submitAnswers);
 
 module.exports = router;
