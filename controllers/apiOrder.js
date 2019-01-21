@@ -3,7 +3,7 @@
 var db_pool = require('./../helpers/db');
 var apiOrder = {};
 
-apiUser.insertOrder = function (req, res) {
+apiOrder.insertOrder = function (req, res) {
 db_pool.connect(function(err, client, done) {
        if(err){
            console.log("not able to get connection "+ err);
@@ -23,7 +23,7 @@ db_pool.connect(function(err, client, done) {
     });
 }
 
-apiUser.getOrderDetails = function (req, res) {
+apiOrder.getOrderDetails = function (req, res) {
   db_pool.connect(function(err, client, done) {
        if(err) {
            res.status(400).send(err);
