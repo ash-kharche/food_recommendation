@@ -53,7 +53,7 @@ apiProducts.getData = function (req, res) {
                   }),
                   client.queryAsync(queryRecommendedProducts)
                   .then(function(rows){
-                    data.recommended_products:  = rows;
+                    data.recommended_products = rows;
                   })
         ])
       .then(function() {
