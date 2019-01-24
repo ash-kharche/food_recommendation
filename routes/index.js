@@ -13,8 +13,8 @@ router.get('/getUser/:userId', controllers.apiUser.getUser);
 
 router.get('/getData', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
-router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
-router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);
+//router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
+//router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);
 
 router.put('/insertOrder', controllers.apiOrder.insertOrder);
 router.get('/getOrderDetails/:orderId', controllers.apiOrder.getOrderDetails);
