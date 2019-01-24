@@ -52,7 +52,7 @@ apiProducts.getData = function (req, res) {
         ])
       .then(function() {
             console.log(data);
-            res.status(200).send(data);
+            res.status(200).send(JSON.stringify(data));
       }).catch(err => {
             console.error(err);
             res.status(400).send(err);
