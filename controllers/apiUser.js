@@ -18,11 +18,14 @@ db_pool.connect(function(err, client, done) {
   client.query(query, [ req.body.name, req.body.email, req.body.mobile_number, req.body.mobile_number] ,function(err,result) {
           //call `done()` to release the client back to the pool
            done();
-           if(err) {
+            if(err) {
                console.log(err);
                res.status(400).send(err);
-           }
-           res.status(200).send("User saved with user_id " +result.rows.user_id);
+            } else if(rows != undefined) {
+                res.status(200).send("User saved with user_id " + result.rows[0].user_id);
+            } else {
+              res.status(200).send(result.rows);
+            }
        });
     });
 
