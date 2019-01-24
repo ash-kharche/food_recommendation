@@ -63,6 +63,7 @@ apiProducts.getData = function (req, res) {
             console.error(err);
             res.status(400).send(JSON.stringify(data));
       });
+    }
 },
 
 apiProducts.getCollections = function (req, res) {
