@@ -38,20 +38,20 @@ apiProducts.getData = function (req, res) {
 
       var data = {};
       Promise.all([
-                  connection.queryAsync(queryCollections)
+                  client.queryAsync(queryCollections)
                   .then(function(rows) {
                     console.log(rows);
                     data.collections = rows;
                   }),
-                  connection.queryAsync(queryProducts)
+                  client.queryAsync(queryProducts)
                   .then(function(rows){
                     data.products = rows;
                   }),
-                  connection.queryAsync(queryTrendingProducts)
+                  client.queryAsync(queryTrendingProducts)
                   .then(function(rows){
                     data.trending_products = rows;
                   }),
-                  connection.queryAsync(queryRecommendedProducts)
+                  client.queryAsync(queryRecommendedProducts)
                   .then(function(rows){
                     data.recommended_products:  = rows;
                   })
