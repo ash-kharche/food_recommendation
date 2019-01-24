@@ -38,23 +38,38 @@ apiProducts.getData = function (req, res) {
 
       var data = {};
       Promise.all([
-                  client.queryAsync(queryCollections)
-                  .then(function(rows) {
-                    console.log(rows);
-                    data.collections = rows;
-                  }),
-                  client.queryAsync(queryProducts)
-                  .then(function(rows){
-                    data.products = rows;
-                  }),
-                  client.queryAsync(queryTrendingProducts)
-                  .then(function(rows){
-                    data.trending_products = rows;
-                  }),
-                  client.queryAsync(queryRecommendedProducts)
-                  .then(function(rows){
-                    data.recommended_products = rows;
-                  })
+              client.query(queryCollections,function(err, result) {
+                  done();
+                  if(err){
+                      console.log(err);
+                  } else {
+                     data.collections = result.rows;
+                   }
+              }),
+              client.query(queryProducts,function(err, result) {
+                  done();
+                  if(err){
+                      console.log(err);
+                  } else {
+                     data.products = result.rows;
+                   }
+              }),
+              client.query(queryTrendingProducts,function(err, result) {
+                  done();
+                  if(err){
+                      console.log(err);
+                  } else {
+                     data.trending_products = result.rows;
+                   }
+              }),
+              client.query(queryRecommendedProducts,function(err, result) {
+                  done();
+                  if(err){
+                      console.log(err);
+                  } else {
+                     data.recommended_products = result.rows;
+                   }
+              })
         ])
       .then(function() {
             console.log(data);
