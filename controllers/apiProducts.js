@@ -58,11 +58,11 @@ apiProducts.getData = function (req, res) {
       //PROMISE end
 
     });
-}
+},
 
 apiProducts.getCollections = function (req, res) {
   db_pool.connect(function(err, client, done) {
-       if(err){
+       if(err) {
            console.log("#### not able to get connection "+ err);
            res.status(400).send(err);
        }
