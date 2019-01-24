@@ -35,35 +35,34 @@ apiProducts.getData = function (req, res) {
       var queryTrendingProducts = "SELECT * FROM trending_products";
       var queryRecommendedProducts = "SELECT * FROM recommended_products";
 
-      /*Promise.all([
-        queryWrapper(queryCollections),
-        queryWrapper(queryProducts),
-        queryWrapper(queryTrendingProducts),
-        queryWrapper(queryRecommendedProducts)
-    ])*/
-    Promise.all([
-      queryCollections,
-      queryProducts,
-      queryTrendingProducts,
-      queryRecommendedProducts
-  ])
-    .then(([collections, products, trending_products, recommended_products]) => {
+
       var data = {};
-      data.collections = collections;
-      data.products = products;
-      data.trending_products = trending_products;
-      data.recommended_products = recommended_products;
-
-      res.status(200).send(JSON.stringify(data));
-
-    })
-    .catch(err => {
-        console.error(err);
-        res.redirect('/');
-    })
-      //PROMISE end
-
-    });
+      Promise.all([
+                  connection.queryAsync(queryCollections)
+                  .then(function(rows) {
+                    console.log(rows);
+                    data.collections = rows;
+                  }),
+                  connection.queryAsync(queryProducts)
+                  .then(function(rows){
+                    data.products = rows;
+                  }),
+                  connection.queryAsync(queryTrendingProducts)
+                  .then(function(rows){
+                    data.trending_products = rows;
+                  }),
+                  connection.queryAsync(queryRecommendedProducts)
+                  .then(function(rows){
+                    data.recommended_products:  = rows;
+                  })
+        ])
+      .then(function() {
+            console.log(data);
+            res.status(200).send(JSON.stringify(data));
+      }).catch(err => {
+            console.error(err);
+            res.status(400).send(JSON.stringify(data));
+      });
 },
 
 apiProducts.getCollections = function (req, res) {
