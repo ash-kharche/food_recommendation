@@ -3,10 +3,6 @@
 var db_pool = require('./../helpers/db');
 var apiUser = {};
 
-apiUser.test = function (req, res) {
-    res.send("Hey! Food Recommendation");
-}
-
 apiUser.signUpUser = function (req, res) {
   console.log("Username:  " +req.body.user_name)
 
@@ -17,8 +13,9 @@ db_pool.connect(function(err, client, done) {
        }
 
 
+  //Currently password is same as 'mobile_number'
   var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)";
-  client.query(query, [ req.body.name, req.body.email, req.body.mobile_number, req.body.password] ,function(err,result) {
+  client.query(query, [ req.body.name, req.body.email, req.body.mobile_number, req.body.mobile_number] ,function(err,result) {
           //call `done()` to release the client back to the pool
            done();
            if(err){

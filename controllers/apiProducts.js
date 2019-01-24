@@ -10,31 +10,10 @@ apiProducts.getData = function (req, res) {
            console.log("#### not able to get connection "+ err);
            res.status(400).send(err);
        }
-
-       /* FETCH Single Query results
-       var query = "SELECT * FROM collections";
-
-       client.query(query,function(err, result) {
-          //call `done()` to release the client back to the pool
-           done();
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
-
-           } else {
-              //res.status(200).send(result.rows);
-              var data = {};
-              data.collections = result.rows;
-              res.status(200).send(JSON.stringify(data));
-            }
-       });*/
-
-      //PROMISE start
       var queryCollections = "SELECT * FROM collections";
       var queryProducts = "SELECT * FROM products";
       var queryTrendingProducts = "SELECT * FROM trending_products";
       var queryRecommendedProducts = "SELECT * FROM recommended_products";
-
 
       var data = {};
       Promise.all([
@@ -73,7 +52,7 @@ apiProducts.getData = function (req, res) {
         ])
       .then(function() {
             console.log(data);
-            res.status(200).send(JSON.stringify(data));
+            res.status(200).send(data);
       }).catch(err => {
             console.error(err);
             res.status(400).send(err);
