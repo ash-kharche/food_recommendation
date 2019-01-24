@@ -35,12 +35,18 @@ apiProducts.getData = function (req, res) {
       var queryTrendingProducts = "SELECT * FROM trending_products";
       var queryRecommendedProducts = "SELECT * FROM recommended_products";
 
-      Promise.all([
+      /*Promise.all([
         queryWrapper(queryCollections),
         queryWrapper(queryProducts),
         queryWrapper(queryTrendingProducts),
         queryWrapper(queryRecommendedProducts)
-    ])
+    ])*/
+    Promise.all([
+      queryCollections,
+      queryProducts,
+      queryTrendingProducts,
+      queryRecommendedProducts
+  ])
     .then(([collections, products, trending_products, recommended_products]) => {
       var data = {};
       data.collections = collections;
