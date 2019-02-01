@@ -3,7 +3,7 @@
 var db_pool = require('./../helpers/db');
 var apiOrder = {};
 
-apiOrder.insertOrder = function (req, res) {
+apiOrder.placeOrder = function (req, res) {
 db_pool.connect(function(err, client, done) {
        if(err){
            console.log("not able to get connection "+ err);
@@ -11,8 +11,8 @@ db_pool.connect(function(err, client, done) {
        }
 
 
-  var query = "INSERT INTO orders (date, total_amount, order_address)  VALUES ($1, $2, $3)";
-  client.query(query, [ req.body.date, req.body.total_amount, req.body.order_address] ,function(err,result) {
+  var query = "INSERT INTO orders (payment_mode, date, total_amount, order_address, products)  VALUES ($1, $2, $3, $4,$5)";
+  client.query(query, [ req.body.payment_mode, body.date, req.body.total_amount, req.body.order_address, req.body.products] ,function(err,result) {
            done();
            if(err){
                console.log(err);
@@ -36,6 +36,30 @@ apiOrder.getOrderDetails = function (req, res) {
                res.status(400).send(err);
 
            } else {
+              res.status(200).send(result.rows);
+            }
+       });
+    });
+}
+
+apiUser.rateProductPerOrder = function (req, res) {
+  console.log("Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating )
+
+db_pool.connect(function(err, client, done) {
+       if(err){
+           console.log("not able to get connection "+ err);
+           res.status(400).send(err);
+       }
+
+  var query = "UPDATE orders (rating)  VALUES ($1) WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
+  client.query(query, [ req.body.rating] ,function(err,result) {
+           done();
+            if(err) {
+               console.log(err);
+               res.status(400).send(err);
+            } else if(rows != undefined) {
+                res.status(200).send("Product rating saved for  Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating);
+            } else {
               res.status(200).send(result.rows);
             }
        });

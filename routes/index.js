@@ -16,8 +16,10 @@ router.get('/getCollections', controllers.apiProducts.getCollections);
 //router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
 //router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);
 
-router.put('/insertOrder', controllers.apiOrder.insertOrder);
+router.put('/placeOrder', controllers.apiOrder.placeOrder);
 router.get('/getOrderDetails/:orderId', controllers.apiOrder.getOrderDetails);
+router.get('/rateProductPerOrder', controllers.apiOrder.rateProductPerOrder);
+
 
 //router.post('/submitAnswers', controllers.apiQuestions.submitAnswers);
 

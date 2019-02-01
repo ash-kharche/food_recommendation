@@ -4,7 +4,6 @@ var db_pool = require('./../helpers/db');
 var apiProducts = {};
 
 apiProducts.getData = function (req, res) {
-
   db_pool.connect(function(err, client, done) {
        if(err) {
            console.log("#### not able to get connection "+ err);
