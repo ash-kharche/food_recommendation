@@ -8,7 +8,6 @@ app.use(routes);
 const PORT = process.env.PORT || 3000;
 
 var db_pool = require('./helpers/db');
-
 db_pool.connect(function (err, client) {
     if (err) {
         console.log("Database error in app.js: " + err.message);
