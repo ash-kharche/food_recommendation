@@ -14,7 +14,7 @@ runPython.test = function (req, res) {
             res.send(err);
         } else {
             console.log("Run Python process.stdout.on:  " + data.toString());
-            res.send({"message":"Hellow Poonam"}});
+            res.send({"message":"Hellow Poonam"});
         }
     })
 }
