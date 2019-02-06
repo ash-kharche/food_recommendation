@@ -4,10 +4,9 @@ var runPython = {};
 
 //https://www.geeksforgeeks.org/run-python-script-node-js-using-child-process-spawn-method/
 runPython.test = function (req, res) {
-    console.log("Run Python test: 1111");
-
-    var process = spawn('python',["./hello.py"] );
-    console.log("Run Python test: 2222");
+    var process = spawn('python',["./hello.py",
+                            req.query.firstname,
+                            req.query.lastname]);
 
     process.stdout.on('data', function(err, data) {
         if(err) {
