@@ -20,7 +20,7 @@ var runPython = {};
 },*/
 
 runPython.test1 = function (req, res) {
-    var process = spawn('python',["./python/recommendation.py",
+    var process = spawn('python',["./python/hello.py",
                             req.query.firstname,
                             req.query.lastname]);
 
