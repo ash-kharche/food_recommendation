@@ -20,7 +20,7 @@ runPython.test = function (req, res) {
 }
 
 runPython.test2 = function (req, res) {
-    var process = spawn('python',["./python/test.py"]);
+    var process = spawn('python',["./python/test0.py"]);
 
     process.stdout.on('data', function(err, data) {
         if(err) {
