@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var controllers = require("../controllers");
 
-router.get('/test', controllers.runPython.test);
-router.get('/test1', controllers.runPython.test1);
+//router.get('/test', controllers.runPython.test);
+router.get('/getTrendingProducts', controllers.runPython.trending_products);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);
