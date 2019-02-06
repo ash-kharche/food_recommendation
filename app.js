@@ -7,8 +7,8 @@ app.use(bodyParser.json());
 app.use(routes);
 const PORT = process.env.PORT || 3000;
 
-app.listen(3000, function() {
-    console.log('server running on port 3000');
+app.listen(PORT, function() {
+    console.log('server running on port ' + PORT);
 } )
 
 // Function callName() is executed whenever
