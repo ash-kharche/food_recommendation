@@ -15,12 +15,13 @@ runPython.test = function (req, res) {
     /*var process = spawn('python',["./hello.py",
                             req.query.firstname,
                             req.query.lastname] );*/
-    var process = spawn('python',["./hello.py"]);
+    var process = spawn('python',["./hello.py"] );
 
     // Takes stdout data from script which executed
     // with arguments and send this data to res object
     process.stdout.on('data', function(data) {
-        res.send(data.toString());
+        //res.send(data.toString());
+        res.send(JSON.stringify({"message": "Hellow poonam"}));
     } )
 }
 
