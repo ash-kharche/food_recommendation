@@ -24,14 +24,9 @@ runPython.test1 = function (req, res) {
                             req.query.firstname,
                             req.query.lastname]);
 
-    process.stdout.on('data', function(err, data) {
-        if(err) {
-            console.log("Test2: Err " + err.message);
-            res.send(err);
-        } else {
-            console.log("Test2 success:  " + data.toString());
-            res.send(data.toString());
-        }
+    process.stdout.on('data', function(data) {
+          console.log("Test2 success:  " + data.toString());
+          res.send(data.toString());
     })
 }
 
