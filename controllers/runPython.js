@@ -3,7 +3,7 @@ var spawn = require("child_process").spawn;
 var runPython = {};
 
 //https://www.geeksforgeeks.org/run-python-script-node-js-using-child-process-spawn-method/
-runPython.test = function (req, res) {
+/*runPython.test = function (req, res) {
     var process = spawn('python',["./python/hello.py",
                             req.query.firstname,
                             req.query.lastname]);
@@ -17,14 +17,16 @@ runPython.test = function (req, res) {
             res.send({"message":"Hellow Poonam"});
         }
     })
-}
+},*/
 
-runPython.test2 = function (req, res) {
-    var process = spawn('python',["./python/test0.py"]);
+runPython.test1 = function (req, res) {
+    var process = spawn('python',["./python/recommendation.py",
+                            req.query.firstname,
+                            req.query.lastname]);
 
     process.stdout.on('data', function(err, data) {
         if(err) {
-            console.log("Test1: Err " + err.message);
+            console.log("Test2: Err " + err.message);
             res.send(err);
         } else {
             console.log("Test2 success:  " + data.toString());

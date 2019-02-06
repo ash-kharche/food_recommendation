@@ -3,9 +3,7 @@ var router = express.Router();
 var controllers = require("../controllers");
 
 router.get('/test', controllers.runPython.test);
-router.get('/test1', controllers.runPython.test2);
-
-router.get('/test2', controllers.apiProducts.getData);
+router.get('/test1', controllers.runPython.test1);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);
