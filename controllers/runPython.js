@@ -1,8 +1,9 @@
 "use strict";
 
 var runPython = {};
-
+//https://www.geeksforgeeks.org/run-python-script-node-js-using-child-process-spawn-method/
 runPython.test = function (req, res) {
+  console.log("Run Python test");
   var spawn = require("child_process").spawn;
 
     // Parameters passed in spawn -
@@ -20,8 +21,8 @@ runPython.test = function (req, res) {
     // Takes stdout data from script which executed
     // with arguments and send this data to res object
     process.stdout.on('data', function(data) {
-        //res.send(data.toString());
-        res.send(JSON.stringify({"message": "Hellow poonam"}));
+        console.log("Run Python process.stdout.on:  " + data.toString());
+        res.send(data.toString());
     } )
 }
 
