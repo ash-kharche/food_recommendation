@@ -13,7 +13,7 @@ app.listen(PORT, function() {
 
 // Function callName() is executed whenever
 // url is of the form localhost:3000/name
-app.get('/name', callName);
+app.get('/test', callName);
 
 function callName(req, res) {
 
@@ -36,7 +36,8 @@ function callName(req, res) {
     // Takes stdout data from script which executed
     // with arguments and send this data to res object
     process.stdout.on('data', function(data) {
-        res.send(data.toString());
+        var textChunk = data.toString('utf8');
+        res.send(textChunk);
     } )
 }
 
