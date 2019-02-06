@@ -1,1 +1,1 @@
-web: python python/hello.py & node app.js & wait -n
+web: node app.js & python python/hello.py & wait -n

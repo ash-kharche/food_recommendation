@@ -3,6 +3,7 @@ var router = express.Router();
 var controllers = require("../controllers");
 
 router.get('/test', controllers.runPython.test);
+router.get('/test1', controllers.runPython.test2);
 
 router.get('/test2', controllers.apiProducts.getData);
 
