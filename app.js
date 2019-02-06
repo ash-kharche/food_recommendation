@@ -7,7 +7,15 @@ app.use(bodyParser.json());
 app.use(routes);
 const PORT = process.env.PORT || 3000;
 
-var db_pool = require('./helpers/db');
+app.listen(PORT, function (err, client) {
+    if(err) {
+        console.log("Our Food Recommendation app has ERROR:  " +err.message);
+    } else {
+        console.log("Our Food Recommendation app is running on port ${"+ PORT +"}");
+    }
+});
+
+/*var db_pool = require('./helpers/db');
 db_pool.connect(function (err, client) {
     if (err) {
         console.log("Database error in app.js: " + err.message);
@@ -22,4 +30,4 @@ db_pool.connect(function (err, client) {
         });
     }
 
-});
+});*/
