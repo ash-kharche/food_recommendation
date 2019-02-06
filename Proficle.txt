@@ -1,1 +1,1 @@
-web: node app.js & python python/test.py
+web: node app.js & python python/test0.py
