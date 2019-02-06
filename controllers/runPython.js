@@ -10,10 +10,10 @@ runPython.test = function (req, res) {
 
     process.stdout.on('data', function(err, data) {
         if(err) {
-            console.log("Run Python process.stdout.on: Err " + err.message);
+            console.log("Test: Err " + err.message);
             res.send(err);
         } else {
-            console.log("Run Python process.stdout.on:  " + data.toString());
+            console.log("Test Success:  " + data.toString());
             res.send({"message":"Hellow Poonam"});
         }
     })
@@ -24,10 +24,10 @@ runPython.test2 = function (req, res) {
 
     process.stdout.on('data', function(err, data) {
         if(err) {
-            console.log("Run Python process.stdout.on: Err " + err.message);
+            console.log("Test1: Err " + err.message);
             res.send(err);
         } else {
-            console.log("Run Python process.stdout.on:  " + data.toString());
+            console.log("Test2 success:  " + data.toString());
             res.send(data.toString());
         }
     })
