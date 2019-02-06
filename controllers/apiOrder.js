@@ -42,7 +42,7 @@ apiOrder.getOrderDetails = function (req, res) {
     });
 }
 
-apiUser.rateProductPerOrder = function (req, res) {
+apiOrder.rateProductPerOrder = function (req, res) {
   console.log("Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating )
 
 db_pool.connect(function(err, client, done) {
