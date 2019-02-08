@@ -21,28 +21,32 @@ apiProducts.getData = function (req, res) {
                   done();
                   if(err){
                       console.log(err);
+                      data.collections = {};
                   } else {
                      data.collections = result.rows;
                    }
               }),
               client.query(queryProducts,function(err, result) {
                   done();
-                  if(err){
+                  if(err) {
                       console.log(err);
+                      data.products = {};
                   } else {
                      data.products = result.rows;
                    }
               }),
               runPython.getTrendingProducts(trending_products_error, trending_products_response) {
-                if(err){
+                if(err) {
                     console.log(trending_products_error);
+                    data.trending_products = {};
                 } else {
                    data.trending_products = trending_products_response;
                  }
               },
               runPython.getRecommendedProducts(recommended_products_error, recommended_products_response) {
-                if(err){
+                if(err) {
                     console.log(recommended_products_error);
+                    data.recommended_products = {};
                 } else {
                    data.recommended_products = recommended_products_response;
                  }
