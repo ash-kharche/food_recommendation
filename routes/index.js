@@ -4,7 +4,8 @@ var controllers = require("../controllers");
 
 //router.get('/test', controllers.runPython.test);
 router.get('/getTrendingProducts', controllers.runPython.getTrendingProducts);
-router.get('/getYouMayLike', controllers.runPython.getYouMayLike);
+router.get('/getRecommendedProducts', controllers.runPython.getRecommendedProducts);
+router.get('/getCartRecommendedProducts', controllers.runPython.getCartRecommendedProducts);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);

@@ -39,16 +39,14 @@ apiProducts.getData = function (req, res) {
                 } else {
                    data.trending_products = trending_products_response;
                  }
+              },
+              runPython.getRecommendedProducts(recommended_products_error, recommended_products_response) {
+                if(err){
+                    console.log(recommended_products_error);
+                } else {
+                   data.recommended_products = recommended_products_response;
+                 }
               }
-              ,
-              client.query(queryRecommendedProducts,function(err, result) {
-                  done();
-                  if(err){
-                      console.log(err);
-                  } else {
-                     data.recommended_products = result.rows;
-                   }
-              })
         ])
       .then(function() {
             //console.log(data);
@@ -68,6 +66,15 @@ client.query(queryTrendingProducts,function(err, result) {
        data.trending_products = result.rows;
      }
 })
+
+client.query(queryRecommendedProducts,function(err, result) {
+    done();
+    if(err){
+        console.log(err);
+    } else {
+       data.recommended_products = result.rows;
+     }
+}
 */
 
 apiProducts.getCollections = function (req, res) {

@@ -11,18 +11,29 @@ runPython.test = function (req, res) {
 },
 
 runPython.getTrendingProducts = function (req, res) {
+  console.log("runPython: getTrendingProducts");
     var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
-          console.log("trending_products");
-          res.send(JSON.stringify(data.toString()));
+          console.log("runPython: trending_products");
+          res.send(data);
     })
 },
 
-runPython.getYouMayLike = function (req, res) {
-    var process = spawn('python',["./python/you_may_like.py"]);
+runPython.getRecommendedProducts = function (req, res) {
+  console.log("runPython: getRecommendedProducts");
+    var process = spawn('python',["./python/recommendation.py"]);
     process.stdout.on('data', function(data) {
-          console.log("you_may_like");
-          res.send(JSON.stringify(data.toString()));
+          console.log("runPython: recommendation");
+          res.send(data);
+    })
+},
+
+runPython.getCartRecommendedProducts = function (req, res) {
+  console.log("runPython: getCartRecommendedProducts");
+    var process = spawn('python',["./python/cart_recommendation.py"]);
+    process.stdout.on('data', function(data) {
+          console.log("runPython: cart_recommendation");
+          res.send(data);
     })
 }
 
