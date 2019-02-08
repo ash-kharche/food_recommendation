@@ -1,6 +1,7 @@
 "use strict";
 
 var db_pool = require('./../helpers/db');
+var runPython = require('./../controllers.runPython');
 var apiProducts = {};
 
 apiProducts.getData = function (req, res) {
@@ -32,14 +33,14 @@ apiProducts.getData = function (req, res) {
                      data.products = result.rows;
                    }
               }),
-              client.query(queryTrendingProducts,function(err, result) {
-                  done();
-                  if(err){
-                      console.log(err);
-                  } else {
-                     data.trending_products = result.rows;
-                   }
-              }),
+              runPython.getTrendingProducts(trending_products_error, trending_products_response) {
+                if(err){
+                    console.log(trending_products_error);
+                } else {
+                   data.trending_products = trending_products_response;
+                 }
+              }
+              ,
               client.query(queryRecommendedProducts,function(err, result) {
                   done();
                   if(err){
@@ -58,6 +59,16 @@ apiProducts.getData = function (req, res) {
       });
     });
 },
+/*
+client.query(queryTrendingProducts,function(err, result) {
+    done();
+    if(err){
+        console.log(err);
+    } else {
+       data.trending_products = result.rows;
+     }
+})
+*/
 
 apiProducts.getCollections = function (req, res) {
   db_pool.connect(function(err, client, done) {

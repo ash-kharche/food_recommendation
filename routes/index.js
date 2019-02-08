@@ -3,7 +3,8 @@ var router = express.Router();
 var controllers = require("../controllers");
 
 //router.get('/test', controllers.runPython.test);
-router.get('/getTrendingProducts', controllers.runPython.trending_products);
+router.get('/getTrendingProducts', controllers.runPython.getTrendingProducts);
+router.get('/getYouMayLike', controllers.runPython.getYouMayLike);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);
@@ -14,7 +15,6 @@ router.get('/getUser/:userId', controllers.apiUser.getUser);
 router.get('/getData', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
 //router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
-//router.get('/getRecommendedProducts', controllers.apiProducts.getRecommendedProducts);
 
 router.put('/placeOrder', controllers.apiOrder.placeOrder);
 router.get('/getOrderDetails/:orderId', controllers.apiOrder.getOrderDetails);

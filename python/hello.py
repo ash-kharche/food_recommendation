@@ -13,3 +13,9 @@ sys.stdout.flush()
 #print("Output from Python")
 #print("First name: " + sys.argv[1])
 #print("Last name: " + sys.argv[2])*/
+
+#cursor.execute('''
+    #insert into assignment (title, ids)
+    #values (%s, %s::lang[])
+    #''', ["person1",["english","hindi"]])
+#)
