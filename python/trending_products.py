@@ -14,6 +14,8 @@ cursor.close()
 conn.commit()
 conn.close()
 
-#return json.dumps(trending_products)
-print(trending_products)
-sys.stdout.flush()
+#https://medium.com/@PyGuyCharles/python-sql-to-json-and-beyond-3e3a36d32853
+trending_products = [dict(zip(column, row)) for row in result];
+return json.dumps('trending_products' : trending_products)
+#print(trending_products)
+#sys.stdout.flush()
