@@ -14,7 +14,7 @@ runPython.getTrendingProducts = function (req, res) {
   console.log("runPython: getTrendingProducts");
     var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
-          console.log("runPython: trending_products");
+          //console.log("runPython: trending_products");
           res.send(data);
     })
 },

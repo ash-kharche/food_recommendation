@@ -15,26 +15,6 @@ apiProducts.getData = function (req, res) {
       var queryTrendingProducts = "SELECT * FROM trending_products";
       var queryRecommendedProducts = "SELECT * FROM recommended_products";
 
-      /*
-      var priomiseGetTrendingProducts = runPython.getTrendingProducts(trending_products_error, trending_products_response) {
-        if(err) {
-            console.log(trending_products_error);
-            data.trending_products = {};
-        } else {
-           data.trending_products = trending_products_response;
-         }
-      };
-
-      var priomiseGetRecommendedProducts = runPython.getRecommendedProducts(recommended_products_error, recommended_products_response) {
-        if(err) {
-            console.log(recommended_products_error);
-            data.recommended_products = {};
-        } else {
-           data.recommended_products = recommended_products_response;
-         }
-      };
-      */
-
       var data = {};
       Promise.all([
               client.query(queryCollections,function(err, result) {
@@ -43,7 +23,7 @@ apiProducts.getData = function (req, res) {
                       console.log(err);
                       data.collections = {};
                   } else {
-                     data.collections = result.rows;
+                     data.collections = {};//result.rows;
                    }
               }),
               client.query(queryProducts,function(err, result) {
@@ -52,7 +32,7 @@ apiProducts.getData = function (req, res) {
                       console.log(err);
                       data.products = {};
                   } else {
-                     data.products = result.rows;
+                     data.products = {};//result.rows;
                    }
               }),
               runPython.getTrendingProducts(function(trending_products_error, trending_products_response) {
@@ -60,7 +40,7 @@ apiProducts.getData = function (req, res) {
                     console.log(trending_products_error);
                     data.trending_products = {};
                 } else {
-                   data.trending_products = trending_products_response;
+                   data.trending_products = JSON.stringify(trending_products_response);
                  }
               }),
               runPython.getRecommendedProducts(function(recommended_products_error, recommended_products_response) {
@@ -68,7 +48,7 @@ apiProducts.getData = function (req, res) {
                     console.log(recommended_products_error);
                     data.recommended_products = {};
                 } else {
-                   data.recommended_products = recommended_products_response;
+                   data.recommended_products = JSON.stringify(recommended_products_response);
                  }
               })
         ])
