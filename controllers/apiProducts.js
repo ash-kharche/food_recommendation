@@ -35,20 +35,20 @@ apiProducts.getData = function (req, res) {
                      data.products = {};//result.rows;
                    }
               }),
-              runPython.getTrendingProducts(function(trending_products_error, trending_products_response) {
+              runPython.getTrendingProducts(function(err, response) {
                 if(err) {
                     console.log(trending_products_error);
                     data.trending_products = {};
                 } else {
-                   data.trending_products = JSON.stringify(trending_products_response);
+                   data.trending_products = JSON.stringify(response);
                  }
               }),
-              runPython.getRecommendedProducts(function(recommended_products_error, recommended_products_response) {
+              runPython.getRecommendedProducts(function(err, response) {
                 if(err) {
                     console.log(recommended_products_error);
                     data.recommended_products = {};
                 } else {
-                   data.recommended_products = JSON.stringify(recommended_products_response);
+                   data.recommended_products = JSON.stringify(rresponse);
                  }
               })
         ])

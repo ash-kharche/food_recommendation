@@ -10,21 +10,25 @@ runPython.test = function (req, res) {
     })
 },
 
-runPython.getTrendingProducts = function (req, res) {
+runPython.getTrendingProducts = function (callback) {
   console.log("runPython: getTrendingProducts");
     var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
-          //console.log("runPython: trending_products");
-          res.send(data);
+          if(data) {
+              console.log("runPython: trending_products");
+              callback(null, data);
+          }
     })
 },
 
-runPython.getRecommendedProducts = function (req, res) {
+runPython.getRecommendedProducts = function (callback) {
   console.log("runPython: getRecommendedProducts");
     var process = spawn('python',["./python/recommendation.py"]);
     process.stdout.on('data', function(data) {
-          console.log("runPython: recommendation");
-          res.send(data);
+          if(data) {
+              console.log("runPython: recommendation");
+              callback(null, data);
+          }
     })
 },
 
