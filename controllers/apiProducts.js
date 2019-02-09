@@ -19,30 +19,28 @@ apiProducts.getData = function (req, res) {
       Promise.all([
               client.query(queryCollections,function(err, result) {
                   done();
+                  data.collections = [];
                   if(err){
                       console.log(err);
-                      data.collections = {};
                   } else {
-                     data.collections = {};//result.rows;
+                     //data.collections = result.rows;
                    }
               }),
               client.query(queryProducts,function(err, result) {
                   done();
+                  data.products = [];
                   if(err) {
                       console.log(err);
-                      data.products = {};
                   } else {
-                     data.products = {};//result.rows;
+                     //data.products = result.rows;
                    }
               }),
               runPython.getTrendingProducts(function(err, response) {
+                data.trending_products = [];
                 if(err) {
                     console.log("ApiProducts : trending_products    :" + err);
-                    data.trending_products = {};
                 } else {
-                   console.log("ApiProducts:  trending_products    :\n\n");
-                   console.log(response);
-                   data.trending_products = [];
+                   console.log("ApiProducts:  trending_products    :  " +response);
                    data.trending_products = JSON.stringify(response);
                  }
               })
@@ -60,7 +58,7 @@ apiProducts.getData = function (req, res) {
         ])
       .then(function() {
             //console.log(data);
-            res.status(200).send(JSON.stringify(data));
+            res.status(200).send(data);
       }).catch(err => {
             console.error(err);
             res.status(400).send(err);
