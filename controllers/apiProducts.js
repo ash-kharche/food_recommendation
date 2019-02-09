@@ -40,7 +40,8 @@ apiProducts.getData = function (req, res) {
                     console.log("ApiProducts : trending_products    :" + err);
                     data.trending_products = {};
                 } else {
-                   console.log("ApiProducts:  trending_products    :" + response);
+                   console.log("ApiProducts:  trending_products    :\n\n");
+                   console.log(response);
                    data.trending_products = [];
                    data.trending_products = JSON.stringify(response);
                  }
