@@ -37,20 +37,21 @@ apiProducts.getData = function (req, res) {
               }),
               runPython.getTrendingProducts(function(err, response) {
                 if(err) {
-                    console.log(trending_products_error);
+                    console.log(err);
                     data.trending_products = {};
                 } else {
                    data.trending_products = JSON.stringify(response);
                  }
-              }),
+              })
+              /*,
               runPython.getRecommendedProducts(function(err, response) {
                 if(err) {
-                    console.log(recommended_products_error);
+                    console.log(err);
                     data.recommended_products = {};
                 } else {
                    data.recommended_products = JSON.stringify(rresponse);
                  }
-              })
+              })*/
         ])
       .then(function() {
             //console.log(data);
