@@ -37,19 +37,22 @@ apiProducts.getData = function (req, res) {
               }),
               runPython.getTrendingProducts(function(err, response) {
                 if(err) {
-                    console.log("ApiProducts     :" + err);
+                    console.log("ApiProducts : trending_products    :" + err);
                     data.trending_products = {};
                 } else {
-                   console.log("ApiProducts     :" + response);
+                   console.log("ApiProducts:  trending_products    :" + response);
+                   data.trending_products = [];
                    data.trending_products = JSON.stringify(response);
                  }
               })
               /*,
               runPython.getRecommendedProducts(function(err, response) {
                 if(err) {
-                    console.log(err);
+                    console.log("ApiProducts : recommended_products    :" + err);
                     data.recommended_products = {};
                 } else {
+                   console.log("ApiProducts : recommended_products    :" + response);
+                   data.recommended_products = [];
                    data.recommended_products = JSON.stringify(rresponse);
                  }
               })*/
