@@ -1,7 +1,7 @@
 "use strict";
 
 var db_pool = require('./../helpers/db');
-var runPython = require('./../controllers.runPython');
+var runPython = require('./../controllers/runPython');
 var apiProducts = {};
 
 apiProducts.getData = function (req, res) {
