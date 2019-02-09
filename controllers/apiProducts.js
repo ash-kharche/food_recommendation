@@ -15,6 +15,26 @@ apiProducts.getData = function (req, res) {
       var queryTrendingProducts = "SELECT * FROM trending_products";
       var queryRecommendedProducts = "SELECT * FROM recommended_products";
 
+      /*
+      var priomiseGetTrendingProducts = runPython.getTrendingProducts(trending_products_error, trending_products_response) {
+        if(err) {
+            console.log(trending_products_error);
+            data.trending_products = {};
+        } else {
+           data.trending_products = trending_products_response;
+         }
+      };
+
+      var priomiseGetRecommendedProducts = runPython.getRecommendedProducts(recommended_products_error, recommended_products_response) {
+        if(err) {
+            console.log(recommended_products_error);
+            data.recommended_products = {};
+        } else {
+           data.recommended_products = recommended_products_response;
+         }
+      };
+      */
+
       var data = {};
       Promise.all([
               client.query(queryCollections,function(err, result) {
@@ -35,22 +55,22 @@ apiProducts.getData = function (req, res) {
                      data.products = result.rows;
                    }
               }),
-              runPython.getTrendingProducts(trending_products_error, trending_products_response) {
+              runPython.getTrendingProducts(function(trending_products_error, trending_products_response) {
                 if(err) {
                     console.log(trending_products_error);
                     data.trending_products = {};
                 } else {
                    data.trending_products = trending_products_response;
                  }
-              },
-              runPython.getRecommendedProducts(recommended_products_error, recommended_products_response) {
+              }),
+              runPython.getRecommendedProducts(function(recommended_products_error, recommended_products_response) {
                 if(err) {
                     console.log(recommended_products_error);
                     data.recommended_products = {};
                 } else {
                    data.recommended_products = recommended_products_response;
                  }
-              }
+              })
         ])
       .then(function() {
             //console.log(data);
