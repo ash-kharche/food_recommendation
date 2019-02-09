@@ -37,9 +37,10 @@ apiProducts.getData = function (req, res) {
               }),
               runPython.getTrendingProducts(function(err, response) {
                 if(err) {
-                    console.log(err);
+                    console.log("ApiProducts     :" + err);
                     data.trending_products = {};
                 } else {
+                   console.log("ApiProducts     :" + response);
                    data.trending_products = JSON.stringify(response);
                  }
               })
