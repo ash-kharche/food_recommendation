@@ -15,7 +15,7 @@ runPython.getTrendingProducts = function (callback) {
     var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
           if(data) {
-              console.log("runPython: trending_products");
+              //console.log("runPython: trending_products");
               callback(null, data);
           }
     })
