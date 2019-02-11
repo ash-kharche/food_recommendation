@@ -72,8 +72,8 @@ apiProducts.getData = function (req, res) {
 
                 } else {
                     console.log("ApiProducts:  trending_products SUCCESS   :  " + response);
-                    data.trending_products = JSON.parse(response);
-                    res.status(200).send(data);
+                    //data.trending_products = JSON.parse(response);
+                    res.status(200).send(response);
                 }
             })
         }
