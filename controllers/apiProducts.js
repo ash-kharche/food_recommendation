@@ -11,6 +11,8 @@ apiProducts.getData = function (req, res) {
             res.status(400).send(err);
 
         } else {
+           console.log("$$$$$$$$$$$$$$$$$$$$$$$");
+
             var queryCollections = "SELECT * FROM collections";
             var queryProducts = "SELECT * FROM products";
             var queryTrendingProducts = "SELECT * FROM trending_products";

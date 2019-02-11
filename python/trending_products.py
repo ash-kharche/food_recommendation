@@ -32,7 +32,7 @@ conn.close()
 #rows = {"name":"poonam"}
 #print(json.dumps(rows, indent=2))
 
-
+rows = {name:"poonam"}
 return json.dumps(rows, indent=2)
 
 #print(trending_products)
