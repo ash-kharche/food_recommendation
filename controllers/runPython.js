@@ -11,12 +11,12 @@ runPython.test = function (req, res) {
 },
 
 runPython.getTrendingProducts = function (callback) {
-  console.log("runPython: getTrendingProducts");
-    var process = spawn('python',["./python/trending_products.py"]);
+    var process = spawn('python',["./python/dummy.py"]);
     process.stdout.on('data', function(data) {
           if(data) {
-              //console.log("runPython: trending_products");
               callback(null, data);
+          } else {
+              callback(new Error("No Trending products available"), null);
           }
     })
 },
@@ -32,12 +32,12 @@ runPython.getRecommendedProducts = function (callback) {
     })
 },
 
-runPython.getCartRecommendedProducts = function (req, res) {
+runPython.getCartRecommendedProducts = function (callback) {
   console.log("runPython: getCartRecommendedProducts");
     var process = spawn('python',["./python/cart_recommendation.py"]);
     process.stdout.on('data', function(data) {
           console.log("runPython: cart_recommendation");
-          res.send(data);
+          callback(null, data);
     })
 }
 

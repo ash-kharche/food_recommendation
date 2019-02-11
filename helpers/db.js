@@ -15,9 +15,9 @@ var config_params = {
 const db = new pg.Pool(config_params);
 db.connect(function (err, client, done) {
     if (err) {
-        console.log("Database error: " + err.message);
+        //console.log("Database error: " + err.message);
     } else {
-        console.log("Database connected: " + client);
+        //console.log("Database connected: " + client);
     }
 
 });
