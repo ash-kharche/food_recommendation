@@ -14,5 +14,5 @@ conn.commit()
 conn.close()
 
 #rows = {"name":"dombivli"}
-print(rows)
+print(json.dumps(rows, indent=2))
 sys.stdout.flush()
