@@ -19,7 +19,7 @@ apiProducts.getData = function (req, res) {
             var queryRecommendedProducts = "SELECT * FROM recommended_products";
 
             var data = {};
-            /*Promise.all([
+            Promise.all([
                 client.query(queryCollections,function(err, result) {
                         done();
                         data.collections = [];
@@ -38,17 +38,19 @@ apiProducts.getData = function (req, res) {
                            //data.products = result.rows;
                          }
                     }),
-                    runPython.getTrendingProducts(function(err, response) {
-                      if(err) {
-                          data.trending_products = [];
-                          console.log("ApiProducts : trending_products    :" + err);
+                    runPython.getTrendingProducts(function (err, response) {
+                      console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
+                        if (err) {
+                            data.trending_products = [];
+                            console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
 
-                      } else {
-                          data.trending_products = [];
-                          console.log("ApiProducts:  trending_products    :  " +response);
-                          data.trending_products = JSON.stringify(response);
-                       }
-                    }),
+                        } else {
+                            console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
+                            data.trending_products = JSON.parse(response);
+                            //res.status(200).send(data);
+                        }
+                    })
+                    /*,
                     runPython.getRecommendedProducts(function(err, response) {
                       if(err) {
                           console.log("ApiProducts : recommended_products    :" + err);
@@ -59,27 +61,16 @@ apiProducts.getData = function (req, res) {
                          data.recommended_products = JSON.stringify(rresponse);
                        }
                     })
+                    */
               ])
             .then(function() {
-                  //console.log(data);
+                  console.log("\n@@@@@\nApiProducts response send");
                   res.status(200).send(data);
             }).catch(err => {
                   console.error(err);
                   res.status(400).send(err);
-            });*/
-            runPython.getTrendingProducts(function (err, response) {
-              console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
-                if (err) {
-                    data.trending_products = [];
-                    console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
+            });
 
-                } else {
-                    console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
-                    data.trending_products = JSON.parse(response);
-                    //data.trending_products = response;
-                    res.status(200).send(data);
-                }
-            })
         }
     });
 },
