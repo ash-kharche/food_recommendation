@@ -17,7 +17,8 @@ heroku logs --tail --app food-recommendation
 To change the data type of the products column to JSON in collections table, you use the statement below:
 - ALTER TABLE collections ALTER COLUMN products TYPE JSON USING products::json;
 - ALTER TABLE products ALTER COLUMN is_veg TYPE REAL USING is_veg::real;
-
+- ALTER TABLE products ALTER COLUMN price TYPE REAL USING price::real;
+- ALTER TABLE products ALTER COLUMN ingredients SET DEFAULT array[]::integer[];
 
 #### TABLE creation
 ###### USERS
