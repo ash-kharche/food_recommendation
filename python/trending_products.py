@@ -9,7 +9,7 @@ conn = psycopg2.connect(database = "de7pit5nq8p35l", user = "uvzjkvhjhvrevn", pa
 cursor = conn.cursor(cursor_factory=RealDictCursor)
 
 #postgreSQL_select_Query = "SELECT * FROM products ORDER BY rating LIMIT 5"
-postgreSQL_select_Query = "SELECT * FROM products"
+postgreSQL_select_Query = "SELECT * FROM products ORDER BY rating LIMIT 5"
 cursor.execute(postgreSQL_select_Query)
 rows = cursor.fetchall()
 
