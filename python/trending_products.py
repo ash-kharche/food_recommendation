@@ -24,11 +24,11 @@ conn.close()
 #results = []
 #for row in trending_products:
 #        results.append(dict(zip(columns, row)))
+rows = {"name":"poonam"}
+print(json.dumps(rows, indent=2))
 
-#print(json.dumps(results, indent=2))
 
-
-return json.dumps( [dict(ix) for ix in rows] )
+#return json.dumps( [dict(ix) for ix in rows] )
 
 #print(trending_products)
-#sys.stdout.flush()
+sys.stdout.flush()
