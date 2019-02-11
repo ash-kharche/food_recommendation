@@ -11,7 +11,7 @@ runPython.test = function (req, res) {
 },
 
 runPython.getTrendingProducts = function (callback) {
-  console.log("\n\n%%%%% runPython: getTrendingProducts");
+  console.log("\nrunPython: getTrendingProducts");
     var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
           if(data) {
@@ -23,7 +23,7 @@ runPython.getTrendingProducts = function (callback) {
 },
 
 runPython.getRecommendedProducts = function (callback) {
-  console.log("runPython: getRecommendedProducts");
+  console.log("\nrunPython: getRecommendedProducts");
     var process = spawn('python',["./python/recommendation.py"]);
     process.stdout.on('data', function(data) {
           if(data) {
@@ -34,7 +34,7 @@ runPython.getRecommendedProducts = function (callback) {
 },
 
 runPython.getCartRecommendedProducts = function (callback) {
-  console.log("runPython: getCartRecommendedProducts");
+  console.log("\nrunPython: getCartRecommendedProducts");
     var process = spawn('python',["./python/cart_recommendation.py"]);
     process.stdout.on('data', function(data) {
           console.log("runPython: cart_recommendation");
