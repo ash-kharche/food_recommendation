@@ -18,25 +18,28 @@ apiProducts.getData = function (req, res) {
 
             var data = {};
 
-            apiProducts.getCollectionsDB(function(err, response) {
-              if(err) {
-                  console.log("ApiProducts : getCollectionsDB    :" + err);
-                  data.collections = [];
-              } else {
-                 console.log("ApiProducts : getCollectionsDB    :" + response);
-                 data.collections = response;
-               }
-            });
-
-            runPython.getProducts(function(err, response) {
-              if(err) {
-                  console.log("ApiProducts : getProducts    :" + err);
-                  data.products = [];
-              } else {
-                 console.log("ApiProducts : getProducts    :" + response);
-                 data.products = response;
-               }
-            });
+console.log("11111");
+            apiProducts.getCollectionsDB(function (err, response) {
+              console.log("2222");
+                if (err) {
+                    console.log("ApiProducts : getCollectionsDB    :" + err);
+                    data.collections = [];
+                } else {
+                    console.log("ApiProducts : getCollectionsDB    :" + response);
+                    data.collections = response;
+                }
+            })
+console.log("3333");
+            apiProducts.getProducts(function (err, response) {
+              console.log("4444");
+                if (err) {
+                    console.log("ApiProducts : getProducts    :" + err);
+                    data.products = [];
+                } else {
+                    console.log("ApiProducts : getProducts    :" + response);
+                    data.products = response;
+                }
+            })
 
             /*runPython.getTrendingProducts(function (err, response) {
               console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
@@ -48,9 +51,9 @@ apiProducts.getData = function (req, res) {
                     console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
                     //data.trending_products = JSON.parse(response);
                 }
-            });*/
+            })*/
 
-
+console.log("5555");
             res.status(200).send(data);
         }
     });
@@ -124,4 +127,4 @@ apiProducts.getData = function (req, res) {
     }
 
 
-    module.exports = apiProducts;
+module.exports = apiProducts;
