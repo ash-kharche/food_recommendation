@@ -30,7 +30,7 @@ conn.close()
 #results = []
 #for row in trending_products:
 #        results.append(dict(zip(columns, row)))
-rows = {"name":"poonam"}
+#rows = {"name":"poonam"}
 print(json.dumps(rows, indent=2))
 
 

@@ -11,7 +11,7 @@ runPython.test = function (req, res) {
 },
 
 runPython.getTrendingProducts = function (callback) {
-    var process = spawn('python',["./python/dummy.py"]);
+    var process = spawn('python',["./python/trending_products.py"]);
     process.stdout.on('data', function(data) {
           if(data) {
               callback(null, data);
