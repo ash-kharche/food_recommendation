@@ -18,72 +18,40 @@ apiProducts.getData = function (req, res) {
 
             var data = {};
 
+            apiProducts.getCollectionsDB(function(err, response) {
+              if(err) {
+                  console.log("ApiProducts : getCollectionsDB    :" + err);
+                  data.collections = [];
+              } else {
+                 console.log("ApiProducts : getCollectionsDB    :" + response);
+                 data.collections = rresponse;
+               }
+            })
 
-            async.parallel({
-                one: apiProducts.getCollectionsDB(callback) {
-                    //callback(null, 'abc\n');
-                },
-                two: apiProducts.getProducts(callback) {
-                    //callback(null, 'xyz\n');
+            runPython.getProducts(function(err, response) {
+              if(err) {
+                  console.log("ApiProducts : getProducts    :" + err);
+                  data.products = [];
+              } else {
+                 console.log("ApiProducts : getProducts    :" + response);
+                 data.products = rresponse;
+               }
+            })
+
+            runPython.getTrendingProducts(function (err, response) {
+              console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
+                if (err) {
+                    data.trending_products = [];
+                    console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
+
+                } else {
+                    console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
+                    data.trending_products = JSON.parse(response);
                 }
-            }, function (err, results) {
-                // results now equals to: results.one: 'abc\n', results.two: 'xyz\n'
+            })
 
-                console.log("ApiProducts : async parallel    :" + results);
-            });
-
-            /*
-            Promise.all([
-                client.query(queryCollections,function(err, result) {
-                        done();
-                        data.collections = [];
-                        if(err){
-                            console.log(err);
-                        } else {
-                           //data.collections = result.rows;
-                         }
-                    }),
-                    client.query(queryProducts,function(err, result) {
-                        done();
-                        data.products = [];
-                        if(err) {
-                            console.log(err);
-                        } else {
-                           //data.products = result.rows;
-                         }
-                    }),
-                    runPython.getTrendingProducts(function (err, response) {
-                      console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
-                        if (err) {
-                            data.trending_products = [];
-                            console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
-
-                        } else {
-                            console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
-                            data.trending_products = JSON.parse(response);
-                            //res.status(200).send(data);
-                        }
-                    }),
-                    runPython.getRecommendedProducts(function(err, response) {
-                      if(err) {
-                          console.log("ApiProducts : recommended_products    :" + err);
-                          data.recommended_products = [];
-                      } else {
-                         console.log("ApiProducts : recommended_products    :" + response);
-                         data.recommended_products = JSON.stringify(rresponse);
-                       }
-                    })
-
-              ])
-            .then(function() {
-                  console.log("\n@@@@@\ApiProducts response send");
-                  res.status(200).send(data);
-            }).catch(err => {
-                  console.log("\n@@@@@\ApiProducts Error\n\n");
-                  console.error(err);
-                  res.status(400).send(err);
-            });
-            */
+            
+            res.status(200).send(data);
         }
     });
 },
