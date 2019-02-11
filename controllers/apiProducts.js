@@ -66,12 +66,13 @@ apiProducts.getData = function (req, res) {
                   res.status(400).send(err);
             });*/
             runPython.getTrendingProducts(function (err, response) {
+              console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
                 if (err) {
                     data.trending_products = [];
-                    console.log("ApiProducts : trending_products ERROR   :" + err);
+                    console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
 
                 } else {
-                    console.log("ApiProducts:  trending_products SUCCESS   :  " + response);
+                    console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
                     //data.trending_products = JSON.parse(response);
                     res.status(200).send(response);
                 }
