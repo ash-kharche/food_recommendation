@@ -18,7 +18,7 @@ apiProducts.getData = function (req, res) {
 
             var data = {};
 
-
+            /*
             async.parallel({
                 one: apiProducts.getCollectionsDB(callback) {
                     //callback(null, 'abc\n');
@@ -32,7 +32,7 @@ apiProducts.getData = function (req, res) {
                 console.log("ApiProducts : async parallel    :" + results);
             });
 
-            /*
+
             Promise.all([
                 client.query(queryCollections,function(err, result) {
                         done();
