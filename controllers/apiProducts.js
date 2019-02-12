@@ -18,43 +18,69 @@ apiProducts.getData = function (req, res) {
 
             var data = {};
 
-console.log("11111");
-            apiProducts.getCollectionsDB(function (err, response) {
-              console.log("2222");
-                if (err) {
-                    console.log("ApiProducts : getCollectionsDB    :" + err);
-                    data.collections = [];
-                } else {
-                    console.log("ApiProducts : getCollectionsDB    :" + response);
-                    data.collections = response;
-                }
-            })
-console.log("3333");
-            apiProducts.getProducts(function (err, response) {
-              console.log("4444");
-                if (err) {
-                    console.log("ApiProducts : getProducts    :" + err);
-                    data.products = [];
-                } else {
-                    console.log("ApiProducts : getProducts    :" + response);
-                    data.products = response;
-                }
-            })
+            console.log("11111");
+            var getCollectionsDBPromise = new Promise(function (resolve, reject) {
+                apiProducts.getCollectionsDB(function (err, response) {
+                    console.log("2222");
+                    if (err) {
+                        console.log("ApiProducts : getCollectionsDB    :" + err);
+                        data.collections = [];
+                        return reject();
+                    } else {
+                        console.log("ApiProducts : getCollectionsDB    :" + response);
+                        data.collections = response;
+                        return resolve(results);
+                    }
+                });
+            });
 
-            /*runPython.getTrendingProducts(function (err, response) {
-              console.log("ApiProducts:  trending_products " + new Date() +"  \n\n ");
-                if (err) {
-                    data.trending_products = [];
-                    console.log("ApiProducts : trending_products ERROR   : " + new Date() +"  \n\n " + err);
+            console.log("3333");
+            var getProductsPromise = new Promise(function (resolve, reject) {
+                apiProducts.getProducts(function (err, response) {
+                    console.log("4444");
+                    if (err) {
+                        console.log("ApiProducts : getProducts    :" + err);
+                        data.products = [];
+                        return reject();
+                    } else {
+                        console.log("ApiProducts : getProducts    :" + response);
+                        data.products = response;
+                        return resolve(results);
+                    }
+                });
+            });
 
-                } else {
-                    console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() +"  \n\n " + response);
-                    //data.trending_products = JSON.parse(response);
-                }
-            })*/
+            var getTrendingProductsPromise = new Promise(function (resolve, reject) {
+                runPython.getTrendingProducts(function (err, response) {
+                    console.log("ApiProducts:  trending_products " + new Date() + "  \n\n ");
+                    if (err) {
+                        data.trending_products = [];
+                        console.log("ApiProducts : trending_products ERROR   : " + new Date() + "  \n\n " + err);
+                        return reject();
+                    } else {
+                        console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() + "  \n\n " + response);
+                        data.trending_products = JSON.parse(response);
+                        return resolve(results);
+                    }
+                });
+            });
 
-console.log("5555");
-            res.status(200).send(data);
+            console.log("5555");
+
+            Promise.all([
+                getCollectionsDBPromise,
+                getProductsPromise,
+                getTrendingProductsPromise
+            ])
+                .then(function (values) {
+                    console.log("\n@@@@@\ApiProducts response send");
+                    console.log(values);
+                    res.status(200).send(data);
+                }).catch(err => {
+                console.log("\n@@@@@\ApiProducts Error\n\n");
+                console.error(err);
+                res.status(400).send(err);
+            });
         }
     });
 },
