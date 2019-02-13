@@ -11,17 +11,11 @@ apiProducts.getData = function (req, res) {
             res.status(400).send(err);
 
         } else {
-            console.log("$$$$$$$$$$$$$$$$$$$$$$$");
-
-            var queryCollections = "SELECT * FROM collections";
-            var queryProducts = "SELECT * FROM products";
 
             var data = {};
 
-            console.log("11111");
             var getCollectionsDBPromise = new Promise(function (resolve, reject) {
                 apiProducts.getCollectionsDB(function (err, response) {
-                    console.log("2222");
                     if (err) {
                         console.log("ApiProducts : getCollectionsDB    :" + err);
                         data.collections = [];
@@ -34,10 +28,8 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            console.log("3333");
             var getProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getProducts(function (err, response) {
-                    console.log("4444");
                     if (err) {
                         console.log("ApiProducts : getProducts    :" + err);
                         data.products = [];
@@ -65,12 +57,26 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            console.log("5555");
+            var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
+                runPython.getRecommendedProducts(function (err, response) {
+                    console.log("ApiProducts:  recommended_products " + new Date() + "  \n\n ");
+                    if (err) {
+                        data.recommended_products = [];
+                        console.log("ApiProducts : recommended_products ERROR   : " + new Date() + "  \n\n " + err);
+                        return reject();
+                    } else {
+                        console.log("ApiProducts:  recommended_products SUCCESS :  " + new Date() + "  \n\n " + response);
+                        data.recommended_products = JSON.parse(response);
+                        return resolve(response);
+                    }
+                });
+            });
 
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise
+                getTrendingProductsPromise,
+                getRecommendedProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
@@ -131,6 +137,7 @@ apiProducts.getData = function (req, res) {
             }
         });
     },
+
     apiProducts.getCollectionsDB = function (callback) {
         console.log("\n apiProducts: getCollectionsDB");
         db_pool.connect(function (err, client, done) {

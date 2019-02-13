@@ -11,8 +11,8 @@ db_pool.connect(function(err, client, done) {
        }
 
 
-  var query = "INSERT INTO orders (payment_mode, date, total_amount, order_address, products)  VALUES ($1, $2, $3, $4,$5)";
-  client.query(query, [ req.body.payment_mode, body.date, req.body.total_amount, req.body.order_address, req.body.products] ,function(err,result) {
+  var query = "INSERT INTO orders (payment_mode, total_amount, order_address, products, date)  VALUES ($1, $2, $3, $4)";
+  client.query(query, [ req.body.payment_mode, req.body.total_amount, req.body.order_address, req.body.products, new Date()] ,function(err,result) {
            done();
            if(err){
                console.log(err);
@@ -21,15 +21,15 @@ db_pool.connect(function(err, client, done) {
            res.status(200).send(result.rows);
        });
     });
-}
+},
 
 apiOrder.getOrderDetails = function (req, res) {
   db_pool.connect(function(err, client, done) {
        if(err) {
            res.status(400).send(err);
        }
-       var query = "SELECT * FROM orders WHERE order_id = $1";
-       client.query(query, [req.params.order_id] ,function(err, result) {
+       var query = "SELECT * FROM orders WHERE user_id = $1 AND order_id = $2";
+       client.query(query, [req.params.user_id, req.params.order_id] ,function(err, result) {
           done();
            if(err){
                console.log(err);
@@ -40,7 +40,26 @@ apiOrder.getOrderDetails = function (req, res) {
             }
        });
     });
-}
+},
+
+apiOrder.getAllOrders = function (req, res) {
+  db_pool.connect(function(err, client, done) {
+       if(err) {
+           res.status(400).send(err);
+       }
+       var query = "SELECT * FROM orders WHERE user_id = $1";
+       client.query(query, [req.params.user_id] ,function(err, result) {
+          done();
+           if(err){
+               console.log(err);
+               res.status(400).send(err);
+
+           } else {
+              res.status(200).send(result.rows);
+            }
+       });
+    });
+},
 
 apiOrder.rateProductPerOrder = function (req, res) {
   console.log("Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating )
