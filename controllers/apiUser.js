@@ -56,7 +56,7 @@ apiUser.login = function (req, res) {
               client.query(query, [req.body.email] ,function(err, result) {
                  //call `done()` to release the client back to the pool
                   done();
-                  if(err){
+                  if(err) {
                       console.log(err);
                       res.status(400).send(err);
 
@@ -65,8 +65,7 @@ apiUser.login = function (req, res) {
                      res.status(200).send(result.rows);
                    }
               });
-              //end update login status
-              res.status(200).send(result.rows);
+
             }
        });
     });
