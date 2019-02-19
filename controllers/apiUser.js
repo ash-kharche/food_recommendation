@@ -15,7 +15,7 @@ db_pool.connect(function(err, client, done) {
 
   //Currently password is same as 'mobile_number'
   var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)";
-  client.query(query, [ req.body.name, req.body.email, req.body.mobile_number, req.body.mobile_number] ,function(err,result) {
+  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.mobile_number] ,function(err,result) {
           //call `done()` to release the client back to the pool
            done();
             if(err) {
@@ -40,7 +40,7 @@ apiUser.login = function (req, res) {
            res.status(400).send(err);
        }
 
-       var query = "SELECT * FROM users WHERE email = $1 AND password = $2";
+       var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1)AND password = $2";
        client.query(query, [req.body.email, req.body.password] ,function(err, result) {
           //call `done()` to release the client back to the pool
            done();
