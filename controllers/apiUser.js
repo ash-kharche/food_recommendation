@@ -40,7 +40,7 @@ apiUser.login = function (req, res) {
            res.status(400).send(err);
        }
 
-       var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1)AND password = $2";
+       var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1 OR mobile_number = $1)AND password = $2";
        client.query(query, [req.body.email, req.body.password] ,function(err, result) {
           //call `done()` to release the client back to the pool
            done();
@@ -50,22 +50,7 @@ apiUser.login = function (req, res) {
 
            } else {
               console.log("### Login successful");
-
-              //start update login status
-              var query = "UPDATE users SET WHERE email = $1";
-              client.query(query, [req.body.email] ,function(err, result) {
-                 //call `done()` to release the client back to the pool
-                  done();
-                  if(err) {
-                      console.log(err);
-                      res.status(400).send(err);
-
-                  } else {
-                     console.log("### Login successful");
-                     res.status(200).send(result.rows);
-                   }
-              });
-
+              res.status(200).send(result.rows);
             }
        });
     });
