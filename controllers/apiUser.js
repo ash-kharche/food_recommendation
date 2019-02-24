@@ -42,7 +42,6 @@ apiUser.login = function (req, res) {
 
        var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1 OR mobile_number = $1)AND password = $2";
        client.query(query, [req.body.email, req.body.password] ,function(err, result) {
-          //call `done()` to release the client back to the pool
            done();
            if(err){
                console.log(err);
@@ -50,7 +49,7 @@ apiUser.login = function (req, res) {
 
            } else {
               console.log("### Login successful");
-              res.status(200).send(result.rows);
+              res.status(200).send(result.rows[0]);
             }
        });
     });
@@ -60,22 +59,12 @@ apiUser.logout = function (req, res) {
   console.log("######   LOGOUT API   ###### user_name:  " + req.body.email);
 
   db_pool.connect(function(err, client, done) {
-       if(err){
+       if(err) {
            console.log("#### not able to get connection "+ err);
            res.status(400).send(err);
+       } else {
+         res.status(200).send(result.rows);
        }
-       var query = "UPDATE users SET status = 0 WHERE email = $1";
-       client.query(query, [req.body.email] ,function(err, result) {
-           done();
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
-
-           } else {
-              console.log("### Login successful");
-              res.status(200).send(result.rows);
-            }
-       });
     });
 }
 
