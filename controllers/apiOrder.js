@@ -10,8 +10,10 @@ db_pool.connect(function(err, client, done) {
            res.status(400).send(err);
        }
 
+       console.log("#### ORDER API::     " + JSON.stringify(req.body.products));
+
     var query = "INSERT INTO orders (date, total_amount, order_address, payment_mode, products, user_id)  VALUES ($1, $2, $3, $4, $5, $6)";
-    client.query(query, [new Date(), req.body.total_amount, req.body.order_address, req.body.payment_mode, req.body.products, req.body.user_id] ,function(err,result) {
+    client.query(query, [new Date(), req.body.total_amount, req.body.order_address, req.body.payment_mode, JSON.stringify(req.body.products), req.body.user_id] ,function(err,result) {
              done();
            if(err) {
                console.log(err);
