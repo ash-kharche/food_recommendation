@@ -45,7 +45,7 @@ apiOrder.getOrderDetails = function (req, res) {
               var productIds = order.products;
 
               var productList = [];
-              for (i = 0, i < productIds.length;i++) {
+              for (var i = 0; i < productIds.length; i++) {
                   apiProducts.getProductById(productIds[i], function(err, result) {
                     if(result) {
                       productList[i] = result;
@@ -53,7 +53,7 @@ apiOrder.getOrderDetails = function (req, res) {
                   });
               }
               order.products = productList;
-              
+
               res.status(200).send(result.rows);
             }
        });
