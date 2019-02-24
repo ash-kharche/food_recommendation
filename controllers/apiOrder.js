@@ -41,22 +41,6 @@ apiOrder.getOrderDetails = function (req, res) {
                res.status(400).send(err);
 
            } else {
-              /*var order = result.rows;
-              console.log("#### getOrderDetails::     " + JSON.stringify(order));
-
-              var productIds = order.products;
-console.log("\n\n#### getOrderDetails::    productIds " + productIds);
-
-              var productList = [];
-              for (var i = 0; i < productIds.length; i++) {
-                  apiProducts.getProductById(productIds[i], function(err, result) {
-                    if(result) {
-                      productList[i] = result;
-                    }
-                  });
-              }
-              order.products = productList;*/
-
               res.status(200).send(result.rows[0]);
             }
        });
@@ -84,6 +68,30 @@ apiOrder.getAllOrders = function (req, res) {
               }
          });
      }
+    });
+},
+
+apiOrder.rateOrder = function (req, res) {
+  console.log("Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating )
+
+db_pool.connect(function(err, client, done) {
+       if(err){
+           console.log("not able to get connection "+ err);
+           res.status(400).send(err);
+       }
+
+  var query = "UPDATE orders (rating)  VALUES ($1) WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
+  client.query(query, [ req.body.rating] ,function(err,result) {
+           done();
+            if(err) {
+               console.log(err);
+               res.status(400).send(err);
+            } else if(rows != undefined) {
+                res.status(200).send("Product rating saved for  Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating);
+            } else {
+              res.status(200).send(result.rows);
+            }
+       });
     });
 },
 
