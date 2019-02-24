@@ -33,7 +33,7 @@ apiOrder.getOrderDetails = function (req, res) {
            res.status(400).send(err);
        }
        var query = "SELECT * FROM orders WHERE user_id = $1 AND order_id = $2";
-       client.query(query, [req.params.user_id, req.params.order_id] ,function(err, result) {
+       client.query(query, [req.body.user_id, req.body.order_id] ,function(err, result) {
           done();
            if(err){
                console.log(err);
@@ -52,10 +52,10 @@ apiOrder.getAllOrders = function (req, res) {
            res.status(400).send(err);
        } else {
 
-         console.log("$$$$$$\ngetAllOrders:  req.params.user_id  " + req.params.user_id);
+         console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.body.user_id);
 
          var query = "SELECT * FROM orders WHERE user_id = $1";
-         client.query(query, [req.params.user_id] ,function(err, result) {
+         client.query(query, [req.body.user_id] ,function(err, result) {
             done();
              if(err){
                  console.log(err);
