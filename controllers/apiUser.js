@@ -52,7 +52,7 @@ apiUser.login = function (req, res) {
               console.log("### Login successful");
 
               //start update login status
-              var query = "UPDATE users SET status = 0 WHERE email = $1";
+              var query = "UPDATE users SET WHERE email = $1";
               client.query(query, [req.body.email] ,function(err, result) {
                  //call `done()` to release the client back to the pool
                   done();
