@@ -157,6 +157,27 @@ apiProducts.getData = function (req, res) {
                 });
             }
         });
+    },
+
+    apiProducts.getProductById = function (productId, callback) {
+        console.log("\n apiProducts: getProductById::   " +productId);
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                callback(err, null);
+            } else {
+                var query = "SELECT * FROM products WHERE product_id = $1";
+                client.query(query, [productId], function (err, result) {
+                    done();
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+
+                    } else {
+                        callback(null, result.rows);
+                    }
+                });
+            }
+        });
     }
 
 

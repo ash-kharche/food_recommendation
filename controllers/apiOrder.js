@@ -1,6 +1,7 @@
 "use strict";
 
 var db_pool = require('./../helpers/db');
+var apiProducts = require('./../controllers/apiProducts');
 var apiOrder = {};
 
 apiOrder.placeOrder = function (req, res) {
@@ -40,6 +41,19 @@ apiOrder.getOrderDetails = function (req, res) {
                res.status(400).send(err);
 
            } else {
+              var order = result.rows;
+              var productIds = order.products;
+
+              var productList = [];
+              for (i = 0, i < productIds.length;i++) {
+                  apiProducts.getProductById(productIds[i], function(err, result) {
+                    if(result) {
+                      productList[i] = result;
+                    }
+                  });
+              }
+              order.products = productList;
+              
               res.status(200).send(result.rows);
             }
        });
