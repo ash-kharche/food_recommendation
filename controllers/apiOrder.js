@@ -11,14 +11,15 @@ db_pool.connect(function(err, client, done) {
        }
 
 
-  var query = "INSERT INTO orders (payment_mode, total_amount, order_address, products, date)  VALUES ($1, $2, $3, $4)";
-  client.query(query, [ req.body.payment_mode, req.body.total_amount, req.body.order_address, req.body.products, new Date()] ,function(err,result) {
+  var query = "INSERT INTO orders (user_id, payment_mode, total_amount, order_address, products, date)  VALUES ($1, $2, $3, $4, $5)";
+  client.query(query, [req.body.user_id, req.body.payment_mode, req.body.total_amount, req.body.order_address, req.body.products, new Date()] ,function(err,result) {
            done();
-           if(err){
+           if(err) {
                console.log(err);
                res.status(400).send(err);
-           }
-           res.status(200).send(result.rows);
+           } else {
+               res.status(200).send(result.rows);
+          }
        });
     });
 },
