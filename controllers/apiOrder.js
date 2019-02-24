@@ -55,7 +55,7 @@ apiOrder.getAllOrders = function (req, res) {
 
          var parsedUrl = url.parse(req.url, true);
 
-         console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.body.user_id   +"   parsedUrl.query.user_id   "  +parsedUrl.query.user_id);
+         console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.params.user_id   +"   parsedUrl.query.user_id   "  +parsedUrl.query.user_id);
 
          var query = "SELECT * FROM orders WHERE user_id = $1";
          client.query(query, [req.body.user_id] ,function(err, result) {
