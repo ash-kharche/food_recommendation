@@ -42,7 +42,10 @@ apiOrder.getOrderDetails = function (req, res) {
 
            } else {
               var order = result.rows;
+              console.log("#### getOrderDetails::     " + order);
+
               var productIds = order.products;
+console.log("\n\n#### getOrderDetails::    productIds " + productIds);
 
               var productList = [];
               for (var i = 0; i < productIds.length; i++) {
