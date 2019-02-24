@@ -41,7 +41,7 @@ apiOrder.getOrderDetails = function (req, res) {
                res.status(400).send(err);
 
            } else {
-              var order = result.rows;
+              /*var order = result.rows;
               console.log("#### getOrderDetails::     " + JSON.stringify(order));
 
               var productIds = order.products;
@@ -55,7 +55,7 @@ console.log("\n\n#### getOrderDetails::    productIds " + productIds);
                     }
                   });
               }
-              order.products = productList;
+              order.products = productList;*/
 
               res.status(200).send(result.rows);
             }
