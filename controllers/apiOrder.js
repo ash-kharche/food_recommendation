@@ -57,7 +57,7 @@ console.log("\n\n#### getOrderDetails::    productIds " + productIds);
               }
               order.products = productList;*/
 
-              res.status(200).send(result.rows);
+              res.status(200).send(result.rows[0]);
             }
        });
      }
