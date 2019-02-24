@@ -1,6 +1,7 @@
 "use strict";
 
 var db_pool = require('./../helpers/db');
+var url = require("url");
 var apiOrder = {};
 
 apiOrder.placeOrder = function (req, res) {
@@ -35,7 +36,7 @@ apiOrder.getOrderDetails = function (req, res) {
        var query = "SELECT * FROM orders WHERE user_id = $1 AND order_id = $2";
        client.query(query, [req.body.user_id, req.body.order_id] ,function(err, result) {
           done();
-           if(err){
+           if(err) {
                console.log(err);
                res.status(400).send(err);
 
@@ -52,7 +53,9 @@ apiOrder.getAllOrders = function (req, res) {
            res.status(400).send(err);
        } else {
 
-         console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.body.user_id);
+         var parsedUrl = url.parse(req.url, true);
+
+         console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.body.user_id   +"   parsedUrl.query.user_id   "  +parsedUrl.query.user_id);
 
          var query = "SELECT * FROM orders WHERE user_id = $1";
          client.query(query, [req.body.user_id] ,function(err, result) {
