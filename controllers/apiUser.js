@@ -21,7 +21,7 @@ db_pool.connect(function(err, client, done) {
             if(err) {
                console.log(err);
                res.status(400).send(err);
-            } else if(rows != undefined) {
+            } else if(result.rows != undefined) {
                 res.status(200).send("User saved with user_id " + result.rows[0].user_id);
             } else {
               res.status(200).send(result.rows);
