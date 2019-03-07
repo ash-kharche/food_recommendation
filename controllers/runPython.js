@@ -47,15 +47,21 @@ runPython.getRecommendedProducts = function (callback) {
              } else {
                 //res.status(200).send(result.rows[0]);
 
-                console.log("\n\n&&&&&&&&&&&&&&&ngetRecommendedProducts \n " +result.rows);
+                console.log("\n\n\n\n^^^^^^^^^\n ");
 
-                for (var i in result.rows) {
+                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows);
+                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products);
+                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0]);
+                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0].product_id);
+
+
+                /*for (var i in result.rows) {
                   var orderObject = result.rows[i];
                   console.log("\n\n****************\ngetRecommendedProducts \n " +orderObject);
 
                   console.log("\n\n$$$$$$$$$$$\ngetRecommendedProducts \n " +orderObject.products);
 
-                }
+                }*/
 
 
               }
