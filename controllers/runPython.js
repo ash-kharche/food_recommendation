@@ -47,22 +47,42 @@ runPython.getRecommendedProducts = function (callback) {
              } else {
                 //res.status(200).send(result.rows[0]);
 
-                console.log("\n\n\n\n^^^^^^^^^\n ");
+                //console.log("\n\n\n\n^^^^^^^^^\n ");
 
-                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows);
-                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products);
-                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0]);
-                console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0].product_id);
+                //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows);
+                //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products);
+                //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0]);
+                //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0].product_id);
+
+                var productIdList = [];
+                for (var i = 0; i < result.rows.length; i++) {
+                    var order = result.rows[i];
+                    for (var k = 0; k < order.products.length; k++) {
+                         console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
+                         productIdList.push(order.products[k].product_id);
+                  }
+                }
+
+                for (var i = 0; i < productIdList.length; i++) {
+                  console.log("\n*********t product_id from array:   " + productIdList[i]);
+                }
 
 
-                /*for (var i in result.rows) {
-                  var orderObject = result.rows[i];
-                  console.log("\n\n****************\ngetRecommendedProducts \n " +orderObject);
 
-                  console.log("\n\n$$$$$$$$$$$\ngetRecommendedProducts \n " +orderObject.products);
+                db_pool.connect(function(err, client, done) {
+                     if(err) {
+                         res.status(400).send(err);
+                     } else {
+                     var query = "SELECT * FROM products WHERE '77' = ANY(ingredients)";
+                     client.query(query, function(err, result) {
+                        done();
+                         if(err) {
+                             console.log(err);
+                             res.status(400).send(err);
 
-                }*/
-
+                         } else {
+                           res.status(200).send(result.rows);
+                         }
 
               }
          });
