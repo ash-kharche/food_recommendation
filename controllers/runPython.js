@@ -34,72 +34,64 @@ runPython.test = function (req, res) {
         })*/
 
         db_pool.connect(function (err, client, done) {
-                if (err) {
-                    res.status(400).send(err);
-                } else {
-                    var query = "SELECT * FROM orders WHERE user_id = 5";
-                    client.query(query, function (err, result) {
-                        done();
-                        if (err) {
-                            console.log(err);
-                            res.status(400).send(err);
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                var query = "SELECT * FROM orders WHERE user_id = 5";
+                client.query(query, function (err, result) {
+                    done();
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send(err);
 
-                        } else {
-                            //res.status(200).send(result.rows[0]);
+                    } else {
 
-                            //console.log("\n\n\n\n^^^^^^^^^\n ");
-
-                            //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows);
-                            //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products);
-                            //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0]);
-                            //console.log("\n\n&&&&&&&&&&&&&&&\ngetRecommendedProducts \n " +result.rows[0].products[0].product_id);
-
-                            var productIdList = [];
-                            for (var i = 0; i < result.rows.length; i++) {
-                                var order = result.rows[i];
-                                for (var k = 0; k < order.products.length; k++) {
-                                    console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
-                                    productIdList.push(order.products[k].product_id);
-                                }
+                        var productIdList = [];
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var order = result.rows[i];
+                            for (var k = 0; k < order.products.length; k++) {
+                                console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
+                                productIdList.push(order.products[k].product_id);
                             }
-
-                            for (var i = 0; i < productIdList.length; i++) {
-                                console.log("\n*********t product_id from array:   " + productIdList[i]);
-                            }
-
-
-                            db_pool.connect(function (err, client, done) {
-                                if (err) {
-                                    res.status(400).send(err);
-                                } else {
-                                    var query = "SELECT * FROM products WHERE 77 = ANY(ingredients)";
-                                    client.query(query, function (err, result) {
-                                        done();
-                                        if (err) {
-                                            console.log(err);
-                                            res.status(400).send(err);
-
-                                        } else {
-                                            res.status(200).send(result.rows);
-                                        }
-
-
-                                    });
-                                }
-                            });
                         }
-                    });
-                }
-            }
-        ,
 
-            runPython.getCartRecommendedProducts = function (callback) {
-                console.log("\nrunPython: getCartRecommendedProducts");
-                var process = spawn('python', ["./python/cart_recommendation.py"]);
-                process.stdout.on('data', function (data) {
-                    console.log("runPython: cart_recommendation");
-                    callback(null, data);
-                })
-            }
+                        for (var i = 0; i < productIdList.length; i++) {
+                            console.log("\n*********t product_id from array:   " + productIdList[i]);
+                        }
 
-            module.exports = runPython;
+
+                        db_pool.connect(function (err, client, done) {
+                            if (err) {
+                                res.status(400).send(err);
+                            } else {
+                                var query = "SELECT * FROM products WHERE 77 = ANY(ingredients)";
+                                client.query(query, function (err, result) {
+                                    done();
+                                    if (err) {
+                                        console.log(err);
+                                        res.status(400).send(err);
+
+                                    } else {
+                                        res.status(200).send(result.rows);
+                                    }
+
+
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    },
+
+    runPython.getCartRecommendedProducts = function (callback) {
+        console.log("\nrunPython: getCartRecommendedProducts");
+        var process = spawn('python', ["./python/cart_recommendation.py"]);
+        process.stdout.on('data', function (data) {
+            console.log("runPython: cart_recommendation");
+            callback(null, data);
+        })
+    }
+
+module.exports = runPython;
