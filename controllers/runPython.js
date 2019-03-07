@@ -46,8 +46,11 @@ runPython.getRecommendedProducts = function (callback) {
 
              } else {
                 //res.status(200).send(result.rows[0]);
+
+                console.log("\n\n&&&&&&&&&&&&&&&ngetRecommendedProducts \n " +result.rows);
+
                 for (var i in result.rows) {
-                  var orderObject = JSON.parse(result.rows[i]);
+                  var orderObject = result.rows[i];
                   console.log("\n\n****************\ngetRecommendedProducts \n " +orderObject);
 
                   console.log("\n\n$$$$$$$$$$$\ngetRecommendedProducts \n " +orderObject.products);
