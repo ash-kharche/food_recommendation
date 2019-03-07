@@ -35,14 +35,14 @@ runPython.test = function (req, res) {
 
         db_pool.connect(function (err, client, done) {
             if (err) {
-                res.status(400).send(err);
+                callback(new Error("DB not connected"), null);
             } else {
                 var query = "SELECT * FROM orders WHERE user_id = 5";
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
                         console.log(err);
-                        res.status(400).send(err);
+                        callback(new Error("No User available"), null);
 
                     } else {
 
@@ -62,17 +62,17 @@ runPython.test = function (req, res) {
 
                         db_pool.connect(function (err, client, done) {
                             if (err) {
-                                res.status(400).send(err);
+                                callback(new Error("DB not connected"), null);
                             } else {
                                 var query = "SELECT * FROM products WHERE 77 = ANY(ingredients)";
                                 client.query(query, function (err, result) {
                                     done();
                                     if (err) {
                                         console.log(err);
-                                        res.status(400).send(err);
+                                        callback(new Error("No products found matching ingredients"), null);
 
                                     } else {
-                                        res.status(200).send(result.rows);
+                                        callback(null, result.rows);
                                     }
 
 
