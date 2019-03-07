@@ -38,7 +38,7 @@ runPython.getRecommendedProducts = function (callback) {
              res.status(400).send(err);
          } else {
          var query = "SELECT * FROM orders WHERE user_id = 5";
-         client.query(query, [req.params.user_id] ,function(err, result) {
+         client.query(query, function(err, result) {
             done();
              if(err) {
                  console.log(err);
