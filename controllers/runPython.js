@@ -50,35 +50,41 @@ runPython.test = function (req, res) {
                         for (var i = 0; i < result.rows.length; i++) {
                             var order = result.rows[i];
                             for (var k = 0; k < order.products.length; k++) {
-                                console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
+                                //console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
                                 productIdList.push(order.products[k].product_id);
                             }
                         }
 
+                        var productsArray = [];
+
                         for (var i = 0; i < productIdList.length; i++) {
                             console.log("\n*********t product_id from array:   " + productIdList[i]);
+
+                            db_pool.connect(function (err, client, done) {
+                                if (err) {
+                                    callback(new Error("DB not connected"), null);
+                                } else {
+                                    var query = "SELECT * FROM products WHERE " + productIdList[i] + " = ANY(ingredients)";
+                                    client.query(query, function (err, result) {
+                                        done();
+                                        if (err) {
+                                            console.log(err);
+                                            callback(new Error("No products found matching ingredients"), null);
+
+                                        } else {
+
+                                            console.log("\n*********t products"  + result.rows);
+                                            productsArray.push(result.rows[0]); //TODO check if multiple products available
+                                        }
+
+
+                                    });
+                                }
+                            });
                         }
 
+                        callback(null, productsArray);
 
-                        db_pool.connect(function (err, client, done) {
-                            if (err) {
-                                callback(new Error("DB not connected"), null);
-                            } else {
-                                var query = "SELECT * FROM products WHERE 77 = ANY(ingredients)";
-                                client.query(query, function (err, result) {
-                                    done();
-                                    if (err) {
-                                        console.log(err);
-                                        callback(new Error("No products found matching ingredients"), null);
-
-                                    } else {
-                                        callback(null, result.rows);
-                                    }
-
-
-                                });
-                            }
-                        });
                     }
                 });
             }

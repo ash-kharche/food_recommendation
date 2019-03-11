@@ -22,7 +22,7 @@ apiProducts.getData = function (req, res) {
                         return reject();
                     } else {
                         console.log("ApiProducts : getCollectionsDB    :" + response);
-                        //data.collections = response;
+                        data.collections = response;
                         return resolve(response);
                     }
                 });
@@ -36,7 +36,7 @@ apiProducts.getData = function (req, res) {
                         return reject();
                     } else {
                         console.log("ApiProducts : getProducts    :" + response);
-                        //data.products = response;
+                        data.products = response;
                         return resolve(response);
                     }
                 });
@@ -51,7 +51,7 @@ apiProducts.getData = function (req, res) {
                         return reject();
                     } else {
                         console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() + "  \n\n " + response);
-                        //data.trending_products = JSON.parse(response);
+                        data.trending_products = JSON.parse(response);
                         return resolve(response);
                     }
                 });
