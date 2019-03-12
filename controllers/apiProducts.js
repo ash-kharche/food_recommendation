@@ -43,33 +43,31 @@ apiProducts.getData = function (req, res) {
             });
 
             var getTrendingProductsPromise = new Promise(function (resolve, reject) {
-                runPython.getTrendingProducts(function (err, response) {
-                    //console.log("ApiProducts:  trending_products " + new Date() + "  \n\n ");
-                    if (err) {
-                        data.trending_products = [];
-                        //console.log("ApiProducts : trending_products ERROR   : " + new Date() + "  \n\n " + err);
-                        return reject();
-                    } else {
-                        //console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() + "  \n\n " + response);
-                        data.trending_products = JSON.parse(response);
-                        return resolve(response);
-                    }
-                });
+              apiProducts.getTrendingProducts(function (err, response) {
+                  if (err) {
+                      //console.log("ApiProducts : trending_products    :" + err);
+                      data.trending_products = [];
+                      return reject();
+                  } else {
+                      //console.log("ApiProducts : trending_products    :" + response);
+                      data.trending_products = response;
+                      return resolve(response);
+                  }
+              });
             });
 
             var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
-                runPython.getRecommendedProducts(req.params.user_id, function (err, response) {
-                    console.log("ApiProducts:  recommended_products " + new Date() + "   " +req.params.user_id +" \n\n ");
-                    if (err) {
-                        data.recommended_products = [];
-                        console.log("ApiProducts : recommended_products ERROR   : " + new Date() + "  : " + err);
-                        return reject();
-                    } else {
-                        console.log("ApiProducts:  recommended_products SUCCESS :  " + new Date() + " : " + response);
-                        data.recommended_products = JSON.parse(response);
-                        return resolve(response);
-                    }
-                });
+              apiProducts.getTrendingProducts(function (err, response) {
+                  if (err) {
+                      //console.log("ApiProducts : trending_products    :" + err);
+                      data.recommended_products = [];
+                      return reject();
+                  } else {
+                      //console.log("ApiProducts : trending_products    :" + response);
+                      data.recommended_products = response;
+                      return resolve(response);
+                  }
+              });
             });
 
             Promise.all([
@@ -80,7 +78,7 @@ apiProducts.getData = function (req, res) {
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
-                    console.log(values);
+                    //console.log(values);
                     res.status(200).send(data);
                 }).catch(err => {
                 console.log("\n@@@@@\ApiProducts Error\n\n");
@@ -118,7 +116,7 @@ apiProducts.getData = function (req, res) {
     },
 
     apiProducts.getProducts = function (callback) {
-        console.log("\n apiProducts: getProducts");
+        //console.log("\n apiProducts: getProducts");
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
@@ -137,9 +135,29 @@ apiProducts.getData = function (req, res) {
             }
         });
     },
+    apiProducts.getTrendingProducts = function (callback) {
+        //console.log("\n apiProducts: getProducts");
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                callback(err, null);
+            } else {
+                var query = "SELECT * FROM products ORDER BY rating LIMIT 5";
+                client.query(query, function (err, result) {
+                    done();
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+
+                    } else {
+                        callback(null, result.rows);
+                    }
+                });
+            }
+        });
+    },
 
     apiProducts.getCollectionsDB = function (callback) {
-        console.log("\n apiProducts: getCollectionsDB");
+        //console.log("\n apiProducts: getCollectionsDB");
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
