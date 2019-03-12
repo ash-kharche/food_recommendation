@@ -49,7 +49,7 @@ apiProducts.getData = function (req, res) {
                         data.trending_products = [];
                         return reject();
                     } else {
-                        console.log("ApiProducts : trending_products    :" + response);
+                        //console.log("ApiProducts : trending_products    :" + response);
                         data.trending_products = response;
                         return resolve(response);
                     }
@@ -59,7 +59,7 @@ apiProducts.getData = function (req, res) {
             var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getRecommendedProducts(req.params.user_id, function (err, response) {
                     if (err) {
-                        console.log("ApiProducts : $$$$$recommended_products    :" + err);
+                        console.log("ApiProducts : ^^^^^^recommended_products    :" + err);
                         data.recommended_products = [];
                         return reject();
                     } else {
@@ -182,7 +182,7 @@ apiProducts.getData = function (req, res) {
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             console.log("111");
-                            //done();
+                            done();
 
                             if (err) {
                                 console.log("222");
@@ -191,15 +191,16 @@ apiProducts.getData = function (req, res) {
 
                             } else {
                                 console.log("333");
-                                console.log("\n*********t products" + result.rows);
+                                console.log("\n*********debugging recommendation products" + result.rows);
                                 productsArray.push(result.rows); //TODO check if multiple products available
+                                callback(null, productsArray);
                             }
 
 
                         });
 
-                        done();
-                        callback(null, productsArray);
+                        //done();
+
                     }
                 });
             }
