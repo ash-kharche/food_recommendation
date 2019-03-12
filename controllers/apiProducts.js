@@ -59,11 +59,11 @@ apiProducts.getData = function (req, res) {
             var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getRecommendedProducts(req.params.user_id, function (err, response) {
                     if (err) {
-                        //console.log("ApiProducts : trending_products    :" + err);
+                        console.log("ApiProducts : trending_products    :" + err);
                         data.recommended_products = [];
                         return reject();
                     } else {
-                        //console.log("ApiProducts : trending_products    :" + response);
+                        console.log("ApiProducts : trending_products    :" + response);
                         data.recommended_products = response;
                         return resolve(response);
                     }
