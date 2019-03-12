@@ -64,15 +64,18 @@ runPython.test = function (req, res) {
                                 if (err) {
                                     callback(new Error("DB not connected"), null);
                                 } else {
-                                    var query = "SELECT * FROM products WHERE " + productIdList[i] + " = ANY(ingredients)";
+                                    var query = "SELECT * FROM products WHERE '" + productIdList[i] + "' = ANY(ingredients)";
+                                    console.log("query:   " +query);
                                     client.query(query, function (err, result) {
+                                      console.log("111");
                                         done();
                                         if (err) {
+                                          console.log("222");
                                             console.log(err);
                                             callback(new Error("No products found matching ingredients"), null);
 
                                         } else {
-
+                                            console.log("333");
                                             console.log("\n*********t products"  + result.rows);
                                             productsArray.push(result.rows[0]); //TODO check if multiple products available
                                         }
