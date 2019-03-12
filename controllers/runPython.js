@@ -47,25 +47,27 @@ runPython.test = function (req, res) {
 
                     } else {
 
-                        var productIdList = [];
+                        var ingredientsIdList = [];
+                        var myString = "";
                         for (var i = 0; i < result.rows.length; i++) {
                             var order = result.rows[i];
                             for (var k = 0; k < order.products.length; k++) {
                                 //console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
-                                productIdList.push(order.products[k].product_id);
+                                ingredientsIdList.push(order.products[k].ingredients);
+                                myString =  myString + "," + order.products[k].ingredients;
                             }
                         }
-
+                        console.log("\n*********myString:   " + myString);
                         var productsArray = [];
 
-                        for (var i = 0; i < productIdList.length; i++) {
-                            console.log("\n*********t product_id from array:   " + productIdList[i]);
+                        //for (var i = 0; i < ingredientsIdList.length; i++) {
+                            //console.log("\n*********t ingredients from array:   " + ingredientsIdList[i]);
 
-                            db_pool.connect(function (err, client, done) {
-                                if (err) {
-                                    callback(new Error("DB not connected"), null);
-                                } else {
-                                    var query = "SELECT * FROM products WHERE '" + productIdList[i] + "' = ANY(ingredients)";
+                            //db_pool.connect(function (err, client, done) {
+                                //if (err) {
+                                  //  callback(new Error("DB not connected"), null);
+                                //} else {
+                                    var query = "SELECT * FROM products WHERE ingredients && ARRAY[" + ingredientsIdList+"]";
                                     console.log("query:   " +query);
                                     client.query(query, function (err, result) {
                                       console.log("111");
@@ -84,9 +86,9 @@ runPython.test = function (req, res) {
 
 
                                     });
-                                }
-                            });
-                        }
+                                //}
+                            //});
+                        //}
 
 
                         done();
