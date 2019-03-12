@@ -204,7 +204,7 @@ apiProducts.getData = function (req, res) {
 
                         });
 
-                        callback(null, result.rows);
+                        callback(null, productsArray);
                     }
                 });
             }
