@@ -57,7 +57,7 @@ runPython.test = function (req, res) {
                                 myString =  myString + "," + order.products[k].ingredients;
                             }
                         }
-                        console.log("\n*********myString:   " + myString);
+                        console.log("\n********* myString:   " + myString);
                         var productsArray = [];
 
                         //for (var i = 0; i < ingredientsIdList.length; i++) {
@@ -81,7 +81,7 @@ runPython.test = function (req, res) {
                                         } else {
                                             console.log("333");
                                             console.log("\n*********t products"  + result.rows);
-                                            productsArray.push(result.rows[0]); //TODO check if multiple products available
+                                            productsArray.push(result.rows); //TODO check if multiple products available
                                         }
 
 
