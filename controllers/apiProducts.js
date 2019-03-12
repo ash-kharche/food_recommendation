@@ -49,7 +49,7 @@ apiProducts.getData = function (req, res) {
                         data.trending_products = [];
                         return reject();
                     } else {
-                        //console.log("ApiProducts : trending_products    :" + response);
+                        console.log("ApiProducts : trending_products    :" + response);
                         data.trending_products = response;
                         return resolve(response);
                     }
@@ -59,11 +59,11 @@ apiProducts.getData = function (req, res) {
             var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getRecommendedProducts(req.params.user_id, function (err, response) {
                     if (err) {
-                        console.log("ApiProducts : trending_products    :" + err);
+                        console.log("ApiProducts : $$$$$recommended_products    :" + err);
                         data.recommended_products = [];
                         return reject();
                     } else {
-                        console.log("ApiProducts : trending_products    :" + response);
+                        console.log("ApiProducts : $$$$$$recommended_products    :" + response);
                         data.recommended_products = response;
                         return resolve(response);
                     }
@@ -98,17 +98,12 @@ apiProducts.getData = function (req, res) {
 
             var query = "SELECT * FROM collections";
             client.query(query, function (err, result) {
-                //call `done()` to release the client back to the pool
-                console.log("#### getCollections #1");
-
                 done();
                 if (err) {
-                    console.log("#### getCollections #2");
                     console.log(err);
                     res.status(400).send(err);
 
                 } else {
-                    console.log("#### getCollections #3");
                     res.status(200).send(result.rows);
                 }
             });
@@ -166,7 +161,7 @@ apiProducts.getData = function (req, res) {
                 client.query(query, function (err, result) {
                     //done();
                     if (err) {
-                        console.log(err);
+                        console.log("0000    " + err);
                         callback(err, null);
 
                     } else {
@@ -176,7 +171,6 @@ apiProducts.getData = function (req, res) {
                         for (var i = 0; i < result.rows.length; i++) {
                             var order = result.rows[i];
                             for (var k = 0; k < order.products.length; k++) {
-                                //console.log("\n&&&&&&&&&&&&&&&\t product_id:   " + order.products[k].product_id);
                                 ingredientsIdList.push(order.products[k].ingredients);
                                 myString = myString + "," + order.products[k].ingredients;
                             }
@@ -204,6 +198,7 @@ apiProducts.getData = function (req, res) {
 
                         });
 
+                        done();
                         callback(null, productsArray);
                     }
                 });
