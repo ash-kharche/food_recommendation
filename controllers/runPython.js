@@ -25,7 +25,7 @@ runPython.test = function (req, res) {
 
     runPython.getRecommendedProducts = function (userId, callback) {
         console.log("\nrunPython: getRecommendedProducts");
-        var process = spawn('python', ["./python/recommendation.py"]);
+        var process = spawn('python', ["./python/trending_products.py"]);
         process.stdout.on('data', function(data) {
               if(data) {
                   console.log("runPython: recommendation");
@@ -36,14 +36,6 @@ runPython.test = function (req, res) {
 
     runPython.getRecommendedProducts1 = function (userId, callback) {
         console.log("\nrunPython: getRecommendedProducts");
-        var process = spawn('python', ["./python/recommendation.py"]);
-        /*process.stdout.on('data', function(data) {
-              if(data) {
-                  console.log("runPython: recommendation");
-                  callback(null, data);
-              }
-        })*/
-
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(new Error("DB not connected"), null);
