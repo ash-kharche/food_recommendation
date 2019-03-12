@@ -13,7 +13,7 @@ router.put('/signUpUser', controllers.apiUser.signUpUser);
 router.get('/getAllUsers', controllers.apiUser.getAllUsers);
 router.get('/getUser/:user_id', controllers.apiUser.getUser);
 
-router.get('/getData', controllers.apiProducts.getData);
+router.get('/getData/:user_id', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
 //router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
 

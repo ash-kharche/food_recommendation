@@ -71,11 +71,12 @@ apiProducts.getData = function (req, res) {
                     }
                 });
             });
-//,getRecommendedProductsPromise
+
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise
+                getTrendingProductsPromise,
+                getRecommendedProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
