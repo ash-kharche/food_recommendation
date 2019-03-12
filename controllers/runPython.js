@@ -33,13 +33,14 @@ runPython.test = function (req, res) {
               }
         })*/
 
-        /*db_pool.connect(function (err, client, done) {
+        db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(new Error("DB not connected"), null);
             } else {
                 var query = "SELECT * FROM orders WHERE user_id = 5";
                 client.query(query, function (err, result) {
-                    done();
+                    //done();
+
                     if (err) {
                         console.log(err);
                         callback(new Error("No User available"), null);
@@ -68,7 +69,8 @@ runPython.test = function (req, res) {
                                     console.log("query:   " +query);
                                     client.query(query, function (err, result) {
                                       console.log("111");
-                                        done();
+                                        //done();
+
                                         if (err) {
                                           console.log("222");
                                             console.log(err);
@@ -86,14 +88,16 @@ runPython.test = function (req, res) {
                             });
                         }
 
+
+                        done();
                         callback(null, productsArray);
 
                     }
                 });
             }
-        });*/
+        });
 
-        var productIdList = [];
+       /*var productIdList = [];
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(new Error("DB not connected"), null);
@@ -152,7 +156,7 @@ runPython.test = function (req, res) {
             });
         }
 
-        callback(null, productsArray);
+        callback(null, productsArray);*/
     },
 
     runPython.getCartRecommendedProducts = function (callback) {

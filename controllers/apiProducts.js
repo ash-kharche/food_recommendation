@@ -62,10 +62,10 @@ apiProducts.getData = function (req, res) {
                     console.log("ApiProducts:  recommended_products " + new Date() + "  \n\n ");
                     if (err) {
                         data.recommended_products = [];
-                        console.log("ApiProducts : recommended_products ERROR   : " + new Date() + "  \n\n " + err);
+                        console.log("ApiProducts : recommended_products ERROR   : " + new Date() + "  : " + err);
                         return reject();
                     } else {
-                        console.log("ApiProducts:  recommended_products SUCCESS :  " + new Date() + "  \n\n " + response);
+                        console.log("ApiProducts:  recommended_products SUCCESS :  " + new Date() + " : " + response);
                         data.recommended_products = JSON.parse(response);
                         return resolve(response);
                     }
