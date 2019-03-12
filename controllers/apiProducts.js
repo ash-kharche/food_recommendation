@@ -17,11 +17,11 @@ apiProducts.getData = function (req, res) {
             var getCollectionsDBPromise = new Promise(function (resolve, reject) {
                 apiProducts.getCollectionsDB(function (err, response) {
                     if (err) {
-                        console.log("ApiProducts : getCollectionsDB    :" + err);
+                        //console.log("ApiProducts : getCollectionsDB    :" + err);
                         data.collections = [];
                         return reject();
                     } else {
-                        console.log("ApiProducts : getCollectionsDB    :" + response);
+                        //console.log("ApiProducts : getCollectionsDB    :" + response);
                         data.collections = response;
                         return resolve(response);
                     }
@@ -31,11 +31,11 @@ apiProducts.getData = function (req, res) {
             var getProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getProducts(function (err, response) {
                     if (err) {
-                        console.log("ApiProducts : getProducts    :" + err);
+                        //console.log("ApiProducts : getProducts    :" + err);
                         data.products = [];
                         return reject();
                     } else {
-                        console.log("ApiProducts : getProducts    :" + response);
+                        //console.log("ApiProducts : getProducts    :" + response);
                         data.products = response;
                         return resolve(response);
                     }
@@ -44,13 +44,13 @@ apiProducts.getData = function (req, res) {
 
             var getTrendingProductsPromise = new Promise(function (resolve, reject) {
                 runPython.getTrendingProducts(function (err, response) {
-                    console.log("ApiProducts:  trending_products " + new Date() + "  \n\n ");
+                    //console.log("ApiProducts:  trending_products " + new Date() + "  \n\n ");
                     if (err) {
                         data.trending_products = [];
-                        console.log("ApiProducts : trending_products ERROR   : " + new Date() + "  \n\n " + err);
+                        //console.log("ApiProducts : trending_products ERROR   : " + new Date() + "  \n\n " + err);
                         return reject();
                     } else {
-                        console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() + "  \n\n " + response);
+                        //console.log("ApiProducts:  trending_products SUCCESS :  " + new Date() + "  \n\n " + response);
                         data.trending_products = JSON.parse(response);
                         return resolve(response);
                     }
@@ -58,8 +58,8 @@ apiProducts.getData = function (req, res) {
             });
 
             var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
-                runPython.getRecommendedProducts(function (err, response) {
-                    console.log("ApiProducts:  recommended_products " + new Date() + "  \n\n ");
+                runPython.getRecommendedProducts(req.params.user_id, function (err, response) {
+                    console.log("ApiProducts:  recommended_products " + new Date() + "   " +req.params.user_id +" \n\n ");
                     if (err) {
                         data.recommended_products = [];
                         console.log("ApiProducts : recommended_products ERROR   : " + new Date() + "  : " + err);
@@ -71,12 +71,11 @@ apiProducts.getData = function (req, res) {
                     }
                 });
             });
-
+//,getRecommendedProductsPromise
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise,
-                getRecommendedProductsPromise
+                getTrendingProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");

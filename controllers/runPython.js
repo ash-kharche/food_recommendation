@@ -23,7 +23,7 @@ runPython.test = function (req, res) {
         })
     },
 
-    runPython.getRecommendedProducts = function (callback) {
+    runPython.getRecommendedProducts = function (userId, callback) {
         console.log("\nrunPython: getRecommendedProducts");
         var process = spawn('python', ["./python/recommendation.py"]);
         /*process.stdout.on('data', function(data) {
@@ -37,7 +37,7 @@ runPython.test = function (req, res) {
             if (err) {
                 callback(new Error("DB not connected"), null);
             } else {
-                var query = "SELECT * FROM orders WHERE user_id = 5";
+                var query = "SELECT * FROM orders WHERE user_id = " + userId;
                 client.query(query, function (err, result) {
                     //done();
 
