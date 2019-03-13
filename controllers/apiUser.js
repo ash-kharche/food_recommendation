@@ -4,101 +4,123 @@ var db_pool = require('./../helpers/db');
 var apiUser = {};
 
 apiUser.signUpUser = function (req, res) {
-  console.log("Username:  " +req.body.user_name)
+    console.log("Username:  " + req.body.user_name)
 
-db_pool.connect(function(err, client, done) {
-       if(err){
-           console.log("not able to get connection "+ err);
-           res.status(400).send(err);
-       }
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("not able to get connection " + err);
+            res.status(400).send(err);
+        }
 
 
-  //Currently password is same as 'mobile_number'
-  var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)  RETURNING *";
-  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.password] ,function(err,result) {
-           done();
-            if(err) {
-               console.log(err);
-               res.status(400).send(err);
+        //Currently password is same as 'mobile_number'
+        var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)  RETURNING *";
+        client.query(query, [req.body.user_name, req.body.email, req.body.mobile_number, req.body.password], function (err, result) {
+            done();
+            if (err) {
+                console.log(err);
+                res.status(400).send(err);
             } else {
                 res.status(200).send(result.rows[0]);
             }
-       });
+        });
+    });
+}
+
+apiUser.submitAnswers = function (req, res) {
+    console.log("user_id:  " + req.body.user_id)
+
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("not able to get connection " + err);
+            res.status(400).send(err);
+        } else {
+          var query = "UPDATE users (gender, weight, height, is_veg, is_diabetes, is_bp, is_cholestrol, is_question_done)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)  RETURNING *";
+            client.query(query, [req.body.gender, req.body.weight, req.body.height, req.body.is_veg, req.body.is_diabetes, req.body.is_bp, req.body.is_cholestrol, req.body.is_question_done], function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).send(result.rows[0]);
+                }
+            });
+        }
     });
 }
 
 apiUser.login = function (req, res) {
-  console.log("######   LOGIN API   ###### user_name:  " + req.body.email + " and password: " + req.body.password);
+    console.log("######   LOGIN API   ###### user_name:  " + req.body.email + " and password: " + req.body.password);
 
-  db_pool.connect(function(err, client, done) {
-       if(err){
-           console.log("#### not able to get connection "+ err);
-           res.status(400).send(err);
-       }
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("#### not able to get connection " + err);
+            res.status(400).send(err);
+        }
 
-       var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1 OR mobile_number = $1)AND password = $2";
-       client.query(query, [req.body.email, req.body.password] ,function(err, result) {
-           done();
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
+        var query = "SELECT * FROM users WHERE (email = $1 OR user_name = $1 OR mobile_number = $1)AND password = $2";
+        client.query(query, [req.body.email, req.body.password], function (err, result) {
+            done();
+            if (err) {
+                console.log(err);
+                res.status(400).send(err);
 
-           } else {
-              console.log("### Login successful:   " +result.rows[0]);
-              res.status(200).send(result.rows[0]);
+            } else {
+                console.log("### Login successful:   " + result.rows[0]);
+                res.status(200).send(result.rows[0]);
             }
-       });
+        });
     });
 }
 
 apiUser.logout = function (req, res) {
-  console.log("######   LOGOUT API   ###### user_name:  " + req.body.email);
+    console.log("######   LOGOUT API   ###### user_name:  " + req.body.email);
 
-  db_pool.connect(function(err, client, done) {
-       if(err) {
-           console.log("#### not able to get connection "+ err);
-           res.status(400).send(err);
-       } else {
-         res.status(200).send(result.rows);
-       }
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("#### not able to get connection " + err);
+            res.status(400).send(err);
+        } else {
+            res.status(200).send(result.rows);
+        }
     });
 }
 
 apiUser.getAllUsers = function (req, res) {
-  db_pool.connect(function(err, client, done) {
-       if(err){
-           res.status(400).send(err);
-       }
-       var query = "SELECT * FROM users";
-       client.query(query,function(err, result) {
-          done();
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            res.status(400).send(err);
+        }
+        var query = "SELECT * FROM users";
+        client.query(query, function (err, result) {
+            done();
+            if (err) {
+                console.log(err);
+                res.status(400).send(err);
 
-           } else {
-              res.status(200).send(result.rows);
+            } else {
+                res.status(200).send(result.rows);
             }
-       });
+        });
     });
 }
 
 apiUser.getUser = function (req, res) {
-  db_pool.connect(function(err, client, done) {
-       if(err) {
-           res.status(400).send(err);
-       }
-       var query = "SELECT * FROM users WHERE user_id = $1";
-       client.query(query, [req.params.user_id] ,function(err, result) {
-          done();
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            res.status(400).send(err);
+        }
+        var query = "SELECT * FROM users WHERE user_id = $1";
+        client.query(query, [req.params.user_id], function (err, result) {
+            done();
+            if (err) {
+                console.log(err);
+                res.status(400).send(err);
 
-           } else {
-              res.status(200).send(result.rows);
+            } else {
+                res.status(200).send(result.rows);
             }
-       });
+        });
     });
 }
 

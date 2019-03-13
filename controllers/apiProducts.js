@@ -260,7 +260,7 @@ apiProducts.getData = function (req, res) {
                 res.status(400).send(err);
             } else {
 
-              var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (" + req.params.collections + ")) rank_filter WHERE RANK <=5";
+              var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (" + req.params.collections + ")) rank_filter WHERE RANK <=" + req.params.rank;
               console.log("query:   " + query);
               client.query(query, function (err, result) {
                   done();
