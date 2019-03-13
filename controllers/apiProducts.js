@@ -12,6 +12,13 @@ apiProducts.getData = function (req, res) {
 
         } else {
 
+            var user_id = req.params.user_id;
+            var is_veg = req.params.is_veg;
+            var diabetes = req.params.diabetes;
+            var bp = req.params.bp;
+            var cholestrol = req.params.cholestrol;
+            var special_case = req.params.special_case;
+
             var data = {};
 
             var getCollectionsDBPromise = new Promise(function (resolve, reject) {
@@ -29,7 +36,7 @@ apiProducts.getData = function (req, res) {
             });
 
             var getProductsPromise = new Promise(function (resolve, reject) {
-                apiProducts.getProducts(function (err, response) {
+                apiProducts.getProducts(is_veg, diabetes, bp, cholestrol, special_case, function (err, response) {
                     if (err) {
                         //console.log("ApiProducts : getProducts    :" + err);
                         data.products = [];
@@ -43,7 +50,7 @@ apiProducts.getData = function (req, res) {
             });
 
             var getTrendingProductsPromise = new Promise(function (resolve, reject) {
-                apiProducts.getTrendingProducts(function (err, response) {
+                apiProducts.getTrendingProducts(is_veg, diabetes, bp, cholestrol, special_case, function (err, response) {
                     if (err) {
                         //console.log("ApiProducts : trending_products    :" + err);
                         data.trending_products = [];
@@ -56,8 +63,8 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            /*var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
-                apiProducts.getRecommendedProducts(req.params.user_id, function (err, response) {
+            var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
+                apiProducts.getRecommendedProducts(user_id, is_veg, diabetes, bp, cholestrol, special_case, function (err, response) {
                     if (err) {
                         console.log("ApiProducts : ^^^^^^recommended_products    :" + err);
                         data.recommended_products = [];
@@ -68,13 +75,13 @@ apiProducts.getData = function (req, res) {
                         return resolve(response);
                     }
                 });
-            });*/
-//,
-//getRecommendedProductsPromise
+            });
+
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise
+                getTrendingProductsPromise,
+                getRecommendedProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
@@ -110,13 +117,13 @@ apiProducts.getData = function (req, res) {
         });
     },
 
-    apiProducts.getProducts = function (callback) {
+    apiProducts.getProducts = function (is_veg, diabetes, bp, cholestrol, special_case, callback) {
         //console.log("\n apiProducts: getProducts");
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
             } else {
-                var query = "SELECT * FROM products";
+                var query = "SELECT * FROM products WHERE is_veg = " + is_veg;
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -130,13 +137,13 @@ apiProducts.getData = function (req, res) {
             }
         });
     },
-    apiProducts.getTrendingProducts = function (callback) {
+    apiProducts.getTrendingProducts = function (is_veg, diabetes, bp, cholestrol, special_case, callback) {
         //console.log("\n apiProducts: getProducts");
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
             } else {
-                var query = "SELECT * FROM products ORDER BY rating LIMIT 5";
+                var query = "SELECT * FROM products WHERE is_veg = " + is_veg + " ORDER BY rating LIMIT 5";
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -151,12 +158,12 @@ apiProducts.getData = function (req, res) {
         });
     },
 
-    apiProducts.getRecommendedProducts = function (userId, callback) {
+    apiProducts.getRecommendedProducts = function (user_id, is_veg, diabetes, bp, cholestrol, special_case, callback) {
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
             } else {
-                var query = "SELECT * FROM orders WHERE user_id = " + userId;
+                var query = "SELECT * FROM orders WHERE user_id = " + user_id;
                 client.query(query, function (err, result) {
                     //done();
                     if (err) {
@@ -174,7 +181,7 @@ apiProducts.getData = function (req, res) {
                         console.log("\n********* ingredientsIdList:   " + ingredientsIdList);
 
                         var productsArray = [];
-                        var query = "SELECT * FROM products WHERE ingredients && ARRAY[" + ingredientsIdList + "]";
+                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND isveg = " + is_veg + ") ORDER BY rating LIMIT 10";
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             done();

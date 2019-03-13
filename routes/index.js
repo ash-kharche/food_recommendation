@@ -3,9 +3,9 @@ var router = express.Router();
 var controllers = require("../controllers");
 
 //router.get('/test', controllers.runPython.test);
-router.get('/getTrendingProducts', controllers.runPython.getTrendingProducts);
-router.get('/getRecommendedProducts', controllers.runPython.getRecommendedProducts);
-router.get('/getCartRecommendedProducts', controllers.apiProducts.getCartRecommendedProducts);
+router.get('/getTrendingProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getTrendingProducts);
+router.get('/getRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getRecommendedProducts);
+router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getCartRecommendedProducts);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);
@@ -13,7 +13,7 @@ router.put('/signUpUser', controllers.apiUser.signUpUser);
 router.get('/getAllUsers', controllers.apiUser.getAllUsers);
 router.get('/getUser/:user_id', controllers.apiUser.getUser);
 
-router.get('/getData/:user_id', controllers.apiProducts.getData);
+router.get('/getData/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
 //router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
 
