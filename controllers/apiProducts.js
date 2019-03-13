@@ -235,15 +235,11 @@ apiProducts.getData = function (req, res) {
                             done();
 
                             if (err) {
-                                callback(new Error("No products found matching ingredients"), null);
+                                res.status(400).send(err);
                             } else {
-                                callback(null, result.rows);
+                                res.status(200).send(result.rows);
                             }
-
-
                         });
-
-                        //done();
 
                     }
                 });
