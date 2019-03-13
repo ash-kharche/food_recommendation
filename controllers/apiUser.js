@@ -14,15 +14,14 @@ db_pool.connect(function(err, client, done) {
 
 
   //Currently password is same as 'mobile_number'
-  var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)";
-  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.mobile_number] ,function(err,result) {
-          //call `done()` to release the client back to the pool
+  var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)  RETURNING *";
+  client.query(query, [ req.body.user_name, req.body.email, req.body.mobile_number, req.body.password] ,function(err,result) {
            done();
             if(err) {
                console.log(err);
                res.status(400).send(err);
-            } else if(result.rows != undefined) {
-                res.status(200).send("User saved with user_id " + result.rows[0]);
+            } else {
+                res.status(200).send(result.rows[0]);
             }
        });
     });
@@ -46,7 +45,7 @@ apiUser.login = function (req, res) {
                res.status(400).send(err);
 
            } else {
-              console.log("### Login successful");
+              console.log("### Login successful:   " +result.rows[0]);
               res.status(200).send(result.rows[0]);
             }
        });
