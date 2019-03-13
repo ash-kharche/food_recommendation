@@ -13,7 +13,7 @@ db_pool.connect(function(err, client, done) {
 
        //console.log("#### ORDER API::     " + JSON.stringify(req.body.products));
 
-    var query = "INSERT INTO orders (date, total_amount, order_address, payment_mode, products, user_id)  VALUES ($1, $2, $3, $4, $5, $6) RETURNING *";
+    var query = "INSERT INTO orders (date, total_amount, order_address, payment_mode, products, user_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *";
     client.query(query, [new Date(), req.body.total_amount, req.body.order_address, req.body.payment_mode, JSON.stringify(req.body.products), req.body.user_id] ,
 
     function(err,result) {

@@ -37,7 +37,7 @@ apiUser.submitAnswers = function (req, res) {
         } else {
             var query = "UPDATE users (gender, weight, height, is_veg, is_diabetes, is_bp, is_cholestrol, is_question_done) " +
                 "VALUES ($1, $2, $3, $4, $5, $6, $7, $8) WHERE user_id = " + req.body.user_id + " RETURNING * ";
-
+            console.log("@@@@@@submitAnswers\n\n" + query + "\n");
             client.query(query,
                 [req.body.gender, req.body.weight, req.body.height, req.body.is_veg, req.body.is_diabetes, req.body.is_bp, req.body.is_cholestrol, req.body.is_question_done],
                 function (err, result) {
@@ -47,9 +47,10 @@ apiUser.submitAnswers = function (req, res) {
                         console.log(err);
                         res.status(400).send(err);
                     } else {
+                      console.log("submitAnswers:  " +result.rows[0]);
                         res.status(200).send(result.rows[0]);
                     }
-            });
+                });
         }
     });
 }
