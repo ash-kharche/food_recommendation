@@ -81,8 +81,8 @@ db_pool.connect(function(err, client, done) {
            res.status(400).send(err);
        }
 
-  var query = "UPDATE orders (rating)  VALUES ($1) WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
-  client.query(query, [ req.body.rating] ,function(err,result) {
+  var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
+  client.query(query,function(err,result) {
            done();
             if(err) {
                console.log(err);
@@ -105,8 +105,8 @@ db_pool.connect(function(err, client, done) {
            res.status(400).send(err);
        }
 
-  var query = "UPDATE orders (rating)  VALUES ($1) WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
-  client.query(query, [ req.body.rating] ,function(err,result) {
+  var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
+  client.query(query, function(err,result) {
            done();
             if(err) {
                console.log(err);

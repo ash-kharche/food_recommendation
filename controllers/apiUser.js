@@ -35,12 +35,18 @@ apiUser.submitAnswers = function (req, res) {
             console.log("not able to get connection " + err);
             res.status(400).send(err);
         } else {
-            var query = "UPDATE users (gender, weight, height, is_veg, is_diabetes, is_bp, is_cholestrol, is_question_done) " +
-                "VALUES ($1, $2, $3, $4, $5, $6, $7, $8) WHERE user_id = " + req.body.user_id + " RETURNING * ";
+            var query = "UPDATE users SET " +
+            " gender = " + req.body.gender +
+            ", weight = " + req.body.weight +
+            ", height = " + req.body.height +
+            ", is_veg = " + req.body.is_veg +
+            ", is_diabetes = " + req.body.is_diabetes +
+            ", is_bp = " + req.body.is_bp +
+            ", is_cholestrol = " + req.body.is_cholestrol +
+            ", is_question_done = " + req.body.is_question_done + " WHERE user_id = " + req.body.user_id + " RETURNING * ";
+
             console.log("@@@@@@submitAnswers\n\n" + query + "\n");
-            client.query(query,
-                [req.body.gender, req.body.weight, req.body.height, req.body.is_veg, req.body.is_diabetes, req.body.is_bp, req.body.is_cholestrol, req.body.is_question_done],
-                function (err, result) {
+            client.query(query, function (err, result) {
 
                     done();
                     if (err) {
