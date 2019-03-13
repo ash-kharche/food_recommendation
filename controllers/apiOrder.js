@@ -22,7 +22,7 @@ db_pool.connect(function(err, client, done) {
                console.log(err);
                res.status(400).send(err);
            } else {
-              console.log("$$$$$$ Place Order:   " +result.rows);
+              console.log("$$$$$$ Place Order:   " +result.rows[0].id);
                res.status(200).send(result.rows[0]);
           }
        });
