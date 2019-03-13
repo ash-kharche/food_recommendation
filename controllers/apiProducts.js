@@ -149,7 +149,6 @@ apiProducts.getData = function (req, res) {
                     if (err) {
                         console.log(err);
                         callback(null, []);
-
                     } else {
                         callback(null, result.rows);
                     }
