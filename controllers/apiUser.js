@@ -28,22 +28,27 @@ apiUser.signUpUser = function (req, res) {
 }
 
 apiUser.submitAnswers = function (req, res) {
-    console.log("user_id:  " + req.body.user_id)
+    console.log("submitAnswers: user_id:  " + req.body.user_id);
 
     db_pool.connect(function (err, client, done) {
         if (err) {
             console.log("not able to get connection " + err);
             res.status(400).send(err);
         } else {
-          var query = "UPDATE users (gender, weight, height, is_veg, is_diabetes, is_bp, is_cholestrol, is_question_done)  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)  RETURNING *";
-            client.query(query, [req.body.gender, req.body.weight, req.body.height, req.body.is_veg, req.body.is_diabetes, req.body.is_bp, req.body.is_cholestrol, req.body.is_question_done], function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    res.status(400).send(err);
-                } else {
-                    res.status(200).send(result.rows[0]);
-                }
+            var query = "UPDATE users (gender, weight, height, is_veg, is_diabetes, is_bp, is_cholestrol, is_question_done) " +
+                "VALUES ($1, $2, $3, $4, $5, $6, $7, $8) WHERE user_id = " + req.body.user_id + " RETURNING * ";
+
+            client.query(query,
+                [req.body.gender, req.body.weight, req.body.height, req.body.is_veg, req.body.is_diabetes, req.body.is_bp, req.body.is_cholestrol, req.body.is_question_done],
+                function (err, result) {
+
+                    done();
+                    if (err) {
+                        console.log(err);
+                        res.status(400).send(err);
+                    } else {
+                        res.status(200).send(result.rows[0]);
+                    }
             });
         }
     });
