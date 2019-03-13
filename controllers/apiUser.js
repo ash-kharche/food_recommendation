@@ -25,7 +25,6 @@ db_pool.connect(function(err, client, done) {
             }
        });
     });
-
 }
 
 apiUser.login = function (req, res) {

@@ -203,7 +203,7 @@ apiProducts.getData = function (req, res) {
         });
     },
 
-    apiProducts.getCartRecommendedProducts = function (req, res) {
+    apiProducts.getUserRecommendedProducts = function (req, res) {
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
@@ -212,7 +212,7 @@ apiProducts.getData = function (req, res) {
                 client.query(query, function (err, result) {
                     //done();
                     if (err) {
-                        callback(err, null);
+                        res.status(400).send(err);
 
                     } else {
 
@@ -250,6 +250,28 @@ apiProducts.getData = function (req, res) {
 
                     }
                 });
+            }
+        });
+    },
+
+    apiProducts.getCartRecommendedProducts = function (req, res) {
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+
+              var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (" + req.params.collections + ")) rank_filter WHERE RANK <=5";
+              console.log("query:   " + query);
+              client.query(query, function (err, result) {
+                  done();
+
+                  if (err) {
+                      res.status(400).send(err);
+                  } else {
+                      res.status(200).send(result.rows);
+                  }
+              });
+
             }
         });
     },

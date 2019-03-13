@@ -4,8 +4,8 @@ var controllers = require("../controllers");
 
 //router.get('/test', controllers.runPython.test);
 router.get('/getTrendingProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getTrendingProducts);
-router.get('/getRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getRecommendedProducts);
-router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getCartRecommendedProducts);
+router.get('/getUserRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getUserRecommendedProducts);
+router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case/:collections', controllers.apiProducts.getCartRecommendedProducts);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/logout', controllers.apiUser.logout);
