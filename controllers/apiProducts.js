@@ -56,7 +56,7 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
+            /*var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getRecommendedProducts(req.params.user_id, function (err, response) {
                     if (err) {
                         console.log("ApiProducts : ^^^^^^recommended_products    :" + err);
@@ -68,13 +68,13 @@ apiProducts.getData = function (req, res) {
                         return resolve(response);
                     }
                 });
-            });
-
+            });*/
+//,
+//getRecommendedProductsPromise
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise,
-                getRecommendedProductsPromise
+                getTrendingProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
