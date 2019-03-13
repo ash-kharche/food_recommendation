@@ -152,7 +152,6 @@ apiProducts.getData = function (req, res) {
     },
 
     apiProducts.getRecommendedProducts = function (userId, callback) {
-        //console.log("\n apiProducts: getProducts");
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
@@ -161,39 +160,84 @@ apiProducts.getData = function (req, res) {
                 client.query(query, function (err, result) {
                     //done();
                     if (err) {
-                        console.log("0000    " + err);
                         callback(err, null);
 
                     } else {
 
                         var ingredientsIdList = [];
-                        var myString = "";
                         for (var i = 0; i < result.rows.length; i++) {
                             var order = result.rows[i];
                             for (var k = 0; k < order.products.length; k++) {
                                 ingredientsIdList.push(order.products[k].ingredients);
-                                myString = myString + "," + order.products[k].ingredients;
                             }
                         }
-                        console.log("\n********* myString:   " + myString);
+                        console.log("\n********* ingredientsIdList:   " + ingredientsIdList);
 
                         var productsArray = [];
                         var query = "SELECT * FROM products WHERE ingredients && ARRAY[" + ingredientsIdList + "]";
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
-                            console.log("111");
                             done();
 
                             if (err) {
-                                console.log("222");
-                                console.log(err);
                                 callback(new Error("No products found matching ingredients"), null);
-
                             } else {
-                                console.log("333");
-                                console.log("\n*********debugging recommendation products" + result.rows);
-                                productsArray.push(result.rows); //TODO check if multiple products available
-                                callback(null, productsArray);
+                                callback(null, result.rows);
+                            }
+
+
+                        });
+
+                        //done();
+
+                    }
+                });
+            }
+        });
+    },
+
+    apiProducts.getCartRecommendedProducts = function (req, res) {
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                callback(err, null);
+            } else {
+                var query = "SELECT * FROM orders";
+                client.query(query, function (err, result) {
+                    //done();
+                    if (err) {
+                        callback(err, null);
+
+                    } else {
+
+                        var productIdList = [];
+
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var order = result.rows[i];
+
+                            var innerProductIdList = [];
+                            for (var k = 0; k < order.products.length; k++) {
+                                innerProductIdList.push(order.products[k].product_id);
+                            }
+
+                            var productPresentBoolean = innerProductIdList.includes("77");
+                            console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList+"     productPresentBoolean:  " +productPresentBoolean);
+
+                            productIdList = productIdList.concat(innerProductIdList);
+                        }
+
+
+                        console.log("\n********* getCartRecommendedProducts:  productIdList:   " + productIdList.toString());
+
+                        var productsArray = [];
+                        var query = "SELECT * FROM products WHERE product_id IN (" + productIdList.toString() + ")";
+                        console.log("query:   " + query);
+                        client.query(query, function (err, result) {
+                            done();
+
+                            if (err) {
+                                callback(new Error("No products found matching ingredients"), null);
+                            } else {
+                                callback(null, result.rows);
                             }
 
 
