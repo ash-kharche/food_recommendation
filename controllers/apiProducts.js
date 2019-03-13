@@ -148,7 +148,7 @@ apiProducts.getData = function (req, res) {
                     done();
                     if (err) {
                         console.log(err);
-                        callback(err, null);
+                        callback(null, []);
 
                     } else {
                         callback(null, result.rows);
@@ -187,7 +187,8 @@ apiProducts.getData = function (req, res) {
                             done();
 
                             if (err) {
-                                callback(new Error("No products found matching ingredients"), null);
+                              //No products found matching ingredients
+                                callback(null, []);
                             } else {
                                 callback(null, result.rows);
                             }
