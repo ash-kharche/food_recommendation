@@ -257,7 +257,7 @@ apiProducts.getData = function (req, res) {
 
                             if (err) {
                                 //No products found matching ingredients
-                                res.status(200, []]);
+                                res.status(200, []);
                             } else {
                                 res.status(200, result.rows);
                             }
