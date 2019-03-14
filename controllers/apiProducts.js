@@ -127,13 +127,18 @@ apiProducts.getData = function (req, res) {
                     if (diabetes == 1 && cholestrol == 0) {
                       whereString = "WHERE (is_diabetes = " + diabetes + ")";
                     } else if (diabetes == 0 && cholestrol == 1) {
-                      whereString = "WHERE (is_cholestrol = " + is_cholestrol + ")";
+                      whereString = "WHERE (is_cholestrol = " + cholestrol + ")";
+                    } else if (diabetes == 1 && cholestrol == 1) {
+                      whereString = "WHERE (is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                     }
                 } else {
                   if (diabetes == 1 && cholestrol == 0) {
                     whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
                   } else if (diabetes == 0 && cholestrol == 1) {
-                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+
+                  } else if (diabetes == 1 && cholestrol == 1) {
+                    whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                   }
                 }
                 var query = "SELECT * FROM products " + whereString +" ORDER BY rating ASC";
@@ -162,13 +167,17 @@ apiProducts.getData = function (req, res) {
                     if (diabetes == 1 && cholestrol == 0) {
                       whereString = "WHERE (is_diabetes = " + diabetes + ")";
                     } else if (diabetes == 0 && cholestrol == 1) {
-                      whereString = "WHERE (is_cholestrol = " + is_cholestrol + ")";
+                      whereString = "WHERE (is_cholestrol = " + cholestrol + ")";
+                    } else if (diabetes == 1 && cholestrol == 1) {
+                      whereString = "WHERE (is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                     }
                 } else {
                   if (diabetes == 1 && cholestrol == 0) {
                     whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
                   } else if (diabetes == 0 && cholestrol == 1) {
-                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+                  } else if (diabetes == 1 && cholestrol == 1) {
+                    whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                   }
                 }
 
@@ -215,13 +224,17 @@ apiProducts.getData = function (req, res) {
                             if (diabetes == 1 && cholestrol == 0) {
                               whereString = "(is_diabetes = " + diabetes + ")";
                             } else if (diabetes == 0 && cholestrol == 1) {
-                              whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                              whereString = "(is_cholestrol = " + cholestrol + ")";
+                            } else if (diabetes == 1 && cholestrol == 1) {
+                              whereString = "(is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                             }
                         } else {
                           if (diabetes == 1 && cholestrol == 0) {
                             whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                           } else if (diabetes == 0 && cholestrol == 1) {
-                            whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                            whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+                          } else if (diabetes == 1 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                           }
                         }
 
@@ -298,13 +311,17 @@ apiProducts.getData = function (req, res) {
                             if (diabetes == 1 && cholestrol == 0) {
                               whereString = "(is_diabetes = " + diabetes + ")";
                             } else if (diabetes == 0 && cholestrol == 1) {
-                              whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                              whereString = "(is_cholestrol = " + cholestrol + ")";
+                            } else if (diabetes == 1 && cholestrol == 1) {
+                              whereString = "(is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                             }
                         } else {
                           if (diabetes == 1 && cholestrol == 0) {
                             whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                           } else if (diabetes == 0 && cholestrol == 1) {
-                            whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                            whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+                          } else if (diabetes == 1 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                           }
                         }
 
@@ -348,13 +365,17 @@ apiProducts.getData = function (req, res) {
                   if (diabetes == 1 && cholestrol == 0) {
                     whereString = "(is_diabetes = " + diabetes + ")";
                   } else if (diabetes == 0 && cholestrol == 1) {
-                    whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                    whereString = "(is_cholestrol = " + cholestrol + ")";
+                  } else if (diabetes == 1 && cholestrol == 1) {
+                    whereString = "(is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                   }
               } else {
                 if (diabetes == 1 && cholestrol == 0) {
                   whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                 } else if (diabetes == 0 && cholestrol == 1) {
-                  whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                  whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+                } else if (diabetes == 1 && cholestrol == 1) {
+                  whereString = "(is_veg = 1 AND is_diabetes = " + diabetes +" AND" + is_cholestrol = " + cholestrol + ")";
                 }
               }
 
