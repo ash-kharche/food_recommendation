@@ -314,11 +314,12 @@ apiProducts.getData = function (req, res) {
                 var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 if (is_veg == 0) {
                     whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
-              }
+                  }
 
                 for (var k = 0; k < collectionList.length; k++) {
-                  var query = "SELECT * FROM products WHERE collection_id = " + collectionList + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
+                  var query = "SELECT * FROM products WHERE collection_id = " + collectionList + " AND "+ whereString +" LIMIT " + req.params.rank;
 
+                  console.log("getCartRecommendedProducts:  " +query);
                   client.query(query, function (err, result) {
                       //done();
                       if (result) {
