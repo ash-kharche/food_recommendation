@@ -223,7 +223,15 @@ apiProducts.getData = function (req, res) {
                                 ingredientsIdList.push(order.products[k].ingredients);
                             }
                         }
-                        console.log("\n********* ingredientsIdList:   " + ingredientsIdList);
+
+                        var unique_array = []
+                        for(let i = 0;i < ingredientsIdList.length; i++){
+                            if(unique_array.indexOf(ingredientsIdList[i]) == -1){
+                                unique_array.push(ingredientsIdList[i])
+                            }
+                        }
+
+                        console.log("\n********* ingredientsIdList:   " + unique_array);
 
                         var productsArray = [];
 
@@ -246,9 +254,9 @@ apiProducts.getData = function (req, res) {
                           }
                         }
 
-                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
                         if(whereString == "") {
-                          query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
+                          query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "]) ORDER BY rating LIMIT 10";
                         }
 
                         console.log("user recommended_products: query:   " + query);
