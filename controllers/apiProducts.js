@@ -122,11 +122,21 @@ apiProducts.getData = function (req, res) {
                 callback(err, null);
             } else {
 
-                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                var whereString = "";
                 if (is_veg == 0) {
-                    whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                    if (diabetes == 1 && cholestrol == 0) {
+                      whereString = "WHERE (is_diabetes = " + diabetes + ")";
+                    } else if (diabetes == 0 && cholestrol == 1) {
+                      whereString = "WHERE (is_cholestrol = " + is_cholestrol + ")";
+                    }
+                } else {
+                  if (diabetes == 1 && cholestrol == 0) {
+                    whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                  } else if (diabetes == 0 && cholestrol == 1) {
+                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                  }
                 }
-                var query = "SELECT * FROM products WHERE " + whereString;
+                var query = "SELECT * FROM products " + whereString +" ORDER BY rating ASC";
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -146,11 +156,23 @@ apiProducts.getData = function (req, res) {
             if (err) {
                 callback(err, null);
             } else {
-                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+
+                var whereString = "";
                 if (is_veg == 0) {
-                    whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                    if (diabetes == 1 && cholestrol == 0) {
+                      whereString = "WHERE (is_diabetes = " + diabetes + ")";
+                    } else if (diabetes == 0 && cholestrol == 1) {
+                      whereString = "WHERE (is_cholestrol = " + is_cholestrol + ")";
+                    }
+                } else {
+                  if (diabetes == 1 && cholestrol == 0) {
+                    whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                  } else if (diabetes == 0 && cholestrol == 1) {
+                    whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                  }
                 }
-                var query = "SELECT * FROM products WHERE " + whereString + " ORDER BY rating LIMIT 5";
+
+                var query = "SELECT * FROM products " + whereString + " ORDER BY rating LIMIT 5";
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -187,13 +209,27 @@ apiProducts.getData = function (req, res) {
                         console.log("\n********* ingredientsIdList:   " + ingredientsIdList);
 
                         var productsArray = [];
-                        var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+
+                        var whereString = "";
                         if (is_veg == 0) {
-                            whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                            if (diabetes == 1 && cholestrol == 0) {
+                              whereString = "(is_diabetes = " + diabetes + ")";
+                            } else if (diabetes == 0 && cholestrol == 1) {
+                              whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                            }
+                        } else {
+                          if (diabetes == 1 && cholestrol == 0) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                          } else if (diabetes == 0 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                          }
                         }
-                        var query = "SELECT * FROM products WHERE " + whereString;
 
                         var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                        if(whereString == "") {
+                          query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
+                        }
+
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             done();
@@ -256,11 +292,27 @@ apiProducts.getData = function (req, res) {
                         var special_case = req.params.special_case;
 
                         var productsArray = [];
-                        var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+
+                        var whereString = "";
                         if (is_veg == 0) {
-                            whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                            if (diabetes == 1 && cholestrol == 0) {
+                              whereString = "(is_diabetes = " + diabetes + ")";
+                            } else if (diabetes == 0 && cholestrol == 1) {
+                              whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                            }
+                        } else {
+                          if (diabetes == 1 && cholestrol == 0) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                          } else if (diabetes == 0 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
+                          }
                         }
+
                         var query = "SELECT * FROM products WHERE (product_id IN (" + productIdList.toString() + ") AND " + whereString + ")";
+                        if(whereString == "") {
+                          query = "SELECT * FROM products WHERE (product_id IN (" + productIdList.toString() + "))";
+                        }
+
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             done();
@@ -291,12 +343,28 @@ apiProducts.getData = function (req, res) {
               var cholestrol = req.params.cholestrol;
               var special_case = req.params.special_case;
 
-                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
-                if (is_veg == 0) {
-                    whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+              var whereString = "";
+              if (is_veg == 0) {
+                  if (diabetes == 1 && cholestrol == 0) {
+                    whereString = "(is_diabetes = " + diabetes + ")";
+                  } else if (diabetes == 0 && cholestrol == 1) {
+                    whereString = "(is_cholestrol = " + is_cholestrol + ")";
+                  }
+              } else {
+                if (diabetes == 1 && cholestrol == 0) {
+                  whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                } else if (diabetes == 0 && cholestrol == 1) {
+                  whereString = "(is_veg = 1 AND is_cholestrol = " + is_cholestrol + ")";
                 }
+              }
+
+              var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
+              if(whereString == "") {
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + "))) tmp where rownum < 4";
+              }
+
                 //var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
-                var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 3";
+
                 console.log("query:   " + query);
                 client.query(query, function (err, result) {
                     done();
