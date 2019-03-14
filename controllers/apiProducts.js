@@ -284,6 +284,13 @@ apiProducts.getData = function (req, res) {
                 res.status(400).send(err);
             } else {
 
+              var user_id = req.params.user_id;
+              var is_veg = req.params.is_veg;
+              var diabetes = req.params.diabetes;
+              var bp = req.params.bp;
+              var cholestrol = req.params.cholestrol;
+              var special_case = req.params.special_case;
+              
                 var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 if (is_veg == 0) {
                     whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";

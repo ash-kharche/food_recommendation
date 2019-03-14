@@ -21,6 +21,7 @@ apiUser.signUpUser = function (req, res) {
                 console.log(err);
                 res.status(400).send(err);
             } else {
+                console.log("Signup user:   " + result.rows[0]);
                 res.status(200).send(result.rows[0]);
             }
         });
