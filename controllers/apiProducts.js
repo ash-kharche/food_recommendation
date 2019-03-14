@@ -316,7 +316,7 @@ apiProducts.getData = function (req, res) {
                   }
 
                 for (var k = 0; k < collectionList.length; k++) {
-                  var query = "SELECT * FROM products WHERE collection_id = " + collectionList + " AND "+ whereString +" LIMIT " + req.params.rank;
+                  var query = "SELECT * FROM products WHERE collection_id = " + collectionList[k] + " AND "+ whereString +" LIMIT " + req.params.rank;
 
                   console.log("getCartRecommendedProducts:  " +query);
                   client.query(query, function (err, result) {
