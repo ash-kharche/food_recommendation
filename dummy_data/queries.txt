@@ -6,6 +6,21 @@ UPDATE ingredients SET ingredients = array_append(ingredients, 1) where  name LI
 
 ALTER TABLE pi RENAME COLUMN name TO product_name;
 
+CART recommended_products
+SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (7,6) AND (is_veg = 1 AND is_diabetes = 0 AND is_cholestrol = 0)) rank_filter WHERE RANK <=7;
+
+SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (7,6) rank_filter WHERE RANK <=7;
+
+SELECT product_id OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (7,6);
+
+
+working
+select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (7,6) AND (is_veg = 1 AND is_diabetes = 0 AND is_cholestrol = 0)) tmp where rownum < 3;
+
+Working
+select * from (select product_id, collection_id, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (7,6)) AND (is_veg = 1 AND is_diabetes = 0 AND is_cholestrol = 0)) tmp where rownum < 3;
+
+
 id,name
 1,Rice
 2,Oats

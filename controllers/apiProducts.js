@@ -295,7 +295,8 @@ apiProducts.getData = function (req, res) {
                 if (is_veg == 0) {
                     whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 }
-                var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ")) AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
+                //var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ")) AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
+                var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < " + req.params.rank;
                 console.log("query:   " + query);
                 client.query(query, function (err, result) {
                     done();
