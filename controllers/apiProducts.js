@@ -61,7 +61,7 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
+            /*var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
                 apiProducts.getRecommendedProducts(user_id, is_veg, diabetes, bp, cholestrol, special_case, function (err, response) {
                     if (err) {
                         console.log("ApiProducts : ^^^^^^recommended_products    :" + err);
@@ -74,12 +74,13 @@ apiProducts.getData = function (req, res) {
                     }
                 });
             });
+            ,
+            getRecommendedProductsPromise*/
 
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
-                getTrendingProductsPromise,
-                getRecommendedProductsPromise
+                getTrendingProductsPromise
             ])
                 .then(function (values) {
                     console.log("\n@@@@@\ApiProducts response send");
@@ -195,16 +196,23 @@ apiProducts.getData = function (req, res) {
         });
     },
 
-    apiProducts.getRecommendedProducts = function (user_id, is_veg, diabetes, bp, cholestrol, special_case, callback) {
+    apiProducts.getUserRecommendedProducts = function (req, res) {
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
             } else {
+              var user_id = req.params.user_id;
+              var is_veg = req.params.is_veg;
+              var diabetes = req.params.diabetes;
+              var bp = req.params.bp;
+              var cholestrol = req.params.cholestrol;
+              var special_case = req.params.special_case;
+
                 var query = "SELECT * FROM orders WHERE user_id = " + user_id;
                 client.query(query, function (err, result) {
                     //done();
                     if (err) {
-                        callback(err, null);
+                        res.status(400).send(err);
 
                     } else {
 
@@ -243,15 +251,15 @@ apiProducts.getData = function (req, res) {
                           query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
                         }
 
-                        console.log("query:   " + query);
+                        console.log("user recommended_products: query:   " + query);
                         client.query(query, function (err, result) {
                             done();
 
                             if (err) {
                                 //No products found matching ingredients
-                                callback(null, []);
+                                res.status(200, []]);
                             } else {
-                                callback(null, result.rows);
+                                res.status(200, result.rows);
                             }
 
 
@@ -265,7 +273,7 @@ apiProducts.getData = function (req, res) {
         });
     },
 
-    apiProducts.getUserRecommendedProducts = function (req, res) {
+    apiProducts.getUserRecommendedProductsWorking = function (req, res) {
         db_pool.connect(function (err, client, done) {
             if (err) {
                 callback(err, null);
@@ -288,8 +296,9 @@ apiProducts.getData = function (req, res) {
                                 innerProductIdList.push(order.products[k].product_id);
                             }
 
-                            var productPresentBoolean = innerProductIdList.includes("77");
-                            console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList + "     productPresentBoolean:  " + productPresentBoolean);
+                            //var productPresentBoolean = innerProductIdList.includes("77");
+                            //console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList + "     productPresentBoolean:  " + productPresentBoolean);
+                            console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList);
 
                             productIdList = productIdList.concat(innerProductIdList);
                         }
@@ -304,6 +313,84 @@ apiProducts.getData = function (req, res) {
                         var cholestrol = req.params.cholestrol;
                         var special_case = req.params.special_case;
 
+                        var productsArray = [];
+
+                        var whereString = "";
+                        if (is_veg == 0) {
+                            if (diabetes == 1 && cholestrol == 0) {
+                              whereString = "(is_diabetes = " + diabetes + ")";
+                            } else if (diabetes == 0 && cholestrol == 1) {
+                              whereString = "(is_cholestrol = " + cholestrol + ")";
+                            } else if (diabetes == 1 && cholestrol == 1) {
+                              whereString = "(is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
+                            }
+                        } else {
+                          if (diabetes == 1 && cholestrol == 0) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
+                          } else if (diabetes == 0 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
+                          } else if (diabetes == 1 && cholestrol == 1) {
+                            whereString = "(is_veg = 1 AND is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
+                          }
+                        }
+
+                        var query = "SELECT * FROM products WHERE (product_id IN (" + productIdList.toString() + ") AND " + whereString + ")";
+                        if(whereString == "") {
+                          query = "SELECT * FROM products WHERE (product_id IN (" + productIdList.toString() + "))";
+                        }
+
+                        console.log("query:   " + query);
+                        client.query(query, function (err, result) {
+                            done();
+
+                            if (err) {
+                                res.status(400).send(err);
+                            } else {
+                                res.status(200).send(result.rows);
+                            }
+                        });
+
+                    }
+                });
+            }
+        });
+    },
+
+    apiProducts.getUserRecommendedProductsYetToWork = function (req, res) {
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                callback(err, null);
+            } else {
+              var user_id = req.params.user_id;
+              var is_veg = req.params.is_veg;
+              var diabetes = req.params.diabetes;
+              var bp = req.params.bp;
+              var cholestrol = req.params.cholestrol;
+              var special_case = req.params.special_case;
+
+                var query = "SELECT * FROM orders where user_id = " + user_id;
+                client.query(query, function (err, result) {
+                    //done();
+                    if (err) {
+                        res.status(400).send(err);
+
+                    } else {
+
+                        var mainIngredientsIdList = [];
+
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var order = result.rows[i];
+
+                            var ingredientsIdList = [];
+                            for (var k = 0; k < order.products.length; k++) {
+                                ingredientsIdList.push(order.products[k].ingredients);
+                            }
+
+                            console.log("\n********* getCartRecommendedProducts:  ingredientsIdList:   " + ingredientsIdList);
+
+                            mainIngredientsIdList = mainIngredientsIdList.push(ingredientsIdList);
+                            console.log("\n********* getCartRecommendedProducts:  mainIngredientsIdList:   " + mainIngredientsIdList);
+                        }
                         var productsArray = [];
 
                         var whereString = "";
@@ -396,28 +483,6 @@ apiProducts.getData = function (req, res) {
                         res.status(200).send(result.rows);
                     }
                 });
-
-                /*var collectionList = JSON.parse("[" + req.params.collections + "]");
-                var productList = [];
-                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
-                if (is_veg == 0) {
-                    whereString = "(is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
-                  }
-
-                for (var k = 0; k < collectionList.length; k++) {
-                  var query = "SELECT * FROM products WHERE collection_id = " + collectionList[k] + " AND "+ whereString +" LIMIT " + req.params.rank;
-
-                  console.log("getCartRecommendedProducts:  " +query);
-                  client.query(query, function (err, result) {
-                      //done();
-                      if (result) {
-                          productList.push(result.rows);
-                      }
-                  });
-                }
-
-                done();
-                res.status(200).send(productList);*/
             }
         });
     },
