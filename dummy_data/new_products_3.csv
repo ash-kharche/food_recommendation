@@ -1,0 +1,320 @@
+product_id,product_name,description,image_url,collection_id,collection_name,is_veg,rating,price,ingredients,is_diabetes,is_cholestrol
+1,Plain Dosa,Name,https://www.vegrecipesofindia.com/wp-content/uploads/2018/11/plain-dosa-recipe-1a.jpg,1,South Indian,1,4,70,"{1}",1,1
+2,Masala Dosa,Name,https://recipes.timesofindia.com/photo/54289752.cms,1,South Indian,1,4.2,80,"{1}",0,0
+3,Mysore Masala Dosa,Name,http://farm8.staticflickr.com/7322/9550547181_8848955222_o.jpg,1,South Indian,1,4.2,90,"{1}",0,0
+4,Paneer Masala Dosa,Name,https://pull-revisfoodography.netdna-ssl.com/wp-content/uploads/2015/09/paneer-masala-dosa-vert.jpg,1,South Indian,1,2,90,"{1,13}",0,0
+5,Rava Dosa,Name,http://cdn1.foodviva.com/static-content/food-images/south-indian-recipes/rava-dosa/rava-dosa.jpg,1,South Indian,1,5,100,"{1,29}",1,0
+6,Nachani Dosa,name,http://www.smithakalluraya.com/wp-content/uploads/2014/11/fermented-ragi-dosa-nachni-dosa-fingermillet-crepe.1024x1024-6.jpg,1,South Indian,1,3,75,"{1,8,9}",1,1
+7,South Indian Platter,name,https://i.pinimg.com/736x/c9/57/a4/c957a4faf9d16471d944adb20d2e5223--indian-fat.jpg,1,South Indian,1,4.3,65,"{1}",0,0
+8,Oats Masala Dosa,name,http://lifestylesmakeover.com/wp-content/uploads/2018/12/mysore-masala-dosa.jpg,1,South Indian,1,3.6,110,"{1,2,9}",1,1
+9,Moongdal Dosa,name,http://cdn3.foodviva.com/static-content/food-images/andhra-recipes/pesarattu/pesarattu.jpg,1,South Indian,1,4.8,125,"{1}",1,1
+10,Oats Idli,name,http://cdn2.foodviva.com/static-content/food-images/breakfast-recipes/oats-idli/oats-idli.jpg,1,South Indian,1,4.4,80,"{2}",1,1
+11,Ragi Idli,name,https://www.whiskaffair.com/wp-content/uploads/2017/03/Ragi-Idli-800x1198.jpg,1,South Indian,1,4,60,"{1,8}",1,1
+12,Masala Fried Idli,name,https://i.ytimg.com/vi/7lS3DdJl43o/hqdefault.jpg,1,South Indian,1,4.1,55,"{1}",0,0
+13,Medu Wada,name,https://hebbarskitchen.com/wp-content/uploads/2017/08/medu-vada-recipe-in-mixie-uddina-vada-medhu-vadai-ulundu-vadai-1-1068x1423.jpeg,1,South Indian,1,4,45,"{10}",1,0
+14,Dal Wada,name,http://cdn2.foodviva.com/static-content/food-images/snacks-recipes/masala-vada-chan-dal/masala-vada-chana-dal.jpg,1,South Indian,1,4.5,50,{0},1,1
+15,Uttapam,Name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/kitchennandoos/vegetable_uttapam_.jpg,1,South Indian,1,3,80,"{1}",1,1
+16,Carrot Uttapam,name,https://balancenutritiononline.com/wp-content/uploads/2017/11/Carrot-Uttapam-1300x1300.jpg,1,South Indian,1,3.5,160,"{1}",0,0
+18,Ragi Uttapam,name,https://www.sanjeevkapoor.com/UploadFiles/RecipeImages/Instant-Ragi-Uttapam-Turban-Tadka-FoodFood.jpg,1,South Indian,1,3.5,95,"{1,8}",0,1
+19,Oats Uttapam,name,https://i.ndtvimg.com/i/2017-10/uttapam-recipes_806x605_81507637803.jpg,1,South Indian,1,4,150,"{2,2}",1,1
+20,Vermicelli Upama,name,https://nishkitchen.com/wp-content/uploads/2016/09/vermicelli-upma-3B.jpg,1,South Indian,1,3,75,{0},1,1
+21,Corn Upama,name,http://ksmartstatic.sify.com/cmf-1.0.0/appflow/bawarchi.com/Image/oetuogfjhhffc_bigger.jpg,1,South Indian,1,3.8,90,{0},1,0
+22,Wheat upama,name,"https://www.tarladalal.com/members/9306/big/big_broken_wheat_upma,_healthy_breakfast_recipe-13463.jpg?size=696X905",1,South Indian,1,4.7,60,"{30}",0,1
+23,Avial,name,https://i.ndtvimg.com/i/2018-02/aviyal_620x350_81517900508.jpg?downsize=650:400&output-quality=70&output-format=webp,1,South Indian,1,4,70,"{10}",1,1
+24,Coconut Chutney,name,https://www.tarladalal.com/members/9306/big/big_coconut_chutney_(_mumbai_roadside_recipes)-8298.jpg?size=696X905,1,South Indian,1,4.2,80,"{10}",1,1
+25,Onion Chutney,Name,https://hebbarskitchen.com/wp-content/uploads/2017/06/onion-chutney-recipe-south-indian-onion-chutney-for-idli-dosa-1-1068x1423.jpeg,1,South Indian,1,4.2,90,{0},1,1
+26,Tomato Chutney,name,https://hebbarskitchen.com/wp-content/uploads/2016/11/tomato-chutney-1-1068x1423.jpeg,1,South Indian,1,2,90,{0},1,1
+27,Coriander Chutney,name,https://i1.wp.com/vegecravings.com/wp-content/uploads/2016/12/coriander-tomato-chutney-recipe-step-by-step-instructions.jpg?w=1500,1,South Indian,1,5,100,{0},1,1
+28,Pudina Chutney,name,https://simpleindianrecipes.com/portals/0/sirimages/mint%20chutney%20M.JPG,1,South Indian,1,3,75,{0},1,1
+29,Lemon Rice,name,https://myfoodstory.com/wp-content/uploads/2018/09/Easy-Lemon-Rice-Yellow-Rice-2.jpg,1,South Indian,1,4.3,65,"{1}",1,1
+30,Curd Rice,name,https://www.indianhealthyrecipes.com/wp-content/uploads/2015/03/curd-rice.jpg,1,South Indian,1,3.6,110,"{1,9,17}",0,1
+31,Tomato Rice,name,https://recipes.timesofindia.com/photo/54673775.cms?imgsize=320474,1,South Indian,1,4.8,125,"{1}",0,0
+32,Coconut Rice,Name,https://www.indianhealthyrecipes.com/wp-content/uploads/2015/03/coconut-rice-1-500x447.jpg,1,South Indian,1,4.4,80,"{1,10,17}",0,1
+33,Tamarind Rice,name,https://www.vegrecipesofindia.com/wp-content/uploads/2016/10/tamarind-rice-recipe-1.jpg,1,South Indian,1,4,60,"{1}",0,1
+34,Sesame Rice,name,https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18185446/051115012-01-sesame-rice-recipe-main.jpg,1,South Indian,1,4.1,55,"{1}",0,1
+35,Fish Moilee,name,https://i2.wp.com/www.cookingcurries.com/wp-content/uploads/2016/11/Fish-Molee-Kerala-Style-Fish-Curry-with-Coconut-Milk-Kerala-Christmas-Recipes_thumb.jpg?zoom=2&resize=677%2C1015,1,South Indian,0,4,45,"{5,10,17}",1,0
+36,Karimeen Fry,name,https://5.imimg.com/data5/IO/MQ/MY-41206114/karimeen-fry-500x500.jpg,1,South Indian,0,4.5,50,"{5,26}",1,0
+37,Aila Fish Curry,name,https://i.ytimg.com/vi/3iJ8ywXqiYU/hqdefault.jpg,1,South Indian,0,3,80,"{5,10}",1,0
+38,Kerala Chicken Roast,name,https://www.ndtv.com/cooks/images/kerala.chicken.roast%20%281%29.jpg?downsize=650:400&output-quality=70&output-format=webp,1,South Indian,0,3.5,160,"{6}",1,0
+39,Naadan Crab Fry,name,http://healthyliving.natureloc.com/wp-content/uploads/2015/11/Traditional-Kerala-Crab-curry-or-Nadan-Njandu-Curry.jpg,1,South Indian,0,5,90,"{4,10}",1,0
+40,Fish Curry With Lotus Stems,name,http://rd1universalchicken.com/wp-content/uploads/2018/11/main-qimg-4431db981b8fba6a54c4c7b185b1c7b9.jpg,1,South Indian,0,3.5,95,"{5}",1,0
+41,Goan Curry,name,https://myfoodstory.com/wp-content/uploads/2017/08/Goan-Prawn-Curry-with-Coconut-Ambot-Tik-2.jpg,2,Malvani,0,4,150,"{3,10,17}",1,0
+42,Machha Besara,Name,https://i0.wp.com/www.bhupinderkumar.com/wp-content/uploads/2017/05/anu1.jpg?zoom=2&resize=916%2C458,2,Malvani,0,3,75,"{5}",1,0
+43,Malvani Curry,name,https://www.ruchikrandhap.com/wp-content/uploads/2016/03/MalvaniMuttonCurry28329-1.jpg,2,Malvani,0,3.8,90,"{5,10}",1,0
+44,Bombil Fry,name,https://i2.wp.com/jyotiscookbook.com/wp-content/uploads/2017/01/15826072_979778622127929_5317540855558010157_n.jpg?zoom=2&resize=960%2C576,2,Malvani,0,4.7,60,"{1}",1,0
+45,Bangada Fry,name,https://www.kannammacooks.com/wp-content/uploads/2015/11/pomfret-fry-recipe-vavval-meen-varuval-shallow-fry.jpg,2,Malvani,0,4,70,"{1}",1,0
+46,Malvani Mutton Curry,name,https://www.ruchikrandhap.com/wp-content/uploads/2016/03/MalvaniMuttonCurry28329-1.jpg,2,Malvani,0,4.2,80,"{7}",1,0
+47,Paplet Gravy,name,http://ksmartstatic.sify.com/cmf-1.0.0/appflow/bawarchi.com/Image/oerwEMgchahff_bigger.jpg,2,Malvani,0,4.2,90,"{5}",1,0
+48,Mori Masala,name,https://i.ytimg.com/vi/yJ76qWZwPG8/maxresdefault.jpg,2,Malvani,0,2,90,"{5,10}",1,0
+49,Prawns Curry,name,https://i.ndtvimg.com/i/2017-10/goan-prawn-curry-recipe_620x330_51508931774.jpg,2,Malvani,0,5,100,"{1,3}",1,0
+50,Prawns Fry,name,https://i.pinimg.com/originals/42/37/78/4237787f7e2e7338c97298308fa44ce5.jpg,2,Malvani,0,3,75,"{3,9,10}",1,0
+51,Crab Meat balls,Name,https://feenix.co.in/wp-content/uploads/2018/01/54f68bddd7cd0_-_mla103568_0908_crabpuffs_sxl-2.jpg,2,Malvani,0,4.3,65,"{4,17}",1,0
+52,Creamy Crab Meat,Name,https://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/4/14/1/FNM060109TakeIt005_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371589415768.jpeg,2,Malvani,0,3.6,110,"{4}",1,0
+53,Crab Mean Buruji,Name,https://5.imimg.com/data5/FM/RR/GLADMIN-40049374/crab-bhurji-500x500.jpg,2,Malvani,0,4.8,125,"{4}",1,0
+54,Crab Soup,Name,"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-crab-bisque-horizontal-1542322699.jpg?crop=0.980xw:0.898xh;0.0204xw,0.0740xh&resize=980:*",2,Malvani,0,4.4,80,"{4}",1,0
+55,Crab Biryani,Name,https://www.maggime.com/sites/default/files/recipes/en/Chicken-Biryani.jpg,2,Malvani,0,4,60,"{1,4}",1,0
+56,Crab Leg Masala,name,https://i.pinimg.com/originals/c7/9d/47/c79d47fbe843c88cb7de54ecc1acfd6d.jpg,2,Malvani,0,4.1,55,"{4}",1,0
+57,Tandoori Chicken,name,https://dinnerthendessert.com/wp-content/uploads/2018/03/Tandoori-Chicken-4.jpg,3,Punjabi,0,4,45,"{6,11}",1,0
+58,Chicken Stew,name,https://www.cookingclassy.com/wp-content/uploads/2017/10/chicken-stew-2.jpg,4,Starters,0,4.5,50,"{6}",1,0
+59,Chicken Soup,name,https://www.halfbakedharvest.com/wp-content/uploads/2018/03/Slow-Cooker-Hearty-Chicken-Soup-1-1-500x375.jpg,4,Starters,0,3,80,"{1,6,6}",1,0
+60,Chicken Tikka Masala,name,https://www.recipetineats.com/wp-content/uploads/2018/04/Chicken-Tikka-Masala_0.jpg,3,Punjabi,0,3.5,160,"{6}",1,0
+61,Mughlai Chicken,name,http://www.theflavourtrip.com/wp-content/uploads/2018/01/Chciken-Mughlai-Final-1.jpg,5,Hyde,0,5,90,"{6}",1,0
+62,Chicken Curry,name,https://recipes.timesofindia.com/photo/58394256.cms?imgsize=691574,3,Punjabi,0,3.5,95,"{6}",1,0
+63,Mughlai Chicken Biryani,name,https://5.imimg.com/data5/LG/SS/GLADMIN-34826670/mughlai-chicken-biryani-500x500.png,5,Hyde,0,4,150,"{1,6}",1,0
+64,Mirchi Ka Salan,name,https://www.archanaskitchen.com/images/archanaskitchen/Indian_Vegetables_Gravy/Mirchi_Ka_Salan_Recipe_Chillies_in_Tangy_Spicy_Peanut_Sesame_Curry-2.jpg,5,Hyde,0,3,75,"{10,26}",1,0
+65,Dum Pukht,Name,https://s3-media2.fl.yelpcdn.com/bphoto/AgjBE86_2ZDItXHWKaON9w/348s.jpg,5,Hyde,0,3.8,90,"{6}",1,0
+66,Hyderabadi Marag,name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Nusrath_Jahan/Hyderabadi_marag.jpg,5,Hyde,0,4.7,60,"{7,10,17}",1,0
+67,Chicken Lollipop,Name,https://i.pinimg.com/474x/8c/2b/01/8c2b015d172f8eec08a45a6a00ebc920--indian-starter-recipes-indian-chicken-recipes.jpg,4,Starters,0,4,70,"{6}",1,0
+68,Gosht Pasinde,name,http://c2.hiqcdn.com//customcdn/500x500/blog/sites/default/files/images/11_3.jpg,5,Hyde,0,4.2,80,"{7,9}",1,0
+69,Malai Korma,name,https://i.ytimg.com/vi/GTO5YSYhYoE/hqdefault.jpg,3,Punjabi,0,4.2,90,{0},1,0
+70,Qabooli Biryani,name,"https://www.tarladalal.com/members/9306/big/big_qabooli_biryani,_hyderabadi_chana_dal_biryani-12679.jpg?size=696X905",5,Hyde,0,2,90,"{1}",0,0
+71,Dum Biryani,name,https://i.pinimg.com/originals/93/1f/38/931f3868daed8799aec78800902b9ea3.jpg,5,Hyde,0,5,100,"{1,6,17}",0,1
+72,Hyderabadi Veg Biryani,name,https://www.indianhealthyrecipes.com/wp-content/uploads/2013/03/hyderabadi-vegetable-dum-biryani-recipe.jpg,5,Hyde,1,3,75,"{1}",0,1
+73,Sheer Khurma,name,https://vaya.in/recipes/wp-content/uploads/2018/03/Sheer-Khurma.jpg,6,Desserts,1,4.3,65,"{17}",0,1
+74,Shahi Tukada,name,http://cdn3.foodviva.com/static-content/food-images/pudding-recipes/shahi-tukra-with-condensed-milk-recipe/shahi-tukra-with-condensed-milk-recipe.jpg,6,Desserts,1,3.6,110,"{17}",0,1
+75,Mutton Korma,Name,https://www.ndtv.com/cooks/images/mutton.korma.jpg,5,Hyde,0,4.8,125,"{7,9}",0,0
+76,Chicken Biryani,name,https://www.indianhealthyrecipes.com/wp-content/uploads/2019/02/chicken-biryani-recipe.jpg,3,Punjabi,0,4.4,80,"{1,6,17}",1,0
+77,Chicken 65,name,https://assets.betterbutter.in/386x386/pavithira-vijay0145756037056e09b318d05d.jpg,3,Punjabi,0,4,60,"{1,6,9}",1,0
+78,Puri Bhaji,name,https://media-cdn.tripadvisor.com/media/photo-s/0f/86/a8/e0/puri-bhaji.jpg,4,Starters,1,4.1,55,{0},1,0
+79,Chole Bhature,name,https://s3.scoopwhoop.com/anj/image/f39c4ea6-add8-454b-8007-5b5e95f2fed3.jpg,3,Punjabi,1,4,45,"{15,15,26,26,29,30}",1,0
+80,Rogan Josh,name,https://s3-eu-west-1.amazonaws.com/thefoodmarket1/spree/blog_entry_images/15506/w850/edited-roganjoshrecipe-2.jpg?1530094072,5,Hyde,0,4.5,50,"{7,12,29}",1,0
+81,Sali Boti(Red Hot Mutton),name,https://3.bp.blogspot.com/-E7EQ5YYcQh4/WT1DnmIjdCI/AAAAAAAAMdo/IcoFebYVtCMmz_nZoG_Gh-uYvJg8aypDQCEw/s1600/IMG_0183.JPG,5,Hyde,0,3,80,"{7}",1,0
+82,Aloo chaat,Name,https://www.vegrecipesofindia.com/wp-content/uploads/2018/07/aloo-chaat-recipe-2.jpg,4,Starters,1,3.5,160,{0},1,0
+83,Malpua,name,https://i2.wp.com/vegecravings.com/wp-content/uploads/2017/07/malpua-recipe-step-by-step-instructions-17.jpg?w=1500,6,Desserts,1,5,90,"{17,29}",0,0
+84,Kadhai Paneer,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/kadai-paneer-recipe-karahi-paneer-how-to-make-kadai-paneer-gravy-1-1068x1423.jpeg,3,Punjabi,1,3.5,95,"{13}",1,0
+85,Aloo Gobi Masala,name,https://hebbarskitchen.com/wp-content/uploads/2016/12/aloo-gobi-masala-recipe-how-to-make-aloo-gobi-curry-restaurant-style-16-769x1024.jpeg,3,Punjabi,1,4,150,"{10,17}",1,0
+86,Carrot Halwa,name,https://www.vegrecipesofindia.com/wp-content/uploads/2017/11/gajar-ka-halwa-recipe-04.jpg,6,Desserts,1,3,75,"{17}",0,0
+87,Lauki Halwa,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/lauki-ka-halwa-recipe-dudhi-halwa-recipe-loki-ka-halwa-2-1068x1423.jpeg,6,Desserts,1,3.8,90,"{17,22}",1,1
+88,Palak Paneer,name,https://recipesinhindi.net/wp-content/uploads/2018/06/palak-paneer-recipe-1.jpeg,3,Punjabi,1,4.7,60,"{13,23}",1,1
+89,Aloo Matar,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/aloo-matar-recipe-aloo-mutter-recipe-alu-matar-recipe-1-1068x1423.jpeg,3,Punjabi,1,4,70,"{26,26}",1,1
+90,Paneer Butter Masala,name,https://www.vegrecipesofindia.com/wp-content/uploads/2013/04/paneer-butter-masala-paneer-makhani.jpg,3,Punjabi,1,4.2,80,"{13,15,15,17}",1,0
+91,Paneer Tikka,name,https://i0.wp.com/vegecravings.com/wp-content/uploads/2018/04/Paneer-Tikka-Recipe-Step-By-Step-Instructions.jpg?w=1500,3,Punjabi,1,4.2,90,"{13}",1,0
+92,Tawa Paneer,Name,https://2.bp.blogspot.com/-AD50Po9O7iY/VuAe1uzyg-I/AAAAAAAAVws/OUNg8VBdiJc/s1600/Tawa%2BPaneer%2B%25284%2529%2B-%2B1.jpg,3,Punjabi,1,2,90,"{13}",1,0
+93,Dum Aloo,name,https://vaya.in/recipes/wp-content/uploads/2017/12/Kashmiri_dum_aloo.jpg,3,Punjabi,1,5,100,"{9}",1,0
+94,Dahi Kabab,name,http://www.yummyfoodrecipes.in/resources/picture/org/How-to-make-Dahi-Ke-Kabab.jpg,4,Starters,1,3,75,"{26}",1,1
+95,Spicy Achari Paneer Masala,name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/foodcoworg-gmail.com/Achari_Paneer_Masala.jpg,3,Punjabi,1,4.3,65,"{13}",0,1
+96,Dal Fry,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgQ-vlTT0inB8JTd7dgWwDGhxfGFtdt2hB9f9sYLRpIfwrS9B-,3,Punjabi,1,3.6,110,{0},1,1
+97,Dal Tadaka,name,https://3.bp.blogspot.com/-2Cm-zbTzQTw/WqAReQMp68I/AAAAAAAAwyI/vq3ifW9IiZ8sayg4oTLq9yQ1K6uCV2kxACLcBGAs/s1600/Dal-tadka-recipe.jpg,3,Punjabi,1,4.8,125,{0},1,1
+98,Baingan Bharata,name,https://www.ticklingpalates.com/wp-content/uploads/2016/07/baingan-bharta-recipe.jpg,3,Punjabi,1,4.4,80,{0},1,0
+99,Bhendi Fry,name,https://hebbarskitchen.com/wp-content/uploads/2017/04/bhindi-fry-recipe-bhindi-ki-sabzi-bhindi-masala-dry-okra-fry-recipe-1-1068x1423.jpeg,3,Punjabi,1,4,60,{0},1,0
+100,Bhendi Masala,name,https://c.ndtvimg.com/2019-01/s3gsb3co_fffff_625x300_04_January_19.jpg,3,Punjabi,1,4.1,55,{0},1,0
+101,Aloo Tikki,Name,https://www.vegrecipesofindia.com/wp-content/uploads/2018/12/aloo-tikki-recipe-1.jpg,3,Starters,1,4,45,"{9,26,26,29}",1,0
+102,Baby Corn Masala,Name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/baby-corn-masala-recipe-baby-corn-gravy-baby-corn-curry-2-1068x1423.jpeg,3,Starters,1,4.5,50,{0},0,0
+103,Kadai Mushroom,Name,http://maayeka.com/wp-content/uploads/2016/03/019-kadai-Mushroom-sabzi-1.jpg,3,Punjabi,1,3,80,"{12}",0,1
+104,Malai Kofata,Name,https://www.thecuriouschickpea.com/wp-content/uploads/2018/03/malaikofta-4-735x1103.jpg,3,Punjabi,1,3.5,160,"{15,15}",0,1
+105,Masoor Dal,Name,https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/Recipe_For_Beginners_One_Pot_Tadkewali_Masoor_Dal_Recipe-1.jpg,3,Punjabi,1,5,90,{0},1,1
+106,Matar Mushroom,name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Waagmi_Soni/matar-mushroom-curry-recipe.jpg,3,Punjabi,1,3.5,95,"{12,26,26}",1,1
+107,Methi Malai Paneer,name,https://i.ytimg.com/vi/JzD0AblAz1A/maxresdefault.jpg,3,Punjabi,1,4,150,"{11,13}",1,1
+108,Sev Bhaji,name,https://i0.wp.com/flavouroma.com/wp-content/uploads/2017/02/sev-bhaji-recipe-featured-image.jpg?w=1000&ssl=1,3,Punjabi,1,3,75,"{10}",1,0
+109,Mushroom Masala,name,https://hebbarskitchen.com/wp-content/uploads/2017/03/mushroom-curry-recipe-mushroom-masala-recipe-mushroom-gravy-2-1068x1423.jpeg,3,Punjabi,1,3.8,90,"{12}",1,0
+110,Paneer makhani,name,https://www.vegrecipesofindia.com/wp-content/uploads/2013/04/paneer-butter-masala-paneer-makhani.jpg,3,Punjabi,1,4.7,60,"{11,13,15,15}",1,0
+111,Rajama,name,http://maunikagowardhan.co.uk/wp-content/uploads/2018/02/Kashmiri-Rajma-Masala-2-700x467.jpg,3,Punjabi,1,4,70,{0},1,0
+112,Sabudana Khichadi,name,https://www.ruchiskitchen.com/wp-content/uploads/2017/02/sabudana-khichdi-4.jpg,7,Snacks,1,4.2,80,"{26}",1,1
+113,Sabudana Vada,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/sabudana-vada-recipe-how-to-make-sabudana-vada-sago-vada-sabakki-vada-2-1068x1602.jpeg,7,Snacks,1,4.2,90,"{26}",1,0
+114,Samosa,name,https://i1.wp.com/vegecravings.com/wp-content/uploads/2017/03/samosa-recipe-step-by-step-instructions.jpg?w=1500,7,Snacks,1,2,90,"{26,26,29}",1,1
+115,Shahi Paneer,Name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUNt2wnJMasDHUvODxQ59DiYDmt0i_hjZP7QkwnfcR3-YmGULG,3,Punjabi,1,5,100,"{13,15,15}",1,1
+116,Stuffed Capsicum,name,http://images.kglobalservices.com/www.kelloggs.com.au/en_au/recipe/recipe_6595715/recip_img-6596623_kelloggs-stuffed-capsicums.jpg,4,Punjabi,1,3,75,"{13,14}",1,0
+117,Veg Cutlet,Name,https://hebbarskitchen.com/wp-content/uploads/2018/07/veg-cutlet-recipe-vegetable-cutlet-recipe-easy-veg-cutlet-recipe-1-1068x1602.jpeg,4,Starters,1,4.3,65,"{16,26,26,29}",1,1
+118,Veg Seekh Kabab,name,https://www.indianhealthyrecipes.com/wp-content/uploads/2016/06/veg-seekh-kabab-recipe.jpg,4,Starters,1,3.6,110,"{26,26}",1,0
+119,Badam Halawa,name,https://www.boldsky.com/img/2017/10/600x450-17-1508236469.jpg,6,Desserts,1,4.8,125,{0},0,0
+120,Beetroot Halawa,name,https://priyakitchenette.com/wp-content/uploads/2016/08/beetroot-halwa.jpg,6,Desserts,1,4.4,80,"{16,17}",0,0
+121,Cham cham,name,https://3.bp.blogspot.com/-CvBqMiFHg2k/WBKjs9jGvwI/AAAAAAAAj5k/qDidtHBh708HF7Dxt4daZPdBEFg49EY3wCLcB/s640/IMG_4113.JPG,6,Desserts,1,4,60,"{10,17}",0,0
+122,Badam Dry Fruit Ladoo,name,https://images-na.ssl-images-amazon.com/images/I/91Kibg8iOuL._SX679_.jpg,6,Desserts,1,4.1,55,{0},0,1
+123,Gulab Jamun,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSAcWOMUl-bzWfANi2AkTWS6-jNKOglL2N21tmZD6UpXASdFOQ,6,Desserts,1,4,45,"{17,29}",0,1
+124,Moong Dal Halwa,name,https://assets.betterbutter.in/386x386/public/recipe_thumb/medium/1448883274POEF2CbHl7_thumb.jpg,6,Desserts,1,4.5,50,"{17}",0,0
+125,Walnut Halwa,Name,https://i.ndtvimg.com/i/2016-10/halwa_625x350_51477568262.jpg,6,Desserts,1,3,80,"{17,25}",0,0
+126,Pumpkin Halwa,name,https://www.harighotra.co.uk/images/recipes/hero/Pumpkin-halwa-hero.jpg,6,Desserts,1,3.5,160,"{10,17}",0,0
+127,Egg Omelette,name,https://www.seriouseats.com/recipes/images/2016/04/20160418-american-omelet-ham-and-cheese-21.JPG,7,Snacks,0,5,90,{0},1,0
+128,Egg Bhuraji,name,https://www.cookwithmanali.com/wp-content/uploads/2014/11/Indian-Spicy-Scrambled-Eggs.jpg,7,Snacks,0,3.5,95,{0},1,0
+129,Paneer Bhuraji,name,https://myfoodstory.com/wp-content/uploads/2016/09/paneer-bhurji-turmeric-cottage-cheese-scramble.1024x1024-1.jpg,3,Punjabi,1,4,150,"{13,15,15}",1,0
+130,Egg Curry,name,https://www.indianhealthyrecipes.com/wp-content/uploads/2012/11/egg-curry-recipe.jpg,3,Punjabi,0,3,75,{0},1,0
+131,Half fried Egg,name,https://www.seriouseats.com/recipes/images/2017/07/20170728-sunny-side-up-eggs-vicky-wasik-1500x1125.jpg,7,Snacks,0,3.8,90,{0},1,0
+133,Plain Paratha,name,https://www.vegrecipesofindia.com/wp-content/uploads/2010/06/plain-paratha-recipe-1.jpg,12,Roti,1,4,70,"{30}",1,1
+134,Rumali Roti,name,https://hebbarskitchen.com/wp-content/uploads/2016/09/rumali-roti-1-1068x1423.jpeg,12,Roti,1,4.2,80,"{29}",1,1
+135,Naan,name,https://www.jocooks.com/wp-content/uploads/2011/04/naan-bread-1.jpg,12,Roti,1,4.2,90,"{29}",1,1
+136,Tawa Roti,name,http://www.yaarandaaddasaddaadda.com/wp-content/uploads/2018/06/Tawa-Roti.jpg,12,Roti,1,2,90,"{30}",1,1
+137,Butter Naan,name,https://hebbarskitchen.com/wp-content/uploads/2017/05/naan-recipe-butter-naan-recipe-homemade-naan-bread-recipe-1-1068x1423.jpeg,12,Roti,1,5,100,"{29}",1,0
+138,Aloo paratha,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/aloo-paratha-recipe-aloo-ka-paratha-recipe-alu-paratha-recipe-2-1068x1602.jpeg,7,Snacks,1,3,75,"{30}",1,0
+140,Gobi Paratha,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/gobi-paratha-recipe-gobi-ka-paratha-gobhi-paratha-recipe-1-1068x1423.jpeg,7,Snacks,1,3.6,110,"{30}",1,0
+144,Paneer Paratha,name,https://hebbarskitchen.com/wp-content/uploads/2016/12/paneer-paratha-recipe-how-to-make-paneer-paratha-25-1068x1423.jpeg,7,Snacks,1,4.1,55,"{13,30}",1,0
+145,Onion Paratha,name,https://hebbarskitchen.com/wp-content/uploads/2017/08/onion-paratha-recipe-pyaz-ka-paratha-recipe-pyaaz-paratha-1-1068x1423.jpeg,7,Snacks,1,4,45,"{30}",1,0
+146,Methi Paratha,name,https://hebbarskitchen.com/wp-content/uploads/2017/04/methi-paratha-recipe-methi-ka-paratha-fenugreek-paratha-recipe-1-1068x1423.jpeg,7,Snacks,1,4.5,50,"{11,30}",1,1
+147,Bread Pakoda,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/bread-pakora-recipe-aloo-stuffed-bread-pakora-bread-bajji-recipe-1-1068x1423.jpeg,7,Snacks,1,3,80,{0},1,0
+148,Butter Bread Toast,name,https://www.bakepedia.com/wp-content/uploads/2013/11/toast.jpg,7,Snacks,1,3.5,160,"{15,15}",1,0
+149,Aloo Sandwitch,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/aloo-sandwich-recipe-potato-sandwich-aloo-masala-sandwich-1-1068x1423.jpeg,7,Snacks,1,5,90,"{15,15}",1,0
+150,Veg Sandwitch,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbRNtm1uPmZSsXMHkmRQ5SmeMNiYRAZ3nahzYxNzUrg3kpLiWBvg,7,Snacks,1,3.5,95,"{15,15,16}",1,1
+151,Cheese Grilled Sandwitch,Name,https://www.vegrecipesofindia.com/wp-content/uploads/2014/01/veg-grilled-sandwich-recipe-1.jpg,7,Snacks,1,4,150,"{14,15,15}",1,0
+152,Veg Salad,Name,https://realfood.tesco.com/media/images/RFO-1400x919-Roasted-veg-salad-with-cashew-dressing-mini-5d03a1f0-1c52-4662-aff4-d968f08cb5f6-0-1400x919.jpg,8,Salad,1,3,75,{0},1,1
+153,Fruit Salad,Name,https://2.bp.blogspot.com/-VDjn6bYse_c/V5__GJIUDjI/AAAAAAAAHKs/WSn1bKWv2Ewk1Z3T9Xp0AtgIhH7eD72LwCLcB/s1600/honey%2Blime%2Bfruit%2Bsalad%2B4.jpg,6,Desserts,1,3.8,90,"{19,28,28}",0,1
+154,Sprout Salad,Name,https://www.archanaskitchen.com/images/archanaskitchen/World_Salads/bean_sprout_corn_start_fruit_salad_recipe_shutterstock_62384413.jpg,8,Salad,1,4.7,60,{0},1,1
+155,Bundi Raita,Name,https://www.archanaskitchen.com/images/archanaskitchen/Indian_Raitas/Boondi_Raita_Recipe_Archanas_Kitchen_Yogurt_Dip_Vegetarian-1_1600.jpg,8,Salad,1,4,70,{0},1,1
+156,Mint Raita,name,https://i.ytimg.com/vi/sUZVxMPlsNc/hqdefault.jpg,8,Salad,1,4.2,80,{0},1,1
+157,Plain Raita,name,https://ritiroti.com/wp-content/uploads/2018/04/cucumber-raita-recipe-2.jpg,8,Salad,1,4.2,90,{0},1,1
+158,Manchow Soup,name,https://www.archanaskitchen.com/images/archanaskitchen/World_Asian/Vegetable_Manchow_Soup.jpg,9,Chinese,1,2,90,{0},1,0
+159,Sweet And Sour Soup,name,https://thewoksoflife.com/wp-content/uploads/2013/10/DSC_0698.jpg,9,Chinese,1,5,100,{0},1,0
+160,Sweet Corn Soup,name,https://vaya.in/recipes/wp-content/uploads/2018/03/Sweet-Corn-Soup.jpg,9,Chinese,1,3,75,"{17}",0,1
+161,Tomato Soup,name,https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/18173927/051091055_01-main.jpg,9,Chinese,1,4.3,65,{0},1,1
+162,Spinach Soup,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSSAXanuBkwtIjZB-JLzh0W80aL0atxSNeJoZzP9WhLg6s594I,9,Chinese,1,3.6,110,"{15,15,23,29}",1,1
+163,Paaya Soup,name,https://flavoursrestaurants.com/wp-content/uploads/2018/02/Paaya-Soup-BD-1.400-600x600.jpg,5,Hyde,0,4.8,125,"{7}",1,1
+164,French Onion Soup,name,https://www.daringgourmet.com/wp-content/uploads/2014/12/Blonde-French-Onion-Soup-square-web-edited.jpg,9,Chinese,1,4.4,80,"{14,15,15}",1,1
+165,Lemony Greek Chicken Soup,Name,https://1.bp.blogspot.com/-RfT6Zg7yHqM/Wh2kEBkTo_I/AAAAAAADQuY/_aDYwio2fC4MxKjBYGnui0oJxvYBsSIsQCLcBGAs/s1600/low%2Bfat%2Bgreek%2Blemon%2Bchicken%2Band%2Brice%2Bsoup%2Bfont.jpg,9,Chinese,0,4,60,"{1,6,6,29}",1,1
+166,Veg Manchurian,name,https://www.vegrecipesofindia.com/wp-content/uploads/2012/05/veg-manchurian-recipe-1-500x500.jpg,9,Chinese,1,4.1,55,"{29}",1,0
+167,Schezwan Noodles,Name,https://www.indianhealthyrecipes.com/wp-content/uploads/2016/02/schezwan-noodles.jpg,9,Chinese,1,4,45,{0},1,0
+168,Schezwan Rice,name,https://i2.wp.com/vegecravings.com/wp-content/uploads/2018/03/Veg-Schezwan-Fried-Rice-Recipe-Step-By-Step-Instructions.jpg?w=1500,9,Chinese,1,4.5,50,"{1}",1,0
+169,Triple Schezwan fried Rice,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/schezwan-rice-recipe-triple-schezwan-fried-rice-triple-schezwan-rice-26-1068x1423.jpeg,9,Chinese,1,3,80,"{1}",1,0
+170,Hakka Noodles,name,https://i1.wp.com/vegecravings.com/wp-content/uploads/2017/03/veg-hakka-noodles-recipe-with-step-by-step-instructions.jpg?w=1500,9,Chinese,1,3.5,160,"{12}",1,1
+171,Veg 65,name,https://hbomart.com/wp-content/uploads/2018/11/veg-65.jpg,9,Chinese,1,5,90,"{12,29}",1,0
+172,HongKong Rice,name,http://2.bp.blogspot.com/_jc2ZAw5kem4/TN6M3t7DVTI/AAAAAAAAFH8/OatzvaECnsQ/s1600/Olive+Fried+Rice.jpg,9,Chinese,1,3.5,95,"{1}",1,0
+173,Veggie Lovers Pizza,name,https://manaqeesh.com/wp-content/uploads/2017/04/Veggie-Lovers-Pizza.jpg,10,Pizza,1,4,150,"{12,14}",1,1
+174,Cheese Garlic Pizza Sticks,name,https://www.cookhalaal.com/wp-content/uploads/2018/01/CheesyGarlicPizzaSticks-original.jpg,10,Pizza,1,3,75,"{14,15,15}",1,0
+175,Cheese Delite Pizza,Name,http://doublediamondacres.com/wp-content/uploads/2016/10/red-delight-margherita-pizza.jpg,10,Pizza,1,3.8,90,"{14}",1,0
+176,Jain Pizza,name,https://www.foodiss.in/wp-content/uploads/2017/09/Vegetarian-pizza-2.jpg,10,Pizza,1,4.7,60,"{14}",1,1
+177,Hot n Spicy Chinese Pizza,name,http://pizzahot4u.com/wp-content/uploads/2018/05/7.jpg,10,Pizza,1,4,70,"{6,14,26}",1,0
+178,Chicken Barbeque Pizza,name,https://www.allrecipes.com/recipe/24878/bbq-chicken-pizza/,10,Pizza,0,4.2,80,"{6,14}",1,0
+179,Margherite Veg Pizza,name,http://www.dvo.com/recipe_pages/rhodesbread/Grilled_BBQ_Chicken_Pizza.jpg,10,Pizza,1,4.2,90,"{14}",1,0
+180,Red Sauce Pasta,name,https://recipes.timesofindia.com/photo/53873016.cms?imgsize=412483,10,Pizza,1,2,90,"{27}",1,0
+181,Arrabiata Pasta,name,https://img.taste.com.au/5mOX1ukM/taste/2016/11/arrabiata-sauce-28902-1.jpeg,10,Pizza,1,5,100,"{14,27}",0,0
+182,White Sauce Pasta,Name,https://www.tarladalal.com/members/9306/big/big_pasta_in_white_sauce-10614.jpg?size=696X905,10,Pizza,1,3,75,"{27}",1,1
+183,Italian Pasta,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu2-N_YNr03W-gfGsRTEygzmKpFcPzrxZgjjKhzrMe7y4Qu3jjDA,10,Pizza,1,4.3,65,"{27}",1,1
+184,Spaghetti Pasta,name,https://i0.wp.com/media.hungryforever.com/wp-content/uploads/2015/12/09123602/ConPomodoroEBasilico151-e1449644777265.jpg?zoom=2&resize=739%2C477&ssl=1,10,Pizza,1,3.6,110,"{27}",0,0
+185,Apple Pie,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa3G2pGedeyL1GaHOQ0AmZNZr6kXBVMio-MZgeI4JGgrLEfHYy,6,Desserts,1,4.8,125,"{15,15,19,19,29}",0,1
+186,Brownies,name,https://www.cookingclassy.com/wp-content/uploads/2018/01/healthier-brownies-2.jpg,6,Desserts,1,4.4,80,"{15,15,15,29}",0,1
+187,Apple Crisp,name,https://www.fifteenspatulas.com/wp-content/uploads/2015/09/FSC_3049-640x888.jpg,6,Desserts,1,4,60,"{2,2,15,15,19,29}",0,1
+188,Bread pudding,name,https://www.meals.com/imagesrecipes/28445lrg.jpg,6,Desserts,1,4.1,55,"{15,15,17}",0,1
+189,Fruit Pudding,name,"https://res.cloudinary.com/quintet/image/private/c_fill,g_south,h_1536,w_1536,cs_no_cmyk/go866vnmdkuctnr56z1j.jpg",6,Desserts,1,4,45,"{19,26}",0,1
+190,Butter Milk,name,https://i.ndtvimg.com/i/2015-09/buttermilk-625_625x350_51442899881.jpg,11,Beverages,1,4.5,50,"{9}",1,1
+191,Mango Juice,name,https://recipesbyjenn.com/wp-content/uploads/2015/10/PineappleMango-main-860x380.jpg,11,Beverages,1,3,80,"{20,21,26}",0,1
+192,Lemonade,Name,https://assets.epicurious.com/photos/57ced55ee6411cab70f0d948/6:4/w_620%2Ch_413/fresh-mint-and-ginger-lemonade.jpg,11,Beverages,1,3.5,160,{0},0,1
+193,Orange Juice,name,https://www.earthfoodandfire.com/wp-content/uploads/2018/04/Homemade-Orange-Juice.jpg,11,Beverages,1,5,90,{0},0,1
+194,Apple Juice,name,https://www.clubchefman.com/upload/recipe-images/applejuice-2-1000x600.jpg,11,Beverages,1,3.5,95,"{19}",0,1
+195,Watermelon Juice,name,https://dorina.info/wp-content/uploads/2015/06/The-Amazing-Health-Benefits-of-Watermelon-Juice.jpg,11,Beverages,1,4,150,{0},0,1
+196,Aloe vera juice,name,https://i.ndtvimg.com/i/2016-11/aloe-vera_620x350_61479457142.jpg,11,Beverages,1,3,75,"{19,23,28}",1,1
+197,Sugarcane juice,name,"https://timesofindia.indiatimes.com/thumb/msid-64159980,imgsize-33087,width-800,height-600,resizemode-4/64159980.jpg",11,Beverages,1,3.8,90,{0},0,1
+199,Coconut Juice,name,https://sc02.alicdn.com/kf/UTB8eDsuXgnJXKJkSaelq6xUzXXaI/Coconut-Water.jpg_350x350.jpg,11,Beverages,1,4,70,"{10}",1,1
+200,Kiwifruit Juice,name,https://cdn2.stylecraze.com/wp-content/uploads/2013/09/2322-8-Amazing-Benefits-Of-Kiwi-Juice-For-Skin-Hair-And-Health-is.jpg,11,Beverages,1,4.2,80,"{19}",0,1
+201,Pineapple juice,Name,http://kababjiarabia.com/wp-content/uploads/2017/01/freshpineapplejuice.jpg,11,Beverages,1,4.2,90,"{19}",0,1
+202,Strawberry juice,Name,http://s1.1zoom.me/big0/399/Berry_Strawberry_Juice_493898.jpg,11,Beverages,1,2,90,{0},0,1
+203,Beet juice (B.P),Name,https://images.lifealth.com/uploads/2017/07/beetroot-juice.jpg,11,Beverages,1,5,100,"{16,19}",1,1
+204,Carrot and orange Juice,Name,http://www.laughterandlemonade.com/wp-content/uploads/2016/02/20160102_Orange_Carrot_Juice_093-560x686@2x.jpg,11,Beverages,1,3,75,"{19}",1,0
+205,Mixed veg Juice,Name,https://image.freepik.com/free-photo/mixed-vegetable-juice-glass-fresh-pumpkin-broccoli-vegetable-wooden-tray_26131-63.jpg,11,Beverages,1,4.3,65,"{16}",1,1
+206,Cucumber Juice,name,https://s3-us-west-1.amazonaws.com/cdn.dherbs.com/wp-content/uploads/2016/10/cucumber-juice.jpg,11,Beverages,1,3.6,110,{0},1,1
+207,Rose Sharabat,name,https://c.ndtvimg.com/rose-sharbat_625x300_1526303327038.jpg?downsize=630:380&output-quality=70&output-format=webp,11,Beverages,1,4.8,125,"{16}",0,0
+208,Guava Juice,name,https://previews.123rf.com/images/sakdinon/sakdinon1510/sakdinon151000127/46281258-guava-juice-and-fresh-guava-isolate-on-white-background.jpg,11,Beverages,1,4.4,80,{0},0,1
+209,Pomegranate juice,name,https://i0.wp.com/www.shzboxtoday.net/wp-content/uploads/2017/07/Pomegranate-Juice-and-RA-1440x810.jpg?resize=722%2C406,11,Beverages,1,4,60,"{18}",0,1
+210,Ras Malai,name,https://i.ytimg.com/vi/qmooLr-IVe0/maxresdefault.jpg,6,Desserts,1,4.1,55,"{14}",0,1
+211,Rabadi,name,https://4.imimg.com/data4/OM/MQ/MY-36248737/rabadi-angoori-500x500.jpg,6,Desserts,1,4,45,"{17}",0,1
+212,Rasgulla,name,https://i.ytimg.com/vi/0wLGXbTmOKQ/maxresdefault.jpg,6,Desserts,1,4.5,50,"{17}",0,1
+213,Coffee,name,http://www.lilvienna.com/wp-content/uploads/Masala-Chai-Indian-Tea.jpg,11,Beverages,1,3,80,"{17}",0,1
+214,Tea,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfKC7sXJ0bU_YvoaO-1p4oChzHsX1sJSgfVo8MIZaGo0Uk2n_h,11,Beverages,1,3.5,160,"{17}",0,1
+215,Masala Tea,Name,https://5.imimg.com/data5/FO/UJ/MY-25231265/premium-quality-masala-tea-500x500.png,11,Beverages,1,5,90,"{17}",0,0
+216,Pav Bhaji,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/pav-bhaji-recipe-easy-mumbai-style-pav-bhaji-recipe-1-1068x1423.jpeg,7,Snacks,1,3.5,95,"{15,15,26,26}",1,0
+217,Vada Pav,Name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXdgsx3SinI2m1phPByhmBadwW-jUBr3fnO8ISpXP92vy6mfoOA,7,Snacks,1,4,150,{0},1,0
+218,Misal Pav,name,https://www.vegrecipesofindia.com/wp-content/uploads/2017/05/misal-pav-recipe.jpg,7,Snacks,1,3,75,{0},1,0
+219,Poha,name,https://www.cookwithmanali.com/wp-content/uploads/2014/08/Poha-Recipe-notitle-cwm.jpg,7,Snacks,1,3.8,90,{0},1,0
+220,Aloo Pakoda,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/aloo-pakora-recipe-potato-pakora-recipe-aloo-bajji-or-potato-bajji-1-1068x1423.jpeg,7,Snacks,1,4.7,60,"{1}",1,0
+221,Cheese Pav bhaji,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-CzThKNsI3o1p9wLz_0f6b-HQkDEoKJmAqIlzE_VPdNdVGpD_2w,7,Snacks,1,4,70,"{14,15,15,26,26}",1,0
+222,Butter Pav bhaji,name,https://i.ytimg.com/vi/oRm9Mtaynl0/hqdefault.jpg,7,Snacks,1,4.2,80,"{15,15,26,26}",1,0
+223,Dabeli,name,https://i0.wp.com/www.cookingfromheart.com/wp-content/uploads/2017/06/Kutchi-Dabeli-8.jpg?resize=1024%2C680,7,Snacks,1,4.2,90,"{10,18}",0,1
+224,Veg Burger,name,https://thecozyapron.com/wp-content/uploads/2016/03/spicy-guacamole-chicken-burger_thecozyapron_03-31-16_1.jpg,7,Snacks,1,2,90,"{2,2,14,29}",1,0
+225,Chicken burger,Name,https://cdn.cpnscdn.com/static.coupons.com/ext/kitchme/images/recipes/600x400/weight-watchers-copycat-chilis-grilled-chicken_38411.jpg,7,Snacks,0,5,100,"{6}",1,0
+226,Veg Pulao,name,http://www.cooktube.in/wp-content/uploads/2016/10/vegetable-biryani-1.jpg,5,Hyde,1,3,75,"{1,26,26}",1,1
+227,Veg Biryani,name,https://hebbarskitchen.com/wp-content/uploads/2017/06/veg-biryani-in-cooker-how-to-make-vegetable-biryani-recipe-in-cooker-1-1068x1423.jpeg,5,Hyde,1,4.3,65,"{1,26,26}",1,1
+228,Veg steam Momos,name,https://media.hungryforever.com/wp-content/uploads/2018/11/01170204/mushroom-momos.jpg,9,Chinese,1,3.6,110,"{29}",1,1
+229,Paneer steam Momos,name,"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366,h_240,c_fill/t5uk5brqxemlvpd12woa",9,Chinese,1,4.8,125,"{13,29}",1,1
+230,Paneer Fried Momos,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvMQOFtGVxCbh_SxvTybS44IGZcWwYbe6PugCSybYFfqTtFSXZQ,9,Chinese,1,4.4,80,"{13}",1,0
+231,Chicken Steam Momos,name,https://cook.fnr.sndimg.com/content/dam/images/cook/fullset/2014/2/7/0/CC_ching-he-huang-pork-and-prawn-dumplings-recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1391792811018.jpeg,9,Chinese,0,4,60,"{6,29}",1,1
+232,Chicken Fried Momos,Name,https://media-cdn.tripadvisor.com/media/photo-s/0b/13/78/a8/cheese-mushroom-original.jpg,9,Chinese,0,4.1,55,"{6}",1,0
+233,Chilly Chicken Momos,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzzuaNkjwWG-Hx811Gq-maRg_GgU8BCLaES7OEkIuWdb4-gAOZ,9,Chinese,0,4,45,"{6}",1,0
+234,Chilly Paneer Momos,name,http://2.bp.blogspot.com/-IBQTWITpmgM/VGk6QrEW-JI/AAAAAAAAAUI/Vvs5qUQCDAM/s1600/Mushroom%2BMomo%2B1.JPG,9,Chinese,1,4.5,50,"{13,14,29}",1,0
+235,Fish Fried Momos,name,https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/Chilli_Mushroom_And_Cheese_Momo_recipe_Dimsum_Recipe-4.jpg,9,Chinese,0,3,80,"{5,30}",1,0
+236,Mushroom Momos,name,https://i.ytimg.com/vi/Khqwd7oxgak/maxresdefault.jpg,9,Chinese,1,3.5,160,"{12,29}",1,0
+237,Chilli Pakora,name,https://st2.depositphotos.com/5653638/11940/i/950/depositphotos_119400224-stock-photo-chilli-pakora-or-mirch-pakoda.jpg,7,Snacks,1,5,90,{0},1,0
+238,Paneer Pakora,name,https://hebbarskitchen.com/wp-content/uploads/mainPhotos/paneer-pakora-recipe-paneer-pakoda-how-to-make-crispy-paneer-pakora-1-1068x1423.jpeg,7,Snacks,1,3.5,95,"{13}",1,0
+239,Chaat Papdi,name,https://www.thespruceeats.com/thmb/x4MtkHsnRQhqHHf0lcsWTUYzKQY=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Papdi-Chaat-5840a8eb5f9b5851e5d7c1ef.jpg,7,Snacks,1,4,150,"{9,18,26,26}",1,0
+240,Tandoori Roti,name,https://assets.betterbutter.in/386x386/public/recipe_thumb/medium/14423167232KIe8WnTzK_thumb.jpg,12,Roti,1,3,75,"{30}",1,1
+241,Chilli Garlic Naan,name,http://3.bp.blogspot.com/-QQpWvFyPCOM/VgKNkMCpMlI/AAAAAAAAIhg/jD5oOo95pbg/w1200-h630-p-k-no-nu/Chilli%2BGarlic%2BNaan.JPG,12,Roti,1,3.8,90,"{15,15,17,29}",1,0
+242,Lahori Naan,Name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA1VOAaQKflqHfoPcDFQ2cL2OW1sI15phj77bY8ReiBtzBiN5M,12,Roti,1,4.7,60,"{26}",1,0
+243,Matar Paneer,name,https://hebbarskitchen.com/wp-content/uploads/2016/10/matar-paneer-recipe-restaurant-style-matar-paneer-recipe-21-769x1024.jpeg,3,Punjabi,1,4,70,"{13,26,26}",,0
+244,Chilli Paneer,name,http://maunikagowardhan.co.uk/wp-content/uploads/2011/11/Chilli-Paneer.jpg,4,Starters,1,4.2,80,"{13,29}",1,0
+245,Bhindi Masala,name,https://hebbarskitchen.com/wp-content/uploads/2017/04/bhindi-fry-recipe-bhindi-ki-sabzi-bhindi-masala-dry-okra-fry-recipe-1-1068x1423.jpeg,3,Punjabi,1,4.2,90,{0},1,0
+246,Mango Lassi,name,"https://assets.bonappetit.com/photos/58c94cc584ebdb0ec55e3656/16:9/w_1200,c_limit/frozen-rum-mango-lassi.jpg",6,Desserts,1,2,90,"{17,20}",0,1
+247,Thalipeeth,name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Methi_Thalipeeth_Recipe_Maharashtrian_Style_Mixed_Flour_Flatbread_with_Fenugreek_Leaves.jpg,7,Snacks,1,5,100,"{1,30}",1,1
+248,Veg Kofta Curry,name,https://www.archanaskitchen.com/images/archanaskitchen/1-Author/usashis-gmail.com/Kacha_Peper_Kofta_CurryGreen_Papaya_Kofta_Curry.jpg,3,Punjabi,1,3,75,"{17}",0,0
+249,Chana Masala,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu9Y08gE8SX4BplnX5j5r8UmXpnyNBxbgei8FUOD0v9tmQKU2L,3,Punjabi,1,4.3,65,"{18,26,26}",1,0
+250,Aloo Paneer Masala,name,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-I_k4T02TG7GVPpWPWIvbCfeXuJLqCmRAj0KyLVU40aK8MzV4,3,Punjabi,1,3.6,110,"{13}",1,0
+251,Kadai Bhindi,Name,https://images.media-allrecipes.com/userphotos/720x405/5778072.jpg,3,Punjabi,1,4.8,125,{0},1,0
+252,Mixed Vegetable Curry,name,http://photos1.blogger.com/blogger/6981/1842/1600/mixed%20vegetable%20curry.jpg,3,Punjabi,1,4.4,80,"{9,26,26}",1,0
+253,Rice,name,https://www.thespruceeats.com/thmb/SXGDU8ECYXDxSo_oMGk3__ynBFQ=/4288x2848/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-make-basic-white-rice-2355883-10-5b0da96eba6177003622896e.jpg,12,Roti,1,,90,"{1}",,
+254,Jeera Rice,name,https://myfoodstory.com/wp-content/uploads/2018/07/Perfect-Jeera-Rice-Indian-Cumin-Rice-4.jpg,12,Roti,1,,150,"{1}",,
+255,Parmesan Potato Pancakes,Name,http://www.nationnews.com/IMG/742/80742/parmesan-potato-pancakes5512-450x303.gif?1516899674,6,Desserts,0,,80,"{14}",0,1
+256,Ginger-Chocolate Chunk Ice Cream Sandwiches,name,https://cdn-img.health.com/sites/default/files/styles/master_4_3/public/1486564649/ginger-chocolate-chunk-ice-cream-sandwiches-video.jpg?itok=ZsGa1Whf,7,Snacks,1,,160,{0},0,1
+257,Sangria,Name,https://www.isabeleats.com/sangria-recipe/,11,Beverages,1,,90,"{19}",0,1
+258,Apple-Cinnamon Granola,name,https://www.openfit.com/apple-cinnamon-granola,6,Desserts,1,,95,"{2,2,19,25,25}",0,1
+259,Morning Glory Muffins,Name,https://www.allrecipes.com/recipe/20995/easy-morning-glory-muffins/,7,Snacks,0,,150,"{10,19,25,29}",0,1
+1259,Morning Glory Muffins,Name,https://www.allrecipes.com/recipe/20995/easy-morning-glory-muffins/,6,Desserts,0,,150,"{2,7,14}",0,1
+260,Arugula and Goat Cheese Pizza,name,https://www.ambitiouskitchen.com/wp-content/uploads/2017/04/Monique-Fig-Goat-Cheese-Pizza-4.jpg,10,Pizza,1,,75,"{10,15,15,17,19,26}",0,1
+261,"Savory Squash, Carrot, and Ginger Soup",Name,http://carlsbadcravings.com/wp-content/uploads/2014/03/Thai-Butternut-Squash-Sweet-Potato-Soup5.jpg,4,Starters,1,,90,"{14,26,26}",0,1
+262,Jane's Vegetarian Chili,name,http://3.bp.blogspot.com/_CfEhlGaiJ0U/RcjlmFHQHGI/AAAAAAAAAEI/YWFkim9c-qg/s320/144-4469_IMG.JPG,4,Starters,1,,60,{0},0,1
+263,Bean and Corn Salsa,Name,https://images-gmi-pmc.edge-generalmills.com/d5557382-27c9-4fbb-8340-c63ea8d56c17.jpg,10,Pizza,1,,70,"{27}",0,1
+264,Lemon-Asparagus Pasta,name,https://www.dinneratthezoo.com/wp-content/uploads/2016/02/lemon-asparagus-pasta-with-chicken-2-500x500.jpg,10,Pizza,1,,80,{0},0,1
+265,Mixed Green Salad With Dried Plums,Name,http://yourwellnesscloud.com/wp-content/uploads/2017/04/mixed-green-salad-420x400.jpg,8,Salad,1,,90,{0},0,1
+266,Linguine with Red Pepper Sauce,name,https://www.mygourmetconnection.com/wp-content/uploads/linguine-roasted-red-pepper-sauce.jpg,10,Pizza,1,,90,"{1,14}",0,1
+267,Mediterranean Stuffed Tomatoes,Name,http://www.phaidon.com/resource/r-mediterranean-stuffed-tomatoes.jpg,10,Pizza,1,,100,"{14}",0,1
+268,Marinated Feta and Olive Skewers,name,https://images.scrippsnetworks.com/up/tp/Scripps_-_Food_Category_Prod/144/679/78959_4x3.jpg,10,Pizza,1,,75,"{19}",0,1
+269,Lightened Waldorf Salad,Name,http://images.media-allrecipes.com/userphotos/960x960/5458330.jpg,8,Salad,1,,65,"{26,26}",0,1
+270,Cauliflower fried rice,name,https://www.onceuponachef.com/images/2016/10/Cauliflower-Fried-Rice-760x517.jpg,12,Roti,0,,65,"{2,30}",1,0
+271,Oatmeal Chocolate Chip Cookies,Name,https://prettysimplesweet.com/wp-content/uploads/2018/06/Oatmeal-Chocolate-Chip-Cookies-Recipe-500x500.jpg,6,Desserts,0,,65,"{2,29}",1,0
+272,Chocolate chip cloud cookies,name,https://cmt.azureedge.net/media/orig_chocolate-chip-cloud-cookies-20170610045513071805mxb4i.jpg,6,Desserts,0,,65,"{2,2,29}",1,0
+273,Lickety Split Lemon Oaties,Name,https://irepo.primecp.com/2015/12/248894/EDR-Lickety-Split-Lemon-Oaties_ArticleImage-CategoryPage_ID-1336570.jpg?v=1336570,6,Desserts,0,,65,"{17,29}",1,0
+274,Fruity fingerprint cookies,name,http://www.welchs.com/sites/default/files/styles/recipe_card/public/media/images/Welchs_Fruity_Thumb_Print_Cookies.jpg?itok=bLGzKs_y,6,Desserts,0,,65,"{15,15,17,29}",1,0
+275,Fudgy chocolate cookies,Name,https://cafedelites.com/wp-content/uploads/2017/09/Fudgy-Chocolate-Cookies-IMAGE-210.jpg,6,Desserts,0,,65,"{14}",1,0
+276,Pumpkin pie cookie,name,https://images-gmi-pmc.edge-generalmills.com/ce4fe257-a1c7-41c2-89f6-a224463211ca.jpg,6,Desserts,0,,65,"{29}",1,0
+277,Spiced pumpkin chip cookies,Name,https://thebusybaker.ca/wp-content/uploads/2017/09/pumpkin-spice-chocolate-chip-cookies-fbig3.jpg,6,Desserts,0,,65,"{15,15,26}",1,0
+278,3-ingredient peanut butter cookie,name,https://www.jocooks.com/wp-content/uploads/2018/06/3-ingredient-peanut-butter-cookies-1.jpg,7,Snacks,0,,65,"{28,30}",1,0
+279,Banana Bread Cookies,Name,https://www.centercutcook.com/wp-content/uploads/2017/01/banana-bread-cookies-2.jpg,7,Snacks,0,,65,"{29,30}",1,0
+280,Pecan Balls,Name,https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/mccormick/p/600/pecan-cookie-balls.ashx?vd=20180710T033734Z&hash=EAA67D1AEDB5EAC4D56EF957617E10FB94C176A5,7,Snacks,0,,65,"{2,2,29}",1,0
+281,Chocolate chip carrot,Name,https://www.chelsea.co.nz/files/cache/3eab732ef0411e2c1c9c243dcdcb9523_f2349.jpg,6,Desserts,0,,65,"{2,14,17,30}",1,0
+282,Cinnamon Roll cookies,Name,https://images-gmi-pmc.edge-generalmills.com/c00db207-2d88-42b9-a740-784c5ad55f9d.jpg,7,Snacks,0,,65,"{19,30}",1,0
+283,Carrot cake,Name,https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/classic_carrot_cake_08513_16x9.jpg,6,Desserts,0,,65,{0},1,0
+284,Chocolate cherry poke cake,Name,"https://food-fanatic-res.cloudinary.com/iu/s--F9TXhNGc--/c_thumb,f_auto,g_auto,h_1200,q_auto,w_1200/v1497563743/chocolate-cherry-cheesecake-poke-cake-photo",6,Desserts,0,,65,"{28,29}",1,0
+285,Cinnamon Banana cake,Name,https://img.taste.com.au/-UQjcBOe/taste/2016/11/banana-cake-with-cinnamon-cream-102945-1.jpeg,6,Desserts,0,,65,"{17}",1,0
+286,Lemon cake,Name,https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/9/29/0/ig1a08_lemon_cake.jpg.rend.hgtvcom.826.620.suffix/1391987296604.jpeg,6,Desserts,0,,65,"{17}",1,0
+287,Mini eclair bites,Name,https://irepo.primecp.com/2016/09/298358/EDR-Mini-Eclair-Bites_ArticleImage-CategoryPage_ID-1856969.jpg?v=1856969,6,Desserts,1,,65,"{19}",1,0
+288,Golden apple treat,Name,https://i.pinimg.com/originals/fe/46/f6/fe46f69283f2bdcfc7a6ad353ba4453e.jpg,6,Desserts,1,,65,"{21,26}",1,0
+289,Summer's Best Peach Crumble,Name,http://irepo.primecp.com/2016/01/250922/EDR-Summers-Best-Peach-Crumble-OR_Large400_ID-1361273.jpg?v=1361273,7,Snacks,1,,65,"{17,28}",1,0
+290,Creamy Dreamy Banana Pie,Name,https://irepo.primecp.com/2015/11/245377/EDR-Creamy-Dreamy-Banana-Pie_ArticleImage-CategoryPage_ID-1295256.jpg?v=1295256,6,Desserts,1,,65,"{1,17}",1,0
+291,Phirni,Name,https://www.whiskaffair.com/wp-content/uploads/2013/08/Kesar-Phirni-3.jpg,6,Desserts,1,,65,"{6}",1,0
+292,Cheesy chicken n broccoli,Name,https://www.the-girl-who-ate-everything.com/wp-content/uploads/2014/10/broccoli-cheese-rice-one-pot-2a.jpg,10,Pizza,0,,65,"{6}",1,0
+293,Asian Chicken salad,Name,https://s23209.pcdn.co/wp-content/uploads/2018/07/Asian-Chicken-SaladIMG_5687.jpg,8,Salad,0,,65,"{6,6,14}",1,0
+294,Crock Pot Mexican Chicken Soup,Name,https://www.saltandlavender.com/wp-content/uploads/2017/10/crockpot-mexican-chicken-soup-2.jpg,9,Chinese,0,,65,"{6,19}",1,0
+295,Apple and Thyme Chicken,Name,https://www.recipegirl.com/wp-content/uploads/2008/09/apple-thyme-chicken.jpg,4,Starters,0,,65,"{6}",1,0
+296,Baked Chicken with Onions & Leeks,Name,https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/recipes/ew_baked_chicken_with_onions_and_leeks_recipe/280x190_ew_baked_chicken_with_onions_and_leeks_recipe.jpg,4,Starters,0,,65,"{6}",1,0
+297,Chicken Noodle Soup,Name,https://thestayathomechef.com/wp-content/uploads/2017/10/Chicken-Noodle-Soup-10.jpg,9,Chinese,0,,65,"{5}",1,0
+298,Baked salmon with lemon and garlic,Name,https://www.wellplated.com/wp-content/uploads/2017/08/Healthy-Salmon-recipe-with-Garlic-Butter-600x874.jpg,4,Starters,0,,65,"{5}",1,0
+299,Curry tuna salad,Name,https://www.pbfingers.com/wp-content/uploads/2014/07/CurriedTunaSalad.jpg,8,Salad,0,,65,"{5}",1,0
+300,Big Kahuna Tuna Steak,Name,https://i.pinimg.com/236x/9b/de/c1/9bdec15e30f4ecaed50e6e033c6ea994--tuna-steaks-truffle-oil.jpg,4,Starters,0,,65,"{5}",1,0
+301,Blackened Salmon,Name,"https://cdn.apartmenttherapy.info/image/fetch/f_auto,q_auto,w_600,h_750,c_fit,fl_strip_profile/https://s3.amazonaws.com/pixtruder/original_images/01aa11000048014992bd4afd6892d6e5b9fe8df6",3,Main,0,,65,{0},1,0
+302,Turmeric ginger orange smoothie,Name,https://www.theendlessmeal.com/wp-content/uploads/2017/01/Winter-Detox-Orange-Ginger-Turmeric-Smoothie-680.jpg,11,Beverages,1,,65,"{21,26}",1,0
+303,Blackberry peach salad,Name,https://www.onceuponachef.com/images/2010/06/Peaches-and-Berries-with-Lemon-Mint-Syrup-575x421.jpg,8,Salad,1,,65,"{6}",1,0
+304,Low fat celery soup,Name,https://www.ndtv.com/cooks/images/low.fat.celery.soup.jpg,4,Starters,1,,65,"{1,30}",1,0
+305,Brown rice and cracked wheat dosa,Name,https://3.bp.blogspot.com/-3oOYBaqcL6I/V2R-ZjBh0NI/AAAAAAAAC3w/z25prIJsWloYERKMkAs9gYtpr8cl1HQRACLcB/s1600/brown%2Brice%2Band%2Bcracked%2Bwheat%2Bdosa.JPG,3,Main,1,,65,"{10}",1,0
+306,Vegetable Kothu Chapathi,Name,https://farm9.staticflickr.com/8790/17403891078_afaaa20b79_o.jpg,12,Roti,1,,65,"{2,2,19}",1,0
+307,Apple and Cinnamon Oatmeal,Name,https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/4/13/0/FNK_Microwave-Apple-Cinnamon-Oatmeal-H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1492113444772.jpeg,4,Main,1,,65,{0},1,0
+308,Broccoli and Carrot Soup,Name,https://www.rawblend.com.au/assets/components/phpthumbof/cache/Broccoli%20&%20Carrot%20Soup.2f8ad1535b81f3a13a5209b42ec112d3134.jpg,4,Starters,1,,65,"{2,2,20,21,25,25,26}",1,0
+309,Sugar free Granola,Name,https://www.superhealthykids.com/wp-content/uploads/2015/05/01161340/sugar-free-granola-3-from-shk.jpg,6,Desserts,1,,65,{0},1,0
+310,Spiced carrot & lentil soup,Name,https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1074500_11.jpg?itok=IwEifJO_,4,Starters,1,,65,"{2,2}",1,0
+311,Oats soup,Name,https://i2.wp.com/media.hungryforever.com/wp-content/uploads/2017/04/06142535/oats-soup-recipe.jpg?resize=1075%2C514&ssl=1,4,Starters,1,,65,{0},1,0
+312,Gooseberry chutney,Name,https://images.eatsmarter.com/sites/default/files/styles/max_size/public/gooseberry-chutney-574024.jpg,3,Main,1,,65,"{23,26}",1,0
+313,"Spinach, Pear, and Pancetta Salad",Name,"https://assets.bonappetit.com/photos/57b1d686f1c801a1038bdea8/16:9/w_1000,c_limit/pear-pancetta-and-walnut-salad.jpg",8,Salad,1,,65,"{30}",1,0
+314,Masala missi roti,Name,http://cdn3.foodviva.com/static-content/food-images/north-indian-recipes/missi-roti/missi-roti.jpg,12,Roti,1,,65,"{9,11}",1,0
+315,Besan Methi Frankie,Name,https://sanjeevkapoor.com/UploadFiles/RecipeImages/Besan-Methi-Frankie.jpg,12,Roti,1,,65,"{9,22}",1,0
+316,Lauki Raita,Name,https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2018/Preethi_Kitchen_Appliances_Lauki_Raita_Recipe_video-1.jpg,3,Main,1,,65,{0},1,0
+317,Green Pepper Steak,Name,https://cdn.cdkitchen.com/recipes/images/2016/05/128794-6177-mx.jpg,4,Starters,0,,65,{0},1,0
+318,Okra and Tomato Curry,Name,https://www.veganricha.com/wp-content/uploads/2016/05/bhindi-masala-3198.jpg,3,Main,1,,65,"{19}",1,0
+319,Okra Juice and Smoothie,Name,http://static.op-mobile.opera.com/affive-80/wp-content/uploads/2019/02/Okraaa.jpg,11,Beverages,1,,65,"{14}",1,0
+320,Zucchini corn boats,Name,https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/3/20/0/0165388_01-zucchini-pirate-boats_s4x3.jpg.rend.hgtvcom.616.462.suffix/1382541212726.jpeg,4,Startes,1,,65,"{15,15,26,26}",1,0
+321,Roasted vegetables,Name,https://keviniscooking.com/wp-content/uploads/2015/11/Easy-Roasted-Vegetables-with-Honey-and-Balsamic-Syrup2-1024x681.jpg,3,Main,1,,65,"{26,26}",1,0
+322,Mixed vegetables,Name,https://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/image/sponsor/countrycrock/MexicanVegetableSaute_420x420.jpg?itok=br1kfpdv,3,Main,1,,65,"{26,26}",1,0
+323,Chinese stir fried peas and greens,Name,https://static01.nyt.com/images/2010/11/03/science/02recipehealth/02recipehealth-articleLarge-v2.jpg,9,Chinese,1,,65,"{30}",1,0
+324,Italian pita crisps,Name,"https://img.sndimg.com/food/image/upload/fl_progressive,c_fill,q_80,w_412,h_232/v1/img/recipes/49/87/27/8ksK93vaQ7yvvU3MrdOa-IMG_0783.JPG",10,Pizza,1,,65,"{14}",1,0
+325,English muffin cheese pizza,Name,https://www.tasteofhome.com/wp-content/uploads/2017/10/English-Muffin-Pizza-Joes_exps3923_KAC2379526C05_16_4b.jpg,10,Pizza,1,,65,{0},1,0

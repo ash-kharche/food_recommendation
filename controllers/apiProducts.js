@@ -24,11 +24,9 @@ apiProducts.getData = function (req, res) {
             var getCollectionsDBPromise = new Promise(function (resolve, reject) {
                 apiProducts.getCollectionsDB(function (err, response) {
                     if (err) {
-                        //console.log("ApiProducts : getCollectionsDB    :" + err);
                         data.collections = [];
                         return reject();
                     } else {
-                        //console.log("ApiProducts : getCollectionsDB    :" + response);
                         data.collections = response;
                         return resolve(response);
                     }
@@ -123,7 +121,12 @@ apiProducts.getData = function (req, res) {
             if (err) {
                 callback(err, null);
             } else {
-                var query = "SELECT * FROM products WHERE is_veg = " + is_veg;
+
+                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                if (is_veg == 0) {
+                    whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                }
+                var query = "SELECT * FROM products WHERE " + whereString;
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -143,7 +146,11 @@ apiProducts.getData = function (req, res) {
             if (err) {
                 callback(err, null);
             } else {
-                var query = "SELECT * FROM products WHERE is_veg = " + is_veg + " ORDER BY rating LIMIT 5";
+                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                if (is_veg == 0) {
+                    whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                }
+                var query = "SELECT * FROM products WHERE " + whereString + " ORDER BY rating LIMIT 5";
                 client.query(query, function (err, result) {
                     done();
                     if (err) {
@@ -180,13 +187,19 @@ apiProducts.getData = function (req, res) {
                         console.log("\n********* ingredientsIdList:   " + ingredientsIdList);
 
                         var productsArray = [];
-                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND isveg = " + is_veg + ") ORDER BY rating LIMIT 10";
+                        var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                        if (is_veg == 0) {
+                            whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                        }
+                        var query = "SELECT * FROM products WHERE " + whereString;
+
+                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             done();
 
                             if (err) {
-                              //No products found matching ingredients
+                                //No products found matching ingredients
                                 callback(null, []);
                             } else {
                                 callback(null, result.rows);
@@ -227,7 +240,7 @@ apiProducts.getData = function (req, res) {
                             }
 
                             var productPresentBoolean = innerProductIdList.includes("77");
-                            console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList+"     productPresentBoolean:  " +productPresentBoolean);
+                            console.log("\n********* getCartRecommendedProducts:  innerProductIdList:   " + innerProductIdList + "     productPresentBoolean:  " + productPresentBoolean);
 
                             productIdList = productIdList.concat(innerProductIdList);
                         }
@@ -235,8 +248,19 @@ apiProducts.getData = function (req, res) {
 
                         console.log("\n********* getCartRecommendedProducts:  productIdList:   " + productIdList.toString());
 
+                        var user_id = req.params.user_id;
+                        var is_veg = req.params.is_veg;
+                        var diabetes = req.params.diabetes;
+                        var bp = req.params.bp;
+                        var cholestrol = req.params.cholestrol;
+                        var special_case = req.params.special_case;
+
                         var productsArray = [];
-                        var query = "SELECT * FROM products WHERE product_id IN (" + productIdList.toString() + ")";
+                        var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                        if (is_veg == 0) {
+                            whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                        }
+                        var query = "SELECT * FROM products WHERE (product_id IN (" + productIdList.toString() + ") AND " + whereString + ")";
                         console.log("query:   " + query);
                         client.query(query, function (err, result) {
                             done();
@@ -260,17 +284,21 @@ apiProducts.getData = function (req, res) {
                 res.status(400).send(err);
             } else {
 
-              var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE collection_id IN (" + req.params.collections + ")) rank_filter WHERE RANK <=" + req.params.rank;
-              console.log("query:   " + query);
-              client.query(query, function (err, result) {
-                  done();
+                var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                if (is_veg == 0) {
+                    whereString = "((is_veg = 1 || is_veg = 0) AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
+                }
+                var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
+                console.log("query:   " + query);
+                client.query(query, function (err, result) {
+                    done();
 
-                  if (err) {
-                      res.status(400).send(err);
-                  } else {
-                      res.status(200).send(result.rows);
-                  }
-              });
+                    if (err) {
+                        res.status(400).send(err);
+                    } else {
+                        res.status(200).send(result.rows);
+                    }
+                });
 
             }
         });

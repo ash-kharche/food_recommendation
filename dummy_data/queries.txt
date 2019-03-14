@@ -1,0 +1,57 @@
+update ingredients set ingredients = array_append(ingredients, 10000);
+
+SELECT name FROM ingredients WHERE name LIKE '%rice%';
+
+UPDATE ingredients SET ingredients = array_append(ingredients, 1) where  name LIKE '%rice%';
+
+ALTER TABLE pi RENAME COLUMN name TO product_name;
+
+id,name
+1,Rice
+2,Oats
+3,Prawns
+4,Crabs
+5,Fish
+6,chicken
+7,Mutton/goat/lamb
+8,Ragi
+9,curd/yogurt
+10,coconut
+11,fenugreek/methi
+12,mushroom
+13,Paneer
+14,cheese
+15,butter
+16,Beetroot
+17,Milk
+18,Pomegranate
+19,apple
+20,Mango
+21,Peach
+22,Lauki
+23,Spinach
+24,aloevera
+25,walnuts
+26,peas
+27,Pasta
+28,banana
+29,Maida
+30,Wheat/flour
+
+
+11,Rava
+13,Banana
+14,Flour/wheat
+15,carrot
+
+12,Urad Dal
+19,chana Dal
+20,masoor dal
+21,moong Dal
+22, Dal //not yet added
+
+23,garam masala
+
+28,Pumpkin
+29,Egg
+30,Noodles

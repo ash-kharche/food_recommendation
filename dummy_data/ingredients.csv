@@ -1,0 +1,320 @@
+id,produtct_name,name,main,ingredients
+1,Plain Dosa,"Rice,Urad Dal",{0},{0}
+2,Masala Dosa,"Rice,Urad Dal,Potato,Onion,Chana dal",{0},{0}
+3,Mysore Masala Dosa,"Rice,Urad dal,Poha,Potato",{0},{0}
+4,Paneer Masala Dosa,"Rice,Urad Dal,Potato,Paneer,Tomato",{0},{0}
+5,Rava Dosa,"Rava,Rice flour,Maida,Onion",{0},{0}
+6,Nachani Dosa,"Ragi flour,Rice flour,Sour curd,Onion",{0},{0}
+7,South Indian Platter,"rice,orad dal",{0},{0}
+8,Oats Masala Dosa,"Oats,Rice flour, Curd,Potato,chana dal,urad dal",{0},{0}
+9,Moongdal Dosa,"Green moong beans,Rice flour, Onion",{0},{0}
+10,Oats Idli,"Oats,Rava,carrot,urad dal,chana dal",{0},{0}
+11,Ragi Idli,"Rice,urad dal,poha,ragi flour",{0},{0}
+12,Masala Fried Idli,"Rice,urad dal,poha,onion,tomato,",{0},{0}
+13,Medu Wada,"Urad dal,onion, coconut pieces",{0},{0}
+14,Dal Wada,"Chana dal,urad dal,moong dal,onion",{0},{0}
+15,Uttapam,"Rice,urad dal,onion,tomato",{0},{0}
+16,Carrot Uttapam,"Rice,urad dal,onion,carrot",{0},{0}
+18,Ragi Uttapam,"Ragi flour,Rice flour,onion",{0},{0}
+19,Oats Uttapam,"oats,rava,gram flour,onion,tomato",{0},{0}
+20,Vermicelli Upama,"Vermicelli,urad dal,onion,beans,carrot",{0},{0}
+21,Corn Upama,"Corn,rava, chana dal,urad dal",{0},{0}
+22,Wheat upama,"Broken wheat,onion,carrot",{0},{0}
+23,Avial,"Drumsticks,ash gourd,pumpkin,yogurt,coconut",{0},{0}
+24,Coconut Chutney,"Coconut,chana dal,ginger",{0},{0}
+25,Onion Chutney,"Onion,chana dal,urad dal,tamarind",{0},{0}
+26,Tomato Chutney,"Tomato, garlic,chili powder",{0},{0}
+27,Coriander Chutney,Coriander leaves,{0},{0}
+28,Pudina Chutney,"Mint leaves,coriander leaves, garlic,yogurt,amchur",{0},{0}
+29,Lemon Rice,"Rice, lemon juice",{0},{0}
+30,Curd Rice,"Rice,curd,urad dal,chana dal, milk,carrot,red chili",{0},{0}
+31,Tomato Rice,"Rice,onion,tomato, garlic",{0},{0}
+32,Coconut Rice,"Rice,Coconut milk",{0},{0}
+33,Tamarind Rice,"Rice,tamarind,urad dal,chana dal,red chilli",{0},{0}
+34,Sesame Rice,"Rice,spring onion,sesame seeds",{0},{0}
+35,Fish Moilee,"White fish, garlic,onion,coconut milk,vinegar",{0},{0}
+36,Karimeen Fry,"Pearlspot fish, garlic,onion,tomato,red chilli,lemon juice",{0},{0}
+37,Aila Fish Curry,"Mackerel fish,coconut grated,tamarind, tomato,shallots,red chilli",{0},{0}
+38,Kerala Chicken Roast,"Chicken, garlic,tomato,onion,soya sauce",{0},{0}
+39,Naadan Crab Fry,"Crab,onion,tomato,tamarind,coconut grated,shallots, red chilli",{0},{0}
+40,Fish Curry With Lotus Stems,"fish,lotus stems",{0},{0}
+41,Goan Curry,"Prawns,red chilli,garlic,tamarind,coconut milk,coconut grated, onion,tomato",{0},{0}
+42,Machha Besara,"Rohu fish,red chilli,garlic,lemon juice,mustard seeds, onion,tomato",{0},{0}
+43,Malvani Curry,"Fish,garlic,tamarind,coconut grated,teppal,onion",{0},{0}
+44,Bombil Fry,"Bombil, garlic,lemon juice,rice flour,rava",{0},{0}
+45,Bangada Fry,"Mackerel(bangda), garlic,lemon juice,rice flour,rava",{0},{0}
+46,Malvani Mutton Curry,mutton,{0},{0}
+47,Paplet Gravy,"Pomfret fish,onion,tomato,vinegar ,garlic,ginger",{0},{0}
+48,Mori Masala,"Shark fish,nutmeg,red chilli,coconut, garlic,coconut,tomato",{0},{0}
+49,Prawns Curry,"Prawns,rice flour,onion, garlic,tomato puree,",{0},{0}
+50,Prawns Fry,"Prawns, garlic,coconut,curd",{0},{0}
+51,Crab Meat balls,"Crab,flour,paprika,egg,sauce,milk,parsley",{0},{0}
+52,Creamy Crab Meat,"cream,crab",{0},{0}
+53,Crab Mean Buruji,"crab,egg",{0},{0}
+54,Crab Soup,crab,{0},{0}
+55,Crab Biryani,"Crab,rice,tomato paste,onion, garlic,ghee,red chilli",{0},{0}
+56,Crab Leg Masala,"Crab,onion,tomato, garlic,mustard seeds",{0},{0}
+57,Tandoori Chicken,"Chicken,garlic, yogurt,lemon juice,kasturi methi",{0},{0}
+58,Chicken Stew,"Chicken,carrot,onion,celery,flour,potato,sweet potato,beans,cream,red pepper",{0},{0}
+59,Chicken Soup,"Chicken,chicken broth,celery,carrot,onion,rice",{0},{0}
+60,Chicken Tikka Masala,"Chicken,yogurt,lemon juice, garlic,sauce,cream,paprika",{0},{0}
+61,Mughlai Chicken,"Chicken,ghee,cashewnut,onion,garlic, cream",{0},{0}
+62,Chicken Curry,"Chicken, garlic,onion,tomato",{0},{0}
+63,Mughlai Chicken Biryani,"Chicken,rice, garlic,onion,tomato,nutmeg,yogurt,almond,ghee",{0},{0}
+64,Mirchi Ka Salan,"Peanuts,coconut dessciated,onion, garlic,mustard,tamarind",{0},{0}
+65,Dum Pukht,"Chicken,yogurt, garlic,onion,cashew,almond,ghee",{0},{0}
+66,Hyderabadi Marag,"Mutton,onion, garlic,coconut dessicated,cashew,pista,yogurt,milk,cream,mint leaves",{0},{0}
+67,Chicken Lollipop,"Chicken, garlic,onion,soya sauce,corn flour,vinegar,chilli sauce",{0},{0}
+68,Gosht Pasinde,"Mutton, garlic,mint,almonds,curd,",{0},{0}
+69,Malai Korma,"Cream,onion,tomato,garlic, cashew,ghee",{0},{0}
+70,Qabooli Biryani,"Rice,chana dal,onion, garlic,yogurt,mint leaves",{0},{0}
+71,Dum Biryani,"Chicken,yogurt, garlic,onion,lemon juice,rice,milk,ghee",{0},{0}
+72,Hyderabadi Veg Biryani,"Rice,masoor dal,onion, garlic,mint leaves,ghee",{0},{0}
+73,Sheer Khurma,"Milk,sugar,vermicilli,dates,raisins,almonds,pistas,ghee",{0},{0}
+74,Shahi Tukada,"Bread,milk,cashew,pistas,ghee,sugar,almonds",{0},{0}
+75,Mutton Korma,"Mutton,onion,curd,garlic,ginger",{0},{0}
+76,Chicken Biryani,"Chicken,rice,mint leaves,garlic,tomto puree,milk, onion,tomato,yogurt",{0},{0}
+77,Chicken 65,"Chicken,corn flour,rice flour,egg white, garlic,curd,sugar",{0},{0}
+78,Puri Bhaji,"Potato,onion,urad dal,ginger",{0},{0}
+79,Chole Bhature,"Chickpeas,onion,tomato, garlic,lemon juice,butter,maida,yeast,wheat flour",{0},{0}
+80,Rogan Josh,"Lamb shanks,Maida,sour cream, tomato,onion,carrots,potato,mushroom",{0},{0}
+81,Sali Boti(Red Hot Mutton),"Mutton,onion, garlic,tomato,vinegar,potato shreds",{0},{0}
+82,Aloo chaat,"Coriander,green chilli,potato,onion,chaat masala,lemon juice,tamarind chutney",{0},{0}
+83,Malpua,"Maida,ghee,khoa(mava),rava,baking powder,sugar,milk,pista",{0},{0}
+84,Kadhai Paneer,"Paneer,red chilli,onion, garlic,tomato,capsicum,garam masala",{0},{0}
+85,Aloo Gobi Masala,"Onion, garlic,coconutt milk,tomato,garbanzo beans,cauliflower,gold pepper,cayenne pepper",{0},{0}
+86,Carrot Halwa,"Carrot,ghee,milk,sugar,raisins",{0},{0}
+87,Lauki Halwa,"Lauki,elaichi,almonds,cashew,raisins,ghee,milk,condensed milk",{0},{0}
+88,Palak Paneer,"Paneer,spinach, garlic,tomato puree,onion,red pepper,cream",{0},{0}
+89,Aloo Matar,"Potato,green peas,onion, garlic,tomato,garam masala",{0},{0}
+90,Paneer Butter Masala,"Paneer,butter, garlic,onion,cashew,red chilli,tomayo sauce,milk,",{0},{0}
+91,Paneer Tikka,"Paneer,yogurt, garlic,lemon juice,onion,green capsicum,green chutney",{0},{0}
+92,Tawa Paneer,"Paneer,onion, tomato puree,capsicum,cream,garam masala",{0},{0}
+93,Dum Aloo,"Potato,onion,tomato,cashew, garlic,curd,garam masala",{0},{0}
+94,Dahi Kabab,"Chickpea flour,yogurt,onion,ghee,coriander leaves",{0},{0}
+95,Spicy Achari Paneer Masala,"Paneer,red chilli,onion,amchur,turmeric,mustard seeds",{0},{0}
+96,Dal Fry,"Onion, garlic,toor dal,tomato,red chilli,ghee,garam masala",{0},{0}
+97,Dal Tadaka,"Onion, garlic,moong dal,tomato,green chilli",{0},{0}
+98,Baingan Bharata,"Brinjal,onion,tomato,yogurt, garlic,garam masala",{0},{0}
+99,Bhendi Fry,"Onion, garlic,Lady's finger,tomato,amchur,garam masala",{0},{0}
+100,Bhendi Masala,"Onion, garlic,Lady's finger,tomato,amchur,red chilli powder",{0},{0}
+101,Aloo Tikki,"Potato,onion,peas, ground spice,maida,curd,mint chutney",{0},{0}
+102,Baby Corn Masala,"Baby corn cobs, garlic,onion,tomato,garam masala",{0},{0}
+103,Kadai Mushroom,"Mushroom,red chilli, garlic,onion,tomato,cashew,capsicum,garam masala",{0},{0}
+104,Malai Kofata,"Onion, garlic,tomato,cashew,potato,butter,garam masala,cream,corn flour,raisins",{0},{0}
+105,Masoor Dal,masoor dal,{0},{0}
+106,Matar Mushroom,"Mushroom,frozen peas,onion,tomato, garlic,garam masala",{0},{0}
+107,Methi Malai Paneer,"Fenugreek leaves,red pepper,paneer,coriander,tomato puree,garam masala",{0},{0}
+108,Sev Bhaji,"Onion,coconut dried, garlic,red sev,jaggery,garam masala",{0},{0}
+109,Mushroom Masala,"Mushroom,onion,tomato, garlic,garam masala,almond,cream",{0},{0}
+110,Paneer makhani,"Paneer,tomato, garlic,butter,cream,garam masala,fenugreek leaves dry",{0},{0}
+111,Rajama,"Onion, garlic,garam masala,red kidney beans,ghee,red pepper,coriander",{0},{0}
+112,Sabudana Khichadi,"Sabudana, potato,peanuts,lemon juice,green chilli",{0},{0}
+113,Sabudana Vada,"Sabudana,Red Chilli Powder,potato,peanuts,lemon juice,green chilli,coriander powder",{0},{0}
+114,Samosa,"Maida,ghee,potato,garlic, amchur,garam masala,peas",{0},{0}
+115,Shahi Paneer,"Paneer,tomato, butter,garam masala,red chilli powder,gram melon seeds",{0},{0}
+116,Stuffed Capsicum,"Paneer,capsicum,potato,cashew,raisins,amchur,onion, cheese,green chilli",{0},{0}
+117,Veg Cutlet,"Potato,french beans,peas,beetroot, onion,maida,bread,cashew,green chilli",{0},{0}
+118,Veg Seekh Kabab,"French beans,carrot,cabbage,peas,gram flour, garlic,potato,corn,chaat masala",{0},{0}
+119,Badam Halawa,"Almond,saffron,ghee,sugar",{0},{0}
+120,Beetroot Halawa,"Beetroot,milk,sugar,ghee,elaichi,cashew,raisins",{0},{0}
+121,Cham cham,"Milk,lemon juice,sugar,corn flour,khoa,coconut shredded,elaichi,figs",{0},{0}
+122,Badam Dry Fruit Ladoo,"Raisins,ghee,dates,pista,cashew,almonds,elaichi powder",{0},{0}
+123,Gulab Jamun,"Milk powder,maida,ghee,baking powder,almonds,pista,raisins,sugar,ground cardamom",{0},{0}
+124,Moong Dal Halwa,"Green lentil,ghee,sugar,milk,almonds,elaichi",{0},{0}
+125,Walnut Halwa,"Walnut,sugar,Cucumber seeds,Cardamom powder,,Saffron,dates,milk",{0},{0}
+126,Pumpkin Halwa,"Condensed Milk,Milk,cashew,pista,almonds,Pumpkin ,Desiccated Coconut
+,ghee,elaichi powder",{0},{0}
+127,Egg Omelette,"Egg,salt,pepper,chilli powder",{0},{0}
+128,Egg Bhuraji,"Egg,salt,chilli powder,onion,green chilli",{0},{0}
+129,Paneer Bhuraji,"Egg,paneer,butter, onion,tomato,red chilli powder",{0},{0}
+130,Egg Curry,egg,{0},{0}
+131,Half fried Egg,"Egg,Green Chili Paste,tomato,garlic, garam masala",{0},{0}
+133,Plain Paratha,"Wheat flour,salt,ghee",{0},{0}
+134,Rumali Roti,maida,{0},{0}
+135,Naan,maida,{0},{0}
+136,Tawa Roti,wheat,{0},{0}
+137,Butter Naan,maida,{0},{0}
+138,Aloo paratha,"Wheat flour,potato,ghee,amchur,green chilli,garam masala",{0},{0}
+140,Gobi Paratha,"Wheat flour,cauliflower,ghee,amchur,green chilli,garam masala",{0},{0}
+144,Paneer Paratha,"Wheat flour,paneer,ghee,amchur,green chilli,garam masala",{0},{0}
+145,Onion Paratha,"Wheat flour,onion,ghee,amchur,green chilli,garam masala",{0},{0}
+146,Methi Paratha,"Wheat flour,fenugreek leaves,ghee,amchur,green chilli,garam masala",{0},{0}
+147,Bread Pakoda,"Gram flour,bread,green chilli,salt",{0},{0}
+148,Butter Bread Toast,"Bread,butter",{0},{0}
+149,Aloo Sandwitch,"Bread,potato,chilli powder,onion,butter",{0},{0}
+150,Veg Sandwitch,"Bread,butter,cucumber,onion,tomato,carrot,beetroot,green chilli,sauce",{0},{0}
+151,Cheese Grilled Sandwitch,"Bread,cheese,butter,carrot,capsicum,onion,corn,parsley",{0},{0}
+152,Veg Salad,"Sour cream, mayonnaise, vinegar, jalapeno,cucumber,onion,tomato,corn",{0},{0}
+153,Fruit Salad,"Orange juice, lemon juice, brown sugar,pineapple, strawberries, kiwi fruit, bananas, oranges, grapes,blueberries",{0},{0}
+154,Sprout Salad,"sprouted moong, chana dal,kabuli chana,onion, cucumber, capsicum,tomatoes,chaat masala",{0},{0}
+155,Bundi Raita,"Boondi,yogurt,chaat masala,salt,coriander leaves",{0},{0}
+156,Mint Raita,"Yogurt,mint leaves,coriander leaves,onion,salt",{0},{0}
+157,Plain Raita,"Yogurt,coriander leaves,black pepper,salt,cumin seeds",{0},{0}
+158,Manchow Soup,"Beans, carrot, cauliflower,capsicum, cabbage,celery,spring onions,soya sauce,red chilly sauce,vegetable stock,fried noodles, garlic",{0},{0}
+159,Sweet And Sour Soup,"Veg stock,spring onion,cucumber,chili sauce,sugar,corn flour,vinegrar,wonton",{0},{0}
+160,Sweet Corn Soup,"Corn,celery,spring onion,milk,corn flour,black pepper",{0},{0}
+161,Tomato Soup,"Toamto,onion,garlic,celery,vegetable broth,carrot,sauce",{0},{0}
+162,Spinach Soup,"Spinach,onion,garlic,butter,maida",{0},{0}
+163,Paaya Soup,"Lamb trotter,Bengal Gram, garlic,green chili,elaichi",{0},{0}
+164,French Onion Soup,"Onion,butter,beef broth,sherry,french bread,cheese,",{0},{0}
+165,Lemony Greek Chicken Soup,"Chicken,chicken broth,chicken soup base,rice,maida,lemon,onion,celery,carrot,egg yolk",{0},{0}
+166,Veg Manchurian,"Cabbage,carrot,capsicum,spring onion, garlic, corn flour, maida, salt, black pepper,sauce,vinegar",{0},{0}
+167,Schezwan Noodles,"Noodles,Cabbage,carrot,capsicum,spring onion,beans, garlic, sauce,vinegar",{0},{0}
+168,Schezwan Rice,"Rice,french beans, carrot, capsicum, cabbage, celery,Spring Onion,garlic,sauce",{0},{0}
+169,Triple Schezwan fried Rice,"Rice,noodles, spring onions, cabbage,carrots, garlic,cornflour,celery,sauce",{0},{0}
+170,Hakka Noodles,"Hakka noodles,spring onion,carrot,beans,mushroom,capsicum,garlic,celery,vinegar,soya sauce,green chilli",{0},{0}
+171,Veg 65,"Onion,garlic, cauliflower,sauce,vinegar,maida,mushroom,potato,corn flour",{0},{0}
+172,HongKong Rice,"rice,spring onion,alfalfa sprouts,eggs,pepper",{0},{0}
+173,Veggie Lovers Pizza,"Green capsicum,olive,pizza crust,mushroom,cheese,onion,sauce",{0},{0}
+174,Cheese Garlic Pizza Sticks,"Pizza dough,garlic,butter,sauce,Monteray jack cheese,cheddar cheese,Mozzarella cheese",{0},{0}
+175,Cheese Delite Pizza,"capsicum,mozarella cheese,corn,tomatoes,onions,olive",{0},{0}
+176,Jain Pizza,"capsicum,cheese,corn,tomatoes",{0},{0}
+177,Hot n Spicy Chinese Pizza,"Chicken breast, garlic,pizza crust,soya sauce,sauce,water chestnuts,onion,cheese,snow pea pods",{0},{0}
+178,Chicken Barbeque Pizza,"Pizza crust,barbeque sauce,barbeque sauce,onion,cheese,chicken",{0},{0}
+179,Margherite Veg Pizza,"Pizza dough,garlic,sauce,cheese,tomato,basil",{0},{0}
+180,Red Sauce Pasta,pasta,{0},{0}
+181,Arrabiata Pasta,"Garlic,tomato,sugar,oregano,lemon juice,pasta,cheese,basil",{0},{0}
+182,White Sauce Pasta,pasta,{0},{0}
+183,Italian Pasta,pasta,{0},{0}
+184,Spaghetti Pasta,Pasta,{0},{0}
+185,Apple Pie,"Apple,Granny Smith apples,sugar,maida,shortening,butter",{0},{0}
+186,Brownies,"Butter,sugar,eggs,vanilla extract,cocoa powder,maida,baking powder,butter,honey",{0},{0}
+187,Apple Crisp,"Apple,sugar,maida,oats,butter,brown sugar,baking powder,baking soda",{0},{0}
+188,Bread pudding,"Bread,butter,eggs,raisins,milk,sugar",{0},{0}
+189,Fruit Pudding,"pomgranate,apples,pear,custard,cream",{0},{0}
+190,Butter Milk,"Curd,cumin powder,pepper,coriander leaves",{0},{0}
+191,Mango Juice,"Mango,peach,nectarine,orange,sugar",{0},{0}
+192,Lemonade,"Lemon juice,sugar",{0},{0}
+193,Orange Juice,"Orange,lemon juice,sugar",{0},{0}
+194,Apple Juice,"Apple,sugar",{0},{0}
+195,Watermelon Juice,"Watermelon,sugar,lemon juice",{0},{0}
+196,Aloe vera juice,"Aloe vera juice,yogurt,pineapple,spinach,banana,ginger",{0},{0}
+197,Sugarcane juice,"Sugarcane juice,lemon juice,ginger",{0},{0}
+199,Coconut Juice,coconut,{0},{0}
+200,Kiwifruit Juice,"Kiwi,apple,celery",{0},{0}
+201,Pineapple juice,"Pineapple,sugar,pepper,salt",{0},{0}
+202,Strawberry juice,"Strawberry,sugar",{0},{0}
+203,Beet juice (B.P),"Beetroot,apple,celery,carrot,lemon,ginger",{0},{0}
+204,Carrot and orange Juice,"Orange,carrot,apple,lemon,nectarine,mint,ginger",{0},{0}
+205,Mixed veg Juice,"Tomato,celery,capsicum,onion,beetroot,carrot,garlic,horseradish,lemon juice,sugar",{0},{0}
+206,Cucumber Juice,"Cucumber,green chili pepper,mint leaves,lime juice",{0},{0}
+207,Rose Sharabat,"Rose petals,lemon juice,beetroot,basil,mint,cardamom,coriander",{0},{0}
+208,Guava Juice,"Guava,tomato,sugar,salt,pepper",{0},{0}
+209,Pomegranate juice,Pomegranate,{0},{0}
+210,Ras Malai,"Ricotta cheese,sugar,cardamom,saffron,almond,pista,half and half",{0},{0}
+211,Rabadi,"Milk,sugar,cardamom,saffron,almond,pista",{0},{0}
+212,Rasgulla,"Milk,lemon juice,refined flour,sugar syrup",{0},{0}
+213,Coffee,"Coffee powder,milk,sugar",{0},{0}
+214,Tea,"Tea leaves,milk,sugar",{0},{0}
+215,Masala Tea,"Tea leaves,milk,sugar,cardamom,peppercorns",{0},{0}
+216,Pav Bhaji,"Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,butter,masala,pav",{0},{0}
+217,Vada Pav,"Potato,garlic,gram flour,baking soda,lemon juice,green chilli,tamarind,red chutney,pav,jaggery powder",{0},{0}
+218,Misal Pav,"Beansprout,potato,onion,chilli,garlic, tamarind,pav,tomato,sev,lime,yogurt,coriander leaves",{0},{0}
+219,Poha,"Onion,poha,sugar,green chilli,potato,lemon juice",{0},{0}
+220,Aloo Pakoda,"Potato,gram flour,rice flour,baking soda,chaat masala,garam masala",{0},{0}
+221,Cheese Pav bhaji,"Cheese,Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,butter,masala,pav",{0},{0}
+222,Butter Pav bhaji,"Butter,brinjal,capsicum,Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,masala,pav",{0},{0}
+223,Dabeli,"Red chilli,coriander powder,cumin seeds,lemon juice,garlic,potato,onion,coconut grated,pomegranate seeds,tamarind dates chutney,coriander leaves,pav,sev",{0},{0}
+224,Veg Burger,"Maida,carrots, squash,zucchini,garlic,onion,oats,cheese,egg,soya sauce",{0},{0}
+225,Chicken burger,"Chicken,breadcrumbs,onion,garlic,egg,pepper",{0},{0}
+226,Veg Pulao,"Rice,peas, carrot, green beans, cauliflower,vegetable broth,garlic,onion,",{0},{0}
+227,Veg Biryani,"Onion, garlic,,cauliflower,cabbage,green peas,carrots,rice,green chilli,garam masala,coriander leaves",{0},{0}
+228,Veg steam Momos,"Maida,cabbage,french beans,carrots,capsicum,spring onion,garlic,soya sauce,black pepper",{0},{0}
+229,Paneer steam Momos,"Paneer,,onion,garlic, maida,coriander leaves,soya sauce,cabbage,tomato",{0},{0}
+230,Paneer Fried Momos,"Refined flour,baking powder,paneer,onion,garlic,soya sauce,vinegar",{0},{0}
+231,Chicken Steam Momos,"Chicken,onion,garlic, maida,coriander leaves,soya sauce,cabbage,tomato",{0},{0}
+232,Chicken Fried Momos,"Refined flour,baking powder,chicken,onion,garlic,soya sauce,vinegar",{0},{0}
+233,Chilly Chicken Momos,"Red chilli,garlic,chicken,vinegar,corn flour,soya sauce,cabbage,carrot,onion,black pepper",{0},{0}
+234,Chilly Paneer Momos,"Paneer,Green capsicum,spring onion,garlic, sauce,green chilli,cheese,maida",{0},{0}
+235,Fish Fried Momos,"Wheat flour,carrots,cabbage,spring onions,beans,cauliflower,fish,sauce,onion,garlic,black pepper",{0},{0}
+236,Mushroom Momos,"Maida,mushroom,garlic,spring onion,soya sauce,pepper",{0},{0}
+237,Chilli Pakora,"Green chilli,potato,chaat masala,garam masala,batter,gram flour,baking powder,red chilli powder",{0},{0}
+238,Paneer Pakora,"Paneer,gram flour,garlic, red chilli powder,green chilli",{0},{0}
+239,Chaat Papdi,"Papdi,curd,sugar,potato,chickpeas,onion,pomegranate seeds,tamarind chutney,mint chutney,sev,coriander leaves",{0},{0}
+240,Tandoori Roti,"Wheat flour,ghee,oil",{0},{0}
+241,Chilli Garlic Naan,"Maida,garlic,green chilli,coriander leaves,baking soda,baking powder,yogurt,milk,butter",{0},{0}
+242,Lahori Naan,"Flour,chickpea flour,ghee,sugar,almond,egg yolk,baking soda,cardamom,nutmeg",{0},{0}
+243,Matar Paneer,"Paneer,green peas,onion, garlic,tomato,red pepepr,green chilli",{0},{0}
+244,Chilli Paneer,"Corn flour,maida, garlic,pepper,paneer,red chilli powder,green chilli,spring onion,capsicum,soya sauce,sauce,vinegar",{0},{0}
+245,Bhindi Masala,"Onion, garlic,lady's finger,tomato,amachur",{0},{0}
+246,Mango Lassi,"Mango pulp,yogurt,milk,sugar,pista,elaichi",{0},{0}
+247,Thalipeeth,"Wheat flour,gram flour,bajra,jowar,rice flour,onion, green chilli,coriander powder,ajwain",{0},{0}
+248,Veg Kofta Curry,"Potato,onion, garlic,carrot,capsicum,cabbage,beans,tomato paste,milk,cream,cashew,garam amsala",{0},{0}
+249,Chana Masala,"Chickpeas,garam masal, garlic,pomegranate seeds,onion,pepper,tomato",{0},{0}
+250,Aloo Paneer Masala,"Paneer,potato,cardamom,onion, garlic,green chilli,tomato puree,cream",{0},{0}
+251,Kadai Bhindi,"Onion, garlic,lady's finger,tomato,capsicum,garam masala",{0},{0}
+252,Mixed Vegetable Curry,"Onion,cauliflower,carrots,cabbage,beans ,peas,potatoes, garlic,tomato,curd,green chilli",{0},{0}
+253,Rice,Rice,{0},{0}
+254,Jeera Rice,"Rice,cumin seeds,ghee",{0},{0}
+255,Parmesan Potato Pancakes,"Onion,garlic,pepper,potato,cheese,basil",{0},{0}
+256,Ginger-Chocolate Chunk Ice Cream Sandwiches,"Vanilla ice-cream,dark chocolate, chocolate wafer cookies",{0},{0}
+257,Sangria,"Apple,lemon juice,orange,orange juice,wine,brandy",{0},{0}
+258,Apple-Cinnamon Granola,"Honey,oats,walnuts,nutmeg,apple,raisins",{0},{0}
+259,Morning Glory Muffins,"Maida,sugar,baking soda,carrot,raisins,walnut,apple,flaked coconut,eggs",{0},{0}
+260,Arugula and Goat Cheese Pizza,"Onion,pizza crust,tomato,goat cheese,arugula",{0},{0}
+261,"Savory Squash, Carrot, and Ginger Soup","Carrot,onion,garlic, butternut squash,apple,pear,coconut milk,bread",{0},{0}
+262,Jane's Vegetarian Chili,"Onion,garlic,chickpeas,tomato,kidney beans,white beans,black beans,cheese",{0},{0}
+263,Bean and Corn Salsa,"Tomato,onion,black bean,corn",{0},{0}
+264,Lemon-Asparagus Pasta,"Pasta,asparagus,garlic",{0},{0}
+265,Mixed Green Salad With Dried Plums and Toasted Pecans,"Shallots,escarole,Lettuce,prunes,pecans",{0},{0}
+266,Linguine with Red Pepper Sauce,"Onion,Linguine,garlic,red pepper,capers",{0},{0}
+267,Mediterranean Stuffed Tomatoes,"Tomato,cheese,dates,wild rice,Quinoa,onion,lentils",{0},{0}
+268,Marinated Feta and Olive Skewers,"Cheese,cucumber,orange juice,olives",{0},{0}
+269,Lightened Waldorf Salad,"Granny Smith apple,raisins,celery,yogurt",{0},{0}
+270,Cauliflower fried rice,"Culiflower,peas,carrot,eggs,scallions",{0},{0}
+271,Oatmeal Chocolate Chip Cookies,"Oats,wheat flour,eggs,chocolate chips",{0},{0}
+272,Chocolate chip cloud cookies,"Oats,brown sugar,egg,chocolate chips,yogurt,maida",{0},{0}
+273,Lickety Split Lemon Oaties,"Lemon,oats,sugar,maida",{0},{0}
+274,Fruity fingerprint cookies,"Egg,maida,milk,fruit preserve",{0},{0}
+275,Fudgy chocolate cookies,"Maida,cocoa powder,brown sugar,buttermilk",{0},{0}
+276,Pumpkin pie cookie,"Pumpkin canned,splenda,cheese",{0},{0}
+277,Spiced pumpkin chip cookies,"Pumpkin canned,splenda,maida,chocolate chips,egg",{0},{0}
+278,3-ingredient peanut butter cookie,"Splenda,peanut butter,egg",{0},{0}
+279,Banana Bread Cookies,"Brown sugar,banana,egg,wheat flour",{0},{0}
+280,Pecan Balls,"Maida,wheat flour,pecan,egg",{0},{0}
+281,Chocolate chip carrot,"Stevia,brown sugar,carrot,oats,maida,egg,chocolate chips",{0},{0}
+282,Cinnamon Roll cookies,"Oats,wheat flour,cinnamon,milk,cheese,maple syrup",{0},{0}
+283,Carrot cake,"Carrot,pineapple,egg white,wheat flour,frosting",{0},{0}
+284,Chocolate cherry poke cake,"Chococlate cake mix,gelatin mix,cherry,diet cola",{0},{0}
+285,Cinnamon Banana cake,"Maida,cinnamon,banana,yogurt",{0},{0}
+286,Lemon cake,"Yellow cake mix,lemon pudding and pie filling,milk,lemon,egg substitute",{0},{0}
+287,Mini eclair bites,"Graham cracker crumbs, vanilla pudding mix,milk,confectioner's sugar",{0},{0}
+288,Golden apple treat,"Apple,brown sugar,cinnamon,vanilla ice cream,brown sugar",{0},{0}
+289,Summer's Best Peach Crumble,"Peach,brown sugar,cinnamon graham crackers",{0},{0}
+290,Creamy Dreamy Banana Pie,"Banana,milk,vanilla pudding mix,graham cracker pie crust",{0},{0}
+291,Phirni,"Rice,milk,pista,elaichi",{0},{0}
+292,Cheesy chicken n broccoli,"Chicken, broccoli florets,pimentos",{0},{0}
+293,Asian Chicken salad,"Chicken,cabbage,scallion,water chestnuts",{0},{0}
+294,Crock Pot Mexican Chicken Soup,"Chicken,chicken broth,chunky salsa,cheese",{0},{0}
+295,Apple and Thyme Chicken,"apple,chicken",{0},{0}
+296,Baked Chicken with Onions & Leeks,"chicken,onions",{0},{0}
+297,Chicken Noodle Soup,"chicken,carrots",{0},{0}
+298,Baked salmon with lemon and garlic,"salmon,garlic,lemon",{0},{0}
+299,Curry tuna salad,tuna,{0},{0}
+300,Big Kahuna Tuna Steak,tuna,{0},{0}
+301,Blackened Salmon,salmon,{0},{0}
+302,Turmeric ginger orange smoothie,"orange, turmeric",{0},{0}
+303,Blackberry peach salad,"blackberry,peach,orange",{0},{0}
+304,Low fat celery soup,"celery,chicken",{0},{0}
+305,Brown rice and cracked wheat dosa,"wheat,rice",{0},{0}
+306,Vegetable Kothu Chapathi,"carrot,beans,coconut,tomatoes",{0},{0}
+307,Apple and Cinnamon Oatmeal,"apple,cinnamon,oats",{0},{0}
+308,Broccoli and Carrot Soup,"broccoli,carrot",{0},{0}
+309,Sugar free Granola,"oats,vanilla extract,peach,mango,walnuts",{0},{0}
+310,Spiced carrot & lentil soup,"carrots,paprika,masoor dal",{0},{0}
+311,Oats soup,"oats,mint,carrot,",{0},{0}
+312,Gooseberry chutney,amla,{0},{0}
+313,"Spinach, Pear, and Pancetta Salad","spinach,pear,pancetta,vinegar",{0},{0}
+314,Masala missi roti,"besan,wheat flour",{0},{0}
+315,Besan Methi Frankie,"fenugreek leaves,besan,yoghurt",{0},{0}
+316,Lauki Raita,"lauki,yoghurt",{0},{0}
+317,Green Pepper Steak,"beef,green capsipum,tomatoes",{0},{0}
+318,Okra and Tomato Curry,"ladyfingers,tomatoes",{0},{0}
+319,Okra Juice and Smoothie,"carrots,apples,ladyfingers",{0},{0}
+320,Zucchini corn boats,"corn,zucchini,onion,mozarella cheese,olive oil",{0},{0}
+321,Roasted vegetables,"margarine,corn,carrot,peas,beans,cauliflower,butter",{0},{0}
+322,Mixed vegetables,"margarine,corn,carrot,peas,beans",{0},{0}
+323,Chinese stir fried peas and greens,"peas,soy sauce,oyster sauce,garlic",{0},{0}
+324,Italian pita crisps,"parmesan,paprika,margarine,wheat bread,italian seasoning",{0},{0}
+325,English muffin cheese pizza,"mozarella cheese,pepperini sausage,pizza sauce",{0},{0}
