@@ -81,16 +81,15 @@ db_pool.connect(function(err, client, done) {
            res.status(400).send(err);
        }
 
-  var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +")";
+  var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id +") RETURNING *";
   client.query(query,function(err,result) {
            done();
             if(err) {
                console.log(err);
                res.status(400).send(err);
-            } else if(rows != undefined) {
-                res.status(200).send("Product rating saved for  Order:  " +req.body.order_id + "   Product:  " +req.body.product_id+"   Rating:   " +req.body.rating);
             } else {
-              res.status(200).send(result.rows);
+              console.log("rateOrder:   " + result.rows);
+              res.status(200).send(result.rows[0]);
             }
        });
     });

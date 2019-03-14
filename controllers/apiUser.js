@@ -76,7 +76,7 @@ apiUser.login = function (req, res) {
             done();
             if (err) {
                 console.log(err);
-                res.status(400).send(err);
+                res.status(400).send("Oops! Invalid Login.");
 
             } else {
                 console.log("### Login successful:   " + result.rows[0]);
