@@ -308,8 +308,7 @@ apiProducts.getData = function (req, res) {
                     }
                 });*/
 
-                var collectionList = [];
-                collectionList = req.params.collections;
+                var collectionList = JSON.parse("[" + req.params.collections + "]");
                 var productList = [];
                 var whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 if (is_veg == 0) {
