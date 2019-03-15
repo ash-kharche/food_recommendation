@@ -222,15 +222,15 @@ apiProducts.getData = function (req, res) {
                     } else {
 
                         var ingredientsIdList = [];
-                        var s = "0";
+                        //var s = "0";
                         for (var i = 0; i < result.rows.length; i++) {
                             var order = result.rows[i];
                             for (var k = 0; k < order.products.length; k++) {
                                 ingredientsIdList.push(order.products[k].ingredients);
-                                s = s + ", " + order.products[k].ingredients;
+                                //s = s + ", " + order.products[k].ingredients;
                             }
                         }
-                        var unique_array1 = []
+                        /*var unique_array1 = []
                         var myarray = JSON.parse("["+s+"]");
                         console.log("###### myarray  " + myarray);
                         for(let i = 0;i < myarray.length; i++) {
@@ -239,7 +239,7 @@ apiProducts.getData = function (req, res) {
                               unique_array1.push(ingredientsIdList[i])
                           }
                         }
-                        /*var unique_array = []
+                        var unique_array = []
                         for(let i = 0;i < ingredientsIdList.length; i++) {
                             console.log("###### ingredientsIdList[i]  " + ingredientsIdList[i]+" is_present   " +(unique_array.indexOf(ingredientsIdList[i]) == -1));
                             if(unique_array.indexOf(ingredientsIdList[i]) == -1) {
@@ -247,7 +247,7 @@ apiProducts.getData = function (req, res) {
                             }
                         }*/
 
-                        console.log("\n********* ingredientsIdList: unique_array :   " + unique_array1);
+                        console.log("\n********* ingredientsIdList: unique_array :   " + ingredientsIdList);
 
                         var whereString = "";
                         if (is_veg == 0) {
@@ -270,9 +270,9 @@ apiProducts.getData = function (req, res) {
                           }
                         }
 
-                        var query1= "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array1 + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                        var query1= "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
                         if(whereString == "") {
-                          query1 = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array1 + "]) ORDER BY rating LIMIT 10";
+                          query1 = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
                         }
 
                       /*https://stackoverflow.com/questions/40273308/nested-query-object-mapping-with-pg-promise
