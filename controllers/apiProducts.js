@@ -208,6 +208,8 @@ apiProducts.getData = function (req, res) {
             } else {
               res.status(200, []);
             }
+          });
+      }
             /*
               var user_id = req.params.user_id;
               var is_veg = req.params.is_veg;
@@ -307,9 +309,9 @@ apiProducts.getData = function (req, res) {
                         //done();
 
                     }
-                });*/
+                });
             }
-        });
+        });*/
     },
 
     apiProducts.getUserRecommendedProductsWorking = function (req, res) {
