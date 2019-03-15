@@ -202,13 +202,14 @@ apiProducts.getData = function (req, res) {
     },
 
     apiProducts.getUserRecommendedProducts = function (req, res) {
-        db_pool.connect(function (err, client, done) {
+      res.status(200).send([]);
+        /*db_pool.connect(function (err, client, done) {
             if (err) {
                 res.status(400).send(err);
             } else {
               res.status(200, []);
             }
-          });
+          });*/
     },
 
     apiProducts.getCartRecommendedProducts = function (req, res) {
