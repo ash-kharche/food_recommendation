@@ -284,6 +284,7 @@ apiProducts.getData = function (req, res) {
                               return db.query(query3, values3);
                           })
                           .catch(error => {});
+                          
                       */
                         console.log("user recommended_products: query:   " + query1);
                         client.query(query1, function (err, result) {
