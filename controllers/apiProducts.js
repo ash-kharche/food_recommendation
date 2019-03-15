@@ -209,7 +209,7 @@ apiProducts.getData = function (req, res) {
               res.status(200, []);
             }
           });
-      }
+
             /*
               var user_id = req.params.user_id;
               var is_veg = req.params.is_veg;
