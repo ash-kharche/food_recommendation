@@ -506,7 +506,6 @@ apiProducts.getData = function (req, res) {
                 } else if (diabetes == 1 && cholestrol == 1) {
                   whereString = "(is_veg = 1 AND is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                 }
-                
               }
 
               var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
