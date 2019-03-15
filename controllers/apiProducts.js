@@ -232,8 +232,9 @@ apiProducts.getData = function (req, res) {
                         }
                         var unique_array1 = []
                         var myarray = JSON.parse("["+s+"]");
+                        console.log("###### myarray  " + myarray);
                         for(let i = 0;i < myarray.length; i++) {
-                          console.log("###### myarray[i]  " + myarray[i]+" is_present   " +(unique_array1.indexOf(myarray[i]) == -1));
+                          console.log("\n###### myarray[i]  " + myarray[i]+" is_present   " +(unique_array1.indexOf(myarray[i]) == -1));
                           if(unique_array1.indexOf(ingredientsIdList[i]) == -1) {
                               unique_array1.push(ingredientsIdList[i])
                           }
@@ -286,7 +287,7 @@ apiProducts.getData = function (req, res) {
                       */
                         console.log("user recommended_products: query:   " + query1);
                         client.query(query1, function (err, result) {
-                            done();
+                            //done();
 
                             if (err) {
                                 //No products found matching ingredients
