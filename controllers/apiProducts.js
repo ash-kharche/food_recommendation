@@ -230,14 +230,14 @@ apiProducts.getData = function (req, res) {
                                 s = s + ", " + order.products[k].ingredients;
                             }
                         }
-var unique_array1 = []
-var myarray = JSON.parse("["+s+"]");
-for(let i = 0;i < myarray.length; i++) {
-    console.log("###### myarray[i]  " + myarray[i]+" is_present   " +(unique_array1.indexOf(myarray[i]) == -1));
-    if(unique_array1.indexOf(ingredientsIdList[i]) == -1) {
-        unique_array1.push(ingredientsIdList[i])
-    }
-  }
+                        var unique_array1 = []
+                        var myarray = JSON.parse("["+s+"]");
+                        for(let i = 0;i < myarray.length; i++) {
+                          console.log("###### myarray[i]  " + myarray[i]+" is_present   " +(unique_array1.indexOf(myarray[i]) == -1));
+                          if(unique_array1.indexOf(ingredientsIdList[i]) == -1) {
+                              unique_array1.push(ingredientsIdList[i])
+                          }
+                        }
                         /*var unique_array = []
                         for(let i = 0;i < ingredientsIdList.length; i++) {
                             console.log("###### ingredientsIdList[i]  " + ingredientsIdList[i]+" is_present   " +(unique_array.indexOf(ingredientsIdList[i]) == -1));
