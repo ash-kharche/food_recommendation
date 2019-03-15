@@ -133,11 +133,12 @@ apiProducts.getData = function (req, res) {
                       whereString = "WHERE (is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                     }
                 } else {
-                  if (diabetes == 1 && cholestrol == 0) {
+                  if (diabetes == 0 && cholestrol == 0) {
+                    whereString = "WHERE (is_veg = 1)";
+                  } else if (diabetes == 1 && cholestrol == 0) {
                     whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
                   } else if (diabetes == 0 && cholestrol == 1) {
                     whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
-
                   } else if (diabetes == 1 && cholestrol == 1) {
                     whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                   }
@@ -173,7 +174,9 @@ apiProducts.getData = function (req, res) {
                       whereString = "WHERE (is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                     }
                 } else {
-                  if (diabetes == 1 && cholestrol == 0) {
+                  if (diabetes == 0 && cholestrol == 0) {
+                    whereString = "WHERE (is_veg = 1)";
+                  } else if (diabetes == 1 && cholestrol == 0) {
                     whereString = "WHERE (is_veg = 1 AND is_diabetes = " + diabetes + ")";
                   } else if (diabetes == 0 && cholestrol == 1) {
                     whereString = "WHERE (is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
@@ -225,15 +228,14 @@ apiProducts.getData = function (req, res) {
                         }
 
                         var unique_array = []
-                        for(let i = 0;i < ingredientsIdList.length; i++){
-                            if(unique_array.indexOf(ingredientsIdList[i]) == -1){
+                        for(let i = 0;i < ingredientsIdList.length; i++) {
+                            console.log("###### ingredientsIdList[i]  " + ingredientsIdList[i]+" is_present   " +(unique_array.indexOf(ingredientsIdList[i]) == -1));
+                            if(unique_array.indexOf(ingredientsIdList[i]) == -1) {
                                 unique_array.push(ingredientsIdList[i])
                             }
                         }
 
-                        console.log("\n********* ingredientsIdList:   " + unique_array);
-
-                        var productsArray = [];
+                        console.log("\n********* ingredientsIdList: unique_array :   " + unique_array);
 
                         var whereString = "";
                         if (is_veg == 0) {
@@ -245,7 +247,9 @@ apiProducts.getData = function (req, res) {
                               whereString = "(is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                             }
                         } else {
-                          if (diabetes == 1 && cholestrol == 0) {
+                          if (diabetes == 0 && cholestrol == 0) {
+                            whereString = "(is_veg = 1)";
+                          } else if (diabetes == 1 && cholestrol == 0) {
                             whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                           } else if (diabetes == 0 && cholestrol == 1) {
                             whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
@@ -254,17 +258,28 @@ apiProducts.getData = function (req, res) {
                           }
                         }
 
-                        var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                        var query1= "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
                         if(whereString == "") {
-                          query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "]) ORDER BY rating LIMIT 10";
+                          query1 = "SELECT * FROM products WHERE (ingredients && ARRAY[" + unique_array + "]) ORDER BY rating LIMIT 10";
                         }
 
-                        console.log("user recommended_products: query:   " + query);
-                        client.query(query, function (err, result) {
+                      /*https://stackoverflow.com/questions/40273308/nested-query-object-mapping-with-pg-promise
+                      db.query(query1, values2)
+                          .then(data => {
+                              return db.query(query2, values2);
+                          })
+                          .then(data => {
+                              return db.query(query3, values3);
+                          })
+                          .catch(error => {});
+                      */
+                        console.log("user recommended_products: query:   " + query1);
+                        client.query(query1, function (err, result) {
                             done();
 
                             if (err) {
                                 //No products found matching ingredients
+                                console.log("########   " + err);
                                 res.status(200, []);
                             } else {
                                 res.status(200, result.rows);
@@ -333,7 +348,9 @@ apiProducts.getData = function (req, res) {
                               whereString = "(is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                             }
                         } else {
-                          if (diabetes == 1 && cholestrol == 0) {
+                          if (diabetes == 0 && cholestrol == 0) {
+                            whereString = "(is_veg = 1)";
+                          } else if (diabetes == 1 && cholestrol == 0) {
                             whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                           } else if (diabetes == 0 && cholestrol == 1) {
                             whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
@@ -411,7 +428,9 @@ apiProducts.getData = function (req, res) {
                               whereString = "(is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                             }
                         } else {
-                          if (diabetes == 1 && cholestrol == 0) {
+                          if (diabetes == 0 && cholestrol == 0) {
+                            whereString = "(is_veg = 1)";
+                          } else if (diabetes == 1 && cholestrol == 0) {
                             whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                           } else if (diabetes == 0 && cholestrol == 1) {
                             whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
@@ -465,7 +484,9 @@ apiProducts.getData = function (req, res) {
                     whereString = "(is_diabetes = " + diabetes +" AND is_cholestrol = " + cholestrol + ")";
                   }
               } else {
-                if (diabetes == 1 && cholestrol == 0) {
+                if (diabetes == 0 && cholestrol == 0) {
+                  whereString = "(is_veg = 1)";
+                } else if (diabetes == 1 && cholestrol == 0) {
                   whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + ")";
                 } else if (diabetes == 0 && cholestrol == 1) {
                   whereString = "(is_veg = 1 AND is_cholestrol = " + cholestrol + ")";
