@@ -204,8 +204,11 @@ apiProducts.getData = function (req, res) {
     apiProducts.getUserRecommendedProducts = function (req, res) {
         db_pool.connect(function (err, client, done) {
             if (err) {
-                callback(err, null);
+                res.status(400).send(err);
             } else {
+              res.status(200, []);
+            }
+            /*
               var user_id = req.params.user_id;
               var is_veg = req.params.is_veg;
               var diabetes = req.params.diabetes;
@@ -230,7 +233,7 @@ apiProducts.getData = function (req, res) {
                                 //s = s + ", " + order.products[k].ingredients;
                             }
                         }
-                        /*var unique_array1 = []
+                        var unique_array1 = []
                         var myarray = JSON.parse("["+s+"]");
                         console.log("###### myarray  " + myarray);
                         for(let i = 0;i < myarray.length; i++) {
@@ -245,7 +248,7 @@ apiProducts.getData = function (req, res) {
                             if(unique_array.indexOf(ingredientsIdList[i]) == -1) {
                                 unique_array.push(ingredientsIdList[i])
                             }
-                        }*/
+                        }
 
                         console.log("\n********* ingredientsIdList: unique_array :   " + ingredientsIdList);
 
@@ -275,7 +278,7 @@ apiProducts.getData = function (req, res) {
                           query1 = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
                         }
 
-                      /*https://stackoverflow.com/questions/40273308/nested-query-object-mapping-with-pg-promise
+                      https://stackoverflow.com/questions/40273308/nested-query-object-mapping-with-pg-promise
                       db.query(query1, values2)
                           .then(data => {
                               return db.query(query2, values2);
@@ -285,7 +288,7 @@ apiProducts.getData = function (req, res) {
                           })
                           .catch(error => {});
 
-                      */
+
                         console.log("user recommended_products: query:   " + query1);
                         client.query(query1, function (err, result) {
                             //done();
@@ -304,7 +307,7 @@ apiProducts.getData = function (req, res) {
                         //done();
 
                     }
-                });
+                });*/
             }
         });
     },
