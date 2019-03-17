@@ -250,10 +250,16 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
                     whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 }
             }
-            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) " + whereString + ") ORDER BY rating LIMIT 10";
+            /*var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
             if (whereString == "") {
                 query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
+            }*/
+
+            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+            if (whereString == "") {
+                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "]) ORDER BY rating LIMIT 10";
             }
+
             console.log("line 257:   query :  " + query);
             apiProducts.getProductsByIngredients(query, function (err, products) {
                 if (err) {
@@ -330,6 +336,8 @@ apiProducts.getUniqueId = function (str) {
 }
 
 apiProducts.getProductsByIngredients = function (query, callback) {
+  console.log("######## getProductsByIngredients: query:" + query);
+
     db_pool.connect(function (err, client, done) {
         if (err) {
             console.log("######## getProductsByIngredients: No products found matching ingredients 0000000  " + err);
