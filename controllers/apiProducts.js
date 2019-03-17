@@ -243,12 +243,12 @@ apiProducts.getData = function (req, res) {
                 if (whereString == "") {
                     query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
                 }
-                apiProducts.getProductsByIngredients(query, function (err, result) {
+                apiProducts.getProductsByIngredients(query, function (err, products) {
                     if (err) {
                         console.log(err);
                         res.status(200).send([]);
                     } else {
-                        res.status(200).send(result.rows);
+                        res.status(200).send(products);
                     }
                 });
             }
