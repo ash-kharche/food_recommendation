@@ -284,19 +284,11 @@ apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
 apiProducts.getUniqueId = function (str) {
     var unique_array = []
     if (str != undefined) {
-
-        console.log("\n********* getUniqueId :   " + str);
         var arr = str.toString().split(",");
-
         for (let i = 0; i < arr.length; i++) {
-            console.log("###### arr[i]  " + arr[i] + " is_not_present   " + (unique_array.indexOf(arr[i]) == -1));
             if (arr[i] != '0' && unique_array.indexOf(arr[i]) == -1) {
                 unique_array.push(arr[i])
             }
-        }
-
-        for (let i = 0; i < unique_array.length; i++) {
-            console.log("###### unique_array[i]  " + unique_array[i]);
         }
     }
     return unique_array;
