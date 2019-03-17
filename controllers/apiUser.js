@@ -37,27 +37,27 @@ apiUser.submitAnswers = function (req, res) {
             res.status(400).send(err);
         } else {
             var query = "UPDATE users SET " +
-            " gender = " + req.body.gender +
-            ", weight = " + req.body.weight +
-            ", height = " + req.body.height +
-            ", is_veg = " + req.body.is_veg +
-            ", is_diabetes = " + req.body.is_diabetes +
-            ", is_bp = " + req.body.is_bp +
-            ", is_cholestrol = " + req.body.is_cholestrol +
-            ", is_question_done = " + req.body.is_question_done + " WHERE user_id = " + req.body.user_id + " RETURNING * ";
+                " gender = " + req.body.gender +
+                ", weight = " + req.body.weight +
+                ", height = " + req.body.height +
+                ", is_veg = " + req.body.is_veg +
+                ", is_diabetes = " + req.body.is_diabetes +
+                ", is_bp = " + req.body.is_bp +
+                ", is_cholestrol = " + req.body.is_cholestrol +
+                ", is_question_done = " + req.body.is_question_done + " WHERE user_id = " + req.body.user_id + " RETURNING * ";
 
             console.log("@@@@@@submitAnswers\n\n" + query + "\n");
             client.query(query, function (err, result) {
 
-                    done();
-                    if (err) {
-                        console.log(err);
-                        res.status(400).send(err);
-                    } else {
-                      console.log("submitAnswers:  " +result.rows[0]);
-                        res.status(200).send(result.rows[0]);
-                    }
-                });
+                done();
+                if (err) {
+                    console.log(err);
+                    res.status(400).send(err);
+                } else {
+                    console.log("submitAnswers:  " + result.rows[0]);
+                    res.status(200).send(result.rows[0]);
+                }
+            });
         }
     });
 }

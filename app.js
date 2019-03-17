@@ -14,10 +14,10 @@ db_pool.connect(function (err, client) {
     } else {
         console.log("Database connected in app.js: " + client);
         app.listen(PORT, function (err, client) {
-            if(err) {
-                console.log("Our Food Recommendation app has ERROR:  " +err.message);
+            if (err) {
+                console.log("Our Food Recommendation app has ERROR:  " + err.message);
             } else {
-                console.log("Our Food Recommendation app is running on port ${"+ PORT +"}");
+                console.log("Our Food Recommendation app is running on port ${" + PORT + "}");
             }
         });
     }
