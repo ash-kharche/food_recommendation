@@ -285,13 +285,21 @@ apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
 }
 
 apiProducts.getProductsByIngredients = function (query, callback) {
-    client.query(query1, function (err, result) {
-        done();
+    db_pool.connect(function (err, client, done) {
         if (err) {
-            console.log("######## getProductsByIngredients: No products found matching ingredients   " + err);
+            console.log("######## getProductsByIngredients: No products found matching ingredients 0000000  " + err);
             callback(err, null);
         } else {
-            callback(null, result.rows);
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    console.log("######## getProductsByIngredients: No products found matching ingredients 000111  " + err);
+                    callback(err, null);
+                } else {
+                    console.log("######## getProductsByIngredients: products found matching ingredients\n\n   " + result.rows);
+                    callback(null, result.rows);
+                }
+            });
         }
     });
 
