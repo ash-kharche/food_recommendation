@@ -23,10 +23,12 @@ jsonToCsv.convertJsonToCsv = function (req, res) {
 
                 var json = result.rows;
 
+                var user_id = 11;
+
                 jsonexport(json, function (err, csv) {
                     if (err) return console.log(err);
                     console.log(csv);
-                    fs.writeFile('file_export1.csv', csv, function (err) {
+                    fs.writeFile('data/user_' + user_id + '.csv', csv, function (err) {
                         if (err) throw err;
                         console.log('file saved');
                     });
