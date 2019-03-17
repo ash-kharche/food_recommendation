@@ -349,20 +349,20 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
                 }
             }
 
-            var query1 = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.products + ")) AND " + whereString + ") tmp where rownum < 4";
+            /*var query1 = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
-                query1 = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.products + "))) tmp where rownum < 4";
-            }
+                query1 = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + "))) tmp where rownum < 4";
+            }*/
 
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.products + ")) AND (product_id NOT IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND (product_id NOT IN (" + req.params.products + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
-                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.products + ")) AND (product_id NOT IN (" + req.params.collections + "))) tmp where rownum < 4";
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND (product_id NOT IN (" + req.params.products + "))) tmp where rownum < 4";
             }
 
             //var query1 = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
 
             console.log("getCartRecommendedProducts:: \nquery:   " + query+"\n\nquery1:   " + query1);
-            client.query(query1, function (err, result) {
+            client.query(query, function (err, result) {
                 done();
 
                 if (err) {
