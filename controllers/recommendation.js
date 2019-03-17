@@ -136,9 +136,7 @@ apiRecommendation.getAllUsers = function (callback) {
                 } else {
 
                     var usersArray = result.rows;
-                    var usersFormattedArray = []
-                ]
-                    ;
+                    var usersFormattedArray = [];
 
                     for (var i = 0; i < usersArray.length; i++) {
                         var user = usersArray[i];
@@ -154,18 +152,17 @@ apiRecommendation.getAllUsers = function (callback) {
                         if (user.is_diabetes) {
                             modifiedUser.is_diabetes = 10;
                         } else {
-                            modifiedUser.is_diabetes = 00;
+                            modifiedUser.is_diabetes = 0;
                         }
 
                         if (user.is_cholestrol) {
                             modifiedUser.is_cholestrol = 20;
                         } else {
-                            modifiedUser.is_cholestrol = 00;
+                            modifiedUser.is_cholestrol = 0;
                         }
                         usersFormattedArray.push(modifiedUser);
                     }
-                    var path = './data/all_users + '.csv
-                    ';
+                    var path = './data/all_users + '.csv;
 
                     jsonexport(usersFormattedArray, function (err, csv) {
                         if (err) return console.log(err);
@@ -199,8 +196,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                 } else {
 
                     var ratedOrdersArray = result.rows;
-                    var path = './data/user_rated_products + '.csv
-                    ';
+                    var path = './data/user_rated_products + '.csv;
 
                     jsonexport(ratedOrdersArray, function (err, csv) {
                         if (err) return console.log(err);
