@@ -254,6 +254,7 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
             if (whereString == "") {
                 query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
             }
+            console.log("line 257:   query :  " + query);
             apiProducts.getProductsByIngredients(query, function (err, products) {
                 if (err) {
                     console.log(err);
