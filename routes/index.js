@@ -22,6 +22,7 @@ router.get('/getOrderDetails/:user_id/:order_id', controllers.apiOrder.getOrderD
 router.get('/getAllOrders/:user_id', controllers.apiOrder.getAllOrders);
 router.post('/rateOrder', controllers.apiOrder.rateOrder);
 
+router.get('/convertJsonToCsv', controllers.jsonToCsv.convertJsonToCsv);
 
 //router.post('/submitAnswers', controllers.apiQuestions.submitAnswers);
 
