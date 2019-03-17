@@ -57,8 +57,8 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     });
 
     var options = {
-        scriptPath: 'python/scripts'
-        args: [yetToBeRatedProductsPerUserFile, userRatedProductsFile],
+        scriptPath: 'python/scripts',
+        args: [yetToBeRatedProductsPerUserFile, userRatedProductsFile]
     };
 
     PythonShell.run('hybrid.py', options, function (err, results) {
