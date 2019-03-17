@@ -281,7 +281,7 @@ apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
     });
 }
 
-api.getUniqueId = function(str) {
+apiProducts.getUniqueId = function(str) {
     console.log("\n********* getUniqueId :   " + str);
     var arr = str.split(",");
     var unique_array = []
