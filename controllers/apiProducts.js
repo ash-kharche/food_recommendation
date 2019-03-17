@@ -209,7 +209,7 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
     var cholestrol = req.params.cholestrol;
     var special_case = req.params.special_case;
 
-    apiProducts.getUserPastOrders(user_id, function (err, ingredientsIdList) {
+    apiProducts.getUserPastOrders(user_id, function (err, pastOrders) {
         if (err) {
             res.status(200).send([]);
         } else {
@@ -217,8 +217,8 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
             //not done for collections, as we have limited collections
             var productIdList = [];
             var ingredientsIdList = [];
-            for (var i = 0; i < result.rows.length; i++) {
-                var order = result.rows[i];
+            for (var i = 0; i < pastOrders.length; i++) {
+                var order = pastOrders[i];
                 for (var k = 0; k < order.products.length; k++) {
                     productIdList.push(order.products[k].product_id);
                     ingredientsIdList.push(order.products[k].ingredients);
