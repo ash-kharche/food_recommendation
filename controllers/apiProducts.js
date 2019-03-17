@@ -209,12 +209,27 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
     var cholestrol = req.params.cholestrol;
     var special_case = req.params.special_case;
 
-    apiProducts.getUserPastOrdersIngredients(user_id, function (err, ingredientsIdList) {
+    apiProducts.getUserPastOrders(user_id, function (err, ingredientsIdList) {
         if (err) {
             res.status(200).send([]);
         } else {
-            console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients  2222 :   " + ingredientsIdList);
+            /// find products and related ingredients from these apiProducts
+            //not done for collections, as we have limited collections
+            var productIdList = [];
+            var ingredientsIdList = [];
+            for (var i = 0; i < result.rows.length; i++) {
+                var order = result.rows[i];
+                for (var k = 0; k < order.products.length; k++) {
+                    productIdList.push(order.products[k].product_id);
+                    ingredientsIdList.push(order.products[k].ingredients);
+                }
+            }
 
+            var uniqueProductIds = apiProducts.getUniqueId(productIdList);
+            var uniqueIngredientIds = apiProducts.getUniqueId(ingredientsIdList);
+            console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds+"\nuniqueIngredientIds:   " +uniqueIngredientIds);
+
+            //// end ////
             var whereString = "";
             if (is_veg == 0) {
                 if (diabetes == 1 && cholestrol == 0) {
@@ -235,9 +250,9 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
                     whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 }
             }
-            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) " + whereString + ") ORDER BY rating LIMIT 10";
             if (whereString == "") {
-                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + ingredientsIdList + "]) ORDER BY rating LIMIT 10";
+                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
             }
             apiProducts.getProductsByIngredients(query, function (err, products) {
                 if (err) {
@@ -250,6 +265,25 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
         }
     });
 
+}
+
+apiProducts.getUserPastOrders = function (user_id, callback) {
+    var query = "SELECT * FROM orders WHERE user_id = " + user_id;
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+                  callback(null, result.rows);
+                }
+            });
+        }
+    });
 }
 
 apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
