@@ -209,13 +209,9 @@ apiProducts.getData = function (req, res) {
         var cholestrol = req.params.cholestrol;
         var special_case = req.params.special_case;
 
-
         apiProducts.getUserPastOrdersIngredients(user_id, function (err, ingredientsIdList) {
             if (err) {
-                return res.json({
-                    success: false,
-                    "msg": "BLah BLah Blah"
-                });
+                res.status(200).send([]);
             } else {
                 console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients  2222 :   " + ingredientsIdList);
 
@@ -275,13 +271,31 @@ apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
                             ingredientsIdList.push(order.products[k].ingredients);
                         }
                     }
-                    console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + ingredientsIdList);
+
+                    var uniqueIds = apiProducts.getUniqueId(ingredientsIdList);
+                    console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + uniqueIds);
                     callback(null, ingredientsIdList)
                 }
             });
         }
     });
+}
 
+api.getUniqueId = funtion(str) {
+  console.log("\n********* getUniqueId :   " + str);
+  var arr = str.split(",");
+  var unique_array = []
+  for(let i = 0;i < arr.length; i++) {
+      console.log("###### arr[i]  " + arr[i]+" is_not_present   " +(unique_array.indexOf(arr[i]) == -1));
+      if(arr[i] != '0' && unique_array.indexOf(arr[i]) == -1) {
+          unique_array.push(arr[i])
+      }
+  }
+
+  for(let i = 0;i < unique_array.length; i++) {
+      console.log("###### unique_array[i]  " + unique_array[i]);
+  }
+  return unique_array;
 }
 
 apiProducts.getProductsByIngredients = function (query, callback) {
@@ -339,9 +353,14 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
                 }
             }
 
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
+            /*var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
                 query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + "))) tmp where rownum < 4";
+            }*/
+
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ") AND product_id NOT IN (" + req.params.collections + ") AND " + whereString + ") tmp where rownum < 4";
+            if (whereString == "") {
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ") AND product_id NOT IN (" + req.params.collections + "))) tmp where rownum < 4";
             }
 
             //var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
