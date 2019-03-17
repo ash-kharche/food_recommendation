@@ -5,7 +5,7 @@ var controllers = require("../controllers");
 //router.get('/test', controllers.runPython.test);
 router.get('/getTrendingProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getTrendingProducts);
 router.get('/getUserRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getUserRecommendedProducts);
-router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case/:collections/:rank', controllers.apiProducts.getCartRecommendedProducts);
+router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case/:collections/:products/:rank', controllers.apiProducts.getCartRecommendedProducts);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/submitAnswers', controllers.apiUser.submitAnswers);
