@@ -274,7 +274,7 @@ apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
 
                     var uniqueIds = apiProducts.getUniqueId(ingredientsIdList);
                     console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + uniqueIds);
-                    callback(null, ingredientsIdList)
+                    callback(null, uniqueIds);
                 }
             });
         }
@@ -362,14 +362,14 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
                 query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + "))) tmp where rownum < 4";
             }*/
 
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ") AND product_id NOT IN (" + req.params.collections + ") AND " + whereString + ") tmp where rownum < 4";
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where ((collection_id IN (" + req.params.collections + ")) AND (product_id NOT IN (" + req.params.collections + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
-                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.params.collections + ") AND product_id NOT IN (" + req.params.collections + "))) tmp where rownum < 4";
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where ((collection_id IN (" + req.params.collections + ")) AND (product_id NOT IN (" + req.params.collections + ")))) tmp where rownum < 4";
             }
 
             //var query = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
 
-            console.log("query:   " + query);
+            console.log("getCartRecommendedProducts:: query:   " + query);
             client.query(query, function (err, result) {
                 done();
 
