@@ -395,7 +395,7 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
 
             //var query1 = "SELECT rank_filter.* FROM (SELECT products.*, rank() OVER (PARTITION BY collection_id ORDER BY rating DESC) FROM products WHERE (collection_id IN (" + req.params.collections + ") AND "+ whereString+") rank_filter WHERE RANK <=" + req.params.rank;
 
-            console.log("getCartRecommendedProducts:: \nquery:   " + query+"\n\nquery1:   " + query1);
+            console.log("getCartRecommendedProducts:: \nquery:   " + query+);
             client.query(query, function (err, result) {
                 done();
 
