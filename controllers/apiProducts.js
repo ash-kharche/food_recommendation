@@ -250,7 +250,8 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
                     whereString = "(is_veg = 1 AND is_diabetes = " + diabetes + " AND is_cholestrol = " + cholestrol + ")";
                 }
             }
-            /*var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
+            /* Less products issue so we dont get response
+            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
             if (whereString == "") {
                 query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
             }*/
@@ -275,7 +276,25 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
 }
 
 apiProducts.getUserPastOrders = function (user_id, callback) {
-    var query = "SELECT * FROM orders WHERE user_id = " + user_id;
+    var query = "SELECT * FROM orders WHERE user_id = " + user_id + " ORDER BY user_id";
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+                  callback(null, result.rows);
+                }
+            });
+        }
+    });
+}
+
+apiProducts.getUnEatenProducts = function (query, callback) {
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);

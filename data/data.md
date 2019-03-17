@@ -8,13 +8,15 @@ psql -h [**Host Name**] -U [**User Name**] [**database Name**]
 
 psql -h ec2-174-129-225-9.compute-1.amazonaws.com -U vrmqaltlcnstmq dcc7k5gq0l7ikv
 
+http://kauegimenes.github.io/jsonexport/
+
 ## USERS TABLE
 CREATE TABLE users(
-	user_id serial PRIMARY KEY, 
-	user_name VARCHAR (50) NOT NULL, 
-	password VARCHAR (50) NOT NULL, 
-	email VARCHAR (50) UNIQUE NOT NULL, 
-	mobile_number VARCHAR(15) NOT NULL, 
+	user_id serial PRIMARY KEY,
+	user_name VARCHAR (50) NOT NULL,
+	password VARCHAR (50) NOT NULL,
+	email VARCHAR (50) UNIQUE NOT NULL,
+	mobile_number VARCHAR(15) NOT NULL,
 	created_at DATE, updated_at DATE);
 
 #Dummy data in Users
@@ -22,10 +24,10 @@ INSERT INTO users(user_name, email, mobile_number, password) VALUES ("poonamk", 
 
 ## COLLECTIONS TABLE
 CREATE TABLE collections(
-	id serial PRIMARY KEY, 
-	collection_id INTEGER, 
-	collection_name VARCHAR (50) NOT NULL, 
-	collection_image VARCHAR (300), 
+	id serial PRIMARY KEY,
+	collection_id INTEGER,
+	collection_name VARCHAR (50) NOT NULL,
+	collection_image VARCHAR (300),
 	created_at DATE, updated_at DATE);
 
 	CREATE TABLE collections(id serial PRIMARY KEY, collection_id INTEGER, collection_name VARCHAR (50) NOT NULL, collection_image VARCHAR (300), created_at DATE, updated_at DATE);
@@ -46,13 +48,13 @@ INSERT INTO collections(collection_id, collection_name, collection_image) VALUES
 
 ## PRODUCTS TABLE
 CREATE TABLE products(
-	id serial PRIMARY KEY, 
-	product_id INTEGER, 
-	collection_id INTEGER, 
-	product_name VARCHAR (50) NOT NULL, 
-	product_image VARCHAR (50), 
-	description VARCHAR (100), 
-	is_veg INTEGER, 
+	id serial PRIMARY KEY,
+	product_id INTEGER,
+	collection_id INTEGER,
+	product_name VARCHAR (50) NOT NULL,
+	product_image VARCHAR (50),
+	description VARCHAR (100),
+	is_veg INTEGER,
 	price INTEGER,
 	tax INTEGER,
 	spice_level INTEGER,
@@ -63,4 +65,3 @@ CREATE TABLE products(
 
 #Dummy data in Products
 INSERT INTO products() VALUES ();
-
