@@ -2,6 +2,7 @@
 
 //http://kauegimenes.github.io/jsonexport/
 //https://stackoverflow.com/questions/40753803/how-to-insert-variable-from-nodejs-into-a-python-script
+//https://stackoverflow.com/questions/41268541/using-pythonshell-module-in-nodejs
 
 var db_pool = require('./../helpers/db');
 var jsonexport = require('jsonexport');
@@ -68,7 +69,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
         getUserRatedProductsPromise
     ])
         .then(function (values) {
-            console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: values:   " + values);
+            console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
             var options = {
                 scriptPath: 'python/scripts',
@@ -77,17 +78,17 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
 
             ps.PythonShell.run('./python/hybrid.py', options, function (err, results) {
                 if (err) {
-                    console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
+                    console.log('getUserRecommendedProducts:: error:\n\n %j', err);
                     //res.status(400).send(err);
                     res.status(200).send([]);
                 } else {
-                    console.log('apiRecommendation.getUserRecommendedProducts:: results:\n\n %j', results);
+                    console.log('getUserRecommendedProducts:: results:\n\n %j', results);
                     res.status(200).send(results);
                 }
             });
 
         }).catch(err => {
-            console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: error: " + err);
+            console.log("\ngetUserRecommendedProducts :: error: " + err);
             //res.status(400).send(err);
             res.status(200).send([]);
     });
@@ -191,10 +192,10 @@ apiRecommendation.getAllUsers = function (callback) {
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('apiRecommendation.getAllUsers saved ' + path + "\n\n");
+                            console.log('getAllUsers saved ' + path + "\n\n");
 
                             //var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('apiRecommendation.getAllUsers in csv ' + jsonString + "\n\n");
+                            //console.log('getAllUsers in csv ' + jsonString + "\n\n");
                         });
                     });
 
@@ -225,9 +226,9 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('apiRecommendation.getUserRatedProducts saved ' + path + "\n\n");
+                            console.log('getUserRatedProducts saved ' + path + "\n\n");
                             //var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('apiRecommendation.getUserRatedProducts in csv ' + jsonString + "\n\n");
+                            //console.log('getUserRatedProducts in csv ' + jsonString + "\n\n");
                         });
                     });
 
