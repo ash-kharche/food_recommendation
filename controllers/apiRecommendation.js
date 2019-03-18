@@ -6,7 +6,8 @@
 var db_pool = require('./../helpers/db');
 var jsonexport = require('jsonexport');
 const fs = require('fs');
-var PythonShell = require('python-shell');
+//var PythonShell = require('python-shell');
+const ps = require('python-shell');
 
 var apiProducts = require('./../controllers/apiProducts');
 
@@ -27,9 +28,9 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 console.log("getUsersCountPromise : err    :" + err);
                 return reject();
             } else {
-                console.log("getUsersCountPromise : success    :" + path);
+                console.log("getUsersCountPromise : success    :" + count);
                 userCount = count;
-                return resolve(path);
+                return resolve(count);
             }
         });
     });
@@ -79,7 +80,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
         args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
     };
 
-    PythonShell.run('hybrid.py', options, function (err, results) {
+    ps.PythonShell.run('hybrid.py', options, function (err, results) {
         if (err) {
             console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
             res.status(400).send(err);
