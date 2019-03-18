@@ -17,6 +17,7 @@ var apiRecommendation = {};
 //http://food-recommendation.herokuapp.com/getUserRecommendedProducts_1/5
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
     console.log("\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n");
+    console.log("\n@@@@@@@@@@@@@@@@@@\nFile path of hybrid.py   : " + fs.realpathSync('./python/hybrid.py', [])+ "\n\n");
     var user_id = req.params.user_id;
 
     var userCount = -1;
@@ -76,7 +77,9 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
             };
 
-            ps.PythonShell.run('./python/hybrid.py', options, function (err, results) {
+            var hybridPath = fs.realpathSync('./python/hybrid.py', []);
+
+            ps.PythonShell.run(hybridPath, options, function (err, results) {
                 if (err) {
                     console.log('getUserRecommendedProducts:: error:\n\n %j', err);
                     //res.status(400).send(err);
