@@ -15,6 +15,7 @@ var apiRecommendation = {};
 
 //http://food-recommendation.herokuapp.com/getUserRecommendedProducts_1/5
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
+    console.log("\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n");
     var user_id = req.params.user_id;
 
     var userCount = -1;
@@ -68,23 +69,27 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     ])
         .then(function (values) {
             console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: values:   " + values);
+
+            var options = {
+                scriptPath: 'python/scripts',
+                args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
+            };
+
+            ps.PythonShell.run('hybrid.py', options, function (err, results) {
+                if (err) {
+                    console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
+                    //res.status(400).send(err);
+                    res.status(200).send([]);
+                } else {
+                    console.log('apiRecommendation.getUserRecommendedProducts:: results:\n\n %j', results);
+                    res.status(200).send(results);
+                }
+            });
+
         }).catch(err => {
             console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: error: " + err);
-    });
-
-    var options = {
-        scriptPath: 'python/scripts',
-        args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
-    };
-
-    ps.PythonShell.run('hybrid.py', options, function (err, results) {
-        if (err) {
-            console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
-            res.status(400).send(err);
-        } else {
-            console.log('apiRecommendation.getUserRecommendedProducts:: results:\n\n %j', results);
-            res.status(200).send(results);
-        }
+            //res.status(400).send(err);
+            res.status(200).send([]);
     });
 }
 
@@ -124,7 +129,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
 
                     jsonexport(products, function (err, csv) {
                         if (err) return console.log(err);
-                        console.log("path:  \n" + csv);
+                        //console.log("path:  \n" + csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
                             console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
