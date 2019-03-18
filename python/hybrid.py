@@ -2,7 +2,7 @@ import numpy as np
 import scipy.stats
 import scipy.spatial
 #from sklearn.cross_validation import KFold poonam commented this
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold #cross_validation is deprecated
 import random
 from sklearn.metrics import mean_squared_error
 from math import sqrt
@@ -428,6 +428,7 @@ def predictRating(data, user_data, item_data):
         fw_w.close()
 
 #recommend_data = readingFile("ratings.csv") //poonam
+print("Hey I m in Hybrid")
 recommend_data = readingFile(sys.argv[3])
 user_data = userData()
 item_data = itemData()

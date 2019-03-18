@@ -1,5 +1,4 @@
-psycopg2==2.7.1
+psycopg2
 numpy
 scipy
 scikit-learn
-sklearn
