@@ -422,7 +422,7 @@ def predictRating(data, user_data, item_data):
                 print (str(user) + "," + str(item) + "," + str(pred))
                 #fw.write(str(user) + "," + str(item) + "," + str(pred) + "\n")
                 fw_w.write(str(pred) + "\n")
-                sys.stdout.flush() #poonam added this
+                #sys.stdout.flush() #poonam added this
 
         #fw.close()
         fw_w.close()

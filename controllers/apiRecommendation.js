@@ -17,7 +17,7 @@ var apiRecommendation = {};
 //http://food-recommendation.herokuapp.com/getUserRecommendedProducts_1/5
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
     console.log("\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n");
-    console.log("\n@@@@@@@@@@@@@@@@@@\nFile path of hybrid.py   : " + fs.realpathSync('./python/hybrid.py', [])+ "\n\n");
+    //console.log("\n@@@@@@@@@@@@@@@@@@\nFile path of hybrid.py   : " + fs.realpathSync('./python/hybrid.py', [])+ "\n\n");
     var user_id = req.params.user_id;
 
     var userCount = -1;
@@ -28,10 +28,10 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var getUserCountPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getUsersCount(function (err, count) {
             if (err) {
-                console.log("getUsersCountPromise : err    :" + err);
+                //console.log("getUsersCountPromise : err    :" + err);
                 return reject();
             } else {
-                console.log("getUsersCountPromise : success    :" + count);
+                //console.log("getUsersCountPromise : success    :" + count);
                 userCount = count;
                 return resolve(count);
             }
@@ -41,10 +41,10 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var getYetToBeRatedProductsPerUserPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getYetToBeRatedProductsPerUser(user_id, function (err, path) {
             if (err) {
-                console.log("getYetToBeRatedProductsPerUserPromise : err    :" + err);
+                //console.log("getYetToBeRatedProductsPerUserPromise : err    :" + err);
                 return reject();
             } else {
-                console.log("getYetToBeRatedProductsPerUserPromise : success    :" + path);
+                //console.log("getYetToBeRatedProductsPerUserPromise : success    :" + path);
                 yetToBeRatedProductsPerUserFile = path;
                 return resolve(path);
             }
@@ -54,10 +54,10 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var getUserRatedProductsPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getUserRatedProducts(function (err, path) {
             if (err) {
-                console.log("getUserRatedProducts : err    :" + err);
+                //console.log("getUserRatedProducts : err    :" + err);
                 return reject();
             } else {
-                console.log("getUserRatedProducts : success    :" + path);
+                //console.log("getUserRatedProducts : success    :" + path);
                 userRatedProductsFile = path;
                 return resolve(path);
             }
@@ -70,9 +70,9 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
         getUserRatedProductsPromise
     ])
         .then(function (values) {
-            console.log("\ngetUserRecommendedProducts :: values:   " + values);
+            //console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
-            var hybridPath = fs.realpathSync('./python/hybrid.py', []);
+            var hybridPath = fs.realpathSync('./python/dummy.py', []);
             var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
             var foodPath = fs.realpathSync('./python//csv_data/food.csv', []);
             var ratingsPath = fs.realpathSync('./python//csv_data/ratings.csv', []);
@@ -122,10 +122,10 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
             }
 
             var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-            console.log("\ngetYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
+            //console.log("\ngetYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
 
             var query = "SELECT * FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
-            console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
+            //console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
 
             apiProducts.getUnEatenProducts(query, function (err, products) {
                 if (err) {
@@ -142,7 +142,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                         //console.log("path:  \n" + csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
+                            //console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
 
                             //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
@@ -201,7 +201,7 @@ apiRecommendation.getAllUsers = function (callback) {
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('getAllUsers saved ' + path + "\n\n");
+                            //console.log('getAllUsers saved ' + path + "\n\n");
 
                             //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getAllUsers in csv ' + jsonString + "\n\n");
@@ -235,7 +235,8 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('getUserRatedProducts saved ' + path + "\n\n");
+                            //console.log('getUserRatedProducts saved ' + path + "\n\n");
+
                             //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getUserRatedProducts in csv ' + jsonString + "\n\n");
                         });
