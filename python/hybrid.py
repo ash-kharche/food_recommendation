@@ -1,7 +1,8 @@
 import numpy as np
 import scipy.stats
 import scipy.spatial
-from sklearn.cross_validation import KFold
+#from sklearn.cross_validation import KFold poonam commented this
+from sklearn.model_selection import KFold
 import random
 from sklearn.metrics import mean_squared_error
 from math import sqrt
