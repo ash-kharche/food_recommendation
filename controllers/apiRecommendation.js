@@ -73,10 +73,10 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
             var hybridPath = fs.realpathSync('./python/hybrid.py', []);
-            var usersPath = fs.realpathSync('./python/csv_data/users.py', []);
-            var foodPath = fs.realpathSync('./python//csv_data/food.py', []);
-            var ratingsPath = fs.realpathSync('./python//csv_data/ratings.py', []);
-            var toBeRatedPath = fs.realpathSync('./python//csv_data/toBeRated.py', []);
+            var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
+            var foodPath = fs.realpathSync('./python//csv_data/food.csv', []);
+            var ratingsPath = fs.realpathSync('./python//csv_data/ratings.csv', []);
+            var toBeRatedPath = fs.realpathSync('./python//csv_data/toBeRated.csv', []);
 
             /*var options = {
                 args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
