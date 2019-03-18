@@ -184,7 +184,7 @@ apiRecommendation.getAllUsers = function (callback) {
                         }
                         usersFormattedArray.push(modifiedUser);
                     }
-                    var path = './data/all_users + '.csv;
+                    var path = './data/all_users.csv';
 
                     jsonexport(usersFormattedArray, function (err, csv) {
                         if (err) return console.log(err);
@@ -218,7 +218,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                 } else {
 
                     var ratedOrdersArray = result.rows;
-                    var path = './data/user_rated_products + '.csv;
+                    var path = './data/user_rated_products.csv';
 
                     jsonexport(ratedOrdersArray, function (err, csv) {
                         if (err) return console.log(err);
