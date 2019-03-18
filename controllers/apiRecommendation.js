@@ -68,11 +68,8 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     ])
         .then(function (values) {
             console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: values:   " + values);
-            //res.status(200).send(values);
         }).catch(err => {
-        console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: error\n\n");
-        console.error(err);
-        //res.status(400).send(err);
+            console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: error: " + err);
     });
 
     var options = {
@@ -110,10 +107,11 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
             }
 
             var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-            console.log("\n********* getYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
+            console.log("\ngetYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
 
             var query = "SELECT * FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
-            console.log("getUnEatenProducts:   query :  " + query);
+            console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
+
             apiProducts.getUnEatenProducts(query, function (err, products) {
                 if (err) {
                     console.log(err);
@@ -129,13 +127,12 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                         console.log("path:  \n" + csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('file saved ' + path + "\n\n");
+                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
 
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
+                            //var jsonString = fs.readFileSync(path, 'utf8');
+                            //console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
                         });
                     });
-                    //res.status(200).send(products);
                     callback(null, path);
                 }
             });
@@ -186,13 +183,12 @@ apiRecommendation.getAllUsers = function (callback) {
 
                     jsonexport(usersFormattedArray, function (err, csv) {
                         if (err) return console.log(err);
-                        console.log(csv);
+                        //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('file saved ' + path + "\n\n");
+                            console.log('apiRecommendation.getAllUsers saved ' + path + "\n\n");
 
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getAllUsers in csv ');
+                            //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('apiRecommendation.getAllUsers in csv ' + jsonString + "\n\n");
                         });
                     });
@@ -221,13 +217,11 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 
                     jsonexport(ratedOrdersArray, function (err, csv) {
                         if (err) return console.log(err);
-                        console.log(csv);
+                        //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            console.log('file saved ' + path + "\n\n");
-
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getUserRatedProducts in csv ');
+                            console.log('apiRecommendation.getUserRatedProducts saved ' + path + "\n\n");
+                            //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('apiRecommendation.getUserRatedProducts in csv ' + jsonString + "\n\n");
                         });
                     });
