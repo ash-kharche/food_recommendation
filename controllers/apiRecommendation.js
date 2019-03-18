@@ -16,8 +16,23 @@ var apiRecommendation = {};
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var user_id = req.params.user_id;
 
+    var userCount = -1;
     var yetToBeRatedProductsPerUserFile = undefined;
     var userRatedProductsFile = undefined;
+
+
+    var getUserCountPromise = new Promise(function (resolve, reject) {
+        apiRecommendation.getUsersCount(function (err, count) {
+            if (err) {
+                console.log("getUsersCountPromise : err    :" + err);
+                return reject();
+            } else {
+                console.log("getUsersCountPromise : success    :" + path);
+                userCount = count;
+                return resolve(path);
+            }
+        });
+    });
 
     var getYetToBeRatedProductsPerUserPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getYetToBeRatedProductsPerUser(user_id, function (err, path) {
@@ -26,6 +41,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 return reject();
             } else {
                 console.log("getYetToBeRatedProductsPerUserPromise : success    :" + path);
+                yetToBeRatedProductsPerUserFile = path;
                 return resolve(path);
             }
         });
@@ -38,35 +54,38 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 return reject();
             } else {
                 console.log("getUserRatedProducts : success    :" + path);
+                userRatedProductsFile = path;
                 return resolve(path);
             }
         });
     });
 
     Promise.all([
+        getUserCountPromise,
         getYetToBeRatedProductsPerUserPromise,
         getUserRatedProductsPromise
     ])
         .then(function (values) {
             console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: values:   " + values);
-            res.status(200).send(values);
+            //res.status(200).send(values);
         }).catch(err => {
         console.log("\n@@@@@\apiRecommendation.getUserRecommendedProducts :: error\n\n");
         console.error(err);
-        res.status(400).send(err);
+        //res.status(400).send(err);
     });
 
     var options = {
         scriptPath: 'python/scripts',
-        args: [yetToBeRatedProductsPerUserFile, userRatedProductsFile]
+        args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
     };
 
     PythonShell.run('hybrid.py', options, function (err, results) {
         if (err) {
             console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
-            throw err;
+            res.status(400).send(err);
         } else {
             console.log('apiRecommendation.getUserRecommendedProducts:: results:\n\n %j', results);
+            res.status(200).send(results);
         }
     });
 }
@@ -172,7 +191,8 @@ apiRecommendation.getAllUsers = function (callback) {
                             console.log('file saved ' + path + "\n\n");
 
                             var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getAllUsers in csv ' + jsonString + "\n\n");
+                            console.log('apiRecommendation.getAllUsers in csv ');
+                            //console.log('apiRecommendation.getAllUsers in csv ' + jsonString + "\n\n");
                         });
                     });
 
@@ -206,7 +226,8 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                             console.log('file saved ' + path + "\n\n");
 
                             var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getUserRatedProducts in csv ' + jsonString + "\n\n");
+                            console.log('apiRecommendation.getUserRatedProducts in csv ');
+                            //console.log('apiRecommendation.getUserRatedProducts in csv ' + jsonString + "\n\n");
                         });
                     });
 
