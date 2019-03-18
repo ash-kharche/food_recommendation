@@ -73,11 +73,10 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
             var options = {
-                scriptPath: 'python/scripts',
                 args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
             };
 
-            var hybridPath = fs.realpathSync('./python/hybrid.py', []);
+            var hybridPath = fs.realpathSync('./python/hello.py', []);
 
             ps.PythonShell.run(hybridPath, options, function (err, results) {
                 if (err) {
