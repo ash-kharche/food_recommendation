@@ -75,7 +75,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
             };
 
-            ps.PythonShell.run('hybrid.py', options, function (err, results) {
+            ps.PythonShell.run('./python/hybrid.py', options, function (err, results) {
                 if (err) {
                     console.log('apiRecommendation.getUserRecommendedProducts:: error:\n\n %j', err);
                     //res.status(400).send(err);
