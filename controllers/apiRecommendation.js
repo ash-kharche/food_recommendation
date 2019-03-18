@@ -72,11 +72,18 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
         .then(function (values) {
             console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
-            var options = {
-                args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
-            };
+            var hybridPath = fs.realpathSync('./python/hybrid.py', []);
+            var usersPath = fs.realpathSync('./python/csv_data/users.py', []);
+            var foodPath = fs.realpathSync('./python//csv_data/food.py', []);
+            var ratingsPath = fs.realpathSync('./python//csv_data/ratings.py', []);
+            var toBeRatedPath = fs.realpathSync('./python//csv_data/toBeRated.py', []);
 
-            var hybridPath = fs.realpathSync('./python/hello.py', []);
+            /*var options = {
+                args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
+            };*/
+            var options = {
+                args: [usersPath, foodPath, ratingsPath, toBeRatedPath]
+            };
 
             ps.PythonShell.run(hybridPath, options, function (err, results) {
                 if (err) {

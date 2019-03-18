@@ -12,6 +12,19 @@ import sys
 
 warnings.simplefilter("error")
 
+'''
+conn = psycopg2.connect(database = "de7pit5nq8p35l", user = "uvzjkvhjhvrevn", password = "e9fa122e883f4af209c53c4586f1e7d2e38fee3495a03873c0191b98cea73fb2", host = "ec2-54-243-223-245.compute-1.amazonaws.com", port = "5432")
+cursor = conn.cursor(cursor_factory=RealDictCursor)
+
+postgreSQL_select_Query = "SELECT * FROM cart_recommended_products where product_id = '"+ sys.argv[1] + "' ORDER BY frequency LIMIT 5"
+cursor.execute(postgreSQL_select_Query)
+rows = cursor.fetchall()
+
+cursor.close()
+conn.commit()
+conn.close()
+'''
+
 users = 50
 items = 375
 
@@ -26,8 +39,7 @@ def readingFile(filename):
         return data
 
 def userData():
-        #filename = "users.csv" //Poonam
-        filename = sys.argv[1] //Poonam
+        filename = sys.argv[3]
         f = open(filename,"r")
         data = np.zeros((users,3))
         for row in f:
@@ -43,8 +55,7 @@ def userData():
 
 
 def itemData():
-        #filename = "food.csv" //Poonam
-        filename = sys.argv[2]
+        filename = sys.argv[4]
         f = open(filename,"r")
         data = np.zeros((items,18))
         genre = {"Veg":0, "Non-veg":1, "Diabetes":2, "Cholestrol":3}
@@ -348,8 +359,8 @@ def predictRating(data, user_data, item_data):
         for e in data:
                 M[e[0]-1][e[1]-1] = e[2]
 
-        #f = open("toBeRated.csv","r") //poonam
-        f = open(sys.argv[4],"r")
+        #f = open("toBeRated.csv","r")
+        f = open(sys.argv[2],"r")
         toBeRated = {"user":[], "item":[]}
         for row in f:
                 r = row.split(',')
@@ -425,8 +436,9 @@ def predictRating(data, user_data, item_data):
         #fw.close()
         fw_w.close()
 
-#recommend_data = readingFile("ratings.csv") //poonam
-recommend_data = readingFile(sys.argv[3])
+#recommend_data = readingFile("ratings.csv")
+print("Hey!!! I m in hybrid file")
+recommend_data = readingFile(sys.argv[1])
 user_data = userData()
 item_data = itemData()
 predictRating(recommend_data, user_data, item_data)
