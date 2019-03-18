@@ -10,6 +10,8 @@ import math
 import warnings
 import sys
 
+from numpy import genfromtxt
+
 warnings.simplefilter("error")
 
 def readingFile(filename):
@@ -24,11 +26,6 @@ def readingFile(filename):
 
 #print("Hey I m in Hybrid::  sys.argv[3]  " +sys.argv[3])
 #recommend_data = readingFile(sys.argv[3])
-f = open(sys.argv[3],"r")
-data = []
-for row in f:
-        r = row.split(',')
-        e = [int(r[0]), int(r[1]), int(r[2])]
-        data.append(e)
-print("\nrecommend_data  " +data)
+my_data = genfromtxt(sys.argv[3], delimiter=',')
+print("\nrecommend_data  " +my_data)
 sys.stdout.flush() #poonam added this
