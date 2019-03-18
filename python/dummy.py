@@ -11,5 +11,18 @@ import warnings
 import sys
 
 warnings.simplefilter("error")
-print("Hey I m in Hybrid")
+
+def readingFile(filename):
+        f = open(filename,"r")
+        data = []
+        for row in f:
+                r = row.split(',')
+                e = [int(r[0]), int(r[1]), int(r[2])]
+                data.append(e)
+        return data
+
+
+print("Hey I m in Hybrid::  sys.argv[3]  " +sys.argv[3])
+recommend_data = readingFile(sys.argv[3])
+print("\nrecommend_data  " +recommend_data)
 sys.stdout.flush() #poonam added this
