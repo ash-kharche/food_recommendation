@@ -22,7 +22,7 @@ def readingFile(filename):
         return data
 
 
-print("Hey I m in Hybrid::  sys.argv[3]  " +sys.argv[3])
-#recommend_data = readingFile(sys.argv[3])
-#print("\nrecommend_data  " +recommend_data)
+#print("Hey I m in Hybrid::  sys.argv[3]  " +sys.argv[3])
+recommend_data = readingFile(sys.argv[3])
+print("\nrecommend_data  " +recommend_data)
 sys.stdout.flush() #poonam added this
