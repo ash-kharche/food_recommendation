@@ -361,7 +361,7 @@ def predictRating(data, user_data, item_data):
         pred_rate = []
 
         #fw = open('result3.csv','w')
-        fw_w = open('result3.csv','w')
+        fw_w = open('./data/result3.csv','w') #poonam changed file path
 
         l = len(toBeRated["user"])
         for e in range(l):
@@ -421,6 +421,7 @@ def predictRating(data, user_data, item_data):
                 print (str(user) + "," + str(item) + "," + str(pred))
                 #fw.write(str(user) + "," + str(item) + "," + str(pred) + "\n")
                 fw_w.write(str(pred) + "\n")
+                sys.stdout.flush() #poonam added this
 
         #fw.close()
         fw_w.close()
