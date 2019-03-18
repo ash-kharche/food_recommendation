@@ -1,6 +1,8 @@
 var express = require('express');
 var routes = require('./routes');
 var bodyParser = require('body-parser');
+const fs = require('fs');
+console.log("File path of hybrid.py   : " + fs.realpathSync('./python/hybrid.py', []));
 
 var app = express();
 app.use(bodyParser.json());
