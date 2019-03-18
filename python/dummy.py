@@ -23,6 +23,12 @@ def readingFile(filename):
 
 
 #print("Hey I m in Hybrid::  sys.argv[3]  " +sys.argv[3])
-recommend_data = readingFile(sys.argv[3])
-print("\nrecommend_data  " +recommend_data)
+#recommend_data = readingFile(sys.argv[3])
+f = open(sys.argv[3],"r")
+data = []
+for row in f:
+        r = row.split(',')
+        e = [int(r[0]), int(r[1]), int(r[2])]
+        data.append(e)
+print("\nrecommend_data  " +data)
 sys.stdout.flush() #poonam added this
