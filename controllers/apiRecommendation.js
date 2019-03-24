@@ -280,15 +280,15 @@ apiRecommendation.getFood = function (callback) {
 
                         var type = "veg";
 
-                        if (product_id.is_veg == 0) {
+                        if (product.is_veg == 0) {
                             type = type + "|non-veg";
                         }
 
-                        if (user.is_diabetes == 1) {
+                        if (product.is_diabetes == 1) {
                             type = type + "|diabetes";
                         }
 
-                        if (user.is_cholestrol == 1) {
+                        if (product.is_cholestrol == 1) {
                             type = type + "|cholestrol";
                         }
                         modifiedFood.type = food.type;
