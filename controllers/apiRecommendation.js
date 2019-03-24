@@ -21,6 +21,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var user_id = req.params.user_id;
 
     var userCount = -1;
+    var foodCount = -1;
     var yetToBeRatedProductsPerUserFile = undefined;
     var userRatedProductsFile = undefined;
 
@@ -33,6 +34,19 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             } else {
                 //console.log("getUsersCountPromise : success    :" + count);
                 userCount = count;
+                return resolve(count);
+            }
+        });
+    });
+
+    var getFoodCountPromise = new Promise(function (resolve, reject) {
+        apiRecommendation.getFoodCount(function (err, count) {
+            if (err) {
+                //console.log("getFoodCountPromise : err    :" + err);
+                return reject();
+            } else {
+                //console.log("getFoodCountPromise : success    :" + count);
+                foodCount = count;
                 return resolve(count);
             }
         });
@@ -66,6 +80,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
 
     Promise.all([
         getUserCountPromise,
+        getFoodCountPromise,
         getYetToBeRatedProductsPerUserPromise,
         getUserRatedProductsPromise
     ])
@@ -74,15 +89,17 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
 
             var hybridPath = fs.realpathSync('./python/dummy.py', []);
             var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
-            var foodPath = fs.realpathSync('./python//csv_data/food.csv', []);
-            var ratingsPath = fs.realpathSync('./python//csv_data/ratings.csv', []);
-            var toBeRatedPath = fs.realpathSync('./python//csv_data/toBeRated.csv', []);
+            var foodPath = fs.realpathSync('./python/csv_data/food.csv', []);
+            var ratingsPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
+            var toBeRatedPath = fs.realpathSync('./python/csv_data/toBeRated.csv', []);
+            var rmseHybridPath = fs.realpathSync('./python/csv_data/rmse_hybrid.txt', []);
+            var resultPath = fs.realpathSync('./python/csv_data/result3.csv', []);
 
             /*var options = {
                 args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
             };*/
             var options = {
-                args: [usersPath, foodPath, ratingsPath, toBeRatedPath]
+                args: [userCount, foodCount, ratingsPath, usersPath, foodPath, rmseHybridPath, toBeRatedPath, resultPath]
             };
 
             ps.PythonShell.run(hybridPath, options, function (err, results) {
@@ -251,6 +268,24 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 
 apiRecommendation.getUsersCount = function (callback) {
     var query = "SELECT * FROM users";
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows.length);
+                }
+            });
+        }
+    });
+}
+
+apiRecommendation.getFoodCount = function (callback) {
+    var query = "SELECT * FROM products";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
