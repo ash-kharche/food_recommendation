@@ -22,9 +22,9 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
 
     var userCount = -1;
     var foodCount = -1;
-    var yetToBeRatedProductsPerUserFile = undefined;
-    var userRatedProductsFile = undefined;
-
+    var usersPath = "";
+    var toBeRatedPath = "";
+    var rathingPath = "";
 
     var getUserCountPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getUsersCount(function (err, count) {
@@ -52,14 +52,40 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
         });
     });
 
-    var getYetToBeRatedProductsPerUserPromise = new Promise(function (resolve, reject) {
-        apiRecommendation.getYetToBeRatedProductsPerUser(user_id, function (err, path) {
+    var getAllUsersPromise = new Promise(function (resolve, reject) {
+        apiRecommendation.getAllUsers(function (err, path) {
             if (err) {
-                //console.log("getYetToBeRatedProductsPerUserPromise : err    :" + err);
+                //console.log("getAllUsersPromise : err    :" + err);
                 return reject();
             } else {
-                //console.log("getYetToBeRatedProductsPerUserPromise : success    :" + path);
-                yetToBeRatedProductsPerUserFile = path;
+                //console.log("getAllUsersPromise : success    :" + count);
+                usersPath = path;
+                return resolve(count);
+            }
+        });
+    });
+
+    var getFoodPromise = new Promise(function (resolve, reject) {
+        apiRecommendation.getFood(function (err, path) {
+            if (err) {
+                //console.log("getFoodPromise : err    :" + err);
+                return reject();
+            } else {
+                //console.log("getFoodPromise : success    :" + path);
+                foodPath = path;
+                return resolve(path);
+            }
+        });
+    });
+
+    var getToBeRatedPromise = new Promise(function (resolve, reject) {
+        apiRecommendation.getYetToBeRatedProductsPerUser(user_id, function (err, path) {
+            if (err) {
+                //console.log("getToBeRatedPromise : err    :" + err);
+                return reject();
+            } else {
+                //console.log("getToBeRatedPromise : success    :" + path);
+                toBeRatedPath = path;
                 return resolve(path);
             }
         });
@@ -72,7 +98,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 return reject();
             } else {
                 //console.log("getUserRatedProducts : success    :" + path);
-                userRatedProductsFile = path;
+                ratingPath = path;
                 return resolve(path);
             }
         });
@@ -81,23 +107,22 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     Promise.all([
         getUserCountPromise,
         getFoodCountPromise,
-        getYetToBeRatedProductsPerUserPromise,
-        getUserRatedProductsPromise
+        getUserRatingForFoodPromise,
+        getAllUsersPromise,
+        getFoodPromise,
+        getToBeRatedPromise
     ])
         .then(function (values) {
             //console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
-            var hybridPath = fs.realpathSync('./python/dummy.py', []);
-            var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
-            var foodPath = fs.realpathSync('./python/csv_data/food.csv', []);
-            var ratingsPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
-            var toBeRatedPath = fs.realpathSync('./python/csv_data/toBeRated.csv', []);
+            var hybridPath = fs.realpathSync('./python/hybrid.py', []);
+            //var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
+            //var foodPath = fs.realpathSync('./python/csv_data/food.csv', []);
+            //var ratingsPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
+            //var toBeRatedPath = fs.realpathSync('./python/csv_data/toBeRated.csv', []);
             var rmseHybridPath = fs.realpathSync('./python/csv_data/rmse_hybrid.txt', []);
             var resultPath = fs.realpathSync('./python/csv_data/result3.csv', []);
 
-            /*var options = {
-                args: [userCount, yetToBeRatedProductsPerUserFile, userRatedProductsFile]
-            };*/
             var options = {
                 args: [userCount, foodCount, ratingsPath, usersPath, foodPath, rmseHybridPath, toBeRatedPath, resultPath]
             };
@@ -192,19 +217,19 @@ apiRecommendation.getAllUsers = function (callback) {
                         var modifiedUser = {};
                         modifiedUser.user_id = user.user_id;
 
-                        if (user.is_veg) {
-                            modifiedUser.is_veg = "veg|all";
+                        if (user.is_veg == 1) {
+                            modifiedUser.is_veg = "veg";
                         } else {
                             modifiedUser.is_veg = "non_veg";
                         }
 
-                        if (user.is_diabetes) {
+                        if (user.is_diabetes == 1) {
                             modifiedUser.is_diabetes = 10;
                         } else {
                             modifiedUser.is_diabetes = 0;
                         }
 
-                        if (user.is_cholestrol) {
+                        if (user.is_cholestrol == 1) {
                             modifiedUser.is_cholestrol = 20;
                         } else {
                             modifiedUser.is_cholestrol = 0;
@@ -222,6 +247,65 @@ apiRecommendation.getAllUsers = function (callback) {
 
                             //var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getAllUsers in csv ' + jsonString + "\n\n");
+                        });
+                    });
+
+                    callback(null, path);
+                }
+            });
+        }
+    });
+}
+
+apiRecommendation.getFood = function (callback) {
+    var query = "SELECT * FROM products ORDER BY product_id";
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+
+                    var foodArray = result.rows;
+                    var foodFormattedArray = [];
+
+                    for (var i = 0; i < foodArray.length; i++) {
+                        var food = foodArray[i];
+                        var modifiedFood = {};
+                        modifiedFood.product_id = food.product_id;
+                        modifiedFood.product_name = food.product_name;
+
+                        var type = "veg";
+
+                        if (product_id.is_veg == 0) {
+                            type = type + "|non-veg";
+                        }
+
+                        if (user.is_diabetes == 1) {
+                            type = type + "|diabetes";
+                        }
+
+                        if (user.is_cholestrol == 1) {
+                            type = type + "|cholestrol" = 20";
+                        }
+                        modifiedFood.type = food.type;
+
+                        foodFormattedArray.push(modifiedFood);
+                    }
+                    var path = './data/food.csv';
+
+                    jsonexport(foodFormattedArray, function (err, csv) {
+                        if (err) return console.log(err);
+                        //console.log(csv);
+                        fs.writeFile(path, csv, function (err) {
+                            if (err) throw err;
+                            //console.log('getFood saved ' + path + "\n\n");
+
+                            //var jsonString = fs.readFileSync(path, 'utf8');
+                            //console.log('getFood in csv ' + jsonString + "\n\n");
                         });
                     });
 
