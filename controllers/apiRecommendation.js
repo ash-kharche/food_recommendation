@@ -289,7 +289,7 @@ apiRecommendation.getFood = function (callback) {
                         }
 
                         if (user.is_cholestrol == 1) {
-                            type = type + "|cholestrol" = 20";
+                            type = type + "|cholestrol";
                         }
                         modifiedFood.type = food.type;
 
