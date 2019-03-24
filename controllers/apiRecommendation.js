@@ -246,8 +246,8 @@ apiRecommendation.getAllUsers = function (callback) {
                             if (err) throw err;
                             //console.log('getAllUsers saved ' + path + "\n\n");
 
-                            //var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('getAllUsers in csv ' + jsonString + "\n\n");
+                            var jsonString = fs.readFileSync(path, 'utf8');
+                            console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
                         });
                     });
 
