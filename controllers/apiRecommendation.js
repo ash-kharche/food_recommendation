@@ -24,7 +24,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var foodCount = -1;
     var usersPath = "";
     var toBeRatedPath = "";
-    var rathingPath = "";
+    var ratingPath = "";
 
     var getUserCountPromise = new Promise(function (resolve, reject) {
         apiRecommendation.getUsersCount(function (err, count) {
@@ -118,13 +118,13 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             var hybridPath = fs.realpathSync('./python/hybrid.py', []);
             //var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
             //var foodPath = fs.realpathSync('./python/csv_data/food.csv', []);
-            //var ratingsPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
+            //var ratingPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
             //var toBeRatedPath = fs.realpathSync('./python/csv_data/toBeRated.csv', []);
             var rmseHybridPath = fs.realpathSync('./python/csv_data/rmse_hybrid.txt', []);
             var resultPath = fs.realpathSync('./python/csv_data/result3.csv', []);
 
             var options = {
-                args: [userCount, foodCount, ratingsPath, usersPath, foodPath, rmseHybridPath, toBeRatedPath, resultPath]
+                args: [userCount, foodCount, ratingPath, usersPath, foodPath, rmseHybridPath, toBeRatedPath, resultPath]
             };
 
             ps.PythonShell.run(hybridPath, options, function (err, results) {
