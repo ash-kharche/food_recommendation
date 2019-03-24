@@ -225,13 +225,13 @@ apiRecommendation.getAllUsers = function (callback) {
                         }
 
                         if (user.is_diabetes == 1) {
-                            modifiedUser.is_diabetes = 10;
+                            modifiedUser.is_diabetes = 1;
                         } else {
                             modifiedUser.is_diabetes = 0;
                         }
 
                         if (user.is_cholestrol == 1) {
-                            modifiedUser.is_cholestrol = 20;
+                            modifiedUser.is_cholestrol = 1;
                         } else {
                             modifiedUser.is_cholestrol = 0;
                         }
@@ -247,7 +247,7 @@ apiRecommendation.getAllUsers = function (callback) {
                             //console.log('getAllUsers saved ' + path + "\n\n");
 
                             //var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('getAllUsers in csv ' + jsonString + "\n\n");
+                            console.log('getAllUsers in csv ' + jsonString + "\n\n");
                         });
                     });
 
