@@ -108,7 +108,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     Promise.all([
         getUserCountPromise,
         getFoodCountPromise,
-        getUserRatingForFoodPromise,
+        getUserRatedProductsPromise,
         getAllUsersPromise,
         getFoodPromise,
         getToBeRatedPromise
