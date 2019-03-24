@@ -23,6 +23,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     var userCount = -1;
     var foodCount = -1;
     var usersPath = "";
+    var foodPath = "";
     var toBeRatedPath = "";
     var ratingPath = "";
 
