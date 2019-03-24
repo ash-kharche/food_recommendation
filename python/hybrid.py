@@ -31,7 +31,7 @@ def readingFile(filename):
 
 def userData(filename):
         f = open(filename,"r")
-        data = np.zeros((users,3))
+        data = []#np.zeros((users,3))
         for row in f:
                 r = row.strip().split(',')
                 if r[1] == "Veg" or r[1] == "Veg":
