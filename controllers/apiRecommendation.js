@@ -58,9 +58,9 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 //console.log("getAllUsersPromise : err    :" + err);
                 return reject();
             } else {
-                //console.log("getAllUsersPromise : success    :" + count);
+                //console.log("getAllUsersPromise : success    :" + path);
                 usersPath = path;
-                return resolve(count);
+                return resolve(path);
             }
         });
     });
