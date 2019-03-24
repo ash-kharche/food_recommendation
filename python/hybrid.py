@@ -34,10 +34,15 @@ def userData(filename):
         data = []#np.zeros((users,3))
         for row in f:
                 r = row.strip().split(',')
-                if r[1] == "Veg" or r[1] == "Veg":
+                '''if r[1] == "Veg" or r[1] == "veg":
                         data[int(r[0])-1] = [1,(int(r[2])),(int(r[3]))]
                 else:
-                        data[int(r[0])-1] = [0,(int(r[2])),(int(r[3]))]
+                        data[int(r[0])-1] = [0,(int(r[2])),(int(r[3]))]'''
+
+                if r[1] == "Veg" or r[1] == "veg":
+                        data[r[0]-1] = [1,r[2],r[3]]
+                else:
+                        data[r[0]-1] = [0,r[2],r[3]]
         return data
 
 def itemData(filename):
