@@ -291,20 +291,33 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
 
                         if (user.is_veg == 1) {
                             modifiedUser.is_veg = 1;//"veg";
+                        } else {
+                          modifiedUser.is_veg = 0;
                         }
                         if (user.is_diabetes == 1) {
                             modifiedUser.is_diabetes = 1;
+                        } else {
+                          modifiedUser.is_diabetes = 0;
                         }
                         if (user.is_cholestrol == 1) {
                             modifiedUser.is_cholestrol = 1;
+                        } else {
+                          modifiedUser.is_cholestrol = 0;
                         }
                         usersFormattedArray.splice(user.user_id, 1, modifiedUser);
                     }
-                    var path = './data/all_users.csv';
+                    var path = './data/users.csv';
 
                     jsonexport(usersFormattedArray, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
+
+                        /*try {
+                          fs.unlinkSync(path);
+                        } catch (ex) {
+                          callback(ex, null);
+                        }*/
+
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
                             //console.log('getAllUsers saved ' + path + "\n\n");
