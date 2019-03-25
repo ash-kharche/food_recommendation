@@ -270,8 +270,10 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                     callback(err, null);
                 } else {
 
+                    var usersFormattedArray = [];
                     var lastUserId = result.rows[0].user_id;
                     console.log("lastUserId:   " +lastUserId);
+
                     for (var i = 0; i < lastUserId; i++) {
                           var modifiedUser = {};
                           //modifiedUser.user_id = 0;
@@ -282,8 +284,6 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                     }
 
                     var usersArray = result.rows;
-                    var usersFormattedArray = [];
-
                     for (var i = 0; i < usersArray.length; i++) {
                         var user = usersArray[i];
                         var modifiedUser = {};
