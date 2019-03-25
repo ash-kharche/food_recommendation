@@ -219,9 +219,9 @@ apiRecommendation.getAllUsers = function (callback) {
                         modifiedUser.user_id = user.user_id;
 
                         if (user.is_veg == 1) {
-                            modifiedUser.is_veg = "veg";
+                            modifiedUser.is_veg = 1;//"veg";
                         } else {
-                            modifiedUser.is_veg = "non_veg";
+                            modifiedUser.is_veg = 0;//"non_veg";
                         }
 
                         if (user.is_diabetes == 1) {

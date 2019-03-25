@@ -29,18 +29,26 @@ def readingFile(filename):
                 data.append(e)
         return data
 
-def userData(filename):
+def userData_original(filename):
         f = open(filename,"r")
         data = np.zeros((users,3))
-        '''
+
         for row in f:
                 r = row.strip().split(',')
                 if r[1] == "Veg" or r[1] == "veg":
                         data[int(r[0])-1] = [1,(int(r[2])),(int(r[3]))]
                 else:
                         data[int(r[0])-1] = [0,(int(r[2])),(int(r[3]))]
-                        '''
-                        print(data)
+
+        return data
+
+def userData(filename):
+        f = open(filename,"r")
+        data = np.zeros((users,3))
+
+        for row in f:
+                r = row.strip().split(',')
+                data[int(r[0])-1] = [int(r[1]), int(r[2]), int(r[3])]
         return data
 
 def itemData(filename):
@@ -391,28 +399,8 @@ def predictRating(data, user_data, item_data):
 
 
 ratings_csv_data = readingFile(file1)
-#print("ratings_csv_data")
-#print(ratings_csv_data)
-
 user_data = userData(file2)
-#print("user_data")
-#print(user_data)
-
 item_data = itemData(file3)
-#print("item_data")
-#print(item_data)
-
-#sim_item_cosine, sim_item_jaccard, sim_item_pearson = similarity_item(item_data)
-#print(sim_item_cosine, sim_item_jaccard, sim_item_pearson)
-
-#sim_user_cosine, sim_user_jaccard, sim_user_pearson = similarity_user(user_data)
-#print(sim_user_cosine, sim_user_jaccard, sim_user_pearson)
-
-#crossValidation(ratings_csv_data, user_data, item_data)
-
-#sim_user, sim_item = crossValidation(ratings_csv_data, user_data, item_data)
-#print(sim_user, sim_item)
-
-predictRating(ratings_csv_data, user_data, item_data)
+#predictRating(ratings_csv_data, user_data, item_data)
 
 sys.stdout.flush()
