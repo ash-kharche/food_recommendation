@@ -44,11 +44,13 @@ def userData_original(filename):
 
 def userData(filename):
         f = open(filename,"r")
-        data = np.zeros((users,3))
-
+        data = []
         for row in f:
-                r = row.strip().split(',')
-                data[int(r[0])-1] = [int(r[1]), int(r[2]), int(r[3])]
+                r = row.split(',')
+                e = [int(r[0]), int(r[1]), int(r[2])]
+                data.append(e)
+
+        print(data)
         return data
 
 def itemData(filename):

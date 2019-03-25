@@ -54,7 +54,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     });
 
     var getAllUsersPromise = new Promise(function (resolve, reject) {
-        apiRecommendation.getAllUsers(function (err, path) {
+        apiRecommendation.getAllUsersFormattedCsv(function (err, path) {
             if (err) {
                 //console.log("getAllUsersPromise : err    :" + err);
                 return reject();
@@ -236,6 +236,67 @@ apiRecommendation.getAllUsers = function (callback) {
                             modifiedUser.is_cholestrol = 0;
                         }
                         usersFormattedArray.push(modifiedUser);
+                    }
+                    var path = './data/all_users.csv';
+
+                    jsonexport(usersFormattedArray, function (err, csv) {
+                        if (err) return console.log(err);
+                        //console.log(csv);
+                        fs.writeFile(path, csv, function (err) {
+                            if (err) throw err;
+                            //console.log('getAllUsers saved ' + path + "\n\n");
+
+                            var jsonString = fs.readFileSync(path, 'utf8');
+                            console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
+                        });
+                    });
+
+                    callback(null, path);
+                }
+            });
+        }
+    });
+}
+
+apiRecommendation.getAllUsersFormattedCsv = function (callback) {
+    var query = "SELECT * FROM users ORDER BY user_id";
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+
+                    for(int i = 0; i < 28; i++) {
+                          var modifiedUser = {};
+                          //modifiedUser.user_id = 0;
+                          modifiedUser.is_veg = 0;//"veg";
+                          modifiedUser.is_diabetes = 0;
+                          modifiedUser.is_cholestrol = 0;
+                          usersFormattedArray.push(modifiedUser);
+                    }
+
+                    var usersArray = result.rows;
+                    var usersFormattedArray = [];
+
+                    for (var i = 0; i < usersArray.length; i++) {
+                        var user = usersArray[i];
+                        var modifiedUser = {};
+                        //modifiedUser.user_id = user.user_id;
+
+                        if (user.is_veg == 1) {
+                            modifiedUser.is_veg = 1;//"veg";
+                        }
+                        if (user.is_diabetes == 1) {
+                            modifiedUser.is_diabetes = 1;
+                        }
+                        if (user.is_cholestrol == 1) {
+                            modifiedUser.is_cholestrol = 1;
+                        }
+                        usersFormattedArray.splice(user.user_id, 1, modifiedUser);
                     }
                     var path = './data/all_users.csv';
 
