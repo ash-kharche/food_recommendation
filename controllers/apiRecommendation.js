@@ -259,7 +259,7 @@ apiRecommendation.getAllUsers = function (callback) {
 }
 
 apiRecommendation.getAllUsersFormattedCsv = function (callback) {
-    var query = "SELECT * FROM users ORDER BY user_id";
+    var query = "SELECT * FROM users ORDER BY user_id DESC";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -270,7 +270,9 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                     callback(err, null);
                 } else {
 
-                    for(int i = 0; i < 28; i++) {
+                    var lastUserId = result.rows[0].user_id;
+                    console.log("lastUserId:   " +lastUserId);
+                    for (var i = 0; i < lastUserId; i++) {
                           var modifiedUser = {};
                           //modifiedUser.user_id = 0;
                           modifiedUser.is_veg = 0;//"veg";
