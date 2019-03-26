@@ -397,8 +397,8 @@ def predictRating(data, user_data, item_data):
                 #pred = (user_pred + item_pred)/2
                 pred_rate.append(pred)
                 #print("Main OUTPUT")
-                print (str(user) + "," + str(item) + "," + str(pred))
-                #fw.write(str(user) + "," + str(item) + "," + str(pred) + "\n")
+                #print (str(user) + "," + str(item) + "," + str(pred))
+                print (str(item))
                 fw_w.write(str(pred) + "\n")
 
 

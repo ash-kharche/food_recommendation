@@ -132,7 +132,20 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                     res.status(200).send([]);
                 } else {
                     console.log('getUserRecommendedProducts:: results:\n\n %j', results);
-                    res.status(200).send(results);
+                    var resultsArray = JSON.parse(results);
+                    var array = []]
+                    for(int i = 0; i < 10; i++) {
+                      array.push(resultsArray[i]);
+                    }
+                    apiRecommendation.getProducts(array, function (err, products) {
+                        if (err) {
+                            res.status(200).send([]);
+                        } else {
+                          res.status(200).send(products);
+                        }
+                      });
+                    //res.status(200).send(results);
+
                 }
             });
 
@@ -464,6 +477,25 @@ apiRecommendation.getFoodCount = function (callback) {
                     callback(err, null);
                 } else {
                     callback(null, result.rows[0].product_id);
+                }
+            });
+        }
+    });
+}
+
+apiRecommendation.getProducts = function (productIdList, callback) {
+    //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
+    var query = "SELECT product_id FROM products where in("+ productIdList +")";
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows);
                 }
             });
         }
