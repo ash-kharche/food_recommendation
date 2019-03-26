@@ -164,7 +164,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
             var uniqueProductIds = apiProducts.getUniqueId(productIdList);
             //console.log("\ngetYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
 
-            var query = "SELECT * FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
+            var query = "SELECT user_id, product_id FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
             //console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
 
             apiProducts.getUnEatenProducts(query, function (err, products) {
