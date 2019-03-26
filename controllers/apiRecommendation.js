@@ -192,7 +192,6 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
 
                     for (var i = 0; i < productsArray.length; i++) {
                           var product = productsArray[i];
-                          console.log("product :  " + JSON.stringify(product));
                           var modifiedProduct = {};
                           modifiedProduct.user_id = user_id;
                           modifiedProduct.product_id = product.product_id;
@@ -487,8 +486,8 @@ apiRecommendation.getFoodCount = function (callback) {
 
 apiRecommendation.getProducts = function (productIdList, callback) {
     //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-    //var randomNumber = getRandomInt(300);
-    //console.log("randomNumber:   " +randomNumber);
+    var randomNumber = apiRecommendation.getRandomInt(300);
+    console.log("randomNumber:   " +randomNumber);
     //var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10 OFFSET " + randomNumber;
     var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10";
     console.log("getProducts:  query  " +query);
@@ -506,6 +505,10 @@ apiRecommendation.getProducts = function (productIdList, callback) {
             });
         }
     });
+}
+
+apiRecommendation.getRandomInt = function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 module.exports = apiRecommendation;
