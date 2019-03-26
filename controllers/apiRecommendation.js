@@ -131,15 +131,15 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                     console.log('getUserRecommendedProducts:: error:\n\n %j', err);
                     res.status(200).send([]);
                 } else {
-                    console.log('getUserRecommendedProducts:: results:\n %j', JSON.parse(results));
-                    var resultsArray = JSON.parse(results);
+                    console.log('getUserRecommendedProducts:: results:\n %j', results);
+                    /*var resultsArray = JSON.parse(results);
                     var array = [];
                     array.push(resultsArray);
                     var array1 = [];
                     for(var i = 0; i < 10; i++) {
                       array1.push(array[i]);
-                    }
-                    apiRecommendation.getProducts(array1, function (err, products) {
+                    }*/
+                    apiRecommendation.getProducts(results, function (err, products) {
                         if (err) {
                             res.status(200).send([]);
                         } else {
@@ -207,8 +207,8 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                             if (err) throw err;
                             //console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
 
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
+                            //var jsonString = fs.readFileSync(path, 'utf8');
+                            //console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
                         });
                     });
                     callback(null, path);
