@@ -319,6 +319,15 @@ def predictRating(data, user_data, item_data):
         for e in data:
                 M[e[0]-1][e[1]-1] = e[2]
 
+        print(M)
+        
+def predictRating1(data, user_data, item_data):
+        sim_user, sim_item = crossValidation(data, user_data, item_data)
+
+        M = np.zeros((int(users),int(items)))
+        for e in data:
+                M[e[0]-1][e[1]-1] = e[2]
+
         f = open(file5,"r")
         toBeRated = {"user":[], "item":[]}
         for row in f:
