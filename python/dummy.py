@@ -10,8 +10,9 @@ import math
 import warnings
 import sys
 
-users = 50
-items = 375
+'''
+users = 29
+items = 315
 
 file1 = "./python/csv_data/ratings.csv";
 file2 = "./python/csv_data/users.csv"
@@ -19,6 +20,17 @@ file3 = "./python/csv_data/food.csv"
 file4 = "./python/csv_data/rmse_hybrid.txt"
 file5 = "./python/csv_data/toBeRated.csv"
 file6 = "./python/csv_data/result3.csv"
+'''
+
+users = sys.argv[1]
+items = sys.argv[2]
+
+file1 = sys.argv[3];
+file2 = sys.argv[4]
+file3 = sys.argv[5]
+file4 = sys.argv[6]
+file5 = sys.argv[7]
+file6 = sys.argv[8]
 
 def readingFile(filename):
         f = open(filename,"r")
@@ -30,19 +42,20 @@ def readingFile(filename):
         return data
 
 def userData(filename):
+    data = []
+    try:
         f = open(filename,"r")
-        data = np.zeros((users,3))
         for row in f:
-                r = row.strip().split(',')
-                if r[1] == "Veg" or r[1] == "Veg":
-                        data[int(r[0])-1] = [1,(int(r[2])),(int(r[3]))]
-                else:
-                        data[int(r[0])-1] = [0,(int(r[2])),(int(r[3]))]
-        return data
+                r = row.split(',')
+                e = [int(r[0]), int(r[1]), int(r[2])]
+                data.append(e)
+    except:
+        print("Exception: userData")
+    return data
 
 def itemData(filename):
         f = open(filename,"r")
-        data = np.zeros((items,18))
+        data = np.zeros((int(items),18))
         genre = {"Veg":0, "Non-veg":1, "Diabetes":2, "Cholestrol":3}
         for row in f:
                 r = row.split(',')
@@ -57,12 +70,12 @@ def itemData(filename):
 
 def similarity_item(data):
         #print ("Hello similarity item")
-        item_similarity_cosine = np.zeros((items,items))
-        item_similarity_jaccard = np.zeros((items,items))
-        item_similarity_pearson = np.zeros((items,items))
-        for item1 in range(items):
+        item_similarity_cosine = np.zeros((int(items),int(items)))
+        item_similarity_jaccard = np.zeros((int(items),int(items)))
+        item_similarity_pearson = np.zeros((int(items),int(items)))
+        for item1 in range(int(items)):
                 #print (item1)
-                for item2 in range(items):
+                for item2 in range(int(items)):
                         if np.count_nonzero(data[item1]) and np.count_nonzero(data[item2]):
                                 item_similarity_cosine[item1][item2] = 1-scipy.spatial.distance.cosine(data[item1],data[item2])
                                 item_similarity_jaccard[item1][item2] = 1-scipy.spatial.distance.jaccard(data[item1],data[item2])
@@ -81,12 +94,12 @@ def similarity_item(data):
 def similarity_user(data):
         #print ("Hello similarity user")
         #f_i_d = open("sim_user_hybrid.txt","w")
-        user_similarity_cosine = np.zeros((users,users))
-        user_similarity_jaccard = np.zeros((users,users))
-        user_similarity_pearson = np.zeros((users,users))
-        for user1 in range(users):
+        user_similarity_cosine = np.zeros((int(users),int(users)))
+        user_similarity_jaccard = np.zeros((int(users),int(users)))
+        user_similarity_pearson = np.zeros((int(users),int(users)))
+        for user1 in range(int(users)):
                 #print (user1)
-                for user2 in range(users):
+                for user2 in range(int(users)):
                         if np.count_nonzero(data[user1]) and np.count_nonzero(data[user2]):
                                 user_similarity_cosine[user1][user2] = 1-scipy.spatial.distance.cosine(data[user1],data[user2])
                                 user_similarity_jaccard[user1][user2] = 1-scipy.spatial.distance.jaccard(data[user1],data[user2])
@@ -100,6 +113,24 @@ def similarity_user(data):
 
         return user_similarity_cosine, user_similarity_jaccard, user_similarity_pearson
 
+def crossValidation1(data, user_data, item_data):
+        k_fold = KFold(n_splits=10)
+
+        for train_indices, test_indices in k_fold.split(data):
+                train = [data[i] for i in train_indices]
+                test = [data[i] for i in test_indices]
+
+        M = np.zeros((int(users),int(items)))
+
+        for e in train:
+            print(e)
+            try:
+                M[e[0]-1][e[1]-1] = e[2]
+            except IndexError as error:
+                print(error)
+
+        #print(M)
+
 def crossValidation(data, user_data, item_data):
         k_fold = KFold(n_splits=10)
 
@@ -111,16 +142,15 @@ def crossValidation(data, user_data, item_data):
         rmse_jaccard = []
         rmse_pearson = []
 
-        #print(k_fold.get_n_splits(data))
-
         for train_indices, test_indices in k_fold.split(data):
                 train = [data[i] for i in train_indices]
                 test = [data[i] for i in test_indices]
 
-                M = np.zeros((users,items))
+                M = np.zeros((int(users),int(items)))
 
                 for e in train:
-                        M[e[0]-1][e[1]-1] = e[2]
+                    M[e[0]-1][e[1]-1] = e[2]
+
 
                 true_rate = []
                 pred_rate_cosine = []
@@ -266,16 +296,10 @@ def crossValidation(data, user_data, item_data):
                 rmse_jaccard.append(sqrt(mean_squared_error(true_rate, pred_rate_jaccard)))
                 rmse_pearson.append(sqrt(mean_squared_error(true_rate, pred_rate_pearson)))
 
-                #print ("mean_cosine          mean_jaccard                    mean_pearson")
-                #print (str(sqrt(mean_squared_error(true_rate, pred_rate_cosine))) + "\t" + str(sqrt(mean_squared_error(true_rate, pred_rate_jaccard))) + "\t" + str(sqrt(mean_squared_error(true_rate, pred_rate_pearson))))
-
-
         rmse_cosine = sum(rmse_cosine) / float(len(rmse_cosine))
         rmse_pearson = sum(rmse_pearson) / float(len(rmse_pearson))
         rmse_jaccard = sum(rmse_jaccard) / float(len(rmse_jaccard))
 
-        #print ("rmse cosine     rmse jaccard         rmse pearson")
-        #print (str(rmse_cosine) + "\t" + str(rmse_jaccard) + "\t" + str(rmse_pearson))
 
         f_rmse = open(file4,"w")
         f_rmse.write(str(rmse_cosine) + "\t" + str(rmse_jaccard) + "\t" + str(rmse_pearson) + "\n")
@@ -283,8 +307,6 @@ def crossValidation(data, user_data, item_data):
         rmse = [rmse_cosine, rmse_jaccard, rmse_pearson]
         req_sim = rmse.index(min(rmse))
 
-        #print ("rq_sim")
-        #print (req_sim)
         f_rmse.write(str(req_sim))
         f_rmse.close()
 
@@ -305,7 +327,7 @@ def crossValidation(data, user_data, item_data):
 def predictRating(data, user_data, item_data):
         sim_user, sim_item = crossValidation(data, user_data, item_data)
 
-        M = np.zeros((users,items))
+        M = np.zeros((int(users),int(items)))
         for e in data:
                 M[e[0]-1][e[1]-1] = e[2]
 

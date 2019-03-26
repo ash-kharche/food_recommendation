@@ -425,7 +425,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 }
 
 apiRecommendation.getUsersCount = function (callback) {
-    var query = "SELECT * FROM users";
+    var query = "SELECT * FROM users ORDER BY user_id DESC";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -435,7 +435,9 @@ apiRecommendation.getUsersCount = function (callback) {
                 if (err) {
                     callback(err, null);
                 } else {
-                    callback(null, result.rows.length);
+                    var lastUserId = result.rows[0].user_id;
+                    //callback(null, result.rows.length);
+                    callback(null, lastUserId+1);
                 }
             });
         }
