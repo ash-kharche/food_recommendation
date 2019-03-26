@@ -487,7 +487,7 @@ apiRecommendation.getFoodCount = function (callback) {
 
 apiRecommendation.getProducts = function (productIdList, callback) {
     //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-    var query = "SELECT product_id FROM products where product_id in("+ productIdList +")";
+    var query = "SELECT * FROM products where product_id in("+ productIdList +")";
     console.log("getProducts:  query  " +query);
     db_pool.connect(function (err, client, done) {
         if (err) {
