@@ -131,13 +131,15 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                     console.log('getUserRecommendedProducts:: error:\n\n %j', err);
                     res.status(200).send([]);
                 } else {
-                    console.log('getUserRecommendedProducts:: results:\n\n %j', results);
+                    console.log('getUserRecommendedProducts:: results:\n %j', JSON.parse(results));
                     var resultsArray = JSON.parse(results);
                     var array = [];
+                    array.push(resultsArray);
+                    var array1 = [];
                     for(var i = 0; i < 10; i++) {
-                      array.push(resultsArray[i]);
+                      array1.push(array[i]);
                     }
-                    apiRecommendation.getProducts(array, function (err, products) {
+                    apiRecommendation.getProducts(array1, function (err, products) {
                         if (err) {
                             res.status(200).send([]);
                         } else {
@@ -486,6 +488,7 @@ apiRecommendation.getFoodCount = function (callback) {
 apiRecommendation.getProducts = function (productIdList, callback) {
     //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
     var query = "SELECT product_id FROM products where in("+ productIdList +")";
+    console.log("getProducts:  query  " +query);
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
