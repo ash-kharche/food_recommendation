@@ -433,7 +433,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 }
 
 apiRecommendation.getUsersCount = function (callback) {
-    var query = "SELECT * FROM users ORDER BY user_id DESC";
+    var query = "SELECT user_id FROM users ORDER BY user_id DESC";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -453,7 +453,7 @@ apiRecommendation.getUsersCount = function (callback) {
 }
 
 apiRecommendation.getFoodCount = function (callback) {
-    var query = "SELECT * FROM products";
+    var query = "SELECT product_id FROM products order by product_id DESC LIMIT 1";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -463,7 +463,7 @@ apiRecommendation.getFoodCount = function (callback) {
                 if (err) {
                     callback(err, null);
                 } else {
-                    callback(null, (result.rows.length + 1));
+                    callback(null, result.rows[0].product_id);
                 }
             });
         }
