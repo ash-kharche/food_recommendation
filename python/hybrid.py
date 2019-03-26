@@ -61,7 +61,7 @@ def itemData(filename):
     try:
         f = open(filename,"r")
         data = np.zeros((int(items),18))
-        genre = {"Veg":0, "Non-veg":1, "Diabetes":2, "Cholestrol":3}
+        genre = {"veg":0, "non-veg":1, "diabetes":2, "cholestrol":3}
         for row in f:
                 r = row.split(',')
                 g = r[len(r)-1].split('|')
