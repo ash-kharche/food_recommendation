@@ -410,8 +410,8 @@ item_data = itemData(file3)
 print("item_data")
 #print(item_data)
 
-sim_item_cosine, sim_item_jaccard, sim_item_pearson = similarity_item(item_data)
-print(sim_item_cosine, sim_item_jaccard, sim_item_pearson)
+#sim_item_cosine, sim_item_jaccard, sim_item_pearson = similarity_item(item_data)
+#print(sim_item_cosine, sim_item_jaccard, sim_item_pearson)
 
 #predictRating(ratings_csv_data, user_data, item_data)
 
