@@ -21,12 +21,15 @@ file5 = sys.argv[7]
 file6 = sys.argv[8]
 
 def readingFile(filename):
-        f = open(filename,"r")
         data = []
-        for row in f:
-                r = row.split(',')
-                e = [int(r[0]), int(r[1]), int(r[2])]
-                data.append(e)
+        try:
+            f = open(filename,"r")
+            for row in f:
+                    r = row.split(',')
+                    e = [int(r[0]), int(r[1]), int(r[2])]
+                    data.append(e)
+        except:
+            print("Exception: readingFile")
         return data
 
 def userData_original(filename):
@@ -43,17 +46,19 @@ def userData_original(filename):
         return data
 
 def userData(filename):
+    data = []
+    try:
         f = open(filename,"r")
-        data = []
         for row in f:
                 r = row.split(',')
                 e = [int(r[0]), int(r[1]), int(r[2])]
                 data.append(e)
-
-        print(data)
-        return data
+    except:
+        print("Exception: userData")
+    return data
 
 def itemData(filename):
+    try:
         f = open(filename,"r")
         data = np.zeros((int(items),18))
         genre = {"Veg":0, "Non-veg":1, "Diabetes":2, "Cholestrol":3}
@@ -65,8 +70,9 @@ def itemData(filename):
                                 continue
                         else:
                                 data[int(r[0])-1][genre[e.strip()]] = 1
-
-        return data
+   except:
+       print("Exception: userData")
+   return data
 
 def similarity_item(data):
         #print ("Hello similarity item")
