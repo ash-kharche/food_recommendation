@@ -164,7 +164,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
             var uniqueProductIds = apiProducts.getUniqueId(productIdList);
             //console.log("\ngetYetToBeRatedProductsPerUser: uniqueProductIds :   " + uniqueProductIds);
 
-            var query = "SELECT user_id, product_id FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
+            var query = "SELECT product_id FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
             //console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
 
             apiProducts.getUnEatenProducts(query, function (err, products) {
@@ -174,10 +174,19 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                     callback(null, []);
                 } else {
 
-                    var json = products;
+                    var productsFormattedArray = [];
+
+                    for (var i = 0; i < products.length; i++) {
+                          var product = products[i];
+                          console.log("product:  " +product+'\n');
+                          var modifiedProduct = {};
+                          modifiedProduct.user_id = user_id;
+                          modifiedProduct.product_id = product.product_id;
+                          productsFormattedArray.push(modifiedProduct);
+                    }
                     var path = './data/yet_to_be_rated_products_per_user_' + user_id + '.csv';
 
-                    jsonexport(products, csvOptions, function (err, csv) {
+                    jsonexport(productsFormattedArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log("path:  \n" + csv);
                         fs.writeFile(path, csv, function (err) {
