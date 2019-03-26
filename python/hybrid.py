@@ -409,12 +409,14 @@ def predictRating(data, user_data, item_data):
 ratings_csv_data = readingFile(file1)
 print("ratings_csv_data")
 print(ratings_csv_data)
-#user_data = userData(file2)
-#print("user_data")
-#print(user_data)
-#item_data = itemData(file3)
-#print("item_data")
-#print(item_data)
+
+user_data = userData(file2)
+print("user_data")
+print(user_data)
+
+item_data = itemData(file3)
+print("item_data")
+print(item_data)
 
 #sim_item_cosine, sim_item_jaccard, sim_item_pearson = similarity_item(item_data)
 #print(sim_item_cosine, sim_item_jaccard, sim_item_pearson)
