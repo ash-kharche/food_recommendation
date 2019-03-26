@@ -365,7 +365,7 @@ apiRecommendation.getFood = function (callback) {
                         if (food.is_cholestrol == 1) {
                             type = type + "|cholestrol";
                         }
-                        modifiedFood.type = food.type;
+                        modifiedFood.type = type;
 
                         foodFormattedArray.push(modifiedFood);
                     }
@@ -379,7 +379,7 @@ apiRecommendation.getFood = function (callback) {
                             //console.log('getFood saved ' + path + "\n\n");
 
                             var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('getFood in csv ' + jsonString + "\n\n");
+                            console.log('getFood in csv \n\n' + jsonString + "\n\n");
                         });
                     });
 

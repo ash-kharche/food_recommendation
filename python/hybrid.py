@@ -55,7 +55,7 @@ def userData(filename):
 
 def itemData(filename):
         f = open(filename,"r")
-        data = np.zeros((items,18))
+        data = np.zeros((int(items),18))
         genre = {"Veg":0, "Non-veg":1, "Diabetes":2, "Cholestrol":3}
         for row in f:
                 r = row.split(',')
