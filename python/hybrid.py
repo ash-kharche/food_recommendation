@@ -70,12 +70,12 @@ def itemData(filename):
 
 def similarity_item(data):
         #print ("Hello similarity item")
-        item_similarity_cosine = np.zeros((items,items))
-        item_similarity_jaccard = np.zeros((items,items))
-        item_similarity_pearson = np.zeros((items,items))
-        for item1 in range(items):
+        item_similarity_cosine = np.zeros((int(items),int(items)))
+        item_similarity_jaccard = np.zeros((int(items),int(items)))
+        item_similarity_pearson = np.zeros((int(items),int(items)))
+        for item1 in range(int(items)):
                 #print (item1)
-                for item2 in range(items):
+                for item2 in range(int(items)):
                         if np.count_nonzero(data[item1]) and np.count_nonzero(data[item2]):
                                 item_similarity_cosine[item1][item2] = 1-scipy.spatial.distance.cosine(data[item1],data[item2])
                                 item_similarity_jaccard[item1][item2] = 1-scipy.spatial.distance.jaccard(data[item1],data[item2])
@@ -94,12 +94,12 @@ def similarity_item(data):
 def similarity_user(data):
         #print ("Hello similarity user")
         #f_i_d = open("sim_user_hybrid.txt","w")
-        user_similarity_cosine = np.zeros((users,users))
-        user_similarity_jaccard = np.zeros((users,users))
-        user_similarity_pearson = np.zeros((users,users))
-        for user1 in range(users):
+        user_similarity_cosine = np.zeros((int(users),int(users))
+        user_similarity_jaccard = np.zeros((int(users),int(users)))
+        user_similarity_pearson = np.zeros((int(users),int(users)))
+        for user1 in range(int(users)):
                 #print (user1)
-                for user2 in range(users):
+                for user2 in range(int(users)):
                         if np.count_nonzero(data[user1]) and np.count_nonzero(data[user2]):
                                 user_similarity_cosine[user1][user2] = 1-scipy.spatial.distance.cosine(data[user1],data[user2])
                                 user_similarity_jaccard[user1][user2] = 1-scipy.spatial.distance.jaccard(data[user1],data[user2])
@@ -130,7 +130,7 @@ def crossValidation(data, user_data, item_data):
                 train = [data[i] for i in train_indices]
                 test = [data[i] for i in test_indices]
 
-                M = np.zeros((users,items))
+                M = np.zeros((int(users),int(items)))
 
                 for e in train:
                         M[e[0]-1][e[1]-1] = e[2]
@@ -318,7 +318,7 @@ def crossValidation(data, user_data, item_data):
 def predictRating(data, user_data, item_data):
         sim_user, sim_item = crossValidation(data, user_data, item_data)
 
-        M = np.zeros((users,items))
+        M = np.zeros((int(users),int(items)))
         for e in data:
                 M[e[0]-1][e[1]-1] = e[2]
 
