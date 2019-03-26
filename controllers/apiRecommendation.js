@@ -56,7 +56,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     });
 
     var getAllUsersPromise = new Promise(function (resolve, reject) {
-        apiRecommendation.getAllUsers(function (err, path) {
+        apiRecommendation.getAllUsersFormattedCsv(function (err, path) {
             if (err) {
                 //console.log("getAllUsersPromise : err    :" + err);
                 return reject();
