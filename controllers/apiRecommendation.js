@@ -117,10 +117,6 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             //console.log("\ngetUserRecommendedProducts :: values:   " + values);
 
             var hybridPath = fs.realpathSync('./python/hybrid.py', []);
-            //var usersPath = fs.realpathSync('./python/csv_data/users.csv', []);
-            //var foodPath = fs.realpathSync('./python/csv_data/food.csv', []);
-            //var ratingPath = fs.realpathSync('./python/csv_data/ratings.csv', []);
-            //var toBeRatedPath = fs.realpathSync('./python/csv_data/toBeRated.csv', []);
             var rmseHybridPath = fs.realpathSync('./python/csv_data/rmse_hybrid.txt', []);
             var resultPath = fs.realpathSync('./python/csv_data/result3.csv', []);
 
@@ -131,7 +127,6 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
             ps.PythonShell.run(hybridPath, options, function (err, results) {
                 if (err) {
                     console.log('getUserRecommendedProducts:: error:\n\n %j', err);
-                    //res.status(400).send(err);
                     res.status(200).send([]);
                 } else {
                     console.log('getUserRecommendedProducts:: results:\n\n %j', results);
