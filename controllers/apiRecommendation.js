@@ -207,8 +207,8 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                             if (err) throw err;
                             //console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
 
-                            //var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
+                            var jsonString = fs.readFileSync(path, 'utf8');
+                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
                         });
                     });
                     callback(null, path);
@@ -487,7 +487,9 @@ apiRecommendation.getFoodCount = function (callback) {
 
 apiRecommendation.getProducts = function (productIdList, callback) {
     //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-    var query = "SELECT * FROM products where product_id in("+ productIdList +")";
+    var randomNumber = getRandomInt(300);
+    console.log("randomNumber:   " +randomNumber);
+    var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10 OFFSET " + randomNumber;
     console.log("getProducts:  query  " +query);
     db_pool.connect(function (err, client, done) {
         if (err) {
