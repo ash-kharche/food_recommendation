@@ -14,6 +14,8 @@ var apiProducts = require('./../controllers/apiProducts');
 
 var apiRecommendation = {};
 
+var csvOptions = { "includeHeaders" : false};
+
 //http://food-recommendation.herokuapp.com/getUserRecommendedProducts_1/5
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
     console.log("\n\n\n&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\n\n");
@@ -54,7 +56,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
     });
 
     var getAllUsersPromise = new Promise(function (resolve, reject) {
-        apiRecommendation.getAllUsersFormattedCsv(function (err, path) {
+        apiRecommendation.getAllUsers(function (err, path) {
             if (err) {
                 //console.log("getAllUsersPromise : err    :" + err);
                 return reject();
@@ -175,7 +177,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                     var json = products;
                     var path = './data/yet_to_be_rated_products_per_user_' + user_id + '.csv';
 
-                    jsonexport(products, function (err, csv) {
+                    jsonexport(products, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log("path:  \n" + csv);
                         fs.writeFile(path, csv, function (err) {
@@ -234,7 +236,7 @@ apiRecommendation.getAllUsers = function (callback) {
                     }
                     var path = './data/all_users.csv';
 
-                    jsonexport(usersFormattedArray, function (err, csv) {
+                    jsonexport(usersFormattedArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
@@ -303,7 +305,7 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                     }
                     var path = './data/users.csv';
 
-                    jsonexport(usersFormattedArray, function (err, csv) {
+                    jsonexport(usersFormattedArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
 
@@ -369,7 +371,7 @@ apiRecommendation.getFood = function (callback) {
                     }
                     var path = './data/food.csv';
 
-                    jsonexport(foodFormattedArray, function (err, csv) {
+                    jsonexport(foodFormattedArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
@@ -403,7 +405,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
                     var ratedOrdersArray = result.rows;
                     var path = './data/user_rated_products.csv';
 
-                    jsonexport(ratedOrdersArray, function (err, csv) {
+                    jsonexport(ratedOrdersArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
                         fs.writeFile(path, csv, function (err) {
