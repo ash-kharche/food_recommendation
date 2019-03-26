@@ -485,11 +485,9 @@ apiRecommendation.getFoodCount = function (callback) {
 }
 
 apiRecommendation.getProducts = function (productIdList, callback) {
-    //var uniqueProductIds = apiProducts.getUniqueId(productIdList);
     var randomNumber = apiRecommendation.getRandomInt(300);
     console.log("randomNumber:   " +randomNumber);
-    //var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10 OFFSET " + randomNumber;
-    var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10";
+    var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10 OFFSET " + randomNumber;
     console.log("getProducts:  query  " +query);
     db_pool.connect(function (err, client, done) {
         if (err) {
