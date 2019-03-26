@@ -133,7 +133,7 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                 } else {
                     console.log('getUserRecommendedProducts:: results:\n\n %j', results);
                     var resultsArray = JSON.parse(results);
-                    var array = []]
+                    var array = [];
                     for(int i = 0; i < 10; i++) {
                       array.push(resultsArray[i]);
                     }
