@@ -167,18 +167,17 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
             var query = "SELECT product_id FROM products WHERE product_id NOT IN (" + uniqueProductIds + ") ORDER BY product_id";
             //console.log("getYetToBeRatedProductsPerUser:   query :  " + query);
 
-            apiProducts.getUnEatenProducts(query, function (err, products) {
+            apiProducts.getUnEatenProducts(query, function (err, productsArray) {
                 if (err) {
                     console.log(err);
-                    //res.status(200).send([]);
                     callback(null, []);
                 } else {
 
                     var productsFormattedArray = [];
 
-                    for (var i = 0; i < products.length; i++) {
-                          var product = products[i];
-                          console.log("product:  " +product+'\n');
+                    for (var i = 0; i < productsArray.length; i++) {
+                          var product = productsArray[i];
+                          console.log("product :  " + JSON.stringify(product));
                           var modifiedProduct = {};
                           modifiedProduct.user_id = user_id;
                           modifiedProduct.product_id = product.product_id;
@@ -193,8 +192,8 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                             if (err) throw err;
                             //console.log('apiRecommendation.getYetToBeRatedProductsPerUser saved ' + path + "\n\n");
 
-                            //var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
+                            var jsonString = fs.readFileSync(path, 'utf8');
+                            console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
                         });
                     });
                     callback(null, path);
@@ -464,7 +463,7 @@ apiRecommendation.getFoodCount = function (callback) {
                 if (err) {
                     callback(err, null);
                 } else {
-                    callback(null, result.rows.length);
+                    callback(null, (result.rows.length + 1));
                 }
             });
         }

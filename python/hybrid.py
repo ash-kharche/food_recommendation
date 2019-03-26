@@ -10,18 +10,6 @@ import math
 import warnings
 import sys
 
-'''
-users = 29
-items = 315
-
-file1 = "./python/csv_data/ratings.csv";
-file2 = "./python/csv_data/users.csv"
-file3 = "./python/csv_data/food.csv"
-file4 = "./python/csv_data/rmse_hybrid.txt"
-file5 = "./python/csv_data/toBeRated.csv"
-file6 = "./python/csv_data/result3.csv"
-'''
-
 users = sys.argv[1]
 items = sys.argv[2]
 
@@ -132,7 +120,7 @@ def crossValidation1(data, user_data, item_data):
         #print(M)
 
 def crossValidation(data, user_data, item_data):
-        k_fold = KFold(n_splits=10)
+        k_fold = KFold(n_splits=10) #poonam
 
         sim_user_cosine, sim_user_jaccard, sim_user_pearson = similarity_user(user_data)
         sim_item_cosine, sim_item_jaccard, sim_item_pearson = similarity_item(item_data)
