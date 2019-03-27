@@ -73,16 +73,17 @@ apiOrder.placeOrder = function (req, res) {
     },
 
     apiOrder.rateOrder = function (req, res) {
+        var user_id = req.params.user_id;
         var order_id = req.body.order_id;
         var productsArray = req.body.products;
 
         for(var i = 0; i < productsArray.length; i++) {
             var product = productsArray[i];
-            apiOrder.rateProductPerOrder(order_id, product.product_id, product.rating);
+            apiOrder.rateProductPerOrder(user_id, order_id, product.product_id, product.rating);
         }
     },
 
-    apiOrder.rateProductPerOrder = function (order_id, product_id, rating) { //callback
+    apiOrder.rateProductPerOrder = function (user_id, order_id, product_id, rating) { //callback
         console.log("Order:  " + order_id + "   Product:  " + product_id + "   Rating:   " + rating)
 
         db_pool.connect(function (err, client, done) {
@@ -91,7 +92,7 @@ apiOrder.placeOrder = function (req, res) {
                 res.status(400).send(err);
             }
 
-            var query = "UPDATE orders SET rating = " + rating + " WHERE (order_id = " + order_id + " AND " + " product_id = " + product_id + ")";
+            var query = "INSERT INTO rated_orders (user_id, order_id, product_id, rating)  VALUES ($1, $2, $3, $4)  RETURNING *";
             client.query(query, function (err, result) {
                 done();
                 if (err) {
