@@ -73,7 +73,7 @@ apiOrder.placeOrder = function (req, res) {
     },
 
     apiOrder.rateOrder = function (req, res) {
-        var user_id = req.params.user_id;
+        var user_id = req.body.user_id;
         var order_id = req.body.order_id;
         var productsArray = req.body.products;
 
@@ -99,7 +99,7 @@ apiOrder.placeOrder = function (req, res) {
                     console.log(err);
                     //callback(err, null);
                 } else {
-                    console("Rated: \n "+ result.rows);
+                    console.log("Rated: \n "+ result.rows);
                     //callback(null, {"message":"rating saved"});
                 }
             });
