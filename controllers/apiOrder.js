@@ -101,8 +101,15 @@ apiOrder.placeOrder = function (req, res) {
                     console.log(err);
                     //callback(err, null);
                 } else {
-                    console.log("Rated: \n "+ result.rows);
-                    //callback(null, {"message":"rating saved"});
+                    apiProducts.updateProductRating(product_id, rating, function (err, result) {
+                        done();
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log("rateProductPerOrder: updateProductRating "+ result);
+                        }
+                    });
+                    console.log("rateProductPerOrder: "+ result.rows);
                 }
             });
         });

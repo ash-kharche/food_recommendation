@@ -478,5 +478,56 @@ apiProducts.getProductById = function (productId, callback) {
     });
 }
 
+apiProducts.updateProductRating = function (productId, rating, callback) {
+
+  apiProducts.getProductRating(productId, function (err, productRating) {
+      done();
+      if (err) {
+          console.log(err);
+          callback(err, null);
+      } else {
+
+        console.log("\n apiProducts: updateProductRating::   " + productId+"   rating  " +productRating);
+        db_pool.connect(function (err, client, done) {
+            if (err) {
+                callback(err, null);
+            } else {
+                var newRating = (rating + productRating) /2;
+                var query = "UPDATE products SET rating = " + newRating+ " WHERE product_id = $1 RETURNING * ";
+                client.query(query, [productId], function (err, result) {
+                    done();
+                    if (err) {
+                        console.log(err);
+                        callback(err, null);
+                    } else {
+                        callback(null, result.rows);
+                    }
+                });
+            }
+        });
+      }
+  });
+}
+
+apiProducts.getProductRating = function (productId, callback) {
+    console.log("\n apiProducts: getProductRating::   " + productId);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            var query = "SELECT rating FROM products WHERE product_id = $1";
+            client.query(query, [productId], function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows.rating);
+                }
+            });
+        }
+    });
+}
+
 
 module.exports = apiProducts;
