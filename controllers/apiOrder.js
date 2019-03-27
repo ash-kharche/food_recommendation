@@ -101,14 +101,14 @@ apiOrder.placeOrder = function (req, res) {
                     console.log(err);
                     //callback(err, null);
                 } else {
-                    apiProducts.updateProductRating(product_id, rating, function (err, result) {
+                    apiProducts.updateProductRating(product_id, rating, function (err, rating) {
                         if (err) {
                             console.log(err);
                         } else {
-                            console.log("rateProductPerOrder: updateProductRating " + result);
+                            console.log("rateProductPerOrder: updateProductRating " + rating);
+                            console.log(result.rows);
                         }
                     });
-                    console.log("rateProductPerOrder: " + result.rows);
                 }
             });
         });

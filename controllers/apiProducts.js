@@ -522,8 +522,8 @@ apiProducts.getProductRating = function (productId, callback) {
                     console.log(err);
                     callback(err, null);
                 } else {
-                    console.log("\n apiProducts: getProductRating:: productId  " + productId+"  has rating:  " +result.rows.rating);
-                    callback(null, result.rows.rating);
+                    console.log("\n apiProducts: getProductRating:: productId  " + productId+"  has rating:  " +result.rows[0].rating);
+                    callback(null, result.rows[0].rating);
                 }
             });
         }
