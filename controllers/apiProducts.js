@@ -486,13 +486,14 @@ apiProducts.updateProductRating = function (productId, rating, callback) {
             callback(err, null);
         } else {
 
-            console.log("\n apiProducts: updateProductRating::   " + productId + "   rating  " + productRating);
+            console.log("\n apiProducts: updateProductRating: productId::   " + productId + "   rating  " + productRating);
             db_pool.connect(function (err, client, done) {
                 if (err) {
                     callback(err, null);
                 } else {
                     var newRating = (rating + productRating) / 2;
                     var query = "UPDATE products SET rating = " + newRating + " WHERE product_id = $1 RETURNING * ";
+                    console.log("\n apiProducts: updateProductRating: query:  " + query);
                     client.query(query, [productId], function (err, result) {
                         done();
                         if (err) {
@@ -509,7 +510,7 @@ apiProducts.updateProductRating = function (productId, rating, callback) {
 }
 
 apiProducts.getProductRating = function (productId, callback) {
-    console.log("\n apiProducts: getProductRating::   " + productId);
+    console.log("\n apiProducts: getProductRating:: productId  " + productId);
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -521,6 +522,7 @@ apiProducts.getProductRating = function (productId, callback) {
                     console.log(err);
                     callback(err, null);
                 } else {
+                    console.log("\n apiProducts: getProductRating:: productId  " + productId+"  has rating:  " +result.rows.rating);
                     callback(null, result.rows.rating);
                 }
             });

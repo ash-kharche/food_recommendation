@@ -102,7 +102,6 @@ apiOrder.placeOrder = function (req, res) {
                     //callback(err, null);
                 } else {
                     apiProducts.updateProductRating(product_id, rating, function (err, result) {
-                        done();
                         if (err) {
                             console.log(err);
                         } else {
