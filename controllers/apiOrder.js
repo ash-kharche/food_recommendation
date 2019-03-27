@@ -93,12 +93,13 @@ apiOrder.placeOrder = function (req, res) {
             }
 
             var query = "INSERT INTO rated_orders (user_id, order_id, product_id, rating)  VALUES ($1, $2, $3, $4)  RETURNING *";
-            client.query(query, function (err, result) {
+            client.query(query, [user_id, order_id, product_id, rating], function (err, result) {
                 done();
                 if (err) {
                     console.log(err);
                     //callback(err, null);
                 } else {
+                    console("Rated: \n "+ result.rows);
                     //callback(null, {"message":"rating saved"});
                 }
             });
