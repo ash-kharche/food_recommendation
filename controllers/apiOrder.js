@@ -81,6 +81,8 @@ apiOrder.placeOrder = function (req, res) {
             var product = productsArray[i];
             apiOrder.rateProductPerOrder(user_id, order_id, product.product_id, product.rating);
         }
+
+        res.status(200).send({});
     },
 
     apiOrder.rateProductPerOrder = function (user_id, order_id, product_id, rating) { //callback
@@ -89,7 +91,7 @@ apiOrder.placeOrder = function (req, res) {
         db_pool.connect(function (err, client, done) {
             if (err) {
                 console.log("not able to get connection " + err);
-                res.status(400).send(err);
+                //res.status(400).send(err);
             }
 
             var query = "INSERT INTO rated_orders (user_id, order_id, product_id, rating)  VALUES ($1, $2, $3, $4)  RETURNING *";
