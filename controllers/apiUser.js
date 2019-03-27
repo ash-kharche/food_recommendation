@@ -12,7 +12,6 @@ apiUser.signUpUser = function (req, res) {
             res.status(400).send(err);
         }
 
-
         //Currently password is same as 'mobile_number'
         var query = "INSERT INTO users (user_name, email, mobile_number, password)  VALUES ($1, $2, $3, $4)  RETURNING *";
         client.query(query, [req.body.user_name, req.body.email, req.body.mobile_number, req.body.password], function (err, result) {

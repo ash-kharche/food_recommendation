@@ -77,7 +77,7 @@ apiOrder.placeOrder = function (req, res) {
         var order_id = req.body.order_id;
         var productsArray = req.body.products;
 
-        for(var i = 0; i < productsArray.length; i++) {
+        for (var i = 0; i < productsArray.length; i++) {
             var product = productsArray[i];
             apiOrder.rateProductPerOrder(user_id, order_id, product.product_id, product.rating);
         }
@@ -106,10 +106,10 @@ apiOrder.placeOrder = function (req, res) {
                         if (err) {
                             console.log(err);
                         } else {
-                            console.log("rateProductPerOrder: updateProductRating "+ result);
+                            console.log("rateProductPerOrder: updateProductRating " + result);
                         }
                     });
-                    console.log("rateProductPerOrder: "+ result.rows);
+                    console.log("rateProductPerOrder: " + result.rows);
                 }
             });
         });

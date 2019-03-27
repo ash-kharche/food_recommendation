@@ -227,7 +227,7 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
 
             var uniqueProductIds = apiProducts.getUniqueId(productIdList);
             var uniqueIngredientIds = apiProducts.getUniqueId(ingredientsIdList);
-            console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds+"\nuniqueIngredientIds:   " +uniqueIngredientIds);
+            console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds + "\nuniqueIngredientIds:   " + uniqueIngredientIds);
 
             //// end ////
             var whereString = "";
@@ -287,7 +287,7 @@ apiProducts.getUserPastOrders = function (user_id, callback) {
                 if (err) {
                     callback(err, null);
                 } else {
-                  callback(null, result.rows);
+                    callback(null, result.rows);
                 }
             });
         }
@@ -305,7 +305,7 @@ apiProducts.getUnEatenProducts = function (query, callback) {
                 if (err) {
                     callback(err, null);
                 } else {
-                  callback(null, result.rows);
+                    callback(null, result.rows);
                 }
             });
         }
@@ -355,7 +355,7 @@ apiProducts.getUniqueId = function (str) {
 }
 
 apiProducts.getProductsByIngredients = function (query, callback) {
-  console.log("######## getProductsByIngredients: query:" + query);
+    console.log("######## getProductsByIngredients: query:" + query);
 
     db_pool.connect(function (err, client, done) {
         if (err) {
@@ -480,33 +480,32 @@ apiProducts.getProductById = function (productId, callback) {
 
 apiProducts.updateProductRating = function (productId, rating, callback) {
 
-  apiProducts.getProductRating(productId, function (err, productRating) {
-      done();
-      if (err) {
-          console.log(err);
-          callback(err, null);
-      } else {
+    apiProducts.getProductRating(productId, function (err, productRating) {
+        if (err) {
+            console.log(err);
+            callback(err, null);
+        } else {
 
-        console.log("\n apiProducts: updateProductRating::   " + productId+"   rating  " +productRating);
-        db_pool.connect(function (err, client, done) {
-            if (err) {
-                callback(err, null);
-            } else {
-                var newRating = (rating + productRating) /2;
-                var query = "UPDATE products SET rating = " + newRating+ " WHERE product_id = $1 RETURNING * ";
-                client.query(query, [productId], function (err, result) {
-                    done();
-                    if (err) {
-                        console.log(err);
-                        callback(err, null);
-                    } else {
-                        callback(null, result.rows);
-                    }
-                });
-            }
-        });
-      }
-  });
+            console.log("\n apiProducts: updateProductRating::   " + productId + "   rating  " + productRating);
+            db_pool.connect(function (err, client, done) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    var newRating = (rating + productRating) / 2;
+                    var query = "UPDATE products SET rating = " + newRating + " WHERE product_id = $1 RETURNING * ";
+                    client.query(query, [productId], function (err, result) {
+                        done();
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            callback(null, result.rows);
+                        }
+                    });
+                }
+            });
+        }
+    });
 }
 
 apiProducts.getProductRating = function (productId, callback) {

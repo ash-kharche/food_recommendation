@@ -14,7 +14,7 @@ var apiProducts = require('./../controllers/apiProducts');
 
 var apiRecommendation = {};
 
-var csvOptions = { "includeHeaders" : false};
+var csvOptions = {"includeHeaders": false};
 
 //http://food-recommendation.herokuapp.com/getUserRecommendedProducts_1/5
 apiRecommendation.getUserRecommendedProducts = function (req, res) {
@@ -143,18 +143,18 @@ apiRecommendation.getUserRecommendedProducts = function (req, res) {
                         if (err) {
                             res.status(200).send([]);
                         } else {
-                          res.status(200).send(products);
+                            res.status(200).send(products);
                         }
-                      });
+                    });
                     //res.status(200).send(results);
 
                 }
             });
 
         }).catch(err => {
-            console.log("\ngetUserRecommendedProducts :: error: " + err);
-            //res.status(400).send(err);
-            res.status(200).send([]);
+        console.log("\ngetUserRecommendedProducts :: error: " + err);
+        //res.status(400).send(err);
+        res.status(200).send([]);
     });
 }
 
@@ -191,11 +191,11 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
                     var productsFormattedArray = [];
 
                     for (var i = 0; i < productsArray.length; i++) {
-                          var product = productsArray[i];
-                          var modifiedProduct = {};
-                          modifiedProduct.user_id = user_id;
-                          modifiedProduct.product_id = product.product_id;
-                          productsFormattedArray.push(modifiedProduct);
+                        var product = productsArray[i];
+                        var modifiedProduct = {};
+                        modifiedProduct.user_id = user_id;
+                        modifiedProduct.product_id = product.product_id;
+                        productsFormattedArray.push(modifiedProduct);
                     }
                     var path = './data/yet_to_be_rated_products_per_user_' + user_id + '.csv';
 
@@ -291,15 +291,15 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
 
                     var usersFormattedArray = [];
                     var lastUserId = result.rows[0].user_id;
-                    console.log("lastUserId:   " +lastUserId);
+                    console.log("lastUserId:   " + lastUserId);
 
                     for (var i = 0; i < lastUserId; i++) {
-                          var modifiedUser = {};
-                          //modifiedUser.user_id = 0;
-                          modifiedUser.is_veg = 0;//"veg";
-                          modifiedUser.is_diabetes = 0;
-                          modifiedUser.is_cholestrol = 0;
-                          usersFormattedArray.push(modifiedUser);
+                        var modifiedUser = {};
+                        //modifiedUser.user_id = 0;
+                        modifiedUser.is_veg = 0;//"veg";
+                        modifiedUser.is_diabetes = 0;
+                        modifiedUser.is_cholestrol = 0;
+                        usersFormattedArray.push(modifiedUser);
                     }
 
                     var usersArray = result.rows;
@@ -311,17 +311,17 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                         if (user.is_veg == 1) {
                             modifiedUser.is_veg = 1;//"veg";
                         } else {
-                          modifiedUser.is_veg = 0;
+                            modifiedUser.is_veg = 0;
                         }
                         if (user.is_diabetes == 1) {
                             modifiedUser.is_diabetes = 1;
                         } else {
-                          modifiedUser.is_diabetes = 0;
+                            modifiedUser.is_diabetes = 0;
                         }
                         if (user.is_cholestrol == 1) {
                             modifiedUser.is_cholestrol = 1;
                         } else {
-                          modifiedUser.is_cholestrol = 0;
+                            modifiedUser.is_cholestrol = 0;
                         }
                         usersFormattedArray.splice(user.user_id, 1, modifiedUser);
                     }
@@ -459,7 +459,7 @@ apiRecommendation.getUsersCount = function (callback) {
                 } else {
                     var lastUserId = result.rows[0].user_id;
                     //callback(null, result.rows.length);
-                    callback(null, lastUserId+1);
+                    callback(null, lastUserId + 1);
                 }
             });
         }
@@ -486,9 +486,9 @@ apiRecommendation.getFoodCount = function (callback) {
 
 apiRecommendation.getProducts = function (productIdList, callback) {
     var randomNumber = apiRecommendation.getRandomInt(300);
-    console.log("randomNumber:   " +randomNumber);
-    var query = "SELECT * FROM products where product_id in("+ productIdList +") LIMIT 10 OFFSET " + randomNumber;
-    console.log("getProducts:  query  " +query);
+    console.log("randomNumber:   " + randomNumber);
+    var query = "SELECT * FROM products where product_id in(" + productIdList + ") LIMIT 10 OFFSET " + randomNumber;
+    console.log("getProducts:  query  " + query);
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -506,7 +506,7 @@ apiRecommendation.getProducts = function (productIdList, callback) {
 }
 
 apiRecommendation.getRandomInt = function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * Math.floor(max));
 }
 
 module.exports = apiRecommendation;
