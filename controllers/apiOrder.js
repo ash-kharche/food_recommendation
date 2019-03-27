@@ -73,30 +73,17 @@ apiOrder.placeOrder = function (req, res) {
     },
 
     apiOrder.rateOrder = function (req, res) {
-        console.log("Order:  " + req.body.order_id + "   Product:  " + req.body.product_id + "   Rating:   " + req.body.rating)
+        var order_id = req.body.order_id;
+        var productsArray = req.body.products;
 
-        db_pool.connect(function (err, client, done) {
-            if (err) {
-                console.log("not able to get connection " + err);
-                res.status(400).send(err);
-            }
-
-            var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id + ") RETURNING *";
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    res.status(400).send(err);
-                } else {
-                    console.log("rateOrder:   " + result.rows);
-                    res.status(200).send(result.rows[0]);
-                }
-            });
-        });
+        for(var i = 0; i < productsArray.length; i++) {
+            var product = productsArray[i];
+            apiOrder.rateProductPerOrder(order_id, product.product_id, product.rating);
+        }
     },
 
-    apiOrder.rateProductPerOrder = function (req, res) {
-        console.log("Order:  " + req.body.order_id + "   Product:  " + req.body.product_id + "   Rating:   " + req.body.rating)
+    apiOrder.rateProductPerOrder = function (order_id, product_id, rating) { //callback
+        console.log("Order:  " + order_id + "   Product:  " + product_id + "   Rating:   " + rating)
 
         db_pool.connect(function (err, client, done) {
             if (err) {
@@ -104,16 +91,14 @@ apiOrder.placeOrder = function (req, res) {
                 res.status(400).send(err);
             }
 
-            var query = "UPDATE orders SET rating = " + req.body.rating + " WHERE (order_id = " + req.body.order_id + " AND " + " product_id = " + req.body.product_id + ")";
+            var query = "UPDATE orders SET rating = " + rating + " WHERE (order_id = " + order_id + " AND " + " product_id = " + product_id + ")";
             client.query(query, function (err, result) {
                 done();
                 if (err) {
                     console.log(err);
-                    res.status(400).send(err);
-                } else if (rows != undefined) {
-                    res.status(200).send("Product rating saved for  Order:  " + req.body.order_id + "   Product:  " + req.body.product_id + "   Rating:   " + req.body.rating);
+                    //callback(err, null);
                 } else {
-                    res.status(200).send(result.rows);
+                    //callback(null, {"message":"rating saved"});
                 }
             });
         });
