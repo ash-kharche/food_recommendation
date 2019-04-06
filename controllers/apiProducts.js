@@ -595,7 +595,6 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
 apiProducts.calculateNutrients = function (req, res) {
     console.log("\napiProducts: calculateNutrients");
     apiProducts.getAllProducts(function (err, productsArray) {
-        done();
         if (err) {
             console.log(err);
             res.status(400).status({"message" : "Nurients added: Error"})
@@ -611,7 +610,6 @@ apiProducts.calculateNutrients = function (req, res) {
                 for(var j = 0; j < product.ingredients.length; j++) {
                       var ingredientId = product.ingredients[j];
                       apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
-                          done();
                           if (err) {
                               console.log(err);
                           } else {
@@ -628,7 +626,6 @@ apiProducts.calculateNutrients = function (req, res) {
                 product.carbs = carbs;
 
                 apiProducts.updateProductNutrient(product.product_id, ingredientText, fats, protiens, carbs, function (err, nutrients) {
-                    done();
                     if (err) {
                         console.log(err);
                     } else {
