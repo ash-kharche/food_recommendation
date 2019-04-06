@@ -605,7 +605,7 @@ apiProducts.calculateNutrients = function (req, res) {
                 var fats = 0;
                 var protiens = 0;
                 var carbs = 0;
-                var ingredientText = "";
+                var ingredientText = "not available";
 
                 console.log("\napiProducts: calculateNutrients:  " + product.product_name+ " has : " + product.ingredients);
                 for(var j = 0; j < product.ingredients.length; j++) {
