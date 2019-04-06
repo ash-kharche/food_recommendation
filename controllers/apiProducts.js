@@ -603,8 +603,9 @@ apiProducts.calculateNutrients = function (req, res) {
                 new Promise(function(resolve, reject) {
                   console.log("1111111111");
                   for(var i = 0; i < productsArray.length; i++) {
+                        var product = productsArray[i];
                         if(product.ingredients != undefined) {
-                              var product = productsArray[i];
+
                               var fats = 0;
                               var protiens = 0;
                               var carbs = 0;
@@ -677,7 +678,7 @@ apiProducts.calculateNutrients_original = function (req, res) {
                           if (err) {
                               console.log(err);
                           } else {
-                              console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
+                              console.log("\n\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
                               ingredientText = ingredientText + nutrients.name + ",";
                               fats = fats + nutrients.fats;
                               protiens = protiens + nutrients.protiens;
