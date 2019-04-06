@@ -606,7 +606,7 @@ apiProducts.calculateNutrients = function (req, res) {
                 var carbs = 0;
                 var ingredientText = "";
 
-                console.log("\napiProducts: calculateNutrients:  " +ingredients);
+                console.log("\napiProducts: calculateNutrients:  " + product.product_name+ " has : " + product.ingredients);
                 for(var j = 0; j < product.ingredients.length; j++) {
                       var ingredientId = product.ingredients[j];
                       apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
