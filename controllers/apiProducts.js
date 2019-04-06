@@ -551,20 +551,20 @@ apiProducts.getAllProducts = function (callback) {
 }
 
 apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
-    console.log("\napiProducts: getIngredientFats");
+    console.log("\napiProducts: getIngredientNutrient");
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
         } else {
             var query = "SELECT * FROM ingredient_nutrients where ingredient_id = " + ingredient_id;
-            console.log("\napiProducts: getIngredientFats: " +query);
+            console.log("\napiProducts: getIngredientNutrient: " +query);
             client.query(query, function (err, result) {
                 done();
                 if (err) {
                     console.log("\napiProducts: getIngredientFats: Error " +err);
                     callback(err, null);
                 } else {
-                    console.log("\napiProducts: getIngredientFats: Success " +result.rows);
+                    console.log("\napiProducts: getIngredientFats: Success " + JSON.stringify(result.rows));
                     callback(null, result.rows);
                 }
             });
@@ -578,9 +578,9 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
         if (err) {
             callback(err, null);
         } else {
-          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredient_text = "+ ingredientText + " WHERE product_id = $1 RETURNING * ";
+          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredient_text = "+ ingredientText + " WHERE product_id = "+ product_id+" RETURNING * ";
           console.log("\n apiProducts: updateProductNutrient: query:  " + query);
-          client.query(query, [product_id], function (err, result) {
+          client.query(query, function (err, result) {
                 done();
                 if (err) {
                     console.log(err);
@@ -615,7 +615,7 @@ apiProducts.calculateNutrients = function (req, res) {
                           if (err) {
                               console.log(err);
                           } else {
-                            
+
                               ingredientText = ingredientText + nutrients.name + ",";
                               fats = fats + nutrients.fats;
                               protiens = protiens + nutrients.protiens;
