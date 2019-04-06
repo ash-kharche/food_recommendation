@@ -556,9 +556,30 @@ apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
         if (err) {
             callback(err, null);
         } else {
-            var query = "SELECT * FROM ingredients where ingredient_id = " + ingredient_id;
+            var query = "SELECT * FROM ingredient_nutrients where ingredient_id = " + ingredient_id;
             console.log("\napiProducts: getIngredientFats: " +query);
             client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows);
+                }
+            });
+        }
+    });
+}
+
+apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, protiens, carbs, callback) {
+    console.log("\napiProducts: updateProductNutrient: product_id " +product_id+"  fats:  " +fats +"  ingredientText:  " +ingredientText);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredientText = "+ ingredientText + " WHERE product_id = $1 RETURNING * ";
+          console.log("\n apiProducts: updateProductNutrient: query:  " + query);
+          client.query(query, [productId], function (err, result) {
                 done();
                 if (err) {
                     console.log(err);
@@ -584,6 +605,8 @@ apiProducts.calculateNutrients = function (req, res) {
                 var fats = 0;
                 var protiens = 0;
                 var carbs = 0;
+                var ingredientText = "";
+
                 console.log("\napiProducts: calculateNutrients:  " +ingredients);
                 for(var j = 0; j < product.ingredients.length; j++) {
                       var ingredientId = product.ingredients[j];
@@ -592,6 +615,7 @@ apiProducts.calculateNutrients = function (req, res) {
                           if (err) {
                               console.log(err);
                           } else {
+                              ingredientText = ingredientText + nutrients.name + ",";
                               fats = fats + nutrients.fats;
                               protiens = protiens + nutrients.protiens;
                               carbs = carbs + nutrients.carbs;
@@ -602,6 +626,18 @@ apiProducts.calculateNutrients = function (req, res) {
                 product.fats = fats;
                 product.protiens = protiens;
                 product.carbs = carbs;
+
+                apiProducts.updateProductNutrient(product.product_id, ingredientText, fats, protiens, carbs, function (err, nutrients) {
+                    done();
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        fats = fats + nutrients.fats;
+                        protiens = protiens + nutrients.protiens;
+                        carbs = carbs + nutrients.carbs;
+                    }
+                });
+
             }
 
             res.status(200).status({"message" : "Nurients added: Success"});
