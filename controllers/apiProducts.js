@@ -615,11 +615,14 @@ apiProducts.calculateNutrients = function (req, res) {
                           if (err) {
                               console.log(err);
                           } else {
-                              console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + nutrients +"]");
+                              console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
                               ingredientText = ingredientText + nutrients.name + ",";
                               fats = fats + nutrients.fats;
                               protiens = protiens + nutrients.protiens;
                               carbs = carbs + nutrients.carbs;
+
+                              console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
+
                           }
                       });
                     }
