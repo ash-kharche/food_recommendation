@@ -561,9 +561,10 @@ apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
             client.query(query, function (err, result) {
                 done();
                 if (err) {
-                    console.log(err);
+                    console.log("\napiProducts: getIngredientFats: Error " +err);
                     callback(err, null);
                 } else {
+                    console.log("\napiProducts: getIngredientFats: Success " +result.rows);
                     callback(null, result.rows);
                 }
             });
@@ -579,7 +580,7 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
         } else {
           var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredient_text = "+ ingredientText + " WHERE product_id = $1 RETURNING * ";
           console.log("\n apiProducts: updateProductNutrient: query:  " + query);
-          client.query(query, [productId], function (err, result) {
+          client.query(query, [product_id], function (err, result) {
                 done();
                 if (err) {
                     console.log(err);
@@ -609,10 +610,12 @@ apiProducts.calculateNutrients = function (req, res) {
                 console.log("\napiProducts: calculateNutrients:  " + product.product_name+ " has : " + product.ingredients);
                 for(var j = 0; j < product.ingredients.length; j++) {
                       var ingredientId = product.ingredients[j];
+
                       apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
                           if (err) {
                               console.log(err);
                           } else {
+                            
                               ingredientText = ingredientText + nutrients.name + ",";
                               fats = fats + nutrients.fats;
                               protiens = protiens + nutrients.protiens;
