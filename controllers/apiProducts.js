@@ -577,7 +577,7 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
         if (err) {
             callback(err, null);
         } else {
-          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredientText = "+ ingredientText + " WHERE product_id = $1 RETURNING * ";
+          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + ", ingredient_text = "+ ingredientText + " WHERE product_id = $1 RETURNING * ";
           console.log("\n apiProducts: updateProductNutrient: query:  " + query);
           client.query(query, [productId], function (err, result) {
                 done();
