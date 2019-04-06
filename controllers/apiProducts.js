@@ -650,7 +650,7 @@ apiProducts.calculateNutrients = function (req, res) {
                       res.status(200).status({"message" : "Nurients added: Success"});
                 });
             }
-        }
+
     });
 }
 
