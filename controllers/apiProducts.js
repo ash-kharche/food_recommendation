@@ -584,9 +584,9 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
                 done();
                 if (err) {
                     console.log(err);
-                    callback(err, null);
+                    //callback(err, null);
                 } else {
-                    callback(null, result.rows);
+                    //callback(null, result.rows);
                 }
             });
         }
