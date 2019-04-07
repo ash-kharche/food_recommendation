@@ -602,18 +602,17 @@ apiProducts.calculateNutrients = function (req, res) {
 
                 new Promise(function(resolve, reject) {
                   console.log("1111111111:  productsArray.length   " +productsArray.length);
-                  for(var i = 0; i < productsArray.length; i++) {
-                        console.log("$$$$$$$$$$$$ productsArray : i ::  " + i);
+                  for(var i = 0; i < 10; i++) {
+                        console.log("$$$$$$$$ productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
                         var product = productsArray[i];
                         if(product.ingredients != undefined) {
-                              console.log("##############:  product:   " + product);
+                              //console.log("##############:  product:   " + product);
 
                               var fats = 0;
                               var protiens = 0;
                               var carbs = 0;
                               var ingredientText = ": ";
 
-                              console.log("\napiProducts: calculateNutrients:  " + product.product_name+ " has : " + product.ingredients);
                               for(var j = 0; j < product.ingredients.length; j++) {
                                   var ingredientId = product.ingredients[j];
 
