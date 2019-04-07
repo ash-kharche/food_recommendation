@@ -636,7 +636,7 @@ apiProducts.calculate1 = function (productsArray, callback) {
                 var carbs = 0;
                 var ingredientText = ": ";
 
-                for(var j = 0; j < product.ingredients.length; j++) { poonam commented for testing
+                for(var j = 0; j < product.ingredients.length; j++) {
                     var ingredientId = product.ingredients[0];
                     if(ingredientId > 0) {
                         apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
