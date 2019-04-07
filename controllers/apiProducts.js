@@ -603,9 +603,10 @@ apiProducts.calculateNutrients = function (req, res) {
                 new Promise(function(resolve, reject) {
                   console.log("1111111111");
                   for(var i = 0; i < productsArray.length; i++) {
+                        console.log("$$$$$$$$$$$$ productsArray : i ::  " + i);
                         var product = productsArray[i];
                         if(product.ingredients != undefined) {
-                              console.log("##############:  product:   " +product);
+                              console.log("##############:  product:   " + product);
 
                               var fats = 0;
                               var protiens = 0;
