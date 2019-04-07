@@ -653,6 +653,7 @@ apiProducts.calculate1 = function (productsArray, callback) {
                                     product.carbs = product.carbs + nutrients.carbs;
 
                                     console.log("3333333apiProducts: calculateNutrients:@@@@  " + product.ingredient_text + ", " + product.fats+", " + product.protiens);
+                                    productsArray.push(i, 1, product);
                                 }
                             }
                         });
@@ -662,8 +663,8 @@ apiProducts.calculate1 = function (productsArray, callback) {
                   /*product.fats = fats;
                   product.protiens = protiens;
                   product.carbs = carbs;
-                  product.ingredient_text = ingredientText;*/
-                  productsArray.push(i, 1, product);
+                  product.ingredient_text = ingredientText;
+                  productsArray.push(i, 1, product);*/
             }
         }
         callback(null, productsArray);

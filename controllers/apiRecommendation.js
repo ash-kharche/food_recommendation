@@ -413,7 +413,7 @@ apiRecommendation.getFood = function (callback) {
 }
 
 apiRecommendation.getUserRatedProducts = function (callback) {
-    var query = "SELECT * FROM rated_orders ORDER BY user_id, product_id, rating";
+    var query = "SELECT user_id, product_id, rating FROM rated_orders ORDER BY user_id, product_id, rating";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
