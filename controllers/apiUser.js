@@ -36,7 +36,7 @@ apiUser.submitAnswers = function (req, res) {
             res.status(400).send(err);
         } else {
             var query = "UPDATE users SET " +
-                ", is_veg = " + req.body.is_veg +
+                " is_veg = " + req.body.is_veg +
                 ", is_diabetes = " + req.body.is_diabetes +
                 ", is_cholestrol = " + req.body.is_cholestrol +
                 ", is_question_done = " + req.body.is_question_done +
