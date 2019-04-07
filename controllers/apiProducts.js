@@ -592,70 +592,77 @@ apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, 
         }
     });
 }
+
 apiProducts.calculateNutrients = function (req, res) {
     console.log("\napiProducts: calculateNutrients");
     apiProducts.getAllProducts(function (err, productsArray) {
         if (err) {
             console.log(err);
-            res.status(400).status({"message" : "Nurients added: Error"})
+            res.status(400).status({"message" : "Nurients added: getAllProducts: Error"});
         } else {
 
-                new Promise(function(resolve, reject) {
-                  console.log("1111111111:  productsArray.length   " +productsArray.length);
-                  for(var i = 0; i < 10; i++) {
+              apiProducts.calculate1(productsArray, function (err, productsArrayWithNutrients) {
+                  if (err) {
+                      console.log(err);
+                      res.status(400).status({"message" : "Nurients added: calculate1: Error"});
 
-                        var product = productsArray[i];
-                        console.log("$$$$$$$$ productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
-                        if(product.ingredients != undefined) {
-                              //console.log("##############:  product:   " + product);
-
-                              var fats = 0;
-                              var protiens = 0;
-                              var carbs = 0;
-                              var ingredientText = ": ";
-
-                              for(var j = 0; j < product.ingredients.length; j++) {
-                                  var ingredientId = product.ingredients[j];
-
-                                  apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
-                                      if (err) {
-                                          console.log(err);
-                                          reject("Some error in calculateNutrients");
-
-                                      } else {
-                                          console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
-                                          ingredientText = ingredientText + nutrients.name + ",";
-                                          fats = fats + nutrients.fats;
-                                          protiens = protiens + nutrients.protiens;
-                                          carbs = carbs + nutrients.carbs;
-
-                                          console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
-
-                                      }
-                                  });
-                                }
-
-                                product.fats = fats;
-                                product.protiens = protiens;
-                                product.carbs = carbs;
-                                product.ingredient_text = ingredientText;
-                                productsArray.push(i, 1, product);
-                          }
-                      }
-
-                      resolve(productsArray);
-
-                }).then(function(productsArray) {
-                      console.log("2222222222");
-                      for(var i = 0; i < productsArray.length; i++) {
-                            var product = productsArray[i];
+                  } else {
+                      for(var i = 0; i < productsArrayWithNutrients.length; i++) {
+                            var product = productsArrayWithNutrients[i];
                             apiProducts.updateProductNutrient(product.product_id, product.ingredient_text, product.fats, product.protiens, product.carbs, null);
                       }
-                      res.status(200).status({"message" : "Nurients added: Success"});
-                });
-            }
+
+                      res.status(200).status({"message" : "Nurients added: successfully"});
+                  }
+              });
+        }
 
     });
+}
+
+apiProducts.calculate1 = function (productsArray, callback) {
+    console.log("\napiProducts: calculate1: productsArray.length   " +productsArray.length);
+    for(var i = 0; i < 10; i++) {
+
+          var product = productsArray[i];
+          console.log("$$$$$$$$ productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
+          if(product.ingredients != undefined) {
+                //console.log("##############:  product:   " + product);
+
+                var fats = 0;
+                var protiens = 0;
+                var carbs = 0;
+                var ingredientText = ": ";
+
+                //for(var j = 0; j < product.ingredients.length; j++) { poonam commented for testing
+                    var ingredientId = product.ingredients[0];
+
+                    apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
+                        if (err) {
+                            console.log(err);
+                            callback("Some error in calculateNutrients", null);
+
+                        } else {
+                            console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
+                            ingredientText = ingredientText + nutrients.name + ",";
+                            fats = fats + nutrients.fats;
+                            protiens = protiens + nutrients.protiens;
+                            carbs = carbs + nutrients.carbs;
+
+                            console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
+
+                        }
+                    });
+                  //}
+
+                  product.fats = fats;
+                  product.protiens = protiens;
+                  product.carbs = carbs;
+                  product.ingredient_text = ingredientText;
+                  productsArray.push(i, 1, product);
+            }
+        }
+        callback(null, productsArray);
 }
 
 apiProducts.calculateNutrients_original = function (req, res) {
