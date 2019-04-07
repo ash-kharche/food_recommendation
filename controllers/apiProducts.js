@@ -536,7 +536,7 @@ apiProducts.getAllProducts = function (callback) {
         if (err) {
             callback(err, null);
         } else {
-            var query = "SELECT * FROM products where product_id = 6";
+            var query = "SELECT * FROM products";
             client.query(query, function (err, result) {
                 done();
                 if (err) {
@@ -601,7 +601,7 @@ apiProducts.calculateNutrients = function (req, res) {
         } else {
 
                 new Promise(function(resolve, reject) {
-                  console.log("1111111111");
+                  console.log("1111111111:  productsArray.length   " +productsArray.length);
                   for(var i = 0; i < productsArray.length; i++) {
                         console.log("$$$$$$$$$$$$ productsArray : i ::  " + i);
                         var product = productsArray[i];
