@@ -551,7 +551,7 @@ apiProducts.getAllProducts = function (callback) {
 }
 
 apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
-    console.log("\napiProducts: getIngredientNutrient:: ingredient_id:  " +ingredient_id);
+    console.log("222222222apiProducts: getIngredientNutrient:: ingredient_id:  " +ingredient_id);
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -561,7 +561,7 @@ apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
             client.query(query, function (err, result) {
                 done();
                 if (err) {
-                    //console.log("\napiProducts: getIngredientFats: Error " +err);
+                    console.log("222222222apiProducts: getIngredientFats: Error " +err);
                     callback(err, null);
                 } else {
                     //console.log("\napiProducts: getIngredientFats: Success " + JSON.stringify(result.rows));
@@ -607,12 +607,14 @@ apiProducts.calculateNutrients = function (req, res) {
                       res.status(400).status({"message" : "Nurients added: calculate1: Error"});
 
                   } else {
-                      for(var i = 0; i < productsArrayWithNutrients.length; i++) {
+                      /*for(var i = 0; i < productsArrayWithNutrients.length; i++) {
                             var product = productsArrayWithNutrients[i];
                             apiProducts.updateProductNutrient(product.product_id, product.ingredient_text, product.fats, product.protiens, product.carbs, null);
-                      }
+                      }*/
 
-                      res.status(200).status({"message" : "Nurients added: successfully"});
+                      //res.status(200).status({"message" : "Nurients added: successfully"});
+
+                      res.status(200).status(productsArrayWithNutrients);
                   }
               });
         }
@@ -625,7 +627,7 @@ apiProducts.calculate1 = function (productsArray, callback) {
     for(var i = 0; i < 10; i++) {
 
           var product = productsArray[i];
-          console.log("$$$$$$$$ productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
+          console.log("\n\n1111111 productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
           if(product.ingredients != undefined) {
                 //console.log("##############:  product:   " + product);
 
@@ -643,13 +645,13 @@ apiProducts.calculate1 = function (productsArray, callback) {
                             callback("Some error in calculateNutrients", null);
 
                         } else {
-                            console.log("\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
+                            console.log("3333333apiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
                             ingredientText = ingredientText + nutrients.name + ",";
                             fats = fats + nutrients.fats;
                             protiens = protiens + nutrients.protiens;
                             carbs = carbs + nutrients.carbs;
 
-                            console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
+                            //console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
 
                         }
                     });
