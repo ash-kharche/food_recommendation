@@ -636,26 +636,28 @@ apiProducts.calculate1 = function (productsArray, callback) {
                 var carbs = 0;
                 var ingredientText = ": ";
 
-                //for(var j = 0; j < product.ingredients.length; j++) { poonam commented for testing
+                for(var j = 0; j < product.ingredients.length; j++) { poonam commented for testing
                     var ingredientId = product.ingredients[0];
+                    if(ingredientId > 0) {
+                        apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
+                            if (err) {
+                                console.log(err);
+                                callback("Some error in calculateNutrients", null);
 
-                    apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
-                        if (err) {
-                            console.log(err);
-                            callback("Some error in calculateNutrients", null);
+                            } else {
+                                if(nutrients != undefined) {
+                                    console.log("3333333apiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
+                                    ingredientText = ingredientText + nutrients.name + ",";
+                                    fats = fats + nutrients.fats;
+                                    protiens = protiens + nutrients.protiens;
+                                    carbs = carbs + nutrients.carbs;
 
-                        } else {
-                            console.log("3333333apiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
-                            ingredientText = ingredientText + nutrients.name + ",";
-                            fats = fats + nutrients.fats;
-                            protiens = protiens + nutrients.protiens;
-                            carbs = carbs + nutrients.carbs;
-
-                            //console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
-
-                        }
-                    });
-                  //}
+                                    //console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
+                                }
+                            }
+                        });
+                      }
+                  }
 
                   product.fats = fats;
                   product.protiens = protiens;
