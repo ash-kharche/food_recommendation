@@ -522,6 +522,24 @@ apiRecommendation.writeToFile = function writeToFile(fileName, text) {
         }
         console.log("The file was saved!");
     });
+    
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            console.log("not able to get connection " + err);
+        }
+
+        var query = "INSERT INTO keys (name, value) VALUES ($1, $2) RETURNING *";
+        client.query(query, [fileName, text],
+
+            function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("$$$$$$ writeToFile:   " + result.rows[0]);
+                }
+            });
+    });
 }
 
 module.exports = apiRecommendation;
