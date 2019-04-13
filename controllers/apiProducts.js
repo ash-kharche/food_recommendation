@@ -160,7 +160,7 @@ apiProducts.getProducts = function (is_veg, diabetes, bp, cholestrol, special_ca
 }
 
 apiProducts.getTrendingProducts = function (is_veg, diabetes, bp, cholestrol, special_case, callback) {
-    //console.log("\n apiProducts: getProducts");
+    console.log("\n apiProducts: getTrendingProducts");
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -369,13 +369,13 @@ apiProducts.getProductsByIngredients = function (query, callback) {
 
     db_pool.connect(function (err, client, done) {
         if (err) {
-            console.log("######## getProductsByIngredients: No products found matching ingredients 0000000  " + err);
+            console.log("######## getProductsByIngredients: DB error  " + err);
             callback(err, null);
         } else {
             client.query(query, function (err, result) {
                 done();
                 if (err) {
-                    console.log("######## getProductsByIngredients: No products found matching ingredients 000111  " + err);
+                    console.log("######## getProductsByIngredients: No products found matching ingredients  " + err);
                     callback(err, null);
                 } else {
                     console.log("######## getProductsByIngredients: products found matching ingredients\n\n   " + result.rows);

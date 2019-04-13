@@ -208,6 +208,7 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
+                            apiRecommendation.writeToFile("./dummy_data/test_toberated.csv", jsonString);
                         });
                     });
                     callback(null, path);
@@ -267,6 +268,7 @@ apiRecommendation.getAllUsers = function (callback) {
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
+                            apiRecommendation.writeToFile("./dummy_data/test_userspath.csv", jsonString);
                         });
                     });
 
@@ -341,8 +343,9 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                             if (err) throw err;
                             //console.log('getAllUsers saved ' + path + "\n\n");
 
-                            //var jsonString = fs.readFileSync(path, 'utf8');
+                            var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
+                            apiRecommendation.writeToFile("./dummy_data/test_userspath.csv", jsonString);
                         });
                     });
 
@@ -400,8 +403,9 @@ apiRecommendation.getFood = function (callback) {
                             if (err) throw err;
                             //console.log('getFood saved ' + path + "\n\n");
 
-                            //var jsonString = fs.readFileSync(path, 'utf8');
+                            var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getFood in csv \n\n' + jsonString + "\n\n");
+                            apiRecommendation.writeToFile("./dummy_data/test_foodpath.csv", jsonString);
                         });
                     });
 
@@ -436,6 +440,7 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             console.log('getUserRatedProducts in csv \n\n' + jsonString + "\n\n");
+                            apiRecommendation.writeToFile("./dummy_data/test_rating.csv", jsonString);
                         });
                     });
 
@@ -507,6 +512,16 @@ apiRecommendation.getProducts = function (productIdList, callback) {
 
 apiRecommendation.getRandomInt = function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
+}
+
+apiRecommendation.writeToFile = function writeToFile(fileName, text) {
+  //./dummy_data/test_data.csv
+    fs.writeFile(fileName, text, function(err) {
+        if(err) {
+            console.log(err);
+        }
+        console.log("The file was saved!");
+    });
 }
 
 module.exports = apiRecommendation;
