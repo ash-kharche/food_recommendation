@@ -256,20 +256,30 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
                 query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
             }*/
 
-            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
-            if (whereString == "") {
-                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "]) ORDER BY rating LIMIT 10";
-            }
+            if(uniqueIngredientIds != undefined && uniqueIngredientIds.length > 0) {
+                  var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                  if (whereString == "") {
+                      query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "]) ORDER BY rating LIMIT 10";
+                  }
 
-            console.log("line 257:   query :  " + query);
-            apiProducts.getProductsByIngredients(query, function (err, products) {
-                if (err) {
-                    console.log(err);
-                    res.status(200).send([]);
-                } else {
-                    res.status(200).send(products);
-                }
-            });
+                  console.log("line 257:   query :  " + query);
+                  apiProducts.getProductsByIngredients(query, function (err, products) {
+                      if (err) {
+                          console.log(err);
+                          res.status(200).send([]);
+                      } else {
+                          res.status(200).send(products);
+                      }
+                  });
+          } else {
+                apiProducts.getTrendingProducts(is_veg, diabetes, bp, cholestrol, special_case, function (err, response) {
+                    if (err) {
+                        res.status(200).send([]);
+                    } else {
+                        res.status(200).send(products);
+                    }
+                });
+          }
         }
     });
 
