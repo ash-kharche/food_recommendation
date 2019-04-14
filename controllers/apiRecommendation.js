@@ -297,7 +297,7 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
 
                     for (var i = 0; i < lastUserId; i++) {
                         var modifiedUser = {};
-                        //modifiedUser.user_id = 0;
+                        modifiedUser.user_id = 0;
                         modifiedUser.is_veg = 0;//"veg";
                         modifiedUser.is_diabetes = 0;
                         modifiedUser.is_cholestrol = 0;
@@ -308,7 +308,7 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                     for (var i = 0; i < usersArray.length; i++) {
                         var user = usersArray[i];
                         var modifiedUser = {};
-                        //modifiedUser.user_id = user.user_id;
+                        modifiedUser.user_id = user.user_id;
 
                         if (user.is_veg == 1) {
                             modifiedUser.is_veg = 1;//"veg";
@@ -417,7 +417,7 @@ apiRecommendation.getFood = function (callback) {
 }
 
 apiRecommendation.getUserRatedProducts = function (callback) {
-    var query = "SELECT user_id, product_id, rating FROM rated_orders ORDER BY user_id, product_id, rating";
+    var query = "SELECT user_id, product_id, CAST (rating AS INTEGER) FROM rated_orders ORDER BY user_id, product_id, rating";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -522,7 +522,7 @@ apiRecommendation.writeToFile = function writeToFile(fileName, text) {
         }
         console.log("The file was saved!");
     });
-    
+
     db_pool.connect(function (err, client, done) {
         if (err) {
             console.log("not able to get connection " + err);
