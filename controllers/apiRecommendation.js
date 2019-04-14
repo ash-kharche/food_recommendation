@@ -280,7 +280,7 @@ apiRecommendation.getAllUsers = function (callback) {
 }
 
 apiRecommendation.getAllUsersFormattedCsv = function (callback) {
-    var query = "SELECT * FROM users ORDER BY user_id DESC";
+    var query = "SELECT * FROM users ORDER BY user_id ASC";
     db_pool.connect(function (err, client, done) {
         if (err) {
             callback(err, null);
@@ -292,7 +292,7 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                 } else {
 
                     var usersFormattedArray = [];
-                    var lastUserId = result.rows[0].user_id;
+                    /*var lastUserId = result.rows[0].user_id;
                     console.log("lastUserId:   " + lastUserId);
 
                     for (var i = 0; i < lastUserId; i++) {
@@ -302,7 +302,7 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                         modifiedUser.is_diabetes = 0;
                         modifiedUser.is_cholestrol = 0;
                         usersFormattedArray.push(modifiedUser);
-                    }
+                    }*/
 
                     var usersArray = result.rows;
                     for (var i = 0; i < usersArray.length; i++) {
@@ -325,7 +325,8 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                         } else {
                             modifiedUser.is_cholestrol = 0;
                         }
-                        usersFormattedArray.splice(user.user_id, 1, modifiedUser);
+                        usersFormattedArray.push(modifiedUser);
+                        //usersFormattedArray.splice(user.user_id, 1, modifiedUser);
                     }
                     var path = './data/users.csv';
 
