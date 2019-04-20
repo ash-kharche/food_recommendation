@@ -632,7 +632,6 @@ apiProducts.calculateNutrients = function (req, res) {
     });
 }
 
-poonam
 apiProducts.getAllIngredients = function (callback) {
     console.log("\napiProducts: getAllIngredients");
     db_pool.connect(function (err, client, done) {
