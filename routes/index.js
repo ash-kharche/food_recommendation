@@ -7,7 +7,7 @@ router.get('/getTrendingProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:spe
 router.get('/getUserRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getUserRecommendedProducts);
 router.get('/getUserRecommendedProducts_1/:user_id', controllers.apiRecommendation.getUserRecommendedProducts);
 router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case/:collections/:products/:rank', controllers.apiProducts.getCartRecommendedProducts);
-router.get('/calculateNutrients', controllers.apiProducts.calculateNutrients);
+router.get('/calculateNutrients', controllers.apiProducts.calculateNutrients_otherway);
 
 router.put('/login', controllers.apiUser.login);
 router.put('/submitAnswers', controllers.apiUser.submitAnswers);

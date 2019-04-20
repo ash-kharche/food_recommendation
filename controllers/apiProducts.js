@@ -632,6 +632,54 @@ apiProducts.calculateNutrients = function (req, res) {
     });
 }
 
+poonam
+apiProducts.getAllIngredients = function (callback) {
+    console.log("\napiProducts: getAllIngredients");
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            var query = "SELECT * FROM ingredient_nutrients";
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows);
+                }
+            });
+        }
+    });
+}
+
+apiProducts.calculateNutrients_otherway = function (req, res) {
+    console.log("\napiProducts: calculateNutrients_otherway");
+    //WITH var1 as (values (1)) UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = 1)), fats = fats + (SELECT fats FROM ingredient_nutrients WHERE ingredient_id = (table var1)), protiens = protiens + (SELECT protiens FROM ingredient_nutrients WHERE ingredient_id = (table var1)), carbs = carbs + (SELECT carbs FROM ingredient_nutrients WHERE ingredient_id = (table var1)) WHERE (table var1) = ANY(ingredients);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            res.status(400).status({"message" : "calculateNutrients_otherway: Error"});
+        } else {
+          for(var i = 0; i < 320; i++) {
+            var query = "WITH var1 as (values ("+ i + ")) UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = 1)), fats = fats + (SELECT fats FROM ingredient_nutrients WHERE ingredient_id = (table var1)), protiens = protiens + (SELECT protiens FROM ingredient_nutrients WHERE ingredient_id = (table var1)), carbs = carbs + (SELECT carbs FROM ingredient_nutrients WHERE ingredient_id = (table var1)) WHERE (table var1) = ANY(ingredients)";
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    console.log("calculateNutrients_otherway:  " + i +"  success");
+                    //callback(err, null);
+                } else {
+                    console.log("calculateNutrients_otherway:  " + i +"  success");
+                    //callback(null, result.rows);
+                }
+            });
+          }
+
+          res.status(200).status({"message" : "calculateNutrients_otherway: Success"});
+        }
+    });
+
+}
+
 apiProducts.calculate1 = function (productsArray, callback) {
     console.log("\napiProducts: calculate1: productsArray.length   " +productsArray.length);
     for(var i = 0; i < 10; i++) {
