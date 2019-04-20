@@ -3,10 +3,10 @@ var router = express.Router();
 var controllers = require("../controllers");
 
 //router.get('/test', controllers.runPython.test);
-router.get('/getTrendingProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.runPython.getTrendingProducts);
-router.get('/getUserRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getUserRecommendedProducts);
+router.get('/getTrendingProducts', controllers.runPython.getTrendingProducts);
+router.get('/getUserRecommendedProducts', controllers.apiProducts.getUserRecommendedProducts);
 router.get('/getUserRecommendedProducts_1/:user_id', controllers.apiRecommendation.getUserRecommendedProducts);
-router.get('/getCartRecommendedProducts/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case/:collections/:products/:rank', controllers.apiProducts.getCartRecommendedProducts);
+router.get('/getCartRecommendedProducts', controllers.apiProducts.getCartRecommendedProducts);
 router.get('/calculateNutrients', controllers.apiProducts.calculateNutrients_otherway);
 
 router.put('/login', controllers.apiUser.login);
@@ -15,7 +15,7 @@ router.put('/signUpUser', controllers.apiUser.signUpUser);
 router.get('/getAllUsers', controllers.apiUser.getAllUsers);
 router.get('/getUser/:user_id', controllers.apiUser.getUser);
 
-router.get('/getData/:user_id/:is_veg/:diabetes/:bp/:cholestrol/:special_case', controllers.apiProducts.getData);
+router.get('/getData', controllers.apiProducts.getData);
 router.get('/getCollections', controllers.apiProducts.getCollections);
 //router.get('/getTrendingProducts', controllers.apiProducts.getTrendingProducts);
 
