@@ -147,7 +147,18 @@ apiProducts.getProducts = function (isVeg, isDiabetes, isCholestrol, isKid, isSe
             } else if (isVeg == 0) {
               whereString = "(is_veg = 0 OR is_veg = 2)";
             }
-            whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
+            if(isDiabetes == 1) {
+              whereString = whereString + " AND is_diabetes = 1";
+            }
+            if(isCholestrol == 1) {
+              whereString = whereString + " AND is_cholestrol = 1";
+            }
+            if(isKid == 1) {
+              whereString = whereString + " AND is_kid = 1";
+            }
+            if(isSenior == 1) {
+              whereString = whereString + " AND is_senior = 1";
+            }
 
             var query = "SELECT * FROM products WHERE (" + whereString + ") ORDER BY rating ASC";
 
@@ -173,13 +184,25 @@ apiProducts.getTrendingProducts = function (isVeg, isDiabetes, isCholestrol, isK
             callback(err, null);
         } else {
 
+          //poonam
           var whereString = "";
           if (isVeg == 1) {
             whereString = "is_veg = 1";
           } else if (isVeg == 0) {
             whereString = "(is_veg = 0 OR is_veg = 2)";
           }
-          whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
+          if(isDiabetes == 1) {
+            whereString = whereString + " AND is_diabetes = 1";
+          }
+          if(isCholestrol == 1) {
+            whereString = whereString + " AND is_cholestrol = 1";
+          }
+          if(isKid == 1) {
+            whereString = whereString + " AND is_kid = 1";
+          }
+          if(isSenior == 1) {
+            whereString = whereString + " AND is_senior = 1";
+          }
 
             var query = "SELECT * FROM products WHERE (" + whereString + ") ORDER BY rating LIMIT 5";
             client.query(query, function (err, result) {
@@ -224,14 +247,26 @@ apiProducts.getUserRecommendedProducts = function (req, res) {
             console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds + "\nuniqueIngredientIds:   " + uniqueIngredientIds);
 
             //// end ////
+            //poonam
             var whereString = "";
             if (isVeg == 1) {
               whereString = "is_veg = 1";
             } else if (isVeg == 0) {
               whereString = "(is_veg = 0 OR is_veg = 2)";
             }
-            whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
-
+            if(isDiabetes == 1) {
+              whereString = whereString + " AND is_diabetes = 1";
+            }
+            if(isCholestrol == 1) {
+              whereString = whereString + " AND is_cholestrol = 1";
+            }
+            if(isKid == 1) {
+              whereString = whereString + " AND is_kid = 1";
+            }
+            if(isSenior == 1) {
+              whereString = whereString + " AND is_senior = 1";
+            }
+            
             /* Less products issue so we dont get response
             var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
             if (whereString == "") {
