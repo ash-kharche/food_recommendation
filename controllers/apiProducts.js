@@ -211,7 +211,7 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
             if(isSenior == 1) {
               whereString = whereString + " AND is_senior = 1";
             }
-            
+
             var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
                 query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
@@ -459,77 +459,5 @@ apiProducts.getProductRating = function (productId, callback) {
         }
     });
 }
-
-/*
-apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
-    var query = "SELECT * FROM orders WHERE user_id = " + user_id;
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    callback(err, null);
-                } else {
-                    var ingredientsIdList = [];
-                    for (var i = 0; i < result.rows.length; i++) {
-                        var order = result.rows[i];
-                        for (var k = 0; k < order.products.length; k++) {
-                            ingredientsIdList.push(order.products[k].ingredients);
-                        }
-                    }
-
-                    var uniqueIds = apiProducts.getUniqueId(ingredientsIdList);
-                    console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + uniqueIds);
-                    callback(null, uniqueIds);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.getProductById = function (productId, callback) {
-    console.log("\n apiProducts: getProductById::   " + productId);
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            var query = "SELECT * FROM products WHERE product_id = $1";
-            client.query(query, [productId], function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else {
-                    callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.getAllProducts = function (callback) {
-    console.log("\napiProducts: getAllProducts");
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            var query = "SELECT * FROM products";
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else {
-                    callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-*/
-
 
 module.exports = apiProducts;
