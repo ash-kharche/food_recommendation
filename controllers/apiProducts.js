@@ -195,12 +195,23 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
 
             var whereString = "";
             if (isVeg == 1) {
-                whereString = "is_veg = 1";
+              whereString = "is_veg = 1";
             } else if (isVeg == 0) {
-                whereString = "(is_veg = 0 OR is_veg = 2)";
+              whereString = "(is_veg = 0 OR is_veg = 2)";
             }
-            whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
-
+            if(isDiabetes == 1) {
+              whereString = whereString + " AND is_diabetes = 1";
+            }
+            if(isCholestrol == 1) {
+              whereString = whereString + " AND is_cholestrol = 1";
+            }
+            if(isKid == 1) {
+              whereString = whereString + " AND is_kid = 1";
+            }
+            if(isSenior == 1) {
+              whereString = whereString + " AND is_senior = 1";
+            }
+            
             var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
                 query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
