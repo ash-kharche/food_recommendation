@@ -79,22 +79,6 @@ apiProducts.getData = function (req, res) {
                 });
             });
 
-            /*var getRecommendedProductsPromise = new Promise(function (resolve, reject) {
-                apiProducts.getRecommendedProducts(isVeg, isDiabetes, isCholestrol, isKid, isSenior, function (err, response) {
-                    if (err) {
-                        console.log("ApiProducts : ^^^^^^recommended_products    :" + err);
-                        data.recommended_products = [];
-                        return reject();
-                    } else {
-                        console.log("ApiProducts : $$$$$$recommended_products    :" + response);
-                        data.recommended_products = response;
-                        return resolve(response);
-                    }
-                });
-            });
-            ,
-            getRecommendedProductsPromise*/
-
             Promise.all([
                 getCollectionsDBPromise,
                 getProductsPromise,
@@ -113,24 +97,126 @@ apiProducts.getData = function (req, res) {
     });
 }
 
-apiProducts.getCollections = function (req, res) {
+apiProducts.getUserRecommendedProducts = function (req, res) {
+    var user_id = req.body.user_id;
+    var isVeg = req.body.is_veg;
+    var isDiabetes = req.body.is_diabetes;
+    var isCholestrol = req.body.is_cholestrol;
+    var isKid = req.body.is_kid;
+    var isSenior = req.body.is_senior;
+
+    apiProducts.getUserPastOrders(user_id, function (err, pastOrders) {
+        if (err) {
+            res.status(200).send([]);
+        } else {
+            /// find products and related ingredients from these apiProducts
+            //not done for collections, as we have limited collections
+            var productIdList = [];
+            var ingredientsIdList = [];
+            for (var i = 0; i < pastOrders.length; i++) {
+                var order = pastOrders[i];
+                for (var k = 0; k < order.products.length; k++) {
+                    productIdList.push(order.products[k].product_id);
+                    ingredientsIdList.push(order.products[k].ingredients);
+                }
+            }
+
+            var uniqueProductIds = apiProducts.getUniqueId(productIdList);
+            var uniqueIngredientIds = apiProducts.getUniqueId(ingredientsIdList);
+            console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds + "\nuniqueIngredientIds:   " + uniqueIngredientIds);
+
+            //// end ////
+            var whereString = "";
+            if (isVeg == 1) {
+                whereString = "is_veg = 1";
+            } else if (isVeg == 0) {
+                whereString = "(is_veg = 0 OR is_veg = 2)";
+            }
+            if(isDiabetes == 1) {
+                whereString = whereString + " AND is_diabetes = 1";
+            }
+            if(isCholestrol == 1) {
+                whereString = whereString + " AND is_cholestrol = 1";
+            }
+            if(isKid == 1) {
+                whereString = whereString + " AND is_kid = 1";
+            }
+            if(isSenior == 1) {
+                whereString = whereString + " AND is_senior = 1";
+            }
+
+            /* Less products issue so we dont get response
+            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
+            if (whereString == "") {
+                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
+            }*/
+
+            if(uniqueIngredientIds != undefined && uniqueIngredientIds.length > 0) {
+                var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
+                if (whereString == "") {
+                    query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "]) ORDER BY rating LIMIT 10";
+                }
+
+                console.log("line 257:   query :  " + query);
+                apiProducts.getProductsByIngredients(query, function (err, products) {
+                    if (err) {
+                        console.log(err);
+                        res.status(200).send([]);
+                    } else {
+                        res.status(200).send(products);
+                    }
+                });
+            } else {
+                apiProducts.getTrendingProducts(isVeg, isDiabetes, isCholestrol, isKid, isSenior, function (err, response) {
+                    if (err) {
+                        res.status(200).send([]);
+                    } else {
+                        res.status(200).send(products);
+                    }
+                });
+            }
+        }
+    });
+
+}
+
+apiProducts.getCartRecommendedProducts = function (req, res) {
     db_pool.connect(function (err, client, done) {
         if (err) {
-            console.log("#### not able to get connection " + err);
             res.status(400).send(err);
-        }
+        } else {
 
-        var query = "SELECT * FROM collections";
-        client.query(query, function (err, result) {
-            done();
-            if (err) {
-                console.log(err);
-                res.status(400).send(err);
+            var user_id = req.body.user_id;
+            var isVeg = req.body.is_veg;
+            var isDiabetes = req.body.is_diabetes;
+            var isCholestrol = req.body.is_cholestrol;
+            var isKid = req.body.is_kid;
+            var isSenior = req.body.is_senior;
 
-            } else {
-                res.status(200).send(result.rows);
+            var whereString = "";
+            if (isVeg == 1) {
+                whereString = "is_veg = 1";
+            } else if (isVeg == 0) {
+                whereString = "(is_veg = 0 OR is_veg = 2)";
             }
-        });
+            whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
+
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
+            if (whereString == "") {
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
+            }
+
+            console.log("getCartRecommendedProducts:: \nquery:   " + query);
+            client.query(query, function (err, result) {
+                done();
+
+                if (err) {
+                    res.status(400).send(err);
+                } else {
+                    res.status(200).send(result.rows);
+                }
+            });
+        }
     });
 }
 
@@ -140,7 +226,6 @@ apiProducts.getProducts = function (isVeg, isDiabetes, isCholestrol, isKid, isSe
         if (err) {
             callback(err, null);
         } else {
-            //poonam
             var whereString = "";
             if (isVeg == 1) {
               whereString = "is_veg = 1";
@@ -218,90 +303,6 @@ apiProducts.getTrendingProducts = function (isVeg, isDiabetes, isCholestrol, isK
     });
 }
 
-apiProducts.getUserRecommendedProducts = function (req, res) {
-    var user_id = req.body.user_id;
-    var isVeg = req.body.is_veg;
-    var isDiabetes = req.body.is_diabetes;
-    var isCholestrol = req.body.is_cholestrol;
-    var isKid = req.body.is_kid;
-    var isSenior = req.body.is_senior;
-
-    apiProducts.getUserPastOrders(user_id, function (err, pastOrders) {
-        if (err) {
-            res.status(200).send([]);
-        } else {
-            /// find products and related ingredients from these apiProducts
-            //not done for collections, as we have limited collections
-            var productIdList = [];
-            var ingredientsIdList = [];
-            for (var i = 0; i < pastOrders.length; i++) {
-                var order = pastOrders[i];
-                for (var k = 0; k < order.products.length; k++) {
-                    productIdList.push(order.products[k].product_id);
-                    ingredientsIdList.push(order.products[k].ingredients);
-                }
-            }
-
-            var uniqueProductIds = apiProducts.getUniqueId(productIdList);
-            var uniqueIngredientIds = apiProducts.getUniqueId(ingredientsIdList);
-            console.log("\n********* getUserRecommendedProducts: uniqueProductIds :   " + uniqueProductIds + "\nuniqueIngredientIds:   " + uniqueIngredientIds);
-
-            //// end ////
-            //poonam
-            var whereString = "";
-            if (isVeg == 1) {
-              whereString = "is_veg = 1";
-            } else if (isVeg == 0) {
-              whereString = "(is_veg = 0 OR is_veg = 2)";
-            }
-            if(isDiabetes == 1) {
-              whereString = whereString + " AND is_diabetes = 1";
-            }
-            if(isCholestrol == 1) {
-              whereString = whereString + " AND is_cholestrol = 1";
-            }
-            if(isKid == 1) {
-              whereString = whereString + " AND is_kid = 1";
-            }
-            if(isSenior == 1) {
-              whereString = whereString + " AND is_senior = 1";
-            }
-            
-            /* Less products issue so we dont get response
-            var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +")) AND " + whereString + ") ORDER BY rating LIMIT 10";
-            if (whereString == "") {
-                query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND (product_id NOT IN ("+ uniqueProductIds +"))) ORDER BY rating LIMIT 10";
-            }*/
-
-            if(uniqueIngredientIds != undefined && uniqueIngredientIds.length > 0) {
-                  var query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "] AND " + whereString + ") ORDER BY rating LIMIT 10";
-                  if (whereString == "") {
-                      query = "SELECT * FROM products WHERE (ingredients && ARRAY[" + uniqueIngredientIds + "]) ORDER BY rating LIMIT 10";
-                  }
-
-                  console.log("line 257:   query :  " + query);
-                  apiProducts.getProductsByIngredients(query, function (err, products) {
-                      if (err) {
-                          console.log(err);
-                          res.status(200).send([]);
-                      } else {
-                          res.status(200).send(products);
-                      }
-                  });
-          } else {
-                apiProducts.getTrendingProducts(isVeg, isDiabetes, isCholestrol, isKid, isSenior, function (err, response) {
-                    if (err) {
-                        res.status(200).send([]);
-                    } else {
-                        res.status(200).send(products);
-                    }
-                });
-          }
-        }
-    });
-
-}
-
 apiProducts.getUserPastOrders = function (user_id, callback) {
     var query = "SELECT * FROM orders WHERE user_id = " + user_id + " ORDER BY user_id";
     db_pool.connect(function (err, client, done) {
@@ -333,35 +334,6 @@ apiProducts.getUnEatenProducts = function (query, callback) {
                     callback(err, null);
                 } else {
                     callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
-    var query = "SELECT * FROM orders WHERE user_id = " + user_id;
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    callback(err, null);
-                } else {
-                    var ingredientsIdList = [];
-                    for (var i = 0; i < result.rows.length; i++) {
-                        var order = result.rows[i];
-                        for (var k = 0; k < order.products.length; k++) {
-                            ingredientsIdList.push(order.products[k].ingredients);
-                        }
-                    }
-
-                    var uniqueIds = apiProducts.getUniqueId(ingredientsIdList);
-                    console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + uniqueIds);
-                    callback(null, uniqueIds);
                 }
             });
         }
@@ -404,46 +376,6 @@ apiProducts.getProductsByIngredients = function (query, callback) {
 
 }
 
-apiProducts.getCartRecommendedProducts = function (req, res) {
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-
-          var user_id = req.body.user_id;
-          var isVeg = req.body.is_veg;
-          var isDiabetes = req.body.is_diabetes;
-          var isCholestrol = req.body.is_cholestrol;
-          var isKid = req.body.is_kid;
-          var isSenior = req.body.is_senior;
-
-            var whereString = "";
-            if (isVeg == 1) {
-              whereString = "is_veg = 1";
-            } else if (isVeg == 0) {
-              whereString = "(is_veg = 0 OR is_veg = 2)";
-            }
-            whereString = whereString + " AND is_diabetes = " + isDiabetes + " AND is_cholestrol = " + isCholestrol + " AND is_kid = " + isKid + " AND is_senior = " + isSenior;
-
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
-            if (whereString == "") {
-                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
-            }
-
-            console.log("getCartRecommendedProducts:: \nquery:   " + query);
-            client.query(query, function (err, result) {
-                done();
-
-                if (err) {
-                    res.status(400).send(err);
-                } else {
-                    res.status(200).send(result.rows);
-                }
-            });
-        }
-    });
-}
-
 apiProducts.getCollectionsDB = function (callback) {
     //console.log("\n apiProducts: getCollectionsDB");
     db_pool.connect(function (err, client, done) {
@@ -457,26 +389,6 @@ apiProducts.getCollectionsDB = function (callback) {
                     console.log(err);
                     callback(err, null);
 
-                } else {
-                    callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.getProductById = function (productId, callback) {
-    console.log("\n apiProducts: getProductById::   " + productId);
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            var query = "SELECT * FROM products WHERE product_id = $1";
-            client.query(query, [productId], function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
                 } else {
                     callback(null, result.rows);
                 }
@@ -537,6 +449,56 @@ apiProducts.getProductRating = function (productId, callback) {
     });
 }
 
+/*
+apiProducts.getUserPastOrdersIngredients = function (user_id, callback) {
+    var query = "SELECT * FROM orders WHERE user_id = " + user_id;
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+
+            client.query(query, function (err, result) {
+                done();
+                if (err) {
+                    callback(err, null);
+                } else {
+                    var ingredientsIdList = [];
+                    for (var i = 0; i < result.rows.length; i++) {
+                        var order = result.rows[i];
+                        for (var k = 0; k < order.products.length; k++) {
+                            ingredientsIdList.push(order.products[k].ingredients);
+                        }
+                    }
+
+                    var uniqueIds = apiProducts.getUniqueId(ingredientsIdList);
+                    console.log("\n********* ingredientsIdList: getUserPastOrdersIngredients 111 :   " + uniqueIds);
+                    callback(null, uniqueIds);
+                }
+            });
+        }
+    });
+}
+
+apiProducts.getProductById = function (productId, callback) {
+    console.log("\n apiProducts: getProductById::   " + productId);
+    db_pool.connect(function (err, client, done) {
+        if (err) {
+            callback(err, null);
+        } else {
+            var query = "SELECT * FROM products WHERE product_id = $1";
+            client.query(query, [productId], function (err, result) {
+                done();
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else {
+                    callback(null, result.rows);
+                }
+            });
+        }
+    });
+}
+
 apiProducts.getAllProducts = function (callback) {
     console.log("\napiProducts: getAllProducts");
     db_pool.connect(function (err, client, done) {
@@ -556,224 +518,7 @@ apiProducts.getAllProducts = function (callback) {
         }
     });
 }
-
-apiProducts.getIngredientNutrient = function (ingredient_id, callback) {
-    console.log("222222222apiProducts: getIngredientNutrient:: ingredient_id:  " +ingredient_id);
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            var query = "SELECT * FROM ingredient_nutrients where ingredient_id = " + ingredient_id;
-            //console.log("\napiProducts: getIngredientNutrient: " +query);
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log("222222222apiProducts: getIngredientFats: Error " +err);
-                    callback(err, null);
-                } else {
-                    //console.log("\napiProducts: getIngredientFats: Success " + JSON.stringify(result.rows));
-                    callback(null, result.rows[0]);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.updateProductNutrient = function (product_id, ingredientText, fats, protiens, carbs, callback) {
-    //console.log("\napiProducts: updateProductNutrient: product_id " +product_id+"  fats:  " +fats +"  ingredientText:  " +ingredientText);
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-          var query = "UPDATE products SET fats = " + fats + ", protiens = " + protiens + ", carbs = " + carbs + " WHERE product_id = "+ product_id+" RETURNING * ";
-          console.log("\n apiProducts: updateProductNutrient: query:  " + query);
-          client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    //callback(err, null);
-                } else {
-                    //callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.calculateNutrients = function (req, res) {
-    console.log("\napiProducts: calculateNutrients");
-    apiProducts.getAllProducts(function (err, productsArray) {
-        if (err) {
-            console.log(err);
-            res.status(400).status({"message" : "Nurients added: getAllProducts: Error"});
-        } else {
-
-              apiProducts.calculate1(productsArray, function (err, productsArrayWithNutrients) {
-                  if (err) {
-                      console.log(err);
-                      res.status(400).status({"message" : "Nurients added: calculate1: Error"});
-
-                  } else {
-                      /*for(var i = 0; i < productsArrayWithNutrients.length; i++) {
-                            var product = productsArrayWithNutrients[i];
-                            apiProducts.updateProductNutrient(product.product_id, product.ingredient_text, product.fats, product.protiens, product.carbs, null);
-                      }*/
-
-                      //res.status(200).status({"message" : "Nurients added: successfully"});
-
-                      res.status(200).status(productsArrayWithNutrients);
-                  }
-              });
-        }
-
-    });
-}
-
-apiProducts.getAllIngredients = function (callback) {
-    console.log("\napiProducts: getAllIngredients");
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            var query = "SELECT * FROM ingredient_nutrients";
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log(err);
-                    callback(err, null);
-                } else {
-                    callback(null, result.rows);
-                }
-            });
-        }
-    });
-}
-
-apiProducts.calculateNutrients_otherway = function (req, res) {
-    console.log("\napiProducts: calculateNutrients_otherway");
-    //WITH var1 as (values (1)) UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = 1)), fats = fats + (SELECT fats FROM ingredient_nutrients WHERE ingredient_id = (table var1)), protiens = protiens + (SELECT protiens FROM ingredient_nutrients WHERE ingredient_id = (table var1)), carbs = carbs + (SELECT carbs FROM ingredient_nutrients WHERE ingredient_id = (table var1)) WHERE (table var1) = ANY(ingredients);
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            res.status(400).status({"message" : "calculateNutrients_otherway: Error"});
-        } else {
-          for(var i = 1; i < 320; i++) {
-            var query = "WITH var1 as (values ("+ i + ")) UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = (table var1))), fats = fats + (SELECT fats FROM ingredient_nutrients WHERE ingredient_id = (table var1)), protiens = protiens + (SELECT protiens FROM ingredient_nutrients WHERE ingredient_id = (table var1)), carbs = carbs + (SELECT carbs FROM ingredient_nutrients WHERE ingredient_id = (table var1)) WHERE (table var1) = ANY(ingredients)";
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    console.log("calculateNutrients_otherway:  " + i +"  error");
-                    //callback(err, null);
-                } else {
-                    console.log("calculateNutrients_otherway:  " + i +"  success");
-                    //callback(null, result.rows);
-                }
-            });
-          }
-
-          res.status(200).status({"message" : "calculateNutrients_otherway: Success"});
-        }
-    });
-
-}
-
-apiProducts.calculate1 = function (productsArray, callback) {
-    console.log("\napiProducts: calculate1: productsArray.length   " +productsArray.length);
-    for(var i = 0; i < 10; i++) {
-
-          var product = productsArray[i];
-          console.log("\n\n1111111 productsArray at ::  " + i + " : " + product.product_name+ " has : " + product.ingredients);
-          if(product.ingredients != undefined) {
-                //console.log("##############:  product:   " + product);
-
-                product.fats = 0;
-                product.protiens = 0;
-                product.carbs = 0;
-                product.ingredient_text = ": ";
-
-                for(var j = 0; j < product.ingredients.length; j++) {
-                    var ingredientId = product.ingredients[j];
-                    if(ingredientId > 0) {
-                        apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
-                            if (err) {
-                                console.log(err);
-                                callback("Some error in calculateNutrients", null);
-
-                            } else {
-                                if(nutrients != undefined) {
-                                    //console.log("3333333apiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
-                                    product.ingredient_text = product.ingredient_text + nutrients.name + ",";
-                                    product.fats = product.fats + nutrients.fats;
-                                    product.protiens = product.protiens + nutrients.protiens;
-                                    product.carbs = product.carbs + nutrients.carbs;
-
-                                    console.log("3333333apiProducts: calculateNutrients:@@@@  " + product.ingredient_text + ", " + product.fats+", " + product.protiens);
-                                    productsArray.push(i, 1, product);
-                                }
-                            }
-                        });
-                      }
-                  }
-
-                  /*product.fats = fats;
-                  product.protiens = protiens;
-                  product.carbs = carbs;
-                  product.ingredient_text = ingredientText;
-                  productsArray.push(i, 1, product);*/
-            }
-        }
-        callback(null, productsArray);
-}
-
-apiProducts.calculateNutrients_original = function (req, res) {
-    console.log("\napiProducts: calculateNutrients");
-    apiProducts.getAllProducts(function (err, productsArray) {
-        if (err) {
-            console.log(err);
-            res.status(400).status({"message" : "Nurients added: Error"})
-        } else {
-            for(var i = 0; i < productsArray.length; i++) {
-                var product = productsArray[i];
-                var fats = 0;
-                var protiens = 0;
-                var carbs = 0;
-                var ingredientText = ": ";
-
-                console.log("\napiProducts: calculateNutrients:  " + product.product_name+ " has : " + product.ingredients);
-                for(var j = 0; j < product.ingredients.length; j++) {
-                      var ingredientId = product.ingredients[j];
-
-                      apiProducts.getIngredientNutrient(ingredientId, function (err, nutrients) {
-                          if (err) {
-                              console.log(err);
-                          } else {
-                              console.log("\n\napiProducts: calculateNutrients:  ingredientId:  " + ingredientId + " , " + nutrients.name + ", " + nutrients.fats+", " + nutrients.protiens + ", "+ nutrients.carbs +",  [" + JSON.stringify(nutrients) +"]");
-                              ingredientText = ingredientText + nutrients.name + ",";
-                              fats = fats + nutrients.fats;
-                              protiens = protiens + nutrients.protiens;
-                              carbs = carbs + nutrients.carbs;
-
-                              console.log("\napiProducts: calculateNutrients:@@@@  " + ingredientText + ", " + fats+", " + protiens);
-
-                          }
-                      });
-                    }
-
-                    apiProducts.updateProductNutrient(product.product_id, ingredientText, fats, protiens, carbs, function (err, nutrients) {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            fats = fats + nutrients.fats;
-                            protiens = protiens + nutrients.protiens;
-                            carbs = carbs + nutrients.carbs;
-                        }
-                    });
-
-            }
-
-            res.status(200).status({"message" : "Nurients added: Success"});
-        }
-    });
-}
+*/
 
 
 module.exports = apiProducts;
