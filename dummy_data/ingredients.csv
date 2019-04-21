@@ -1,320 +1,392 @@
-id,produtct_name,name,main,ingredients
-1,Plain Dosa,"Rice,Urad Dal",{0},{0}
-2,Masala Dosa,"Rice,Urad Dal,Potato,Onion,Chana dal",{0},{0}
-3,Mysore Masala Dosa,"Rice,Urad dal,Poha,Potato",{0},{0}
-4,Paneer Masala Dosa,"Rice,Urad Dal,Potato,Paneer,Tomato",{0},{0}
-5,Rava Dosa,"Rava,Rice flour,Maida,Onion",{0},{0}
-6,Nachani Dosa,"Ragi flour,Rice flour,Sour curd,Onion",{0},{0}
-7,South Indian Platter,"rice,orad dal",{0},{0}
-8,Oats Masala Dosa,"Oats,Rice flour, Curd,Potato,chana dal,urad dal",{0},{0}
-9,Moongdal Dosa,"Green moong beans,Rice flour, Onion",{0},{0}
-10,Oats Idli,"Oats,Rava,carrot,urad dal,chana dal",{0},{0}
-11,Ragi Idli,"Rice,urad dal,poha,ragi flour",{0},{0}
-12,Masala Fried Idli,"Rice,urad dal,poha,onion,tomato,",{0},{0}
-13,Medu Wada,"Urad dal,onion, coconut pieces",{0},{0}
-14,Dal Wada,"Chana dal,urad dal,moong dal,onion",{0},{0}
-15,Uttapam,"Rice,urad dal,onion,tomato",{0},{0}
-16,Carrot Uttapam,"Rice,urad dal,onion,carrot",{0},{0}
-18,Ragi Uttapam,"Ragi flour,Rice flour,onion",{0},{0}
-19,Oats Uttapam,"oats,rava,gram flour,onion,tomato",{0},{0}
-20,Vermicelli Upama,"Vermicelli,urad dal,onion,beans,carrot",{0},{0}
-21,Corn Upama,"Corn,rava, chana dal,urad dal",{0},{0}
-22,Wheat upama,"Broken wheat,onion,carrot",{0},{0}
-23,Avial,"Drumsticks,ash gourd,pumpkin,yogurt,coconut",{0},{0}
-24,Coconut Chutney,"Coconut,chana dal,ginger",{0},{0}
-25,Onion Chutney,"Onion,chana dal,urad dal,tamarind",{0},{0}
-26,Tomato Chutney,"Tomato, garlic,chili powder",{0},{0}
-27,Coriander Chutney,Coriander leaves,{0},{0}
-28,Pudina Chutney,"Mint leaves,coriander leaves, garlic,yogurt,amchur",{0},{0}
-29,Lemon Rice,"Rice, lemon juice",{0},{0}
-30,Curd Rice,"Rice,curd,urad dal,chana dal, milk,carrot,red chili",{0},{0}
-31,Tomato Rice,"Rice,onion,tomato, garlic",{0},{0}
-32,Coconut Rice,"Rice,Coconut milk",{0},{0}
-33,Tamarind Rice,"Rice,tamarind,urad dal,chana dal,red chilli",{0},{0}
-34,Sesame Rice,"Rice,spring onion,sesame seeds",{0},{0}
-35,Fish Moilee,"White fish, garlic,onion,coconut milk,vinegar",{0},{0}
-36,Karimeen Fry,"Pearlspot fish, garlic,onion,tomato,red chilli,lemon juice",{0},{0}
-37,Aila Fish Curry,"Mackerel fish,coconut grated,tamarind, tomato,shallots,red chilli",{0},{0}
-38,Kerala Chicken Roast,"Chicken, garlic,tomato,onion,soya sauce",{0},{0}
-39,Naadan Crab Fry,"Crab,onion,tomato,tamarind,coconut grated,shallots, red chilli",{0},{0}
-40,Fish Curry With Lotus Stems,"fish,lotus stems",{0},{0}
-41,Goan Curry,"Prawns,red chilli,garlic,tamarind,coconut milk,coconut grated, onion,tomato",{0},{0}
-42,Machha Besara,"Rohu fish,red chilli,garlic,lemon juice,mustard seeds, onion,tomato",{0},{0}
-43,Malvani Curry,"Fish,garlic,tamarind,coconut grated,teppal,onion",{0},{0}
-44,Bombil Fry,"Bombil, garlic,lemon juice,rice flour,rava",{0},{0}
-45,Bangada Fry,"Mackerel(bangda), garlic,lemon juice,rice flour,rava",{0},{0}
-46,Malvani Mutton Curry,mutton,{0},{0}
-47,Paplet Gravy,"Pomfret fish,onion,tomato,vinegar ,garlic,ginger",{0},{0}
-48,Mori Masala,"Shark fish,nutmeg,red chilli,coconut, garlic,coconut,tomato",{0},{0}
-49,Prawns Curry,"Prawns,rice flour,onion, garlic,tomato puree,",{0},{0}
-50,Prawns Fry,"Prawns, garlic,coconut,curd",{0},{0}
-51,Crab Meat balls,"Crab,flour,paprika,egg,sauce,milk,parsley",{0},{0}
-52,Creamy Crab Meat,"cream,crab",{0},{0}
-53,Crab Mean Buruji,"crab,egg",{0},{0}
-54,Crab Soup,crab,{0},{0}
-55,Crab Biryani,"Crab,rice,tomato paste,onion, garlic,ghee,red chilli",{0},{0}
-56,Crab Leg Masala,"Crab,onion,tomato, garlic,mustard seeds",{0},{0}
-57,Tandoori Chicken,"Chicken,garlic, yogurt,lemon juice,kasturi methi",{0},{0}
-58,Chicken Stew,"Chicken,carrot,onion,celery,flour,potato,sweet potato,beans,cream,red pepper",{0},{0}
-59,Chicken Soup,"Chicken,chicken broth,celery,carrot,onion,rice",{0},{0}
-60,Chicken Tikka Masala,"Chicken,yogurt,lemon juice, garlic,sauce,cream,paprika",{0},{0}
-61,Mughlai Chicken,"Chicken,ghee,cashewnut,onion,garlic, cream",{0},{0}
-62,Chicken Curry,"Chicken, garlic,onion,tomato",{0},{0}
-63,Mughlai Chicken Biryani,"Chicken,rice, garlic,onion,tomato,nutmeg,yogurt,almond,ghee",{0},{0}
-64,Mirchi Ka Salan,"Peanuts,coconut dessciated,onion, garlic,mustard,tamarind",{0},{0}
-65,Dum Pukht,"Chicken,yogurt, garlic,onion,cashew,almond,ghee",{0},{0}
-66,Hyderabadi Marag,"Mutton,onion, garlic,coconut dessicated,cashew,pista,yogurt,milk,cream,mint leaves",{0},{0}
-67,Chicken Lollipop,"Chicken, garlic,onion,soya sauce,corn flour,vinegar,chilli sauce",{0},{0}
-68,Gosht Pasinde,"Mutton, garlic,mint,almonds,curd,",{0},{0}
-69,Malai Korma,"Cream,onion,tomato,garlic, cashew,ghee",{0},{0}
-70,Qabooli Biryani,"Rice,chana dal,onion, garlic,yogurt,mint leaves",{0},{0}
-71,Dum Biryani,"Chicken,yogurt, garlic,onion,lemon juice,rice,milk,ghee",{0},{0}
-72,Hyderabadi Veg Biryani,"Rice,masoor dal,onion, garlic,mint leaves,ghee",{0},{0}
-73,Sheer Khurma,"Milk,sugar,vermicilli,dates,raisins,almonds,pistas,ghee",{0},{0}
-74,Shahi Tukada,"Bread,milk,cashew,pistas,ghee,sugar,almonds",{0},{0}
-75,Mutton Korma,"Mutton,onion,curd,garlic,ginger",{0},{0}
-76,Chicken Biryani,"Chicken,rice,mint leaves,garlic,tomto puree,milk, onion,tomato,yogurt",{0},{0}
-77,Chicken 65,"Chicken,corn flour,rice flour,egg white, garlic,curd,sugar",{0},{0}
-78,Puri Bhaji,"Potato,onion,urad dal,ginger",{0},{0}
-79,Chole Bhature,"Chickpeas,onion,tomato, garlic,lemon juice,butter,maida,yeast,wheat flour",{0},{0}
-80,Rogan Josh,"Lamb shanks,Maida,sour cream, tomato,onion,carrots,potato,mushroom",{0},{0}
-81,Sali Boti(Red Hot Mutton),"Mutton,onion, garlic,tomato,vinegar,potato shreds",{0},{0}
-82,Aloo chaat,"Coriander,green chilli,potato,onion,chaat masala,lemon juice,tamarind chutney",{0},{0}
-83,Malpua,"Maida,ghee,khoa(mava),rava,baking powder,sugar,milk,pista",{0},{0}
-84,Kadhai Paneer,"Paneer,red chilli,onion, garlic,tomato,capsicum,garam masala",{0},{0}
-85,Aloo Gobi Masala,"Onion, garlic,coconutt milk,tomato,garbanzo beans,cauliflower,gold pepper,cayenne pepper",{0},{0}
-86,Carrot Halwa,"Carrot,ghee,milk,sugar,raisins",{0},{0}
-87,Lauki Halwa,"Lauki,elaichi,almonds,cashew,raisins,ghee,milk,condensed milk",{0},{0}
-88,Palak Paneer,"Paneer,spinach, garlic,tomato puree,onion,red pepper,cream",{0},{0}
-89,Aloo Matar,"Potato,green peas,onion, garlic,tomato,garam masala",{0},{0}
-90,Paneer Butter Masala,"Paneer,butter, garlic,onion,cashew,red chilli,tomayo sauce,milk,",{0},{0}
-91,Paneer Tikka,"Paneer,yogurt, garlic,lemon juice,onion,green capsicum,green chutney",{0},{0}
-92,Tawa Paneer,"Paneer,onion, tomato puree,capsicum,cream,garam masala",{0},{0}
-93,Dum Aloo,"Potato,onion,tomato,cashew, garlic,curd,garam masala",{0},{0}
-94,Dahi Kabab,"Chickpea flour,yogurt,onion,ghee,coriander leaves",{0},{0}
-95,Spicy Achari Paneer Masala,"Paneer,red chilli,onion,amchur,turmeric,mustard seeds",{0},{0}
-96,Dal Fry,"Onion, garlic,toor dal,tomato,red chilli,ghee,garam masala",{0},{0}
-97,Dal Tadaka,"Onion, garlic,moong dal,tomato,green chilli",{0},{0}
-98,Baingan Bharata,"Brinjal,onion,tomato,yogurt, garlic,garam masala",{0},{0}
-99,Bhendi Fry,"Onion, garlic,Lady's finger,tomato,amchur,garam masala",{0},{0}
-100,Bhendi Masala,"Onion, garlic,Lady's finger,tomato,amchur,red chilli powder",{0},{0}
-101,Aloo Tikki,"Potato,onion,peas, ground spice,maida,curd,mint chutney",{0},{0}
-102,Baby Corn Masala,"Baby corn cobs, garlic,onion,tomato,garam masala",{0},{0}
-103,Kadai Mushroom,"Mushroom,red chilli, garlic,onion,tomato,cashew,capsicum,garam masala",{0},{0}
-104,Malai Kofata,"Onion, garlic,tomato,cashew,potato,butter,garam masala,cream,corn flour,raisins",{0},{0}
-105,Masoor Dal,masoor dal,{0},{0}
-106,Matar Mushroom,"Mushroom,frozen peas,onion,tomato, garlic,garam masala",{0},{0}
-107,Methi Malai Paneer,"Fenugreek leaves,red pepper,paneer,coriander,tomato puree,garam masala",{0},{0}
-108,Sev Bhaji,"Onion,coconut dried, garlic,red sev,jaggery,garam masala",{0},{0}
-109,Mushroom Masala,"Mushroom,onion,tomato, garlic,garam masala,almond,cream",{0},{0}
-110,Paneer makhani,"Paneer,tomato, garlic,butter,cream,garam masala,fenugreek leaves dry",{0},{0}
-111,Rajama,"Onion, garlic,garam masala,red kidney beans,ghee,red pepper,coriander",{0},{0}
-112,Sabudana Khichadi,"Sabudana, potato,peanuts,lemon juice,green chilli",{0},{0}
-113,Sabudana Vada,"Sabudana,Red Chilli Powder,potato,peanuts,lemon juice,green chilli,coriander powder",{0},{0}
-114,Samosa,"Maida,ghee,potato,garlic, amchur,garam masala,peas",{0},{0}
-115,Shahi Paneer,"Paneer,tomato, butter,garam masala,red chilli powder,gram melon seeds",{0},{0}
-116,Stuffed Capsicum,"Paneer,capsicum,potato,cashew,raisins,amchur,onion, cheese,green chilli",{0},{0}
-117,Veg Cutlet,"Potato,french beans,peas,beetroot, onion,maida,bread,cashew,green chilli",{0},{0}
-118,Veg Seekh Kabab,"French beans,carrot,cabbage,peas,gram flour, garlic,potato,corn,chaat masala",{0},{0}
-119,Badam Halawa,"Almond,saffron,ghee,sugar",{0},{0}
-120,Beetroot Halawa,"Beetroot,milk,sugar,ghee,elaichi,cashew,raisins",{0},{0}
-121,Cham cham,"Milk,lemon juice,sugar,corn flour,khoa,coconut shredded,elaichi,figs",{0},{0}
-122,Badam Dry Fruit Ladoo,"Raisins,ghee,dates,pista,cashew,almonds,elaichi powder",{0},{0}
-123,Gulab Jamun,"Milk powder,maida,ghee,baking powder,almonds,pista,raisins,sugar,ground cardamom",{0},{0}
-124,Moong Dal Halwa,"Green lentil,ghee,sugar,milk,almonds,elaichi",{0},{0}
-125,Walnut Halwa,"Walnut,sugar,Cucumber seeds,Cardamom powder,,Saffron,dates,milk",{0},{0}
-126,Pumpkin Halwa,"Condensed Milk,Milk,cashew,pista,almonds,Pumpkin ,Desiccated Coconut
-,ghee,elaichi powder",{0},{0}
-127,Egg Omelette,"Egg,salt,pepper,chilli powder",{0},{0}
-128,Egg Bhuraji,"Egg,salt,chilli powder,onion,green chilli",{0},{0}
-129,Paneer Bhuraji,"Egg,paneer,butter, onion,tomato,red chilli powder",{0},{0}
-130,Egg Curry,egg,{0},{0}
-131,Half fried Egg,"Egg,Green Chili Paste,tomato,garlic, garam masala",{0},{0}
-133,Plain Paratha,"Wheat flour,salt,ghee",{0},{0}
-134,Rumali Roti,maida,{0},{0}
-135,Naan,maida,{0},{0}
-136,Tawa Roti,wheat,{0},{0}
-137,Butter Naan,maida,{0},{0}
-138,Aloo paratha,"Wheat flour,potato,ghee,amchur,green chilli,garam masala",{0},{0}
-140,Gobi Paratha,"Wheat flour,cauliflower,ghee,amchur,green chilli,garam masala",{0},{0}
-144,Paneer Paratha,"Wheat flour,paneer,ghee,amchur,green chilli,garam masala",{0},{0}
-145,Onion Paratha,"Wheat flour,onion,ghee,amchur,green chilli,garam masala",{0},{0}
-146,Methi Paratha,"Wheat flour,fenugreek leaves,ghee,amchur,green chilli,garam masala",{0},{0}
-147,Bread Pakoda,"Gram flour,bread,green chilli,salt",{0},{0}
-148,Butter Bread Toast,"Bread,butter",{0},{0}
-149,Aloo Sandwitch,"Bread,potato,chilli powder,onion,butter",{0},{0}
-150,Veg Sandwitch,"Bread,butter,cucumber,onion,tomato,carrot,beetroot,green chilli,sauce",{0},{0}
-151,Cheese Grilled Sandwitch,"Bread,cheese,butter,carrot,capsicum,onion,corn,parsley",{0},{0}
-152,Veg Salad,"Sour cream, mayonnaise, vinegar, jalapeno,cucumber,onion,tomato,corn",{0},{0}
-153,Fruit Salad,"Orange juice, lemon juice, brown sugar,pineapple, strawberries, kiwi fruit, bananas, oranges, grapes,blueberries",{0},{0}
-154,Sprout Salad,"sprouted moong, chana dal,kabuli chana,onion, cucumber, capsicum,tomatoes,chaat masala",{0},{0}
-155,Bundi Raita,"Boondi,yogurt,chaat masala,salt,coriander leaves",{0},{0}
-156,Mint Raita,"Yogurt,mint leaves,coriander leaves,onion,salt",{0},{0}
-157,Plain Raita,"Yogurt,coriander leaves,black pepper,salt,cumin seeds",{0},{0}
-158,Manchow Soup,"Beans, carrot, cauliflower,capsicum, cabbage,celery,spring onions,soya sauce,red chilly sauce,vegetable stock,fried noodles, garlic",{0},{0}
-159,Sweet And Sour Soup,"Veg stock,spring onion,cucumber,chili sauce,sugar,corn flour,vinegrar,wonton",{0},{0}
-160,Sweet Corn Soup,"Corn,celery,spring onion,milk,corn flour,black pepper",{0},{0}
-161,Tomato Soup,"Toamto,onion,garlic,celery,vegetable broth,carrot,sauce",{0},{0}
-162,Spinach Soup,"Spinach,onion,garlic,butter,maida",{0},{0}
-163,Paaya Soup,"Lamb trotter,Bengal Gram, garlic,green chili,elaichi",{0},{0}
-164,French Onion Soup,"Onion,butter,beef broth,sherry,french bread,cheese,",{0},{0}
-165,Lemony Greek Chicken Soup,"Chicken,chicken broth,chicken soup base,rice,maida,lemon,onion,celery,carrot,egg yolk",{0},{0}
-166,Veg Manchurian,"Cabbage,carrot,capsicum,spring onion, garlic, corn flour, maida, salt, black pepper,sauce,vinegar",{0},{0}
-167,Schezwan Noodles,"Noodles,Cabbage,carrot,capsicum,spring onion,beans, garlic, sauce,vinegar",{0},{0}
-168,Schezwan Rice,"Rice,french beans, carrot, capsicum, cabbage, celery,Spring Onion,garlic,sauce",{0},{0}
-169,Triple Schezwan fried Rice,"Rice,noodles, spring onions, cabbage,carrots, garlic,cornflour,celery,sauce",{0},{0}
-170,Hakka Noodles,"Hakka noodles,spring onion,carrot,beans,mushroom,capsicum,garlic,celery,vinegar,soya sauce,green chilli",{0},{0}
-171,Veg 65,"Onion,garlic, cauliflower,sauce,vinegar,maida,mushroom,potato,corn flour",{0},{0}
-172,HongKong Rice,"rice,spring onion,alfalfa sprouts,eggs,pepper",{0},{0}
-173,Veggie Lovers Pizza,"Green capsicum,olive,pizza crust,mushroom,cheese,onion,sauce",{0},{0}
-174,Cheese Garlic Pizza Sticks,"Pizza dough,garlic,butter,sauce,Monteray jack cheese,cheddar cheese,Mozzarella cheese",{0},{0}
-175,Cheese Delite Pizza,"capsicum,mozarella cheese,corn,tomatoes,onions,olive",{0},{0}
-176,Jain Pizza,"capsicum,cheese,corn,tomatoes",{0},{0}
-177,Hot n Spicy Chinese Pizza,"Chicken breast, garlic,pizza crust,soya sauce,sauce,water chestnuts,onion,cheese,snow pea pods",{0},{0}
-178,Chicken Barbeque Pizza,"Pizza crust,barbeque sauce,barbeque sauce,onion,cheese,chicken",{0},{0}
-179,Margherite Veg Pizza,"Pizza dough,garlic,sauce,cheese,tomato,basil",{0},{0}
-180,Red Sauce Pasta,pasta,{0},{0}
-181,Arrabiata Pasta,"Garlic,tomato,sugar,oregano,lemon juice,pasta,cheese,basil",{0},{0}
-182,White Sauce Pasta,pasta,{0},{0}
-183,Italian Pasta,pasta,{0},{0}
-184,Spaghetti Pasta,Pasta,{0},{0}
-185,Apple Pie,"Apple,Granny Smith apples,sugar,maida,shortening,butter",{0},{0}
-186,Brownies,"Butter,sugar,eggs,vanilla extract,cocoa powder,maida,baking powder,butter,honey",{0},{0}
-187,Apple Crisp,"Apple,sugar,maida,oats,butter,brown sugar,baking powder,baking soda",{0},{0}
-188,Bread pudding,"Bread,butter,eggs,raisins,milk,sugar",{0},{0}
-189,Fruit Pudding,"pomgranate,apples,pear,custard,cream",{0},{0}
-190,Butter Milk,"Curd,cumin powder,pepper,coriander leaves",{0},{0}
-191,Mango Juice,"Mango,peach,nectarine,orange,sugar",{0},{0}
-192,Lemonade,"Lemon juice,sugar",{0},{0}
-193,Orange Juice,"Orange,lemon juice,sugar",{0},{0}
-194,Apple Juice,"Apple,sugar",{0},{0}
-195,Watermelon Juice,"Watermelon,sugar,lemon juice",{0},{0}
-196,Aloe vera juice,"Aloe vera juice,yogurt,pineapple,spinach,banana,ginger",{0},{0}
-197,Sugarcane juice,"Sugarcane juice,lemon juice,ginger",{0},{0}
-199,Coconut Juice,coconut,{0},{0}
-200,Kiwifruit Juice,"Kiwi,apple,celery",{0},{0}
-201,Pineapple juice,"Pineapple,sugar,pepper,salt",{0},{0}
-202,Strawberry juice,"Strawberry,sugar",{0},{0}
-203,Beet juice (B.P),"Beetroot,apple,celery,carrot,lemon,ginger",{0},{0}
-204,Carrot and orange Juice,"Orange,carrot,apple,lemon,nectarine,mint,ginger",{0},{0}
-205,Mixed veg Juice,"Tomato,celery,capsicum,onion,beetroot,carrot,garlic,horseradish,lemon juice,sugar",{0},{0}
-206,Cucumber Juice,"Cucumber,green chili pepper,mint leaves,lime juice",{0},{0}
-207,Rose Sharabat,"Rose petals,lemon juice,beetroot,basil,mint,cardamom,coriander",{0},{0}
-208,Guava Juice,"Guava,tomato,sugar,salt,pepper",{0},{0}
-209,Pomegranate juice,Pomegranate,{0},{0}
-210,Ras Malai,"Ricotta cheese,sugar,cardamom,saffron,almond,pista,half and half",{0},{0}
-211,Rabadi,"Milk,sugar,cardamom,saffron,almond,pista",{0},{0}
-212,Rasgulla,"Milk,lemon juice,refined flour,sugar syrup",{0},{0}
-213,Coffee,"Coffee powder,milk,sugar",{0},{0}
-214,Tea,"Tea leaves,milk,sugar",{0},{0}
-215,Masala Tea,"Tea leaves,milk,sugar,cardamom,peppercorns",{0},{0}
-216,Pav Bhaji,"Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,butter,masala,pav",{0},{0}
-217,Vada Pav,"Potato,garlic,gram flour,baking soda,lemon juice,green chilli,tamarind,red chutney,pav,jaggery powder",{0},{0}
-218,Misal Pav,"Beansprout,potato,onion,chilli,garlic, tamarind,pav,tomato,sev,lime,yogurt,coriander leaves",{0},{0}
-219,Poha,"Onion,poha,sugar,green chilli,potato,lemon juice",{0},{0}
-220,Aloo Pakoda,"Potato,gram flour,rice flour,baking soda,chaat masala,garam masala",{0},{0}
-221,Cheese Pav bhaji,"Cheese,Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,butter,masala,pav",{0},{0}
-222,Butter Pav bhaji,"Butter,brinjal,capsicum,Onion, garlic,green chilli pepper,onion,tomato,cauliflower,cabbage,green peas,carrots,potato,masala,pav",{0},{0}
-223,Dabeli,"Red chilli,coriander powder,cumin seeds,lemon juice,garlic,potato,onion,coconut grated,pomegranate seeds,tamarind dates chutney,coriander leaves,pav,sev",{0},{0}
-224,Veg Burger,"Maida,carrots, squash,zucchini,garlic,onion,oats,cheese,egg,soya sauce",{0},{0}
-225,Chicken burger,"Chicken,breadcrumbs,onion,garlic,egg,pepper",{0},{0}
-226,Veg Pulao,"Rice,peas, carrot, green beans, cauliflower,vegetable broth,garlic,onion,",{0},{0}
-227,Veg Biryani,"Onion, garlic,,cauliflower,cabbage,green peas,carrots,rice,green chilli,garam masala,coriander leaves",{0},{0}
-228,Veg steam Momos,"Maida,cabbage,french beans,carrots,capsicum,spring onion,garlic,soya sauce,black pepper",{0},{0}
-229,Paneer steam Momos,"Paneer,,onion,garlic, maida,coriander leaves,soya sauce,cabbage,tomato",{0},{0}
-230,Paneer Fried Momos,"Refined flour,baking powder,paneer,onion,garlic,soya sauce,vinegar",{0},{0}
-231,Chicken Steam Momos,"Chicken,onion,garlic, maida,coriander leaves,soya sauce,cabbage,tomato",{0},{0}
-232,Chicken Fried Momos,"Refined flour,baking powder,chicken,onion,garlic,soya sauce,vinegar",{0},{0}
-233,Chilly Chicken Momos,"Red chilli,garlic,chicken,vinegar,corn flour,soya sauce,cabbage,carrot,onion,black pepper",{0},{0}
-234,Chilly Paneer Momos,"Paneer,Green capsicum,spring onion,garlic, sauce,green chilli,cheese,maida",{0},{0}
-235,Fish Fried Momos,"Wheat flour,carrots,cabbage,spring onions,beans,cauliflower,fish,sauce,onion,garlic,black pepper",{0},{0}
-236,Mushroom Momos,"Maida,mushroom,garlic,spring onion,soya sauce,pepper",{0},{0}
-237,Chilli Pakora,"Green chilli,potato,chaat masala,garam masala,batter,gram flour,baking powder,red chilli powder",{0},{0}
-238,Paneer Pakora,"Paneer,gram flour,garlic, red chilli powder,green chilli",{0},{0}
-239,Chaat Papdi,"Papdi,curd,sugar,potato,chickpeas,onion,pomegranate seeds,tamarind chutney,mint chutney,sev,coriander leaves",{0},{0}
-240,Tandoori Roti,"Wheat flour,ghee,oil",{0},{0}
-241,Chilli Garlic Naan,"Maida,garlic,green chilli,coriander leaves,baking soda,baking powder,yogurt,milk,butter",{0},{0}
-242,Lahori Naan,"Flour,chickpea flour,ghee,sugar,almond,egg yolk,baking soda,cardamom,nutmeg",{0},{0}
-243,Matar Paneer,"Paneer,green peas,onion, garlic,tomato,red pepepr,green chilli",{0},{0}
-244,Chilli Paneer,"Corn flour,maida, garlic,pepper,paneer,red chilli powder,green chilli,spring onion,capsicum,soya sauce,sauce,vinegar",{0},{0}
-245,Bhindi Masala,"Onion, garlic,lady's finger,tomato,amachur",{0},{0}
-246,Mango Lassi,"Mango pulp,yogurt,milk,sugar,pista,elaichi",{0},{0}
-247,Thalipeeth,"Wheat flour,gram flour,bajra,jowar,rice flour,onion, green chilli,coriander powder,ajwain",{0},{0}
-248,Veg Kofta Curry,"Potato,onion, garlic,carrot,capsicum,cabbage,beans,tomato paste,milk,cream,cashew,garam amsala",{0},{0}
-249,Chana Masala,"Chickpeas,garam masal, garlic,pomegranate seeds,onion,pepper,tomato",{0},{0}
-250,Aloo Paneer Masala,"Paneer,potato,cardamom,onion, garlic,green chilli,tomato puree,cream",{0},{0}
-251,Kadai Bhindi,"Onion, garlic,lady's finger,tomato,capsicum,garam masala",{0},{0}
-252,Mixed Vegetable Curry,"Onion,cauliflower,carrots,cabbage,beans ,peas,potatoes, garlic,tomato,curd,green chilli",{0},{0}
-253,Rice,Rice,{0},{0}
-254,Jeera Rice,"Rice,cumin seeds,ghee",{0},{0}
-255,Parmesan Potato Pancakes,"Onion,garlic,pepper,potato,cheese,basil",{0},{0}
-256,Ginger-Chocolate Chunk Ice Cream Sandwiches,"Vanilla ice-cream,dark chocolate, chocolate wafer cookies",{0},{0}
-257,Sangria,"Apple,lemon juice,orange,orange juice,wine,brandy",{0},{0}
-258,Apple-Cinnamon Granola,"Honey,oats,walnuts,nutmeg,apple,raisins",{0},{0}
-259,Morning Glory Muffins,"Maida,sugar,baking soda,carrot,raisins,walnut,apple,flaked coconut,eggs",{0},{0}
-260,Arugula and Goat Cheese Pizza,"Onion,pizza crust,tomato,goat cheese,arugula",{0},{0}
-261,"Savory Squash, Carrot, and Ginger Soup","Carrot,onion,garlic, butternut squash,apple,pear,coconut milk,bread",{0},{0}
-262,Jane's Vegetarian Chili,"Onion,garlic,chickpeas,tomato,kidney beans,white beans,black beans,cheese",{0},{0}
-263,Bean and Corn Salsa,"Tomato,onion,black bean,corn",{0},{0}
-264,Lemon-Asparagus Pasta,"Pasta,asparagus,garlic",{0},{0}
-265,Mixed Green Salad With Dried Plums and Toasted Pecans,"Shallots,escarole,Lettuce,prunes,pecans",{0},{0}
-266,Linguine with Red Pepper Sauce,"Onion,Linguine,garlic,red pepper,capers",{0},{0}
-267,Mediterranean Stuffed Tomatoes,"Tomato,cheese,dates,wild rice,Quinoa,onion,lentils",{0},{0}
-268,Marinated Feta and Olive Skewers,"Cheese,cucumber,orange juice,olives",{0},{0}
-269,Lightened Waldorf Salad,"Granny Smith apple,raisins,celery,yogurt",{0},{0}
-270,Cauliflower fried rice,"Culiflower,peas,carrot,eggs,scallions",{0},{0}
-271,Oatmeal Chocolate Chip Cookies,"Oats,wheat flour,eggs,chocolate chips",{0},{0}
-272,Chocolate chip cloud cookies,"Oats,brown sugar,egg,chocolate chips,yogurt,maida",{0},{0}
-273,Lickety Split Lemon Oaties,"Lemon,oats,sugar,maida",{0},{0}
-274,Fruity fingerprint cookies,"Egg,maida,milk,fruit preserve",{0},{0}
-275,Fudgy chocolate cookies,"Maida,cocoa powder,brown sugar,buttermilk",{0},{0}
-276,Pumpkin pie cookie,"Pumpkin canned,splenda,cheese",{0},{0}
-277,Spiced pumpkin chip cookies,"Pumpkin canned,splenda,maida,chocolate chips,egg",{0},{0}
-278,3-ingredient peanut butter cookie,"Splenda,peanut butter,egg",{0},{0}
-279,Banana Bread Cookies,"Brown sugar,banana,egg,wheat flour",{0},{0}
-280,Pecan Balls,"Maida,wheat flour,pecan,egg",{0},{0}
-281,Chocolate chip carrot,"Stevia,brown sugar,carrot,oats,maida,egg,chocolate chips",{0},{0}
-282,Cinnamon Roll cookies,"Oats,wheat flour,cinnamon,milk,cheese,maple syrup",{0},{0}
-283,Carrot cake,"Carrot,pineapple,egg white,wheat flour,frosting",{0},{0}
-284,Chocolate cherry poke cake,"Chococlate cake mix,gelatin mix,cherry,diet cola",{0},{0}
-285,Cinnamon Banana cake,"Maida,cinnamon,banana,yogurt",{0},{0}
-286,Lemon cake,"Yellow cake mix,lemon pudding and pie filling,milk,lemon,egg substitute",{0},{0}
-287,Mini eclair bites,"Graham cracker crumbs, vanilla pudding mix,milk,confectioner's sugar",{0},{0}
-288,Golden apple treat,"Apple,brown sugar,cinnamon,vanilla ice cream,brown sugar",{0},{0}
-289,Summer's Best Peach Crumble,"Peach,brown sugar,cinnamon graham crackers",{0},{0}
-290,Creamy Dreamy Banana Pie,"Banana,milk,vanilla pudding mix,graham cracker pie crust",{0},{0}
-291,Phirni,"Rice,milk,pista,elaichi",{0},{0}
-292,Cheesy chicken n broccoli,"Chicken, broccoli florets,pimentos",{0},{0}
-293,Asian Chicken salad,"Chicken,cabbage,scallion,water chestnuts",{0},{0}
-294,Crock Pot Mexican Chicken Soup,"Chicken,chicken broth,chunky salsa,cheese",{0},{0}
-295,Apple and Thyme Chicken,"apple,chicken",{0},{0}
-296,Baked Chicken with Onions & Leeks,"chicken,onions",{0},{0}
-297,Chicken Noodle Soup,"chicken,carrots",{0},{0}
-298,Baked salmon with lemon and garlic,"salmon,garlic,lemon",{0},{0}
-299,Curry tuna salad,tuna,{0},{0}
-300,Big Kahuna Tuna Steak,tuna,{0},{0}
-301,Blackened Salmon,salmon,{0},{0}
-302,Turmeric ginger orange smoothie,"orange, turmeric",{0},{0}
-303,Blackberry peach salad,"blackberry,peach,orange",{0},{0}
-304,Low fat celery soup,"celery,chicken",{0},{0}
-305,Brown rice and cracked wheat dosa,"wheat,rice",{0},{0}
-306,Vegetable Kothu Chapathi,"carrot,beans,coconut,tomatoes",{0},{0}
-307,Apple and Cinnamon Oatmeal,"apple,cinnamon,oats",{0},{0}
-308,Broccoli and Carrot Soup,"broccoli,carrot",{0},{0}
-309,Sugar free Granola,"oats,vanilla extract,peach,mango,walnuts",{0},{0}
-310,Spiced carrot & lentil soup,"carrots,paprika,masoor dal",{0},{0}
-311,Oats soup,"oats,mint,carrot,",{0},{0}
-312,Gooseberry chutney,amla,{0},{0}
-313,"Spinach, Pear, and Pancetta Salad","spinach,pear,pancetta,vinegar",{0},{0}
-314,Masala missi roti,"besan,wheat flour",{0},{0}
-315,Besan Methi Frankie,"fenugreek leaves,besan,yoghurt",{0},{0}
-316,Lauki Raita,"lauki,yoghurt",{0},{0}
-317,Green Pepper Steak,"beef,green capsipum,tomatoes",{0},{0}
-318,Okra and Tomato Curry,"ladyfingers,tomatoes",{0},{0}
-319,Okra Juice and Smoothie,"carrots,apples,ladyfingers",{0},{0}
-320,Zucchini corn boats,"corn,zucchini,onion,mozarella cheese,olive oil",{0},{0}
-321,Roasted vegetables,"margarine,corn,carrot,peas,beans,cauliflower,butter",{0},{0}
-322,Mixed vegetables,"margarine,corn,carrot,peas,beans",{0},{0}
-323,Chinese stir fried peas and greens,"peas,soy sauce,oyster sauce,garlic",{0},{0}
-324,Italian pita crisps,"parmesan,paprika,margarine,wheat bread,italian seasoning",{0},{0}
-325,English muffin cheese pizza,"mozarella cheese,pepperini sausage,pizza sauce",{0},{0}
+Ingredient_id,Food Name,Protein (g),Fat (g),Carbohydrates (g),Calories,Sugar (g),Fiber (g),Calcium (mg),Magnesium (mg),Iron (mg),Potasssium (mg),Sodium (mg),Cholesterol (mg)
+1,Active dry yeast,40.44,7.61,41.22,325,0,26.9,30,54,2.17,955,51,0
+2,Alfalfa seeds,3.99,0.69,2.1,23,0.2,1.9,32,27,0.96,79,6,0
+3,All-purpose flour(maida),10.33,0.98,76.31,364,0.27,2.7,15,22,4.64,107,2,0
+4,Almond granola bars,7.7,25.5,62,495,0,4.8,32,81,2.5,273,256,0
+5,Almond milk(unsweetened),0.59,1.1,0.58,15,0,0,197,7,0.35,67,71,0
+6,Almond(slivered),4.7,11,4.7,127,1,2.8,0,0,0,0,0.2,0
+7,Almonds,21.15,49.93,21.55,579,4.35,12.5,269,270,3.71,733,1,0
+8,Almonds(dry roasted),20.96,52.54,21.01,598,4.86,10.9,268,279,3.73,713,3,0
+9,Amaranth grain,13.56,7.02,65.25,371,1.69,6.7,0,0,0,0,4,0
+10,Amaranth leaves,2.46,0.33,4.02,23,0,0,0,0,0,0,20,0
+11,Apple,0.26,0.17,13.81,52,10.39,2.4,6,5,0.12,107,1,0
+12,Apple juice(unsweetened),0.1,0.13,11.3,46,9.62,0.2,8,5,0.12,101,4,0
+13,Apple(dried),0.93,0.32,65.89,243,57.19,8.7,14,16,1.4,450,87,0
+14,Apple(granny smith),0.44,0.19,13.61,58,9.59,2.8,5,5,0.15,120,1,0
+15,Applesauce(unsweetened),0.17,0.1,11.27,42,9.39,1.1,4,3,0.23,74,2,0
+16,Asafoetida,4,1.1,67.8,297.1,3.1,4.1,0,0,0,0,0.1,0
+17,Asparagus,2.2,0.12,3.88,20,1.88,2.1,24,14,2.14,202,2,0
+18,Baby Corn Cob,3.4,1.5,21.5,96,4.5,2.4,0,0,0,0,1,0
+19,Bacon,12.53,39.27,0.83,407,0.83,0,4,12,0.42,506,470,0
+20,Bacon bits(meatless),32,25.9,28.6,476,0,10.2,101,95,0.72,145,1770,0
+21,Bacon(meatless),11.69,29.52,5.31,309,0,2.6,23,19,2.41,170,1465,0
+22,Baking powder(low sodium),0.1,0.4,46.9,97,0,2.2,4332,29,8.17,10100,90,0
+23,Banana powder,3.89,1.81,88.28,346,47.3,9.9,22,108,1.15,1491,3,0
+24,Bananas,1.09,0.33,22.84,89,12.23,2.6,5,27,0.26,358,1,0
+25,Barbecue Sauce,1,0.52,37.92,160,30.95,1.4,40,16,1.09,277,613,0
+26,Basil,3.15,0.64,2.65,23,0.3,1.6,177,64,3.17,295,4,0
+27,Basil dried,22.98,4.07,47.75,233,1.71,37.7,2240,711,89.8,2630,76,0
+28,Bay leaf,7.61,8.36,74.97,313,0,26.3,834,120,43,529,23,0
+29,Bean Sprouts,2,0.1,4.2,21.1,2.8,0.8,0,0,0,0,9.7,0
+30,Beef,25.9,20,0,290.6,0,0,0,0,0,0,63.5,87.1
+31,Beef Broth,1.1,0.2,0,7.1,0,0,0,0,0,0,372.4,0
+32,Beef top sirloin steak,29.33,9.67,0,212,0,0,22,25,1.89,368,61,88
+33,Beetroot,1.61,0.17,9.56,43,6.76,2.8,16,23,0.8,325,78,0
+34,Black pepper,10.39,3.26,63.95,251,0.64,25.3,443,171,9.71,1329,20,0
+35,Blueberries,0.09,0,10.42,41,10.38,0,2,1,0.02,1,10,0
+36,Blueberries,0.74,0.33,14.49,57,9.96,2.4,6,6,0.28,77,1,0
+37,Blueberries (dried),2.5,2.5,80,317,67.5,7.5,19,18,0.9,214,3,0
+38,Boondi,14.3,39.3,39.3,571.2,0,7.1,0,0,0,0,892.5,0
+39,Bread crumbs,13.35,5.3,71.98,395,6.2,4.5,183,43,4.83,196,732,0
+40,Bread wheat flour,11.98,1.66,72.53,361,0.31,2.4,15,25,4.41,100,2,0
+41,Bread(white),8.85,3.33,49.42,266,5.67,2.7,144,23,3.61,126,490,0
+42,Broccoli,2.82,0.37,6.64,34,1.7,2.6,47,21,0.73,316,33,0
+43,Broccoli florets frozen,1.2,0,4.7,35.4,2.4,2.4,0,0,0,0,23.6,0
+44,Broccoli flower clusters,2.98,0.35,5.06,28,1.48,2.3,48,25,0.88,325,27,0
+45,Broccoli leaves,2.98,0.35,5.06,28,1.48,2.3,48,25,0.88,325,27,0
+46,Broccoli stalks,2.98,0.35,5.24,28,0,0,48,25,0.88,325,27,0
+47,Brown Rice,7.5,2.68,76.17,362,0,3.4,33,143,1.8,268,4,0
+48,Brown Rice flour,7.23,2.78,76.48,363,0.66,4.6,11,112,1.98,289,8,0
+49,Brown Sugar Blend,0,0,0,200,50,0,0,0,0,0,0,0
+50,Brussels sprouts,3.38,0.3,8.95,43,2.2,3.8,42,23,1.4,389,25,0
+51,Butter(salted),0.85,81.11,0.06,717,0.06,0,24,2,0.02,24,643,215
+52,Butternut winter Squash,1,0.1,11.69,45,2.2,2,48,34,0.7,352,4,0
+53,Cabbage,1.28,0.1,5.8,25,3.2,2.5,40,12,0.47,170,18,0
+54,Cabbage(red),1.43,0.16,7.37,31,3.83,2.1,45,16,0.8,243,27,0
+55,Cake yellow dry mix,4.7,5.5,84.1,404,0,1.3,155,10,1.31,65,604,0
+56,Canned Black Beans,5.4,0.4,14.6,88,0,5.6,0,0,0,0,144,0
+57,Canola oil,0,100,0,884,0,0,0,0,0,0,0,0
+58,Capers,2.36,0.86,4.89,23,0.41,3.2,40,33,1.67,40,2348,0
+59,Capsicum(Yellow),1,0.2,6.5,27,0,0.9,0,0,0,0,2,0
+60,Caraway seed,19.77,14.59,49.9,333,0.64,38,689,258,16.2,1351,17,0
+61,Cardamom,10.76,6.7,68.47,311,0,28,383,229,14,1119,18,0
+62,Carom Seeds (ajwain),16,25,43,305,0,39,0,0,0,0,10,0
+63,Carrot,0.93,0.24,9.58,41,4.74,2.8,33,12,0.3,320,69,0
+64,Cashew nuts,18.22,43.85,30.19,553,5.91,3.3,37,292,6.68,660,12,0
+65,Cashew nuts(dry roasted),15.31,46.35,32.69,574,5.01,3,45,260,6,565,16,0
+66,Cauliflower,1.92,0.28,4.97,25,1.91,2,22,15,0.42,299,30,0
+67,Cauliflower green,2.95,0.3,6.09,31,3.03,3.2,33,20,0.73,300,23,0
+68,Celery,0.69,0.17,2.97,16,1.34,1.6,40,11,0.2,260,80,0
+69,Chaat masala,0,0,50,500,0,0,0,0,0,0,7500,0
+70,Chana dal roasted,18,12,56,404,10,16,0,0,0,0,64,0
+71,Cheddar Cheese,22.87,33.31,3.09,404,0.48,0,710,27,0.14,76,653,99
+72,Cheese cream,6.15,34.44,5.52,350,3.76,0,97,9,0.11,132,314,101
+73,Cheese cream(fat free),15.69,1,7.66,105,5.48,0,351,22,0.19,278,702,12
+74,Cherry gelatin sugar free,50,0,0,250,0,0,0,0,0,0,3750,0
+75,Chia seeds,16.54,30.74,42.12,486,0,34.4,631,335,7.72,407,16,0
+76,Chicken broiler or fryers breast skinless boneless meat only,22.5,2.62,0,120,0,0,5,28,0.37,334,45,73
+77,Chicken broiler or fryers breast skinless boneless meat only cooked braised,32.06,3.24,0,157,0,0,6,32,0.49,343,47,116
+78,Chicken Bouillon,16.5,14,18,265,17.5,0,0,0,0,0,23900,13
+79,Chicken breast,14.73,15.75,15.01,263,0.37,1.1,19,23,1.11,214,536,41
+80,Chicken breast (cooked),16.35,12.89,17.56,252,0,0,14,26,1,225,446,45
+81,Chicken Broth,0.6,0.2,0.4,6.1,0.4,0,0,0,0,0,374.2,2
+82,Chicken drummettes,20.4,23.1,11.3,333.9,0,0.3,0,0,0,0,329.7,81.9
+83,Chicken soup base,0,22.3,66.8,445.2,44.5,0,0,0,0,0,0,0
+84,Chickpea flour (besan),22.39,6.69,57.82,387,10.85,10.8,45,166,4.86,846,64,0
+85,Chickpeas (garbanzo beans/bengal gram),20.47,6.04,62.95,378,10.7,12.2,57,79,4.31,718,24,0
+86,Chili powder,13.46,14.28,49.7,282,7.19,34.8,330,149,17.3,1950,2867,0
+87,Chili sauce,2.5,0.3,20,91.8,13.4,2.3,0,0,0,0,1335.2,0
+88,Chocolate cake mix (sugar free),5.3,3.9,78.9,289.4,0,5.3,0,0,0,0,684.1,0
+89,Chocolate chips,4.2,30.2,64.4,481.4,54.5,5.8,0,0,0,0,11,0
+90,Chocolate frosting,1.3,5.2,92,389,0,2.4,11,38,1.19,180,76,0
+91,Chocolate wafers Cookies,6.6,14.2,72.7,433,37.43,3.4,31,53,4.01,210,580,2
+92,Chunky Salsa,0,0,0,16.7,3.3,0,0,0,0,0,467.7,0
+93,Cinnamon,3.99,1.24,80.59,247,2.17,53.1,1002,60,8.32,431,10,0
+94,Cloves,5.97,13,65.53,274,2.38,33.9,632,259,11.8,1020,277,0
+95,Cocoa powder(unsweetened),19.6,13.7,57.9,228,1.75,37,128,499,13.9,1524,21,0
+96,Coconut dried (desiccated),6.88,64.53,23.65,660,7.35,16.3,26,90,3.32,543,37,0
+97,Coconut Extract (cream),1.2,16.3,52.7,358.4,51.6,0.2,0,0,0,0,35.8,0
+98,Coconut flaked,6.7,63.3,23.3,733.3,6.7,16.7,0,0,0,0,33.3,0
+99,Coconut grated,7.7,19.2,30.8,346.2,7.7,23.1,0,0,0,0,0,0
+100,Coconut meat,3.33,33.49,15.23,354,6.23,9,14,32,2.43,356,20,0
+101,Coconut milk,2.29,23.84,5.54,230,3.34,2.2,16,37,1.64,263,15,0
+102,Coconut oil,0,99.06,0,892,0,0,1,0,0.05,0,0,0
+103,Coconut shredded,7.2,64.4,25.1,680.2,7.2,17.9,0,0,0,0,35.8,0
+104,Coconut water,0.72,0.2,3.71,19,2.61,1.1,24,25,0.29,250,105,0
+105,Condensed milk,7.9,8.7,55.3,324.1,55.3,0,0,0,0,0,129.1,34.3
+106,Confectioner sugar,0,0,100,389,97.5,0,0,0,0,0,2,0
+107,Coriander leaves(cilantro),2.13,0.52,3.67,23,0.87,2.8,67,26,1.77,521,46,0
+108,Coriander leaf dried,21.93,4.78,52.1,279,7.27,10.4,1246,694,42.5,4466,211,0
+109,Coriander powder,2,2,8,58,1,6,0,0,0,0,0,0
+110,Coriander seed,12.37,17.77,54.99,298,0,41.9,709,330,16.3,1267,35,0
+111,Corn flour(white),6.93,3.86,76.85,361,0.64,7.3,7,93,2.38,315,5,0
+112,Corn flour(yellow),6.93,3.86,76.85,361,0.64,7.3,7,93,2.38,315,5,0
+113,Cornmeal (white),8.12,3.59,76.89,362,0.64,7.3,6,127,3.45,287,35,0
+114,Cornmeal(yellow),8.12,3.59,76.89,362,0.64,7.3,6,127,3.45,287,35,0
+115,Cottage Cheese,12.39,1.02,2.72,72,2.72,0,61,5,0.14,86,406,4
+116,Crab,18.29,0.6,0,84,0,0,46,49,0.59,204,836,42
+117,Cream,2.96,19.1,2.82,191,3.67,0,91,9,0.05,136,72,59
+118,Cucumber,0.65,0.11,3.63,15,1.67,0.5,16,13,0.28,147,2,0
+119,Cumin seed,17.81,22.27,44.24,375,2.25,10.5,931,366,66.4,1788,168,0
+120,Curry leaves,4,0,2,24,0,2,0,0,0,0,4,0
+121,Curry powder,14.29,14.01,55.83,325,2.76,53.2,525,255,19.1,1170,52,0
+122,Dark chocolate,4.88,31.28,61.17,546,47.9,7,56,146,8.02,559,24,8
+123,Dates,2.45,0.39,75.03,282,63.35,8,39,43,1.02,656,2,0
+124,Diet cola,0.1,0,0.3,2,0,0,0,0,0,0,7.9,0
+125,Dijon Mustard,10,0,0,100,0,0,0,0,0,0,2400,0
+126,Dill seed,15.98,14.54,55.17,305,0,21.1,1516,256,16.3,1186,20,0
+127,Dill weed,3.46,1.12,7.02,43,0,2.1,208,55,6.59,738,61,0
+128,Dill weed dried,19.96,4.36,55.82,253,0,13.6,1784,451,48.8,3308,208,0
+129,Dosa/ idli batter,1.7,0.1,12.6,59.6,0.1,0.4,0,0,0,0,43.1,0
+130,Drumstick leaves,9.4,1.4,8.28,64,0,2,185,42,4,337,9,0
+131,Drumstick pods,2.1,0.2,8.53,37,0,3.2,30,45,0.36,461,42,0
+132,Dry mango powder(amchur),0.8,0.4,15,60,13.5,1.6,0,0,0,0,1,0
+133,Egg,12.56,9.51,0.72,143,0.37,0,56,12,1.75,138,142,372
+134,Egg white,10.9,0.17,0.73,52,0.71,0,7,11,0.08,163,166,0
+135,Egg yolk,15.86,26.54,3.59,322,0.56,0,129,5,2.73,109,48,1085
+136,Egg substitute(fat free),10,0,2,48,2,0,73,15,1.98,213,199,0
+137,Eggplant,0.98,0.18,5.88,25,3.53,3,9,14,0.23,229,2,0
+138,English muffins,8.7,2,44.8,223,1.56,4.6,178,37,2.87,186,353,0
+139,Fennel seed,15.8,14.87,52.29,345,0,39.8,1196,385,18.5,1694,88,0
+140,Fenugreek seed,23,6.41,58.35,323,0,24.6,176,191,33.5,770,67,0
+141,Figs,0.75,0.3,19.18,74,16.26,2.9,35,17,0.37,232,1,0
+142,Figs canned,0.4,0.1,13.99,53,11.79,2.2,28,10,0.29,103,1,0
+143,Figs(dried),3.3,0.93,63.87,249,47.92,9.8,162,68,2.03,680,10,0
+144,French Beans,18.81,2.02,64.11,343,0,25.2,186,188,3.4,1316,18,0
+145,Fried noodles,4.3,6.7,24.4,175.1,0.4,1.2,0,0,0,0,4.8,28.1
+146,Frrench bread,10.75,2.42,51.88,272,4.62,2.2,52,32,3.91,117,602,0
+147,Garam Masala,9.4,8,24.1,214.4,0,10.7,0,0,0,0,37.5,0
+148,Garlic,6.36,0.5,33.06,149,1,2.1,181,25,1.7,401,17,0
+149,Garlic powder,16.55,0.73,72.73,331,2.43,9,79,77,5.65,1193,60,0
+150,Ghee,0.3,100.1,0,862.4,0,0,0,0,0,0,2,254.1
+151,Ginger,1.82,0.75,17.77,80,1.7,2,16,43,0.6,415,13,0
+152,Ginger ground,8.98,4.24,71.62,335,3.39,14.1,114,214,19.8,1320,27,0
+153,Gooseberries,0.88,0.58,10.18,44,0,4.3,25,10,0.31,198,1,0
+154,Graham Cracker Pie Crust,5.1,24.83,64.3,501,18.13,1.9,29,23,2.6,113,471,0
+155,Grape juice (unsweetened),0.37,0.13,14.77,60,14.2,0.2,11,10,0.25,104,5,0
+156,Grapes,0.81,0.47,13.93,57,0,3.9,37,14,0.26,203,1,0
+157,Green apple,0.3,0.2,13.8,52.3,10.5,2.4,0,0,0,0,1,0
+158,Green beans,1.83,0.22,6.97,31,3.26,2.7,37,25,1.03,211,6,0
+159,Green chili peppers,0.72,0.27,4.6,21,0,1.7,36,4,1.33,113,397,0
+160,Green peas,5.42,0.4,14.45,81,5.67,5.7,25,33,1.47,244,5,0
+161,Green peas(split),23.82,1.16,63.74,352,8,25.5,37,49,4.82,823,15,0
+162,Green sweet Peppers,0.86,0.17,4.64,20,2.4,1.7,10,10,0.34,175,3,0
+163,Green Tomato,1.2,0.2,5.1,23,4,1.1,13,10,0.51,204,13,0
+164,Guavas,2.55,0.95,14.32,68,8.92,5.4,18,22,0.26,417,2,0
+165,Half and half cream,3.13,10.39,4.73,123,4.13,0,107,10,0.05,132,61,35
+166,Hemp seeds,31.56,48.75,8.67,553,1.5,4,70,700,7.95,1200,5,0
+167,Honey,0.3,0,82.4,304,82.12,0.2,6,2,0.42,52,4,0
+168,Horseradish,1.18,0.69,11.29,48,7.99,3.3,56,27,0.42,246,420,0
+169,Hot chili green Peppers,2,0.2,9.46,40,5.1,1.5,18,25,1.2,340,7,0
+170,Hot chili redPeppers,1.87,0.44,8.81,40,5.3,1.5,14,23,1.03,322,9,0
+171,Hot pepper sauce,0.4,0.4,1.7,11.1,1.3,0.2,0,0,0,0,2641.2,0
+172,Instant oats,12.5,7.5,67.5,375,2.5,10,0,0,0,0,0,0
+173,Jaggery powder,0,0,93.3,373.3,80,0,0,0,0,0,0,0
+174,Jalapeno,0.91,0.37,6.5,29,4.12,2.8,12,15,0.25,248,3,0
+175,Jams (sugar free),0.3,0.3,53.42,132,37.81,2.5,9,5,0.4,69,0,0
+176,Kale,4.28,0.93,8.75,49,2.26,3.6,150,47,1.47,491,38,0
+177,Kidney beans (sprouted),4.83,0.58,4.72,33,0,0,19,23,0.89,194,243,0
+178,Kiwifruit,1.14,0.52,14.66,61,8.99,3,34,17,0.31,312,3,0
+179,Leeks,1.5,0.3,14.15,61,3.9,1.8,59,28,2.1,180,20,0
+180,Lemon juice,0.35,0.24,6.9,22,2.52,0.3,6,6,0.08,103,1,0
+181,Lemon peel,1.5,0.3,16,47,4.17,10.6,134,15,0.8,160,6,0
+182,Lemon Pudding(dry mix),0.1,0.5,91.8,363,0,0.1,5,4,0.17,5,506,0
+183,Lemon Zest,1.5,0.3,16,46.8,4.2,10.7,,,,,6,0
+184,Lemon(without peel),1.1,0.3,9.32,29,2.5,2.8,26,8,0.6,138,2,0
+185,Lentils,24.63,1.06,63.35,352,2.03,10.7,35,47,6.51,677,6,0
+186,Lentils(red),23.91,2.17,63.1,358,0,10.8,48,59,7.39,668,7,0
+187,Lettuce(green leaf),1.36,0.15,2.87,15,0.78,1.3,36,13,0.86,194,28,0
+188,Lettuce(red leaf),1.33,0.22,2.26,16,0.48,0.9,33,12,1.2,187,25,0
+189,Lima beans,4.07,0.29,13.33,71,0.93,3.6,28,34,1.61,285,4,0
+190,Lime,0.7,0.2,10.54,30,1.69,2.8,33,6,0.6,102,2,0
+191,Lime juice,0.42,0.07,8.42,25,1.69,0.4,14,8,0.09,117,2,0
+192,Lime juice(unsweetened),0.25,0.23,6.69,21,1.37,0.4,12,7,0.23,75,16,0
+193,Mace ground,6.71,32.38,50.5,475,0,20.2,252,163,13.9,463,80,0
+194,Mackerel Fish,18.6,13.89,0,205,0,0,12,76,1.63,314,90,70
+195,Mango,0.82,0.38,14.98,60,13.66,1.6,11,10,0.16,168,1,0
+196,Mango pulp,2.1,0,8.3,60.1,0,0,0,0,0,0,5.2,0
+197,Maple syrup(sugar free),0,0,6,15,0,0,0,0,0,0,110,0
+198,Maraschino cherries,0.22,0.21,41.97,165,38.77,3.2,54,4,0.43,21,4,0
+199,Margarine(without salt),0.9,80.7,0.6,718,0,0,28,2,0.09,37,28,88
+200,Marjoram dried,12.66,7.04,60.56,271,4.09,40.3,1990,346,82.7,1522,77,0
+201,Masala,11.4,12.7,56.9,308.2,1.3,24.1,0,0,0,0,80.4,0
+202,Mayonnaise,0.9,33.3,6.7,333,4.2,0,0,0,0,67,733,0
+203,Milk dry whole,26.32,26.71,38.42,496,38.42,0,912,85,0.47,1330,371,97
+204,Milk (fat free or skim),3.37,0.08,4.96,34,5.09,0,122,11,0.03,156,42,2
+205,Milk (lowfat ),3.37,0.97,4.99,42,5.2,0,125,11,0.03,150,44,5
+206,Milk cake (khoa/ mava),10,18,38,350,38,0,0,0,0,0,150,40
+207,Milk(3.7% milkfat),3.28,3.66,4.65,64,0,0,119,13,0.05,151,49,14
+208,Milk(full cream),3.2,3.2,4.9,61,4.9,0,0,0,0,0,43,9.8
+209,Mint chutney,0,5,10,75,0,5,0,0,0,0,2850,0
+210,Mint leaves,3.5,0.7,8.7,45.5,0,7.1,0,0,0,0,30.9,0
+211,Monterey Cheese,24.48,30.28,0.68,373,0.5,0,746,27,0.72,81,600,89
+212,Mozzarella Cheese,22.17,22.35,2.19,300,1.03,0,505,20,0.44,76,627,79
+213,Mung beans,23.86,1.15,62.62,347,6.6,16.3,132,189,6.74,1246,15,0
+214,Mung beans( sprouted ),3.04,0.18,5.94,30,4.13,1.8,13,21,0.91,149,6,0
+215,Mung beans(sprouted),1.4,0.06,2.14,12,0.7,0.8,14,9,0.43,27,42,0
+216,Mungo beans(urad dal/black gram),25.21,1.64,58.99,341,0,18.3,138,267,7.57,983,38,0
+217,Mushrooms (white),3.09,0.34,3.26,22,1.98,1,3,9,0.5,318,5,0
+218,Mustard oil,0,100,0,884,0,0,0,0,0,0,0,0
+219,Mustard seed ground,26.08,36.24,28.09,508,6.79,12.2,266,370,9.21,738,13,0
+220,Mustard(yellow),3.74,3.34,5.83,60,0.92,4,63,48,1.61,152,1104,0
+221,Mutton,24.8,21.2,0,295,0,0,0,0,0,0,72,96.8
+222,NABISCO GRAHAMS Crackers,6.99,10,76.2,424,23,3.4,79,59,4.13,177,659,0
+223,Nectarines,1.06,0.32,10.55,44,7.89,1.7,6,9,0.28,201,0,0
+224,Noodles,5.8,1,30.8,158.8,0.6,1.8,0,0,0,0,1,0
+225,Nutmeg ground,5.84,36.31,49.29,525,2.99,20.8,184,183,3.04,350,16,0
+226,Oat bran,17.3,7.03,66.22,246,1.45,15.4,58,235,5.41,566,4,0
+227,Oats,16.89,6.9,66.27,389,0,10.6,54,177,4.72,429,2,0
+228,Okra(Lady's finger),1.93,0.19,7.45,33,1.48,3.2,82,57,0.62,299,7,0
+229,Olive oil,0,100,0,884,0,0,1,0,0.56,1,2,0
+230,Olives(pickled),1.03,15.32,3.84,145,0.54,3.3,52,11,0.49,42,1556,0
+231,Olives(ripe),0.84,10.68,6.26,115,0,3.2,88,4,3.3,8,735,0
+232,Onion(dried),1.4,0.3,8.8,45,4.8,1.4,0,0,0,0,0,0
+233,Onions,1.1,0.1,9.34,40,4.24,1.7,23,10,0.21,146,4,0
+234,Onions(dehydrated flakes),8.95,0.46,83.28,349,37.41,9.2,257,92,1.55,1622,21,0
+235,Orange,0.94,0.12,11.75,47,9.35,2.4,40,10,0.1,181,0,0
+236,Orange juice,0.7,0.2,10.4,45,8.4,0.2,11,11,0.2,200,1,0
+237,Orange Tomato,1.16,0.19,3.18,16,0,0.9,5,8,0.47,212,42,0
+238,Orange Zest,1.5,0.2,25,96.7,0,10.7,0,0,0,0,3,0
+239,Oregano dried,9,4.28,68.92,265,4.09,42.5,1597,270,36.8,1260,25,0
+240,Paneer,21.5,28.6,1.8,322.2,0,0,0,0,0,0,107.4,89.5
+241,Papaya,0.47,0.26,10.82,43,7.82,1.7,20,21,0.25,182,8,0
+242,Papdi,7.1,28.6,57.1,500,0,3.6,0,0,0,0,750,0
+243,Paprika,14.14,12.89,53.99,282,10.34,34.9,229,178,21.1,2280,68,0
+244,Parmesan Cheese,28.42,27.84,13.91,420,0.07,0,853,34,0.49,180,1804,86
+245,Parsley,2.97,0.79,6.33,36,0.85,3.3,138,50,6.2,554,56,0
+246,Parsley dried,26.63,5.48,50.64,292,7.27,26.7,1140,400,22,2683,452,0
+247,Pav,11,7,58,321,1,8,0,0,0,0,402,0
+248,Pav Bhaji masala,2,12,11,160,0,2,0,0,0,0,510,0
+249,Peaches(yellow),0.91,0.25,9.54,39,8.39,1.5,6,9,0.25,190,0,0
+250,Peanut butter(low fat),25.9,34,35.65,520,9.28,5.2,35,170,1.9,669,540,0
+251,Peanuts,25.8,49.24,16.13,567,4.72,8.5,92,168,4.58,705,18,0
+252,Pears,0.36,0.14,15.23,57,9.75,3.1,9,7,0.18,116,1,0
+253,Peas(sprouted),8.8,0.68,27.11,124,0,0,36,56,2.26,381,20,0
+254,Pecans,9.17,71.97,13.86,691,3.97,9.6,70,121,2.53,410,0,0
+255,Pecans(dry roasted),9.5,74.27,13.55,710,4.06,9.4,72,132,2.8,424,1,0
+256,Penne Pasta,12.5,1.8,73.3,268,1.8,23.2,0,0,0,0,89.3,0
+257,Pie crust (regular unbaked),2.97,25.46,51.11,445,0,1.8,10,8,1.02,73,409,0
+258,Pigeon peas (red gram),21.7,1.49,62.78,343,0,15,130,183,5.23,1392,17,0
+259,Pimento,1.1,0.3,5.1,23,2.71,1.9,6,6,1.68,158,14,0
+260,Pineapple,0.54,0.12,13.12,50,9.85,1.4,13,12,0.29,109,1,0
+261,Pineapple (Chopped Dried),0,0,87.5,350,75,0,0,0,0,0,262.5,0
+262,Pineapple juice(unsweetened),0.36,0.12,12.87,53,9.98,0.2,13,12,0.31,130,2,0
+263,Pistachio nuts,20.16,45.32,27.17,560,7.66,10.6,105,121,3.92,1025,1,0
+264,Pistachio nuts(dry roasted),21.05,45.82,28.28,572,7.74,10.3,107,109,4.03,1007,6,0
+265,Pita,9.1,1.2,55.7,275,0,2.2,86,26,1.4,120,536,0
+266,Pizza crust,5.9,5.2,41.4,238.6,0.8,1.7,0,0,0,0,401.7,0
+267,Pizza dough,6.4,4.6,46.4,257,2.1,1.8,0,0,0,0,364.1,0
+268,Pomegranate,1.67,1.17,18.7,83,13.67,4,10,12,0.3,236,3,0
+269,Pomegranate juice,0.15,0.29,13.13,54,12.65,0.1,11,7,0.1,214,9,0
+270,Poppy seed,17.99,41.56,28.13,525,2.99,19.5,1438,347,9.76,719,26,0
+271,Potato shreds (salli),2,0.1,17.6,81.2,0.2,2,0,0,0,0,330.6,0
+272,Potatoe,2.05,0.09,17.49,77,0.82,2.1,12,23,0.81,425,6,0
+273,Prawns,22,1.8,1.6,120,0,0,0,0,0,0,940,220
+274,Pumpkin,1,0.1,6.5,26,2.76,0.5,21,12,0.8,340,1,0
+275,Pumpkin leaves,3.15,0.4,2.33,19,0,0,39,38,2.22,436,11,0
+276,Pumpkin pie mix,1.09,0.13,26.39,104,0,8.3,37,16,1.06,138,208,0
+277,Pumpkin pie spice,5.76,12.6,69.28,342,7.76,14.8,682,136,19.7,663,52,0
+278,Radish,0.68,0.1,3.4,16,1.86,1.6,25,10,0.34,233,39,0
+279,Ragi flour,10.9,4.3,74.8,382.7,1.7,3.5,0,0,0,0,4,0
+280,Raisins seeded,2.52,0.54,78.47,296,0,6.8,28,30,2.59,825,28,0
+281,Raisins seedless,3.07,0.46,79.18,299,59.19,3.7,50,32,1.88,749,11,0
+282,Red Kidney beans,22.53,1.06,61.29,337,2.1,15.2,83,138,6.69,1359,12,0
+283,Red pepper flakes,12.2,17.2,55.5,316.6,10.6,27.2,0,0,0,0,30,0
+284,Red Pepper or Cayenne,12.01,17.27,56.63,318,10.34,27.2,148,152,7.8,2014,30,0
+285,Red Potatoes,1.89,0.14,15.9,70,1.29,1.7,10,22,0.73,455,18,0
+286,Red sweet Peppers,0.99,0.3,6.03,31,4.2,2.1,7,12,0.43,211,4,0
+287,Red Tomato,0.88,0.2,3.89,18,2.63,1.2,10,11,0.27,237,5,0
+288,Rice pressed(poha),7.1,0,75,321.3,0,7.1,0,0,0,0,71.4,0
+289,Ricotta Cheese,11.26,12.98,3.04,174,0.27,0,207,11,0.38,105,84,51
+290,Rosemary,3.31,5.86,20.7,131,0,14.1,317,91,6.65,668,26,0
+291,Rosemary dried,4.88,15.22,64.06,331,0,42.6,1280,220,29.3,955,50,0
+292,Saffron,11.43,5.85,65.37,310,0,3.9,111,264,11.1,1724,148,0
+293,Sage,10.63,12.75,60.73,315,1.71,40.3,1652,428,28.1,1070,11,0
+294,Salmon,22.1,12.4,0,206.9,0,0,0,0,0,0,61,63.2
+295,Salt,0,0,0,0,0,0,24,1,0.33,8,38758,0
+296,Schezwan sauce,0.8,1.3,22,100,12.5,4.9,0,0,0,0,1060,0
+297,Sea salt,0,0,0,0,0,0,0,0,0,0,38764.3,0
+298,Semolina,12.68,1.05,72.83,360,0,3.9,17,47,4.36,186,1,0
+299,Sesame oil,0,100,0,884,0,0,0,0,0,0,0,0
+300,Sesame seeds,17.73,49.67,23.45,573,0.3,11.8,975,351,14.6,468,11,0
+301,Sev,14,40,37.2,560.4,6.9,6.9,0,0,0,0,594.7,0
+302,Shallots,2.5,0.1,16.8,72,7.87,3.2,37,21,1.2,334,12,0
+303,Shark fish,20.98,4.51,0,130,0,0,34,49,0.84,160,79,51
+304,Sherry,0.1,0,0.3,18.7,0,0,0,0,0,0,8,0
+305,Shortening confectionery,0,100,0,884,0,0,0,0,0,0,0,0
+306,Snow peas,3.3,0.2,6.9,41.9,4,2.8,0,0,0,0,4,0
+307,Sorghum flour,8.43,3.34,76.64,359,1.94,6.6,12,123,3.14,324,3,0
+308,Sour cream(fat free),3.1,0,15.6,74,0.39,0,125,10,0,129,141,9
+309,Soy sauce ( low sodium),9.05,0.3,5.59,57,0.5,0.7,30,69,1.35,352,3598,0
+310,Spinach,2.86,0.39,3.63,23,0.42,2.2,99,79,2.71,558,79,0
+311,Spring onions/scallions,1.83,0.19,7.34,32,2.33,2.6,72,20,1.48,276,16,0
+312,Strawberries,0.67,0.3,7.68,32,4.89,2,16,13,0.41,153,1,0
+313,Sugar blend,0,0,100,500,100,0,0,0,0,0,0,0
+314,Sugar cookie,4,19.48,61.22,436,36.51,0.9,8,7,1.85,147,328,11
+315,Sugar(brown),0.12,0,98.09,380,97.02,0,83,9,0.71,133,28,0
+316,Sugar(granulated),0,0,99.98,387,99.8,0,1,0,0.05,2,1,0
+317,Sugar(powdered),0,0,99.77,389,97.81,0,1,0,0.06,2,2,0
+318,Summer Squash,1.21,0.18,3.35,16,2.2,1.1,15,17,0.35,262,2,0
+319,Sunflower seed,20.78,51.46,20,584,2.62,8.6,0,0,0,0,9,0
+320,Sweet corn(white),3.22,1.18,19.02,86,3.22,2.7,2,37,0.52,270,15,0
+321,Sweet corn(yellow),3.27,1.35,18.7,86,6.26,2,2,37,0.52,270,15,0
+322,Sweet potato,1.57,0.05,20.12,86,4.18,3,30,25,0.61,337,55,0
+323,Sweet potato leaves,2.49,0.51,8.82,42,0,5.3,78,70,0.97,508,6,0
+324,Sweetener(Stevia leaf),0,0,100,0,0,0,0,0,0,0,0,0
+325,Sweeteners(sugar substitute/granulated-brown),2.06,0,84.77,347,4.03,0.6,879,6,0.16,39,572,0
+326,Tamarind,2.8,0.6,62.5,239,38.8,5.1,74,92,2.8,628,28,0
+327,Tapioca pearl,0.19,0.02,88.69,358,3.35,0.9,20,1,1.58,11,1,0
+328,Thyme,9.11,7.43,63.94,276,1.71,37,1890,220,124,814,55,0
+329,Thyme fresh,5.56,1.68,24.45,101,0,14,405,160,17.5,609,9,0
+330,Tomato crushed,1.64,0.28,7.29,32,4.4,1.9,34,20,1.3,293,186,0
+331,Tomato juice,0.85,0.29,3.53,17,2.58,0.4,10,11,0.39,217,10,0
+332,Tomato sauce,1.2,0.3,5.31,24,3.56,1.5,14,15,0.96,297,474,0
+333,Tuna fish,22,1.01,0,103,0,0,29,34,1.25,407,37,47
+334,Turmeric ground,9.68,3.25,67.14,312,3.21,22.7,168,208,55,2080,27,0
+335,Vanilla extract,0.06,0.06,12.65,288,12.65,0,11,12,0.12,148,9,0
+336,vanilla Ice creams(sugar free),3.97,7.45,21.42,169,6.46,0,136,9,0.19,196,96,27
+337,Vanilla Pudding(dry mix),0.3,1.1,92.4,369,0,0,15,5,0.05,20,754,0
+338,Vanilla wafer cookie,5,15.2,73.6,441,37.5,1.9,48,14,2.38,97,388,51
+339,Vanilla Yogurt (low fat),8.64,2.5,9.54,95,9.54,0,100,10,0.04,123,40,5
+340,Vanilla yogurt(non-fat),2.94,0,17.04,78,5.88,0,118,16,0,141,47,3
+341,Vegetable Broth,0.2,0.1,1,5.9,0.6,0,0,0,0,0,303.5,0
+342,Vegetable oil,0,100,0,862,0,0,0,0,0,0,0,0
+343,Vegetable stock,0,0,0.3,0,0,0,0,0,0,0,5,0
+344,Vegetarian worcestershire sauce,0,0,5.9,23.6,5.9,0,0,0,0,0,855,0
+345,Vinegar(cider),0,0,0.93,21,0.4,0,7,5,0.2,73,5,0
+346,Vinegar(distilled),0,0,0.04,18,0.04,0,6,1,0.03,2,2,0
+347,Walnut,15.23,65.21,13.71,654,2.61,6.7,98,158,2.91,441,2,0
+348,Waterchestnuts,1.4,0.1,23.94,97,4.8,3,11,22,0.06,584,14,0
+349,Watermelon,0.61,0.15,7.55,30,6.2,0.4,7,10,0.24,112,1,0
+350,Watermelon seed,28.33,47.37,15.31,557,0,0,54,515,7.28,648,99,0
+351,Waxgourd,0.4,0.2,3,13,0,2.9,19,10,0.4,6,111,0
+352,Wheat bran,15.55,4.25,64.51,216,0.41,42.8,73,611,10.57,1182,2,0
+353,Wheat cracked,10.7,0,75.2,358,0,3.6,0,0,0,0,0,0
+354,Wheat flour,13.21,2.5,71.97,340,0.41,10.7,34,137,3.6,363,2,0
+355,Whipped topping(low fat),3,13.1,23.6,224,23.6,0,71,7,0.1,101,72,2
+356,White frosting,2.3,0,94.9,371,0,0,4,3,0.09,117,234,0
+357,White pepper,10.4,2.12,68.61,296,0,26.2,265,90,14.3,73,5,0
+358,White rice,6.61,0.58,79.34,360,0,1.4,9,35,4.36,86,1,0
+359,White Rice flour,5.95,1.42,80.13,366,0.12,2.4,10,35,0.35,76,0,0
+360,White wine,0.07,0,2.6,82,0.96,0,9,10,0.27,71,5,0
+361,White-flowered gourd (calabash),0.62,0.02,3.39,14,0,0.5,26,11,0.2,150,2,0
+362,Wonton,13,5.6,31.8,235.6,1.4,1.2,0,0,0,0,718.6,52.4
+363,Yambean (jicama),0.72,0.09,8.82,38,1.8,4.9,12,12,0.6,150,4,0
+364,Yellow beans,1.82,0.12,7.13,31,3.27,3.4,37,25,1.04,209,6,0
+365,Yellow tomato,0.98,0.26,2.98,15,0,0.7,11,12,0.49,258,23,0
+366,Yogurt (plain-low fat),9.95,1.92,3.94,73,3.56,0,115,11,0.04,141,34,10
+367,Yogurt(plain-non fat),10.19,0.39,3.6,59,3.24,0,110,11,0.07,141,36,5
+368,Yogurt(plain-whole milk),3.47,3.25,4.66,61,4.66,0,121,12,0.05,155,46,13
+369,Zucchini,1.21,0.32,3.11,17,2.5,1,16,18,0.37,261,8,0
+370,Baking soda,0,0,0,0,0,0,0,0,0,0,27360,0
+371,Baking Blend,0,0,100,250,25,0,0,0,0,0,0,0
+372,Buttermilk,3.3,0.9,4.9,40,4.9,0,0,0,0,151,190.1,4
+373,Butter(without salt),0.85,81.11,0.06,717,0.06,0,24,2,0.02,24,11,215
+374,Pumpkin canned,1.1,0.28,8.09,34,3.3,2.9,26,23,1.39,206,5,0
+375,Lemon-lime soda,0.09,0,10.42,41,10.38,0,2,1,0.02,1,10,0
+376,Blackberries,1.39,0.49,9.61,43,4.88,5.3,29,20,0.62,162,1,0
+377,Escarole,1.2,0,3.5,17.6,0,3.5,0,0,0,,23.5,0
+378,Flaxseed,19,43,30,1.6,28,,0,0,0,840,31,0
+379,Green lentils,22.4,1.4,65.8,286,0,20,0,0,0,743.6,28.6,0
+380,Linguine,12.5,1.8,73.2,357,3.6,3.6,0,0,0,187.4,0,0
+381,Pearl millet(bajra) flour,11,5,67,361,0,0,0,0,0,0,0,0
+382,Pearled barley,2.2,0.4,28,122.9,0.3,3.8,0,0,0,93,3,0
+383,White beans,9.5,0.4,25.2,139.2,0.3,6.1,0,0,0,561.2,6.1,0
+384,Pancake syrup,0,0.1,69.9,265.3,42.2,0,0,0,0,6,61.5,0
+385,Wheat pastry flour,10,0,76.7,367,0,13.3,0,0,0,,0,0
+386,Rhubarb,0.9,0.2,4.5,21.6,1.1,1.8,0,0,0,288.1,3.9,0
+387,Yellow bell pepper,0.9,0.2,6.7,28.1,4.4,1.2,0,0,0,165.9,2,0
+388,Orange bell pepper,1,0.2,6.5,26.9,0,0.9,0,0,0,212,2,0
+389,Cream of tartar,0,0,50,500,0,0,0,0,0,0,0,0
+390,Ground lamb,24.7,20,0,283.6,0,0,0,0,0,338.9,81.2,96.5
+391,Clementine,0.9,0.1,12,47.3,9.2,1.8,0,0,0,177.1,1,0

@@ -208,70 +208,8 @@ apiRecommendation.getYetToBeRatedProductsPerUser = function (user_id, callback) 
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             console.log('apiRecommendation.getYetToBeRatedProductsPerUser in csv:\n ' + jsonString + "\n\n");
-                            apiRecommendation.writeToFile("./dummy_data/test_toberated.csv", jsonString);
                         });
                     });
-                    callback(null, path);
-                }
-            });
-        }
-    });
-}
-
-apiRecommendation.getAllUsers = function (callback) {
-    var query = "SELECT * FROM users ORDER BY user_id";
-    db_pool.connect(function (err, client, done) {
-        if (err) {
-            callback(err, null);
-        } else {
-            client.query(query, function (err, result) {
-                done();
-                if (err) {
-                    callback(err, null);
-                } else {
-
-                    var usersArray = result.rows;
-                    var usersFormattedArray = [];
-
-                    for (var i = 0; i < usersArray.length; i++) {
-                        var user = usersArray[i];
-                        var modifiedUser = {};
-                        modifiedUser.user_id = user.user_id;
-
-                        if (user.is_veg == 1) {
-                            modifiedUser.is_veg = 1;//"veg";
-                        } else {
-                            modifiedUser.is_veg = 0;//"non_veg";
-                        }
-
-                        if (user.is_diabetes == 1) {
-                            modifiedUser.is_diabetes = 1;
-                        } else {
-                            modifiedUser.is_diabetes = 0;
-                        }
-
-                        if (user.is_cholestrol == 1) {
-                            modifiedUser.is_cholestrol = 1;
-                        } else {
-                            modifiedUser.is_cholestrol = 0;
-                        }
-                        usersFormattedArray.push(modifiedUser);
-                    }
-                    var path = './data/all_users.csv';
-
-                    jsonexport(usersFormattedArray, csvOptions, function (err, csv) {
-                        if (err) return console.log(err);
-                        //console.log(csv);
-                        fs.writeFile(path, csv, function (err) {
-                            if (err) throw err;
-                            //console.log('getAllUsers saved ' + path + "\n\n");
-
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
-                            apiRecommendation.writeToFile("./dummy_data/test_userspath.csv", jsonString);
-                        });
-                    });
-
                     callback(null, path);
                 }
             });
@@ -292,17 +230,6 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                 } else {
 
                     var usersFormattedArray = [];
-                    /*var lastUserId = result.rows[0].user_id;
-                    console.log("lastUserId:   " + lastUserId);
-
-                    for (var i = 0; i < lastUserId; i++) {
-                        var modifiedUser = {};
-                        modifiedUser.user_id = 0;
-                        modifiedUser.is_veg = 0;//"veg";
-                        modifiedUser.is_diabetes = 0;
-                        modifiedUser.is_cholestrol = 0;
-                        usersFormattedArray.push(modifiedUser);
-                    }*/
 
                     var usersArray = result.rows;
                     for (var i = 0; i < usersArray.length; i++) {
@@ -325,28 +252,25 @@ apiRecommendation.getAllUsersFormattedCsv = function (callback) {
                         } else {
                             modifiedUser.is_cholestrol = 0;
                         }
+                        if (user.is_kid == 1) {
+                            modifiedUser.is_kid = 1;
+                        } else {
+                            modifiedUser.is_kid = 0;
+                        }
+                        if (user.is_senior == 1) {
+                            modifiedUser.is_senior = 1;
+                        } else {
+                            modifiedUser.is_senior = 0;
+                        }
                         usersFormattedArray.push(modifiedUser);
-                        //usersFormattedArray.splice(user.user_id, 1, modifiedUser);
                     }
                     var path = './data/users.csv';
 
                     jsonexport(usersFormattedArray, csvOptions, function (err, csv) {
                         if (err) return console.log(err);
                         //console.log(csv);
-
-                        /*try {
-                          fs.unlinkSync(path);
-                        } catch (ex) {
-                          callback(ex, null);
-                        }*/
-
                         fs.writeFile(path, csv, function (err) {
                             if (err) throw err;
-                            //console.log('getAllUsers saved ' + path + "\n\n");
-
-                            var jsonString = fs.readFileSync(path, 'utf8');
-                            //console.log('getAllUsers in csv \n\n' + jsonString + "\n\n");
-                            apiRecommendation.writeToFile("./dummy_data/test_userspath.csv", jsonString);
                         });
                     });
 
@@ -381,7 +305,11 @@ apiRecommendation.getFood = function (callback) {
                         var type = "veg";
 
                         if (food.is_veg == 0) {
-                            type = type + "|non-veg";
+                            type = "non-veg";
+                        } else if (food.is_veg == 1) {
+                            type = "veg";
+                        } else if (food.is_veg == 2) {
+                            type = "veg|non-veg";
                         }
 
                         if (food.is_diabetes == 1) {
@@ -390,6 +318,14 @@ apiRecommendation.getFood = function (callback) {
 
                         if (food.is_cholestrol == 1) {
                             type = type + "|cholestrol";
+                        }
+
+                        if (food.is_kid == 1) {
+                            type = type + "|kid";
+                        }
+
+                        if (food.is_senior == 1) {
+                            type = type + "|senior";
                         }
                         modifiedFood.type = type;
 
@@ -406,7 +342,6 @@ apiRecommendation.getFood = function (callback) {
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             //console.log('getFood in csv \n\n' + jsonString + "\n\n");
-                            apiRecommendation.writeToFile("./dummy_data/test_foodpath.csv", jsonString);
                         });
                     });
 
@@ -441,7 +376,6 @@ apiRecommendation.getUserRatedProducts = function (callback) {
 
                             var jsonString = fs.readFileSync(path, 'utf8');
                             console.log('getUserRatedProducts in csv \n\n' + jsonString + "\n\n");
-                            apiRecommendation.writeToFile("./dummy_data/test_rating.csv", jsonString);
                         });
                     });
 
@@ -516,9 +450,8 @@ apiRecommendation.getRandomInt = function getRandomInt(max) {
 }
 
 apiRecommendation.writeToFile = function writeToFile(fileName, text) {
-  //./dummy_data/test_data.csv
-    fs.writeFile(fileName, text, function(err) {
-        if(err) {
+    fs.writeFile(fileName, text, function (err) {
+        if (err) {
             console.log(err);
         }
         console.log("The file was saved!");

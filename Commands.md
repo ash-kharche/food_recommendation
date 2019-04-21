@@ -50,3 +50,23 @@ To change the data type of the products column to JSON in collections table, you
 
 #### FETCH DATA
 - select * from public.users;
+
+/*
+UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = 1)) where '1' = ANY(ingredients);
+
+select * from products where '1' = ANY(ingredients);
+
+select * from ingredient_nutrients;
+
+UPDATE products SET ingredient_text = '';
+
+WITH var1 as (values (1)) select * from products where (table var1) = ANY(ingredients);
+
+
+
+WITH var1 as (values (1)) UPDATE products SET ingredient_text = CONCAT(ingredient_text, ',', ' ', (SELECT name FROM ingredient_nutrients WHERE ingredient_id = (table var1))), fats = fats + (SELECT fats FROM ingredient_nutrients WHERE ingredient_id = (table var1)), protiens = protiens + (SELECT protiens FROM ingredient_nutrients WHERE ingredient_id = (table var1)), carbs = carbs + (SELECT carbs FROM ingredient_nutrients WHERE ingredient_id = (table var1)) WHERE (table var1) = ANY(ingredients);
+
+select product_id, fats, protiens, carbs, ingredient_text from products ORDER by product_id;
+
+UPDATE products SET fats = 0;
+*/
