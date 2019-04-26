@@ -247,9 +247,9 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
 
 
 
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4 ORDER BY product_id";
             if (whereString == "") {
-                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4 ORDER BY product_id";
             }
 
             console.log("getCartRecommendedProducts:: \nquery:   " + query);
