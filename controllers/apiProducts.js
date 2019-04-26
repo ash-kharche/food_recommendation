@@ -212,9 +212,44 @@ apiProducts.getCartRecommendedProducts = function (req, res) {
               whereString = whereString + " AND is_senior = 1";
             }
 
-            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
+            var fromCollectionIds = req.body.collections;
+            //Main course  --> Rice/ roti, Salad
+            if(req.body.collections == 2) {
+              fromCollectionIds = fromCollectionIds + ", 3, 5";
+            }
+            if(req.body.collections == 3) {
+              fromCollectionIds = fromCollectionIds + ", 2, 5";
+            }
+            if(req.body.collections == 5) {
+              fromCollectionIds = fromCollectionIds + ", 2, 3";
+            }
+
+            //Snacks --> Beverages
+            if(req.body.collections == 1) {
+              fromCollectionIds = fromCollectionIds + ", 4";
+            }
+            if(req.body.collections == 4) {
+              fromCollectionIds = fromCollectionIds + ", 1";
+            }
+
+            //Soup --> Starters
+            if(req.body.collections == 11) {
+              fromCollectionIds = fromCollectionIds + ", 12, 6";
+            }
+            if(req.body.collections == 12) {
+              fromCollectionIds = fromCollectionIds + ", 11";
+            }
+
+            //Chinese --> Soups
+            if(req.body.collections == 6) {
+              fromCollectionIds = fromCollectionIds + ", 11";
+            }
+
+
+
+            var query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + ")) AND " + whereString + ") tmp where rownum < 4";
             if (whereString == "") {
-                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + req.body.collections + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
+                query = "select * from (select *, row_number() over (partition by collection_id order by rating) as rownum from products where (collection_id IN (" + fromCollectionIds + ")) AND (product_id NOT IN (" + req.body.products + "))) tmp where rownum < 4";
             }
 
             console.log("getCartRecommendedProducts:: \nquery:   " + query);
