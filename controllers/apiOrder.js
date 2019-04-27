@@ -50,7 +50,7 @@ apiOrder.getAllOrders = function (req, res) {
 
             console.log("$$$$$$\ngetAllOrders:  req.body.user_id  " + req.params.user_id);
 
-            var query = "SELECT * FROM orders WHERE user_id = $1";
+            var query = "SELECT * FROM orders WHERE user_id = $1 ORDER BY order_id DESC";
             client.query(query, [req.params.user_id], function (err, result) {
                 done();
                 if (err) {
